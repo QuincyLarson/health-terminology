@@ -68,11 +68,11 @@ Planned top-level structure:
 
 ## Immediate Next Steps
 
-1. Expand Unit 0 and Unit 1 beyond the seed lessons.
-2. Add more validated parts, terms, and exercises in 200-500 term batches.
-3. Grow body-system coverage and the abbreviation inventory.
-4. Tighten spaced repetition, due-session tuning, and mixed-session filtering.
-5. Extend progress and stats surfaces as more content lands.
+1. Expand Unit 0 and Unit 1 with additional high-yield lessons and term families.
+2. Build out Unit 2 cardiovascular coverage before moving to the other body systems.
+3. Add more validated parts, terms, and exercises in 200-500 term batches.
+4. Grow body-system coverage and the abbreviation inventory.
+5. Tighten spaced repetition, due-session tuning, and mixed-session filtering.
 6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
 
 ## Working Notes

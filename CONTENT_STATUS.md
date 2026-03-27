@@ -28,9 +28,10 @@
 - Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 7 abbreviations.
-- Unit 0 is partially implemented with word-part and combining-vowel lessons.
-- Unit 1 has an initial slice covering high-yield suffixes and prefixes.
+- Seed content exists for 3 units, 10 lessons, 25 parts, 26 terms, 18 exercises, and 7 abbreviations.
+- Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
+- Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, and procedure language.
+- Unit 2 has a first cardiovascular starter lesson with vessel and artery terms.
 - The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
 - Endless mode is implemented as a separate page with search, unit, body-system, and due-only filters.
 - Progress diagnostics now report storage key, schema version, and snapshot size.
@@ -71,8 +72,9 @@
 - Reach roughly 1,000 validated terms before broadening coverage.
 
 ### Stage 3 Status
-- Unit 0 foundations and an initial Unit 1 slice are implemented.
-- Body-system modules are still planned.
+- Unit 0 foundations now include plural and pronunciation coverage.
+- Unit 1 is broader, with roots, prefixes, and procedure language.
+- Unit 2 has an initial cardiovascular starter lesson.
 - The abbreviation section now has a dedicated recognition page and a larger starter set, but not yet a full module.
 
 ### Stage 4: Endless Mode and SRS
@@ -107,8 +109,8 @@
 - Keep authored lessons aligned to the batch so prerequisites remain understandable.
 
 ## Batch Ledger
-- Seed batch authored: Unit 0 foundations plus the first high-yield root, suffix, and prefix families.
-- Current seed totals: 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 7 abbreviations.
+- Seed batch authored: Unit 0 foundations plus plural/pronunciation lessons, broader Unit 1 roots/prefixes/procedures, and the first Unit 2 cardiovascular starter.
+- Current seed totals: 3 units, 10 lessons, 25 parts, 26 terms, 18 exercises, and 7 abbreviations.
 - Current runtime surfaces: curriculum, lesson, review, endless, abbreviations, progress, settings, and about.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
 

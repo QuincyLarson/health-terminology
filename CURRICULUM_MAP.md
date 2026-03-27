@@ -23,9 +23,10 @@ Each future unit and module entry should accumulate:
 7. Unit 6: Final synthesis and mixed review.
 
 ## Seeded Coverage
-- Unit 0 is partially authored and playable.
-- Unit 1 has a first slice covering suffixes and prefixes.
-- The app currently exposes 4 lessons, 6 terms, 8 parts, and 7 abbreviations.
+- Unit 0 is partially authored and playable, including plural and pronunciation lessons.
+- Unit 1 now covers suffixes, roots, prefixes, rate prefixes, and procedure language.
+- Unit 2 has a first cardiovascular starter lesson.
+- The app currently exposes 10 lessons, 26 terms, 25 parts, and 7 abbreviations.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
 - Abbreviations are implemented as a dedicated recognition surface separate from the main lesson flow.
@@ -50,11 +51,15 @@ Each future unit and module entry should accumulate:
 - Lesson goal: recognize common singular/plural patterns in medical terms.
 - Representative content: `vertebra/vertebrae`, `bacterium/bacteria`, `diagnosis/diagnoses`.
 - Priority: high.
+- Status: seeded.
+- Prerequisite guidance: follow Unit 0 word-parts parsing.
 
 ### Module 0.4: Pronunciation Basics
 - Lesson goal: hear and recognize predictable pronunciation patterns.
 - Representative content: stress patterns, vowel reduction, silent letters.
 - Priority: high.
+- Status: seeded.
+- Prerequisite guidance: follow combining-vowel and word-part basics.
 
 ## Unit 1 - Highest-Yield Roots and Affixes
 ### Module 1.1: Inflammation, Pain, and Condition Terms
@@ -68,13 +73,15 @@ Each future unit and module entry should accumulate:
 - Lesson goal: identify common procedure-related parts.
 - Representative content: `-ectomy`, `-otomy`, `-oscopy`, `-gram`.
 - Priority: highest.
-- Status: planned.
+- Status: seeded.
+- Prerequisite guidance: follow Unit 1 suffix and body-root lessons.
 
 ### Module 1.3: Core Body Parts
 - Lesson goal: learn the highest-yield organ and tissue roots.
 - Representative content: heart, blood, nerve, skin, muscle, bone, stomach, liver, kidney, lung.
 - Priority: highest.
-- Status: planned.
+- Status: seeded.
+- Prerequisite guidance: follow Unit 1 suffix and prefix lessons.
 
 ### Module 1.4: High-Frequency Prefixes
 - Lesson goal: decode location, intensity, and time-related prefixes.
@@ -83,11 +90,27 @@ Each future unit and module entry should accumulate:
 - Status: seeded for `hyper-` and `hypo-`; remaining prefixes planned.
 - Prerequisite guidance: follow suffix introduction and general parsing.
 
+### Module 1.5: Rate Prefixes
+- Lesson goal: decode fast-versus-slow contrasts in clinical language.
+- Representative content: `tachy-`, `brady-`, `cardi/o`.
+- Priority: high.
+- Status: seeded.
+- Prerequisite guidance: follow Unit 1 common prefixes.
+
+### Module 1.6: Procedure Language
+- Lesson goal: recognize removal, incision, viewing, and record terms.
+- Representative content: `appendic/o`, `col/o`, `-ectomy`, `-otomy`, `-scopy`, `-gram`.
+- Priority: high.
+- Status: seeded.
+- Prerequisite guidance: follow core body roots and suffixes.
+
 ## Unit 2 - Body Systems
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
 - Priority: highest.
+- Status: seeded.
+- Prerequisite guidance: follow Unit 1 cardiovascular-adjacent roots and procedure language.
 
 ### Module 2.2: Respiratory
 - Lesson goal: understand airway, breathing, and lung terms.
@@ -234,4 +257,4 @@ Each future unit and module entry should accumulate:
 - Author lessons in small batches so each module can be validated against the term bank and prerequisite graph.
 - Treat the curriculum map as an implementation checklist, not just a descriptive outline.
 - Use lesson prerequisite metadata to gate later modules and to keep endless mode from surfacing terms too early.
-- The current seed app demonstrates the curriculum path, progress persistence, a simple review queue, endless mode, and progress diagnostics, but it is not yet a full curriculum.
+- The current seed app demonstrates the curriculum path, progress persistence, a simple review queue, endless mode, abbreviations, and progress diagnostics, but it is not yet a full curriculum.
