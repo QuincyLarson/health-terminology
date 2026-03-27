@@ -1,9 +1,9 @@
 # CONTENT_STATUS
 
 ## Current Repository State
-- Repository currently contains the product docs only.
-- No application scaffold, content schemas, validators, or curriculum data files exist yet.
-- The immediate implementation target is a static Vite + TypeScript app with deterministic content files and localStorage persistence.
+- Repository now contains a working Vite + React seed app plus the product docs.
+- The app includes deterministic content files, content validation scripts, localStorage persistence, and JSON import/export/reset support.
+- The current implementation target is to broaden the seed curriculum and review flow in validated batches.
 
 ## Content Status
 
@@ -27,10 +27,11 @@
 - Lesson and curriculum indices that can drive curriculum navigation and endless mode eligibility.
 
 ### Current Content Coverage
-- `PRD v1` defines the full content strategy, but no authored curriculum assets exist yet.
-- Unit 0 through Unit 6 are defined at the product level only.
-- No term batches have been generated.
-- No abbreviation/acronym inventory has been authored.
+- Seed content exists for 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 2 abbreviations.
+- Unit 0 is partially implemented with word-part and combining-vowel lessons.
+- Unit 1 has an initial slice covering high-yield suffixes and prefixes.
+- The review flow is basic but functional: due, new, and mixed queues are present.
+- No large term batches have been generated yet.
 
 ## Staged Expansion Plan
 
@@ -44,25 +45,49 @@
 - Add validators and migration logic.
 - Implement localStorage persistence plus import/export/reset.
 
+### Stage 1 Status
+- Core data types, seed content, validation scripts, and localStorage persistence exist.
+- Export/import/reset work against the current progress model.
+- Migration logic is basic and still needs hardening as the schema grows.
+
 ### Stage 2: Lesson Engine
 - Build lesson rendering and exercise components.
 - Add mastery tracking and audio playback helpers.
 - Make lesson completion resumable.
+
+### Stage 2 Status
+- A lesson page, exercise cards, audio playback helper, and completion flow exist.
+- Lesson completion seeds introduced terms into review.
+- Mastery tracking is present at a basic level.
 
 ### Stage 3: Seed Curriculum
 - Author Unit 0 and the first high-yield building-block modules.
 - Add the first body-system lessons and a first abbreviation module.
 - Reach roughly 1,000 validated terms before broadening coverage.
 
+### Stage 3 Status
+- Unit 0 foundations and an initial Unit 1 slice are implemented.
+- Body-system modules are still planned.
+- The abbreviation section has only a starter set.
+
 ### Stage 4: Endless Mode and SRS
 - Add due, new, and mixed queues.
 - Build flashcards and lightweight stats.
 - Wire eligibility rules to prerequisite completion.
 
+### Stage 4 Status
+- A basic review page exists with due, new, and mixed modes.
+- Review cards are plain-English recognition prompts.
+- Spaced repetition exists as local progress state, but full SRS tuning still needs work.
+
 ### Stage 5: Scale-Out Content Generation
 - Expand the term bank in batches of 200 to 500 terms.
 - Validate each batch before merging.
 - Grow the curriculum across remaining units until the 10,000-term target is reached.
+
+### Stage 5 Status
+- The scale-out process has not started.
+- Batch validators are present, but the bank is still a seed set rather than a large corpus.
 
 ### Stage 6: Polish and Release Hardening
 - Run performance and accessibility passes.
@@ -76,8 +101,8 @@
 - Keep authored lessons aligned to the batch so prerequisites remain understandable.
 
 ## Batch Ledger
-- No content batches have been authored yet.
-- The first planned batch should cover Unit 0 foundations plus the first high-yield root and suffix families.
+- Seed batch authored: Unit 0 foundations plus the first high-yield root, suffix, and prefix families.
+- Current seed totals: 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 2 abbreviations.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
 
 ## Validation Expectations

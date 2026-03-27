@@ -1,7 +1,7 @@
 # CURRICULUM_MAP
 
 ## Purpose
-This map converts the PRD curriculum into an actionable build order. It is organized by priority, unit, representative modules, and the intended lesson focus so content can be authored in small validated batches.
+This map converts the PRD curriculum into an actionable build order. It is organized by priority, unit, representative modules, and the intended lesson focus so content can be authored in small validated batches. The first seed slice is already implemented in `src/content`.
 
 ## Metadata To Track As Authoring Starts
 Each future unit and module entry should accumulate:
@@ -22,16 +22,24 @@ Each future unit and module entry should accumulate:
 6. Unit 4: Administrative and document language.
 7. Unit 6: Final synthesis and mixed review.
 
+## Seeded Coverage
+- Unit 0 is partially authored and playable.
+- Unit 1 has a first slice covering suffixes and prefixes.
+- The app currently exposes 4 lessons, 6 terms, 8 parts, and 2 abbreviations.
+- Review flow is basic but functional and uses the seeded term set.
+
 ## Unit 0 - How Medical Terms Work
 ### Module 0.1: Word Parts and Parsing
 - Lesson goal: identify roots, prefixes, suffixes, and combining forms.
 - Representative content: `cardi`, `hyper-`, `-itis`, `arthr/o`.
 - Priority: highest.
+- Status: seeded.
 
 ### Module 0.2: Combining Vowels and Form Logic
 - Lesson goal: understand how term parts join and why combining vowels exist.
 - Representative content: `oste/o`, `neur/o`, `gastr/o`.
 - Priority: highest.
+- Status: seeded.
 
 ### Module 0.3: Singular and Plural Basics
 - Lesson goal: recognize common singular/plural patterns in medical terms.
@@ -48,21 +56,25 @@ Each future unit and module entry should accumulate:
 - Lesson goal: decode common disease-state endings and symptom words.
 - Representative content: `-itis`, `-algia`, `-osis`, `pain`, `swelling`.
 - Priority: highest.
+- Status: seeded as a suffix-first slice.
 
 ### Module 1.2: Procedures and Interventions
 - Lesson goal: identify common procedure-related parts.
 - Representative content: `-ectomy`, `-otomy`, `-oscopy`, `-gram`.
 - Priority: highest.
+- Status: planned.
 
 ### Module 1.3: Core Body Parts
 - Lesson goal: learn the highest-yield organ and tissue roots.
 - Representative content: heart, blood, nerve, skin, muscle, bone, stomach, liver, kidney, lung.
 - Priority: highest.
+- Status: planned.
 
 ### Module 1.4: High-Frequency Prefixes
 - Lesson goal: decode location, intensity, and time-related prefixes.
 - Representative content: `hyper-`, `hypo-`, `tachy-`, `brady-`, `peri-`, `endo-`, `epi-`, `sub-`, `intra-`, `inter-`, `dys-`, `eu-`, `neo-`.
 - Priority: highest.
+- Status: seeded for `hyper-` and `hypo-`; remaining prefixes planned.
 
 ## Unit 2 - Body Systems
 ### Module 2.1: Cardiovascular
@@ -214,3 +226,4 @@ Each future unit and module entry should accumulate:
 - Keep Unit 5 as a dedicated section rather than folding abbreviations into general lessons.
 - Author lessons in small batches so each module can be validated against the term bank and prerequisite graph.
 - Treat the curriculum map as an implementation checklist, not just a descriptive outline.
+- The current seed app demonstrates the curriculum path, progress persistence, and a simple review queue, but it is not yet a full curriculum.

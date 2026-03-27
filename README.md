@@ -6,7 +6,7 @@ This is not a medical encyclopedia, certification prep tool, or clinical decisio
 
 ## Current Status
 
-The repository is at the documentation-first stage. The product direction, curriculum strategy, and implementation rules are defined in `docs/prd.md`, `docs/agents.md`, and the root `AGENTS.md`. The app scaffold and content system still need to be built.
+The repository now has a working Vite + React seed app. The product direction, curriculum strategy, and implementation rules are defined in `docs/prd.md`, `docs/agents.md`, and the root `AGENTS.md`, and the first curriculum slice is implemented in `src/content`.
 
 ## Planned Architecture
 
@@ -20,7 +20,19 @@ The intended stack is simple and static:
 - JSON export/import/reset for user data
 - Static deployment on GitHub Pages
 
-The design target is a calm, rigorous, mobile-first learning experience with minimal chrome and fast initial load.
+The design target is a calm, rigorous, mobile-first learning experience with minimal chrome and fast initial load. The current build uses a hash router, a lesson page, a curriculum map, a review page, and settings for local progress management.
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Useful checks:
+
+- `npm run validate:content`
+- `npm run build`
 
 ## Repository Shape
 
@@ -52,14 +64,12 @@ Planned top-level structure:
 
 ## Immediate Next Steps
 
-1. Scaffold the Vite + TypeScript app.
-2. Add content schemas and validators.
-3. Implement progress storage with JSON export/import/reset.
-4. Build the lesson engine and core exercise types.
-5. Add spaced repetition and endless mode.
-6. Start the seed curriculum with Unit 0 and the highest-yield roots and affixes.
-7. Expand the content system in validated batches.
-8. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
+1. Expand Unit 0 and Unit 1 beyond the seed lessons.
+2. Add more validated parts, terms, and exercises in 200-500 term batches.
+3. Tighten the lesson engine and review behavior.
+4. Add more body-system coverage.
+5. Grow endless mode and spaced repetition after the curriculum spine is broader.
+6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
 
 ## Working Notes
 
