@@ -2,12 +2,18 @@ import type { Exercise } from "../types/content";
 
 interface ExerciseCardProps {
   exercise: Exercise;
+  indexLabel?: string;
+  allowRetry?: boolean;
+  onRetry?: () => void;
   selectedChoice: string | null;
   onSelect: (choice: string) => void;
 }
 
 export function ExerciseCard({
+  allowRetry = false,
   exercise,
+  indexLabel,
+  onRetry,
   selectedChoice,
   onSelect,
 }: ExerciseCardProps) {
@@ -16,7 +22,10 @@ export function ExerciseCard({
 
   return (
     <article className="card exercise-card">
-      <p className="exercise-type">{exercise.type.replaceAll("_", " ")}</p>
+      <p className="exercise-type">
+        {indexLabel ? `${indexLabel} · ` : ""}
+        {exercise.type.replaceAll("_", " ")}
+      </p>
       <h3>{exercise.prompt}</h3>
       <div className="choice-list">
         {exercise.choices.map((choice) => (
@@ -40,9 +49,19 @@ export function ExerciseCard({
         ))}
       </div>
       {answered ? (
-        <p className={`feedback ${correct ? "feedback-correct" : "feedback-incorrect"}`}>
-          {exercise.explanation}
-        </p>
+        <div className="stack">
+          <p className={`feedback ${correct ? "feedback-correct" : "feedback-incorrect"}`}>
+            <strong>{correct ? "Correct." : "Needs another try."}</strong>{" "}
+            {exercise.explanation}
+          </p>
+          {!correct && allowRetry && onRetry ? (
+            <div className="hero-actions">
+              <button type="button" className="button button-quiet" onClick={onRetry}>
+                Retry this item
+              </button>
+            </div>
+          ) : null}
+        </div>
       ) : null}
     </article>
   );

@@ -17,6 +17,7 @@ export function LessonPage() {
   } = useAppState();
   const lesson = lessonId ? getLessonById(lessonId) : undefined;
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [firstAnswers, setFirstAnswers] = useState<Record<string, string>>({});
   const [completedThisVisit, setCompletedThisVisit] = useState(false);
 
   if (!lesson) {
@@ -43,6 +44,9 @@ export function LessonPage() {
   const nextLesson = getNextLesson(lesson.id);
   const priorScoreLabel = getLessonScoreLabel(lesson.id);
   const lessonIndex = content.lessons.findIndex((entry) => entry.id === lesson.id);
+  const firstAttemptCorrect = lessonExercises.reduce((count, exercise) => {
+    return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
+  }, 0);
 
   useEffect(() => {
     setCurrentLesson(lesson.id);
@@ -54,11 +58,26 @@ export function LessonPage() {
       return;
     }
     const score = lessonExercises.reduce((count, exercise) => {
-      return count + (answers[exercise.id] === exercise.answer ? 1 : 0);
+      return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
     }, 0);
 
     completeLesson(activeLesson.id, score, lessonExercises.length);
     setCompletedThisVisit(true);
+  }
+
+  function handleSelect(exerciseId: string, choice: string): void {
+    setAnswers((current) => ({
+      ...current,
+      [exerciseId]: choice,
+    }));
+    setFirstAnswers((current) =>
+      current[exerciseId]
+        ? current
+        : {
+            ...current,
+            [exerciseId]: choice,
+          },
+    );
   }
 
   return (
@@ -78,7 +97,7 @@ export function LessonPage() {
         <p>{lesson.objective}</p>
         <p className="meta-copy">
           Lesson {lessonIndex + 1} of {content.lessons.length} · {lesson.estimatedMinutes} min
-          {priorScoreLabel ? ` · ${priorScoreLabel}` : ""}
+          {priorScoreLabel ? ` · ${priorScoreLabel}` : ""} · {lessonExercises.length} checks
         </p>
         <p className="meta-copy">
           Why this matters: {lesson.whyItMatters}
@@ -102,6 +121,9 @@ export function LessonPage() {
                   </button>
                 </div>
                 <p>{part.plainMeaning}</p>
+                <p className="meta-copy">
+                  {part.pronunciationText} · examples: {part.examples.join(", ")}
+                </p>
               </article>
             ))}
           </div>
@@ -126,7 +148,15 @@ export function LessonPage() {
                 </div>
                 <p>{term.plainMeaning}</p>
                 <p className="meta-copy">
-                  {term.parts.map((part) => `${part.text} = ${part.meaning}`).join(" · ")}
+                  {term.pronunciationText} · {term.bodySystem} · {term.compositionality}
+                </p>
+                <p className="meta-copy">{term.shortDefinition}</p>
+                <p className="meta-copy">
+                  {term.parts.length > 0
+                    ? term.parts
+                        .map((part) => `${part.text} = ${part.meaning}`)
+                        .join(" · ")
+                    : "Recognition-first term without a safe decomposition."}
                 </p>
               </article>
             ))}
@@ -135,26 +165,35 @@ export function LessonPage() {
       ) : null}
 
       <section className="stack">
-        {lessonExercises.map((exercise) => (
+        {lessonExercises.map((exercise, index) => (
           <ExerciseCard
             key={exercise.id}
+            allowRetry
             exercise={exercise}
-            selectedChoice={answers[exercise.id] ?? null}
-            onSelect={(choice) =>
-              setAnswers((current) => ({
-                ...current,
-                [exercise.id]: choice,
-              }))
+            indexLabel={`Exercise ${index + 1} of ${lessonExercises.length}`}
+            onRetry={() =>
+              setAnswers((current) => {
+                const next = { ...current };
+                delete next[exercise.id];
+                return next;
+              })
             }
+            selectedChoice={answers[exercise.id] ?? null}
+            onSelect={(choice) => handleSelect(exercise.id, choice)}
           />
         ))}
       </section>
 
       <section className="card lesson-footer">
         <p className="meta-copy">
-          Completion seeds introduced terms into review and stores lesson mastery
-          locally.
+          Completion seeds introduced terms into review. Mastery uses first
+          attempts, so retries support learning without requiring a perfect score.
         </p>
+        {Object.keys(firstAnswers).length > 0 ? (
+          <p className="meta-copy">
+            First-pass score this visit: {firstAttemptCorrect} / {lessonExercises.length}
+          </p>
+        ) : null}
         <div className="hero-actions">
           <button
             type="button"
@@ -171,19 +210,24 @@ export function LessonPage() {
         {completedThisVisit ? (
           <div className="completion-box">
             <p>Lesson complete.</p>
-            {nextLesson ? (
-              <Link
-                className="text-link"
-                to={`/lesson/${nextLesson.id}`}
-                onClick={() => setCurrentLesson(nextLesson.id)}
-              >
-                Continue to {nextLesson.title}
-              </Link>
-            ) : (
+            <div className="hero-actions">
+              {nextLesson ? (
+                <Link
+                  className="text-link"
+                  to={`/lesson/${nextLesson.id}`}
+                  onClick={() => setCurrentLesson(nextLesson.id)}
+                >
+                  Continue to {nextLesson.title}
+                </Link>
+              ) : (
+                <Link className="text-link" to="/review">
+                  Move into review
+                </Link>
+              )}
               <Link className="text-link" to="/review">
-                Move into review
+                Review newly seeded terms
               </Link>
-            )}
+            </div>
           </div>
         ) : null}
       </section>

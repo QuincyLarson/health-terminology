@@ -134,8 +134,13 @@ export function getMixedTerms(
   maxNew = 4,
 ): Term[] {
   const dueTerms = getDueTerms(progress);
-  const newTerms = getNewTerms(progress, maxNew);
-  const mixed = [...dueTerms, ...newTerms].filter(
+  const newTerms = getNewTerms(progress, Math.min(maxNew, maxCount));
+  const targetDueCount = Math.max(0, maxCount - Math.min(maxNew, maxCount));
+  const mixed = [
+    ...dueTerms.slice(0, targetDueCount),
+    ...newTerms,
+    ...dueTerms.slice(targetDueCount),
+  ].filter(
     (term, index, allTerms) =>
       allTerms.findIndex((candidate) => candidate.id === term.id) === index,
   );

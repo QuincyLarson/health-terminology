@@ -3,6 +3,7 @@ import { AppStateProvider } from "./AppState";
 import { Shell } from "../components/Shell";
 import { AbbreviationsPage } from "../pages/AbbreviationsPage";
 import { AboutPage } from "../pages/AboutPage";
+import { BrowsePage } from "../pages/BrowsePage";
 import { CurriculumPage } from "../pages/CurriculumPage";
 import { EndlessPage } from "../pages/EndlessPage";
 import { HomePage } from "../pages/HomePage";
@@ -18,6 +19,7 @@ export function App() {
         <Shell>
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/browse" element={<BrowsePage />} />
             <Route path="/curriculum" element={<CurriculumPage />} />
             <Route path="/lesson/:lessonId" element={<LessonPage />} />
             <Route path="/review" element={<ReviewPage />} />

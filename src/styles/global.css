@@ -118,6 +118,7 @@ input {
 .stats-grid,
 .stack,
 .tag-grid,
+.term-grid,
 .choice-list,
 .lesson-list,
 .filter-grid,
@@ -140,6 +141,10 @@ input {
 
 .breakdown-grid {
   grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+}
+
+.term-grid {
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
 }
 
 .card {
@@ -311,6 +316,10 @@ input {
 
 .feedback {
   margin: 0;
+}
+
+.feedback strong {
+  font-weight: 700;
 }
 
 .feedback-correct {

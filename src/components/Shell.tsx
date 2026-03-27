@@ -24,6 +24,7 @@ export function Shell({ children }: PropsWithChildren) {
           an account or a backend.
         </p>
         <div className="utility-links">
+          <Link to="/browse">Browse terms</Link>
           <Link to="/endless">Endless mode</Link>
           <Link to="/abbreviations">Abbreviations</Link>
           <Link to="/settings">Settings</Link>
