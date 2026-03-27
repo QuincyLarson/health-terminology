@@ -42,7 +42,7 @@ Useful checks:
 
 The settings page includes JSON export/import/reset, snapshot size diagnostics, and validation of imported progress payloads.
 Unreadable local snapshots are preserved into a recovery backup key and surfaced back to the learner with a visible warning and download path.
-Import and reset flows now require explicit confirmation and can offer a backup download before replacing local progress.
+Import and reset flows now require explicit confirmation and can offer a backup download before replacing local progress. Lessons support retries while still scoring mastery on first attempts, and browse mode provides a search-and-filter layer that stays secondary to the curriculum.
 
 ## Repository Shape
 

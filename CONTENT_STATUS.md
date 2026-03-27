@@ -68,7 +68,7 @@
 ### Stage 2 Status
 - A lesson page, exercise cards, audio playback helper, and completion flow exist.
 - Lesson completion seeds introduced terms into review.
-- Mastery tracking is present at a basic level.
+- Mastery tracking now favors first-attempt performance while still allowing retries inside lessons.
 - Lesson content now carries prerequisite lesson guidance and reinforced-term links.
 - Lesson visits now persist as in-progress state so resume flows are clearer.
 
@@ -91,7 +91,7 @@
 ### Stage 4 Status
 - A basic review page exists with due, new, and mixed modes, session caps, and content filters.
 - Review cards are plain-English recognition prompts, and the queue respects the current seed curriculum.
-- Spaced repetition exists as local progress state, but full SRS tuning still needs work.
+- Spaced repetition exists as local progress state, and mixed review now favors due terms before filling with new items.
 - Endless mode is separate from review and exposes eligible terms with filters instead of a single unbounded drill list.
 - The minimum lovable release bar from the PRD is now met.
 - Remaining work is still meaningful, but it is now scale-out and refinement work rather than core release plumbing.
