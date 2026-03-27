@@ -78,21 +78,28 @@ export function isTermEligible(
   term: Term,
   progress: ProgressState,
 ): boolean {
+  const completedLessonIds = getCompletedLessonIds(progress);
   const learnedPartIds = getLearnedPartIds(progress);
   if (progress.terms[term.id]) {
     return true;
   }
 
-  if (term.prerequisiteIds.length === 0) {
-    return true;
-  }
+  const partsSatisfied =
+    term.prerequisiteIds.length === 0 ||
+    term.prerequisiteIds.every((partId) => {
+      if (!partMap.has(partId)) {
+        return false;
+      }
+      return learnedPartIds.has(partId);
+    });
 
-  return term.prerequisiteIds.every((partId) => {
-    if (!partMap.has(partId)) {
-      return false;
-    }
-    return learnedPartIds.has(partId);
-  });
+  const lessonsSatisfied =
+    term.prerequisiteLessonIds.length === 0 ||
+    term.prerequisiteLessonIds.every((lessonId) =>
+      completedLessonIds.has(lessonId),
+    );
+
+  return partsSatisfied && lessonsSatisfied;
 }
 
 export function getEligibleTerms(progress: ProgressState): Term[] {

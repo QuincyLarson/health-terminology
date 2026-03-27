@@ -127,6 +127,13 @@ export function validateContent(input: ValidationInput): ValidationResult {
         warnings.push(`term ${term.id} references unknown prerequisite ${prerequisiteId}`);
       }
     }
+    for (const prerequisiteLessonId of term.prerequisiteLessonIds) {
+      if (!lessonIds.has(prerequisiteLessonId)) {
+        errors.push(
+          `term ${term.id} references missing prerequisite lesson ${prerequisiteLessonId}`,
+        );
+      }
+    }
 
     for (const lessonId of term.lessonIds) {
       if (!lessonIds.has(lessonId)) {

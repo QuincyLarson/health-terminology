@@ -48,6 +48,7 @@ export interface Term {
   compositionality: Compositionality;
   parts: TermPartLink[];
   prerequisiteIds: string[];
+  prerequisiteLessonIds: string[];
   lessonIds: string[];
   tags: string[];
 }
