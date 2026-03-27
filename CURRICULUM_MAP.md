@@ -27,6 +27,7 @@ Each future unit and module entry should accumulate:
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, and procedure language.
 - Unit 2 now includes starter lessons for cardiovascular, respiratory, and gastrointestinal language.
 - The app currently exposes 14 lessons, 40 terms, 35 parts, and 7 abbreviations.
+- Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
 - Abbreviations are implemented as a dedicated recognition surface separate from the main lesson flow.
@@ -263,3 +264,4 @@ Each future unit and module entry should accumulate:
 - Treat the curriculum map as an implementation checklist, not just a descriptive outline.
 - Use lesson prerequisite metadata to gate later modules and to keep endless mode from surfacing terms too early.
 - The current seed app demonstrates the curriculum path, progress persistence, a simple review queue, endless mode, abbreviations, and progress diagnostics, but it is still below the PRD's full-v1 content scale.
+- The current seed app also includes browse-first term lookup, retry-friendly lesson completion, and recovery-aware import/reset behavior.

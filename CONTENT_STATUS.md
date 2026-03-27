@@ -2,9 +2,10 @@
 
 ## Current Repository State
 - Repository now contains a working Vite + React seed app plus the product docs.
-- The app includes deterministic content files, content validation scripts, a migration test, localStorage persistence, JSON import/export/reset support, dedicated endless mode, and a progress/stats page.
-- The runtime now preserves unreadable local snapshots into a recovery backup, confirms destructive import/reset flows, and surfaces recovery messaging in both settings and the main shell.
-- The current implementation target is to broaden the seed curriculum and review flow in validated batches.
+- The app includes deterministic content files, content validation scripts, a migration test, localStorage persistence, JSON import/export/reset support, a browse-first term index, dedicated endless mode, and a progress/stats page.
+- The runtime preserves unreadable local snapshots into a recovery backup, confirms destructive import/reset flows, and surfaces recovery messaging in settings.
+- Lesson flow now uses first-attempt mastery scoring with retry support instead of requiring perfect recall on a single pass.
+- The current implementation target is now scale-out content growth and SRS refinement rather than reaching a first playable release.
 
 ## Content Status
 
@@ -33,6 +34,7 @@
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
 - Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, and procedure language.
 - Unit 2 now includes cardiovascular, respiratory, and gastrointestinal starter lessons with airway, breathing-status, inflammation, and procedure language.
+- Browse mode is implemented as a separate surface and labels future terms as `not yet taught`.
 - The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
 - Endless mode is implemented as a separate page with search, unit, body-system, and due-only filters.
 - Curriculum now exposes clearer lesson states such as in-progress and review-recommended.
@@ -92,6 +94,7 @@
 - Spaced repetition exists as local progress state, but full SRS tuning still needs work.
 - Endless mode is separate from review and exposes eligible terms with filters instead of a single unbounded drill list.
 - The minimum lovable release bar from the PRD is now met.
+- Remaining work is still meaningful, but it is now scale-out and refinement work rather than core release plumbing.
 
 ### Stage 5: Scale-Out Content Generation
 - Expand the term bank in batches of 200 to 500 terms.
@@ -116,7 +119,7 @@
 ## Batch Ledger
 - Seed batch authored: Unit 0 foundations plus plural/pronunciation lessons, broader Unit 1 roots/prefixes/procedures, and Unit 2 starter lessons for cardiovascular, respiratory, and gastrointestinal language.
 - Current seed totals: 3 units, 14 lessons, 35 parts, 40 terms, 26 exercises, and 7 abbreviations.
-- Current runtime surfaces: curriculum, lesson, review, endless, abbreviations, progress, settings, and about.
+- Current runtime surfaces: curriculum, lesson, browse, review, endless, abbreviations, progress, settings, and about.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
 
