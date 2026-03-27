@@ -1,0 +1,121 @@
+import type { Term } from "../../types/content";
+
+export const terms: Term[] = [
+  {
+    id: "term-cardiology",
+    term: "cardiology",
+    normalizedTerm: "cardiology",
+    pronunciationText: "kar-dee-OL-uh-jee",
+    plainMeaning: "the study of the heart",
+    shortDefinition: "the medical study of heart structure and function",
+    bodySystem: "cardiovascular",
+    difficulty: 1,
+    frequencyBand: "core",
+    sourceType: "pedagogic",
+    compositionality: "full",
+    parts: [
+      { partId: "part-cardi-root", text: "cardi", meaning: "heart" },
+      { partId: "part-ology-suffix", text: "-logy", meaning: "study of" }
+    ],
+    prerequisiteIds: ["part-cardi-root", "part-ology-suffix"],
+    lessonIds: ["lesson-unit0-word-parts"],
+    tags: ["unit-0", "decoding"],
+  },
+  {
+    id: "term-neurology",
+    term: "neurology",
+    normalizedTerm: "neurology",
+    pronunciationText: "nyoor-OL-uh-jee",
+    plainMeaning: "the study of the nervous system",
+    shortDefinition: "the medical specialty focused on nerves and the nervous system",
+    bodySystem: "nervous",
+    difficulty: 1,
+    frequencyBand: "core",
+    sourceType: "pedagogic",
+    compositionality: "full",
+    parts: [
+      { partId: "part-neur-root", text: "neur", meaning: "nerve" },
+      { partId: "part-ology-suffix", text: "-logy", meaning: "study of" }
+    ],
+    prerequisiteIds: ["part-neur-root", "part-ology-suffix"],
+    lessonIds: ["lesson-unit0-word-parts"],
+    tags: ["unit-0", "decoding"],
+  },
+  {
+    id: "term-gastritis",
+    term: "gastritis",
+    normalizedTerm: "gastritis",
+    pronunciationText: "gas-TRY-tis",
+    plainMeaning: "inflammation of the stomach",
+    shortDefinition: "irritation or inflammation in the stomach lining",
+    bodySystem: "gastrointestinal",
+    difficulty: 1,
+    frequencyBand: "common",
+    sourceType: "lay_exposure",
+    compositionality: "full",
+    parts: [
+      { partId: "part-gastr-root", text: "gastr", meaning: "stomach" },
+      { partId: "part-itis-suffix", text: "-itis", meaning: "inflammation" }
+    ],
+    prerequisiteIds: ["part-gastr-root", "part-itis-suffix"],
+    lessonIds: ["lesson-unit1-common-suffixes"],
+    tags: ["unit-1", "suffix"],
+  },
+  {
+    id: "term-arthritis",
+    term: "arthritis",
+    normalizedTerm: "arthritis",
+    pronunciationText: "ar-THRY-tis",
+    plainMeaning: "inflammation of a joint",
+    shortDefinition: "joint inflammation or irritation",
+    bodySystem: "musculoskeletal",
+    difficulty: 1,
+    frequencyBand: "common",
+    sourceType: "lay_exposure",
+    compositionality: "partial",
+    parts: [
+      { partId: "part-itis-suffix", text: "-itis", meaning: "inflammation" }
+    ],
+    prerequisiteIds: ["part-itis-suffix"],
+    lessonIds: ["lesson-unit1-common-suffixes"],
+    tags: ["unit-1", "suffix"],
+  },
+  {
+    id: "term-hypertension",
+    term: "hypertension",
+    normalizedTerm: "hypertension",
+    pronunciationText: "hy-per-TEN-shun",
+    plainMeaning: "blood pressure that is too high",
+    shortDefinition: "abnormally high blood pressure",
+    bodySystem: "cardiovascular",
+    difficulty: 2,
+    frequencyBand: "common",
+    sourceType: "lay_exposure",
+    compositionality: "partial",
+    parts: [
+      { partId: "part-hyper-prefix", text: "hyper-", meaning: "too much" }
+    ],
+    prerequisiteIds: ["part-hyper-prefix"],
+    lessonIds: ["lesson-unit1-common-prefixes"],
+    tags: ["unit-1", "prefix"],
+  },
+  {
+    id: "term-hypotension",
+    term: "hypotension",
+    normalizedTerm: "hypotension",
+    pronunciationText: "hy-poh-TEN-shun",
+    plainMeaning: "blood pressure that is too low",
+    shortDefinition: "abnormally low blood pressure",
+    bodySystem: "cardiovascular",
+    difficulty: 2,
+    frequencyBand: "common",
+    sourceType: "lay_exposure",
+    compositionality: "partial",
+    parts: [
+      { partId: "part-hypo-prefix", text: "hypo-", meaning: "too little" }
+    ],
+    prerequisiteIds: ["part-hypo-prefix"],
+    lessonIds: ["lesson-unit1-common-prefixes"],
+    tags: ["unit-1", "prefix"],
+  }
+];

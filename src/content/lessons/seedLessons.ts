@@ -1,0 +1,126 @@
+import type { Exercise, Lesson } from "../../types/content";
+
+export const exercises: Exercise[] = [
+  {
+    id: "exercise-word-parts-1",
+    type: "root_match",
+    prompt: "Which word part points to the heart?",
+    choices: ["cardi", "gastr", "neur", "-itis"],
+    answer: "cardi",
+    explanation: "`cardi` points to the heart in words like `cardiology` and `cardiac`.",
+    linkedTermIds: ["term-cardiology"],
+    linkedPartIds: ["part-cardi-root"],
+  },
+  {
+    id: "exercise-word-parts-2",
+    type: "infer_meaning",
+    prompt: "If `neur` means nerve and `-logy` means study of, what does `neurology` suggest?",
+    choices: [
+      "study of the nervous system",
+      "inflammation of nerves",
+      "pain in the head",
+      "recording of muscles"
+    ],
+    answer: "study of the nervous system",
+    explanation: "The parts point to a field of study centered on nerves and the nervous system.",
+    linkedTermIds: ["term-neurology"],
+    linkedPartIds: ["part-neur-root", "part-ology-suffix"],
+  },
+  {
+    id: "exercise-combining-1",
+    type: "split_term",
+    prompt: "Why does `oste/o` include the `o`?",
+    choices: [
+      "It helps the word join smoothly to another part",
+      "It marks a plural ending",
+      "It means above normal",
+      "It turns the root into a suffix"
+    ],
+    answer: "It helps the word join smoothly to another part",
+    explanation: "The combining vowel keeps many medical terms pronounceable when parts are joined.",
+    linkedTermIds: [],
+    linkedPartIds: ["part-osteo-combining"],
+  },
+  {
+    id: "exercise-combining-2",
+    type: "cloze",
+    prompt: "Complete the rule: a combining vowel usually makes a long medical term easier to ___.",
+    choices: ["pronounce", "diagnose", "memorize", "prescribe"],
+    answer: "pronounce",
+    explanation: "Combining vowels primarily help the parts connect and sound smoother.",
+    linkedTermIds: [],
+    linkedPartIds: ["part-osteo-combining"],
+  },
+  {
+    id: "exercise-suffixes-1",
+    type: "infer_meaning",
+    prompt: "If `gastr` means stomach and `-itis` means inflammation, what is `gastritis`?",
+    choices: [
+      "inflammation of the stomach",
+      "study of the stomach",
+      "stomach surgery",
+      "pain in the stomach"
+    ],
+    answer: "inflammation of the stomach",
+    explanation: "This is a straightforward root-plus-suffix combination.",
+    linkedTermIds: ["term-gastritis"],
+    linkedPartIds: ["part-gastr-root", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-prefixes-1",
+    type: "infer_meaning",
+    prompt: "Which prefix points to a value above normal?",
+    choices: ["hyper-", "hypo-", "-itis", "neur"],
+    answer: "hyper-",
+    explanation: "`hyper-` often signals something higher or greater than normal.",
+    linkedTermIds: ["term-hypertension"],
+    linkedPartIds: ["part-hyper-prefix"],
+  }
+];
+
+export const lessons: Lesson[] = [
+  {
+    id: "lesson-unit0-word-parts",
+    title: "Word Parts That Carry Meaning",
+    unitId: "unit-0",
+    objective: "Identify roots and suffixes that make common terms decodable.",
+    whyItMatters: "A small set of roots and suffixes unlocks much of basic medical language.",
+    introducesPartIds: ["part-cardi-root", "part-gastr-root", "part-neur-root", "part-ology-suffix"],
+    introducesTermIds: ["term-cardiology", "term-neurology"],
+    exerciseSetIds: ["exercise-word-parts-1", "exercise-word-parts-2"],
+    estimatedMinutes: 6,
+  },
+  {
+    id: "lesson-unit0-combining-vowels",
+    title: "Combining Vowels and Smooth Joins",
+    unitId: "unit-0",
+    objective: "Explain why many medical terms use connecting vowels.",
+    whyItMatters: "Learners decode faster when they understand why forms like `oste/o` appear.",
+    introducesPartIds: ["part-osteo-combining"],
+    introducesTermIds: [],
+    exerciseSetIds: ["exercise-combining-1", "exercise-combining-2"],
+    estimatedMinutes: 5,
+  },
+  {
+    id: "lesson-unit1-common-suffixes",
+    title: "High-Yield Suffixes: -itis and -logy",
+    unitId: "unit-1",
+    objective: "Decode common suffixes that point to inflammation and fields of study.",
+    whyItMatters: "Common suffixes appear in both everyday terms and specialty names.",
+    introducesPartIds: ["part-itis-suffix", "part-ology-suffix"],
+    introducesTermIds: ["term-gastritis", "term-arthritis"],
+    exerciseSetIds: ["exercise-suffixes-1"],
+    estimatedMinutes: 7,
+  },
+  {
+    id: "lesson-unit1-common-prefixes",
+    title: "Common Prefixes: Hyper- and Hypo-",
+    unitId: "unit-1",
+    objective: "Recognize common intensity prefixes that change meaning quickly.",
+    whyItMatters: "A single prefix often flips whether a medical state is too much or too little.",
+    introducesPartIds: ["part-hyper-prefix", "part-hypo-prefix"],
+    introducesTermIds: ["term-hypertension", "term-hypotension"],
+    exerciseSetIds: ["exercise-prefixes-1"],
+    estimatedMinutes: 5,
+  }
+];
