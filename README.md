@@ -8,7 +8,7 @@ This is not a medical encyclopedia, certification prep tool, or clinical decisio
 
 The repository now has a working Vite + React seed app. The product direction, curriculum strategy, and implementation rules are defined in `docs/prd.md`, `docs/agents.md`, and the root `AGENTS.md`, and the first curriculum slice is implemented in `src/content`.
 
-The current app includes a curriculum map, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence.
+The current app includes a curriculum map, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 3 units, 14 lessons, 35 parts, 40 terms, 26 exercises, and 7 abbreviations, with Unit 2 extended through cardiovascular, respiratory, and gastrointestinal starter modules.
 
 ## Planned Architecture
 
@@ -34,6 +34,8 @@ npm run dev
 Useful checks:
 
 - `npm run validate:content`
+- `npm run test:migration`
+- `npm run check`
 - `npm run build`
 
 The settings page includes JSON export/import/reset, snapshot size diagnostics, and validation of imported progress payloads.
@@ -68,11 +70,11 @@ Planned top-level structure:
 
 ## Immediate Next Steps
 
-1. Expand Unit 0 and Unit 1 with additional high-yield lessons and term families.
-2. Build out Unit 2 cardiovascular coverage before moving to the other body systems.
-3. Add more validated parts, terms, and exercises in 200-500 term batches.
-4. Grow body-system coverage and the abbreviation inventory.
-5. Tighten spaced repetition, due-session tuning, and mixed-session filtering.
+1. Finish the minimum lovable release runtime gaps from the PRD, especially resume guidance, safer import/reset flows, and clearer empty-state routing.
+2. Continue Unit 2 into musculoskeletal and nervous-system starter batches.
+3. Add Unit 3 clinical-language starter lessons and the first passage-style decoding content.
+4. Grow validated terms, parts, and exercises in 200-500 term batches.
+5. Tighten spaced repetition, missed-term handling, and mixed-session tuning as the term bank grows.
 6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
 
 ## Working Notes

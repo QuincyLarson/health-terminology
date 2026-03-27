@@ -2,7 +2,7 @@
 
 ## Current Repository State
 - Repository now contains a working Vite + React seed app plus the product docs.
-- The app includes deterministic content files, content validation scripts, localStorage persistence, JSON import/export/reset support, dedicated endless mode, and a progress/stats page.
+- The app includes deterministic content files, content validation scripts, a migration test, localStorage persistence, JSON import/export/reset support, dedicated endless mode, and a progress/stats page.
 - The current implementation target is to broaden the seed curriculum and review flow in validated batches.
 
 ## Content Status
@@ -28,10 +28,10 @@
 - Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 3 units, 10 lessons, 25 parts, 26 terms, 18 exercises, and 7 abbreviations.
+- Seed content exists for 3 units, 14 lessons, 35 parts, 40 terms, 26 exercises, and 7 abbreviations.
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
 - Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, and procedure language.
-- Unit 2 has a first cardiovascular starter lesson with vessel and artery terms.
+- Unit 2 now includes cardiovascular, respiratory, and gastrointestinal starter lessons with airway, breathing-status, inflammation, and procedure language.
 - The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
 - Endless mode is implemented as a separate page with search, unit, body-system, and due-only filters.
 - Progress diagnostics now report storage key, schema version, and snapshot size.
@@ -53,7 +53,8 @@
 - Core data types, seed content, validation scripts, and localStorage persistence exist.
 - Export/import/reset work against the current progress model.
 - Import parsing now rejects malformed payloads earlier and records version-aware migrations.
-- Migration logic is basic and still needs hardening as the schema grows.
+- A dedicated export/import migration test now exercises round-trip parsing and partial legacy-state migration.
+- Migration logic is still intentionally simple and will need further hardening as the schema grows.
 
 ### Stage 2: Lesson Engine
 - Build lesson rendering and exercise components.
@@ -74,7 +75,7 @@
 ### Stage 3 Status
 - Unit 0 foundations now include plural and pronunciation coverage.
 - Unit 1 is broader, with roots, prefixes, and procedure language.
-- Unit 2 has an initial cardiovascular starter lesson.
+- Unit 2 now has coherent cardiovascular, respiratory, and gastrointestinal starter slices.
 - The abbreviation section now has a dedicated recognition page and a larger starter set, but not yet a full module.
 
 ### Stage 4: Endless Mode and SRS
@@ -109,8 +110,8 @@
 - Keep authored lessons aligned to the batch so prerequisites remain understandable.
 
 ## Batch Ledger
-- Seed batch authored: Unit 0 foundations plus plural/pronunciation lessons, broader Unit 1 roots/prefixes/procedures, and the first Unit 2 cardiovascular starter.
-- Current seed totals: 3 units, 10 lessons, 25 parts, 26 terms, 18 exercises, and 7 abbreviations.
+- Seed batch authored: Unit 0 foundations plus plural/pronunciation lessons, broader Unit 1 roots/prefixes/procedures, and Unit 2 starter lessons for cardiovascular, respiratory, and gastrointestinal language.
+- Current seed totals: 3 units, 14 lessons, 35 parts, 40 terms, 26 exercises, and 7 abbreviations.
 - Current runtime surfaces: curriculum, lesson, review, endless, abbreviations, progress, settings, and about.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
 

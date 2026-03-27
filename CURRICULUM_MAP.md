@@ -25,8 +25,8 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, and procedure language.
-- Unit 2 has a first cardiovascular starter lesson.
-- The app currently exposes 10 lessons, 26 terms, 25 parts, and 7 abbreviations.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, and gastrointestinal language.
+- The app currently exposes 14 lessons, 40 terms, 35 parts, and 7 abbreviations.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
 - Abbreviations are implemented as a dedicated recognition surface separate from the main lesson flow.
@@ -116,11 +116,15 @@ Each future unit and module entry should accumulate:
 - Lesson goal: understand airway, breathing, and lung terms.
 - Representative content: `pneum/o`, `pulmon/o`, `bronch/o`, `trache/o`.
 - Priority: high.
+- Status: seeded.
+- Prerequisite guidance: follow Unit 2 cardiovascular starter plus Unit 1 procedure and rate-prefix lessons.
 
 ### Module 2.3: Gastrointestinal
 - Lesson goal: decode digestive tract and abdominal terms.
 - Representative content: `gastr/o`, `enter/o`, `hepat/o`, `col/o`, `cholecyst/o`.
 - Priority: high.
+- Status: seeded.
+- Prerequisite guidance: follow Unit 1 suffix, body-root, and procedure-language lessons.
 
 ### Module 2.4: Musculoskeletal
 - Lesson goal: understand bones, joints, movement, and connective tissue.
@@ -257,4 +261,4 @@ Each future unit and module entry should accumulate:
 - Author lessons in small batches so each module can be validated against the term bank and prerequisite graph.
 - Treat the curriculum map as an implementation checklist, not just a descriptive outline.
 - Use lesson prerequisite metadata to gate later modules and to keep endless mode from surfacing terms too early.
-- The current seed app demonstrates the curriculum path, progress persistence, a simple review queue, endless mode, abbreviations, and progress diagnostics, but it is not yet a full curriculum.
+- The current seed app demonstrates the curriculum path, progress persistence, a simple review queue, endless mode, abbreviations, and progress diagnostics, but it is still below the PRD's full-v1 content scale.
