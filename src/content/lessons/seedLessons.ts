@@ -225,6 +225,116 @@ export const exercises: Exercise[] = [
     explanation: "`arteri/o` points to an artery and `-itis` points to inflammation.",
     linkedTermIds: ["term-arteritis"],
     linkedPartIds: ["part-arteri-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-respiratory-airway-1",
+    type: "root_match",
+    prompt: "Which combining form points to a bronchial tube or airway branch?",
+    choices: ["bronch/o", "trache/o", "pneum/o", "pulmon/o"],
+    answer: "bronch/o",
+    explanation: "`bronch/o` points to the branching airways inside the lungs.",
+    linkedTermIds: ["term-bronchitis", "term-bronchoscopy"],
+    linkedPartIds: ["part-bronch-combining"],
+  },
+  {
+    id: "exercise-respiratory-airway-2",
+    type: "infer_meaning",
+    prompt: "If `bronch/o` means bronchial tube and `-itis` means inflammation, what does `bronchitis` suggest?",
+    choices: [
+      "inflammation of the bronchial tubes",
+      "viewing the bronchial tubes with a scope",
+      "a cut into the windpipe",
+      "a condition related to the lungs"
+    ],
+    answer: "inflammation of the bronchial tubes",
+    explanation: "This follows the same root-plus-inflammation pattern used in other `-itis` terms.",
+    linkedTermIds: ["term-bronchitis"],
+    linkedPartIds: ["part-bronch-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-respiratory-airway-3",
+    type: "infer_meaning",
+    prompt: "What does `tracheotomy` suggest?",
+    choices: [
+      "an incision into the trachea",
+      "inflammation of the trachea",
+      "viewing the trachea with a scope",
+      "a record of the trachea"
+    ],
+    answer: "an incision into the trachea",
+    explanation: "`trache/o` points to the windpipe and `-otomy` points to an incision.",
+    linkedTermIds: ["term-tracheotomy"],
+    linkedPartIds: ["part-trache-combining", "part-otomy-suffix"],
+  },
+  {
+    id: "exercise-respiratory-status-1",
+    type: "root_match",
+    prompt: "Which suffix points to breathing?",
+    choices: ["-pnea", "-oxia", "-gram", "-scopy"],
+    answer: "-pnea",
+    explanation: "`-pnea` shows up in breathing-rate and breathing-difficulty terms.",
+    linkedTermIds: ["term-tachypnea", "term-dyspnea"],
+    linkedPartIds: ["part-pnea-suffix"],
+  },
+  {
+    id: "exercise-respiratory-status-2",
+    type: "infer_meaning",
+    prompt: "What does `dyspnea` suggest in plain English?",
+    choices: [
+      "difficult breathing or shortness of breath",
+      "slow breathing",
+      "fast breathing",
+      "low oxygen"
+    ],
+    answer: "difficult breathing or shortness of breath",
+    explanation: "`dys-` points to difficulty or abnormal function and `-pnea` points to breathing.",
+    linkedTermIds: ["term-dyspnea"],
+    linkedPartIds: ["part-dys-prefix", "part-pnea-suffix"],
+  },
+  {
+    id: "exercise-gastro-inflammation-1",
+    type: "infer_meaning",
+    prompt: "If `enter/o` means intestine and `-itis` means inflammation, what does `enteritis` suggest?",
+    choices: [
+      "inflammation of the intestine",
+      "a scope exam of the intestine",
+      "surgical removal of the intestine",
+      "a record of the intestine"
+    ],
+    answer: "inflammation of the intestine",
+    explanation: "This is another direct combining-form plus suffix term.",
+    linkedTermIds: ["term-enteritis"],
+    linkedPartIds: ["part-enter-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-gastro-inflammation-2",
+    type: "infer_meaning",
+    prompt: "What does `gastroenteritis` suggest?",
+    choices: [
+      "inflammation involving the stomach and intestines",
+      "surgical removal of the stomach",
+      "viewing the stomach and intestines with a scope",
+      "pain in the stomach and intestines"
+    ],
+    answer: "inflammation involving the stomach and intestines",
+    explanation: "The term combines `gastr` for stomach, `enter/o` for intestine, and `-itis` for inflammation.",
+    linkedTermIds: ["term-gastroenteritis"],
+    linkedPartIds: ["part-gastr-root", "part-enter-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-gastro-procedures-1",
+    type: "infer_meaning",
+    prompt: "What does `cholecystectomy` suggest?",
+    choices: [
+      "surgical removal of the gallbladder",
+      "inflammation of the gallbladder",
+      "a scoped look at the gallbladder",
+      "an incision into the gallbladder"
+    ],
+    answer: "surgical removal of the gallbladder",
+    explanation: "`cholecyst/o` points to the gallbladder and `-ectomy` points to removal.",
+    linkedTermIds: ["term-cholecystectomy"],
+    linkedPartIds: ["part-cholecyst-combining", "part-ectomy-suffix"],
   }
 ];
 
@@ -406,6 +516,94 @@ export const lessons: Lesson[] = [
     ],
     exerciseSetIds: ["exercise-cardio-1", "exercise-cardio-2"],
     estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-respiratory-airway-language",
+    title: "Respiratory Airway Language",
+    unitId: "unit-2",
+    objective: "Recognize the most common roots for airways and lungs.",
+    whyItMatters: "Learners hear these terms in infections, imaging, and respiratory procedure talk.",
+    prerequisiteLessonIds: ["lesson-unit2-cardiovascular-starter", "lesson-unit1-procedure-language"],
+    introducesPartIds: [
+      "part-bronch-combining",
+      "part-trache-combining",
+      "part-pneum-combining",
+      "part-pulmon-combining"
+    ],
+    introducesTermIds: [
+      "term-bronchitis",
+      "term-bronchoscopy",
+      "term-tracheotomy",
+      "term-pulmonary",
+      "term-pneumonia"
+    ],
+    reinforcesTermIds: ["term-gastrotomy", "term-colonoscopy", "term-gastritis"],
+    exerciseSetIds: [
+      "exercise-respiratory-airway-1",
+      "exercise-respiratory-airway-2",
+      "exercise-respiratory-airway-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-respiratory-breathing-status",
+    title: "Breathing Status and Oxygen Language",
+    unitId: "unit-2",
+    objective: "Decode common breathing-rate and oxygen-status terms.",
+    whyItMatters: "These words show up in triage, charting, and common respiratory complaints.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-respiratory-airway-language",
+      "lesson-unit1-rate-prefixes",
+      "lesson-unit1-common-prefixes"
+    ],
+    introducesPartIds: ["part-pnea-suffix", "part-dys-prefix", "part-oxia-suffix"],
+    introducesTermIds: [
+      "term-tachypnea",
+      "term-bradypnea",
+      "term-dyspnea",
+      "term-hypoxia"
+    ],
+    reinforcesTermIds: ["term-tachycardia", "term-bradycardia", "term-hypotension"],
+    exerciseSetIds: ["exercise-respiratory-status-1", "exercise-respiratory-status-2"],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-gastrointestinal-inflammation",
+    title: "Gastrointestinal Inflammation Terms",
+    unitId: "unit-2",
+    objective: "Recognize inflammation terms across stomach, intestine, colon, and esophagus language.",
+    whyItMatters: "Digestive complaints are common, and many GI words reuse a small set of predictable building blocks.",
+    prerequisiteLessonIds: ["lesson-unit1-common-suffixes", "lesson-unit1-core-body-roots"],
+    introducesPartIds: ["part-enter-combining", "part-esophag-combining"],
+    introducesTermIds: [
+      "term-enteritis",
+      "term-gastroenteritis",
+      "term-esophagitis",
+      "term-colitis"
+    ],
+    reinforcesTermIds: ["term-gastritis", "term-hepatitis"],
+    exerciseSetIds: ["exercise-gastro-inflammation-1", "exercise-gastro-inflammation-2"],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-gastrointestinal-procedures",
+    title: "Gastrointestinal Procedure Language",
+    unitId: "unit-2",
+    objective: "Extend procedure decoding into gallbladder and digestive-system terms.",
+    whyItMatters: "Procedure terms often sound intimidating, but they become readable once the organ root and action suffix are separated.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-gastrointestinal-inflammation",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: ["part-cholecyst-combining"],
+    introducesTermIds: ["term-cholecystectomy"],
+    reinforcesTermIds: ["term-colonoscopy", "term-appendectomy", "term-gastrotomy"],
+    exerciseSetIds: ["exercise-gastro-procedures-1"],
+    estimatedMinutes: 6,
     status: "shipped",
   }
 ];

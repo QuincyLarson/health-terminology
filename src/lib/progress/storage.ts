@@ -1,5 +1,6 @@
 import type { Lesson, Term } from "../../types/content";
 import type {
+  AppUserState,
   AppSettings,
   LessonProgress,
   ProgressExport,
@@ -10,10 +11,33 @@ import type {
 export const STORAGE_KEY = "healthterms.progress.v1";
 export const STORAGE_VERSION = 1;
 
+interface StorageLike {
+  getItem: (key: string) => string | null;
+  setItem: (key: string, value: string) => void;
+}
+
+interface ProgressImportShape {
+  version?: number;
+  user?: Partial<AppUserState>;
+  lessons?: Record<string, LessonProgress>;
+  terms?: Record<string, TermProgress>;
+  settings?: Partial<AppSettings>;
+  exportedAt?: string;
+}
+
 const defaultSettings: AppSettings = {
   audioEnabled: true,
   reducedMotion: false,
 };
+
+function getBrowserStorage(): StorageLike | null {
+  if (typeof globalThis !== "object" || globalThis === null) {
+    return null;
+  }
+
+  const candidate = globalThis as { localStorage?: StorageLike };
+  return candidate.localStorage ?? null;
+}
 
 export function createDefaultProgressState(): ProgressState {
   return {
@@ -29,11 +53,12 @@ export function createDefaultProgressState(): ProgressState {
 }
 
 export function loadProgressState(): ProgressState {
-  if (typeof window === "undefined") {
+  const storage = getBrowserStorage();
+  if (!storage) {
     return createDefaultProgressState();
   }
 
-  const raw = window.localStorage.getItem(STORAGE_KEY);
+  const raw = storage.getItem(STORAGE_KEY);
   if (!raw) {
     return createDefaultProgressState();
   }
@@ -47,10 +72,11 @@ export function loadProgressState(): ProgressState {
 }
 
 export function saveProgressState(state: ProgressState): void {
-  if (typeof window === "undefined") {
+  const storage = getBrowserStorage();
+  if (!storage) {
     return;
   }
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  storage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
 function isPlainObject(value: unknown): value is Record<string, unknown> {
@@ -58,7 +84,7 @@ function isPlainObject(value: unknown): value is Record<string, unknown> {
 }
 
 export function migrateProgressState(
-  state: Partial<ProgressState> | Partial<ProgressExport>,
+  state: ProgressImportShape = {},
 ): ProgressState {
   return {
     version: STORAGE_VERSION,

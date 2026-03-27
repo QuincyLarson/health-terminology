@@ -32,7 +32,13 @@ export const units: Unit[] = [
     id: "unit-2",
     title: "Body Systems",
     summary: "Cardiovascular, respiratory, gastrointestinal, and other systems in descending practical yield.",
-    lessonIds: ["lesson-unit2-cardiovascular-starter"],
+    lessonIds: [
+      "lesson-unit2-cardiovascular-starter",
+      "lesson-unit2-respiratory-airway-language",
+      "lesson-unit2-respiratory-breathing-status",
+      "lesson-unit2-gastrointestinal-inflammation",
+      "lesson-unit2-gastrointestinal-procedures"
+    ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
   }
