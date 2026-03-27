@@ -21,7 +21,8 @@ function buildChoices(term: Term): string[] {
 }
 
 export function ReviewPage() {
-  const { dueTerms, mixedTerms, newTerms, recordReviewResult } = useAppState();
+  const { dueTerms, mixedTerms, newTerms, recommendedLesson, recordReviewResult } =
+    useAppState();
   const defaultMode: ReviewMode = dueTerms.length > 0 ? "due" : "new";
   const [mode, setMode] = useState<ReviewMode>(defaultMode);
   const [unitFilter, setUnitFilter] = useState("all");
@@ -48,6 +49,11 @@ export function ReviewPage() {
 
   const current = queue[index];
   const choices = current ? buildChoices(current) : [];
+  const modeDescriptions: Record<ReviewMode, string> = {
+    due: "Review terms that are scheduled for recall now.",
+    new: "Start new terms that have been introduced but not yet studied in review.",
+    mixed: "Favor due items first, then fill the session with a small set of new terms.",
+  };
 
   function advance(correct: boolean): void {
     if (!current) {
@@ -122,6 +128,7 @@ export function ReviewPage() {
         <p className="meta-copy">
           Due: {dueTerms.length} · New: {newTerms.length} · Queue cap: {SESSION_CAPS[mode]}
         </p>
+        <p className="meta-copy">{modeDescriptions[mode]}</p>
         <Link className="text-link" to="/endless">
           Switch to endless mode
         </Link>
@@ -131,16 +138,36 @@ export function ReviewPage() {
         <section className="card">
           <h3>No terms in this queue yet.</h3>
           <p>
-            Finish a lesson to seed review, or switch queues if you want to see
-            available items.
+            {mode === "due"
+              ? "There is nothing due right now. Continue with the curriculum or switch to a mixed session for lighter reinforcement."
+              : "Finish a lesson to seed review, or switch queues if you want to see available items."}
           </p>
           <div className="hero-actions">
-            <Link className="text-link" to="/curriculum">
-              Return to curriculum
-            </Link>
+            {recommendedLesson ? (
+              <Link className="text-link" to={`/lesson/${recommendedLesson.id}`}>
+                Continue to {recommendedLesson.title}
+              </Link>
+            ) : (
+              <Link className="text-link" to="/curriculum">
+                Return to curriculum
+              </Link>
+            )}
             <Link className="text-link" to="/endless">
               Open endless mode
             </Link>
+            {mode === "due" ? (
+              <button
+                type="button"
+                className="button"
+                onClick={() => {
+                  setMode("mixed");
+                  setIndex(0);
+                  setSelected(null);
+                }}
+              >
+                Switch to mixed
+              </button>
+            ) : null}
           </div>
         </section>
       ) : (

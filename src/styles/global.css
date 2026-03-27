@@ -158,7 +158,8 @@ input {
 .hero-actions,
 .lesson-actions,
 .title-row,
-.unit-heading {
+.unit-heading,
+.mini-row {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;

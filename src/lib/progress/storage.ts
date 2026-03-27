@@ -9,10 +9,12 @@ import type {
 } from "../../types/progress";
 
 export const STORAGE_KEY = "healthterms.progress.v1";
+export const RECOVERY_STORAGE_KEY = "healthterms.progress.v1.recovery";
 export const STORAGE_VERSION = 1;
 
 interface StorageLike {
   getItem: (key: string) => string | null;
+  removeItem: (key: string) => void;
   setItem: (key: string, value: string) => void;
 }
 
@@ -23,6 +25,12 @@ interface ProgressImportShape {
   terms?: Record<string, TermProgress>;
   settings?: Partial<AppSettings>;
   exportedAt?: string;
+}
+
+export interface LoadProgressResult {
+  hasRecoverySnapshot: boolean;
+  recoveryNotice: string | null;
+  state: ProgressState;
 }
 
 const defaultSettings: AppSettings = {
@@ -39,6 +47,19 @@ function getBrowserStorage(): StorageLike | null {
   return candidate.localStorage ?? null;
 }
 
+function preserveRecoverySnapshot(raw: string): void {
+  const storage = getBrowserStorage();
+  if (!storage) {
+    return;
+  }
+  storage.setItem(RECOVERY_STORAGE_KEY, raw);
+}
+
+export function getRecoverySnapshot(): string | null {
+  const storage = getBrowserStorage();
+  return storage?.getItem(RECOVERY_STORAGE_KEY) ?? null;
+}
+
 export function createDefaultProgressState(): ProgressState {
   return {
     version: STORAGE_VERSION,
@@ -52,23 +73,55 @@ export function createDefaultProgressState(): ProgressState {
   };
 }
 
-export function loadProgressState(): ProgressState {
+export function loadProgressStateResult(): LoadProgressResult {
   const storage = getBrowserStorage();
   if (!storage) {
-    return createDefaultProgressState();
+    return {
+      hasRecoverySnapshot: false,
+      recoveryNotice: null,
+      state: createDefaultProgressState(),
+    };
   }
 
   const raw = storage.getItem(STORAGE_KEY);
   if (!raw) {
-    return createDefaultProgressState();
+    return {
+      hasRecoverySnapshot: Boolean(storage.getItem(RECOVERY_STORAGE_KEY)),
+      recoveryNotice: null,
+      state: createDefaultProgressState(),
+    };
   }
 
   try {
-    const parsed = JSON.parse(raw) as Partial<ProgressState>;
-    return migrateProgressState(parsed);
+    const parsed = JSON.parse(raw) as unknown;
+    if (!isPlainObject(parsed) || typeof parsed.version !== "number") {
+      preserveRecoverySnapshot(raw);
+      return {
+        hasRecoverySnapshot: true,
+        recoveryNotice:
+          "Saved local progress could not be read safely. A raw recovery backup was preserved and the app loaded a clean local state.",
+        state: createDefaultProgressState(),
+      };
+    }
+
+    return {
+      hasRecoverySnapshot: Boolean(storage.getItem(RECOVERY_STORAGE_KEY)),
+      recoveryNotice: null,
+      state: migrateProgressState(parsed as ProgressImportShape),
+    };
   } catch {
-    return createDefaultProgressState();
+    preserveRecoverySnapshot(raw);
+    return {
+      hasRecoverySnapshot: true,
+      recoveryNotice:
+        "Saved local progress was corrupted or unreadable. A raw recovery backup was preserved and the app loaded a clean local state.",
+      state: createDefaultProgressState(),
+    };
   }
+}
+
+export function loadProgressState(): ProgressState {
+  return loadProgressStateResult().state;
 }
 
 export function saveProgressState(state: ProgressState): void {
@@ -140,6 +193,25 @@ export function createLessonProgress(
     mastery,
     score,
     totalExercises,
+    lastVisitedAt: new Date().toISOString(),
+  };
+}
+
+export function touchLessonProgress(
+  existing: LessonProgress | undefined,
+): LessonProgress {
+  if (existing) {
+    return {
+      ...existing,
+      lastVisitedAt: new Date().toISOString(),
+    };
+  }
+
+  return {
+    completed: false,
+    mastery: 0,
+    score: 0,
+    totalExercises: 0,
     lastVisitedAt: new Date().toISOString(),
   };
 }

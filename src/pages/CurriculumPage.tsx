@@ -3,8 +3,16 @@ import { content } from "../content";
 import { useAppState } from "../app/AppState";
 
 export function CurriculumPage() {
-  const { getLessonScoreLabel, isLessonUnlocked, progress, setCurrentLesson } =
-    useAppState();
+  const {
+    dueTerms,
+    getLessonScoreLabel,
+    isLessonUnlocked,
+    newTerms,
+    progress,
+    setCurrentLesson,
+  } = useAppState();
+  const dueTermIds = new Set(dueTerms.map((term) => term.id));
+  const newTermIds = new Set(newTerms.map((term) => term.id));
 
   return (
     <div className="stack">
@@ -37,13 +45,29 @@ export function CurriculumPage() {
                 }
 
                 const scoreLabel = getLessonScoreLabel(lesson.id);
-                const completed = progress.lessons[lesson.id]?.completed;
+                const lessonProgress = progress.lessons[lesson.id];
+                const completed = lessonProgress?.completed;
                 const unlocked = isLessonUnlocked(lesson.id);
+                const inProgress = Boolean(lessonProgress) && !lessonProgress.completed;
+                const reviewRecommended =
+                  Boolean(lessonProgress?.completed) &&
+                  lesson.introducesTermIds.some(
+                    (termId) => dueTermIds.has(termId) || newTermIds.has(termId),
+                  );
                 const prerequisiteTitles = lesson.prerequisiteLessonIds
                   .map((prerequisiteId) =>
                     content.lessons.find((item) => item.id === prerequisiteId)?.title,
                   )
                   .filter((title): title is string => Boolean(title));
+                const lessonState = completed
+                  ? reviewRecommended
+                    ? "Review recommended"
+                    : "Completed"
+                  : inProgress
+                    ? "In progress"
+                    : unlocked
+                      ? "Ready"
+                      : "Recommended later";
 
                 return (
                   <li key={lesson.id} className="lesson-row">
@@ -60,11 +84,7 @@ export function CurriculumPage() {
                     </div>
                     <div className="lesson-actions">
                       <span className={completed ? "lesson-state done" : "lesson-state"}>
-                        {completed
-                          ? "Completed"
-                          : unlocked
-                            ? "Ready"
-                            : "Recommended later"}
+                        {lessonState}
                       </span>
                       <Link
                         className="button"

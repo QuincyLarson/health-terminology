@@ -2,32 +2,56 @@ import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 
 export function HomePage() {
-  const { dueTerms, eligibleTerms, newTerms, orderedLessons, progress, stats } =
-    useAppState();
+  const {
+    dueTerms,
+    eligibleTerms,
+    newTerms,
+    orderedLessons,
+    progress,
+    recommendedLesson,
+    stats,
+  } = useAppState();
   const currentLessonId =
     progress.user.currentLessonId ?? orderedLessons[0]?.id ?? "lesson-unit0-word-parts";
   const currentLesson =
     orderedLessons.find((lesson) => lesson.id === currentLessonId) ?? orderedLessons[0];
+  const currentLessonProgress = currentLesson ? progress.lessons[currentLesson.id] : undefined;
+  const activeLesson =
+    currentLessonProgress && !currentLessonProgress.completed
+      ? currentLesson
+      : recommendedLesson ?? currentLesson;
+  const resumeLabel =
+    stats.completedLessons === 0
+      ? "Start Unit 0"
+      : currentLessonProgress && !currentLessonProgress.completed
+        ? "Resume lesson"
+        : "Continue with next lesson";
 
   return (
     <div className="page-grid">
       <section className="card hero-card">
-        <p className="eyebrow">Current state</p>
-        <h2>Curriculum, review, endless study, and local progress now work together.</h2>
+        <p className="eyebrow">HealthTerms.com</p>
+        <h2>Learn medical language by decoding reusable parts, not memorizing a glossary.</h2>
         <p>
-          The current build follows the PRD more closely: curriculum guidance,
-          lesson progression, due/new/mixed review, endless mode, and
-          progress/stats all live in the same local-only app.
+          This is a serious, local-only medical terminology course for curious
+          adults. The main path is the curriculum spine: learn high-yield parts,
+          complete lessons, then reinforce them through review and endless study.
         </p>
         <div className="hero-actions">
-          <Link className="button button-primary" to={`/lesson/${currentLesson?.id}`}>
-            {stats.completedLessons === 0 ? "Start Unit 0" : "Resume learning"}
+          <Link className="button button-primary" to={`/lesson/${activeLesson?.id}`}>
+            {resumeLabel}
           </Link>
-          <Link className="button" to="/curriculum">
-            Open curriculum map
-          </Link>
-          <Link className="button" to="/endless">
-            Open endless mode
+          {dueTerms.length > 0 ? (
+            <Link className="button" to="/review">
+              Review due terms
+            </Link>
+          ) : (
+            <Link className="button" to="/curriculum">
+              Open curriculum map
+            </Link>
+          )}
+          <Link className="button" to="/about">
+            Read methodology
           </Link>
         </div>
       </section>
@@ -55,11 +79,15 @@ export function HomePage() {
 
       <section className="card stack">
         <div>
-          <p className="eyebrow">Next lesson</p>
-          <h3>{currentLesson?.title}</h3>
-          <p>{currentLesson?.objective}</p>
-          <Link className="text-link" to={`/lesson/${currentLesson?.id}`}>
-            Continue to lesson
+          <p className="eyebrow">
+            {currentLessonProgress && !currentLessonProgress.completed
+              ? "Resume lesson"
+              : "Next recommended lesson"}
+          </p>
+          <h3>{activeLesson?.title}</h3>
+          <p>{activeLesson?.objective}</p>
+          <Link className="text-link" to={`/lesson/${activeLesson?.id}`}>
+            Open lesson
           </Link>
         </div>
         <div>
@@ -77,6 +105,20 @@ export function HomePage() {
             </Link>
           </div>
         </div>
+      </section>
+
+      <section className="card stack">
+        <p className="eyebrow">Curriculum preview</p>
+        {orderedLessons.slice(0, 4).map((lesson, index) => (
+          <div key={lesson.id} className="mini-row">
+            <strong>
+              {index + 1}. {lesson.title}
+            </strong>
+            <p className="meta-copy">
+              {lesson.unitId} · {lesson.estimatedMinutes} min
+            </p>
+          </div>
+        ))}
       </section>
     </div>
   );

@@ -1,30 +1,59 @@
 import { useState } from "react";
-import { STORAGE_KEY } from "../lib/progress/storage";
+import {
+  getRecoverySnapshot,
+  RECOVERY_STORAGE_KEY,
+  STORAGE_KEY,
+} from "../lib/progress/storage";
 import { useAppState } from "../app/AppState";
 
 export function SettingsPage() {
   const {
     exportProgress,
+    hasRecoverySnapshot,
     importProgress,
     progress,
+    recoveryNotice,
     resetProgress,
     setSetting,
     storageSnapshotSize,
   } = useAppState();
   const [message, setMessage] = useState<string>("");
+  const recoverySnapshot = getRecoverySnapshot();
+  const hasTrackedProgress =
+    Object.keys(progress.lessons).length > 0 || Object.keys(progress.terms).length > 0;
 
-  function handleExport(): void {
-    const blob = new Blob([exportProgress()], { type: "application/json" });
+  function downloadFile(contents: string, filename: string): void {
+    const blob = new Blob([contents], { type: "application/json" });
     const url = window.URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = url;
-    anchor.download = "healthterms-progress.json";
+    anchor.download = filename;
     anchor.click();
     window.URL.revokeObjectURL(url);
+  }
+
+  function handleExport(): void {
+    downloadFile(exportProgress(), "healthterms-progress.json");
     setMessage("Exported current progress as JSON.");
   }
 
   async function handleImport(file: File): Promise<void> {
+    const confirmed = window.confirm(
+      "Importing will replace the current local progress after validation. Continue?",
+    );
+    if (!confirmed) {
+      return;
+    }
+    if (
+      hasTrackedProgress &&
+      window.confirm("Download a backup of the current local progress before import?")
+    ) {
+      downloadFile(
+        exportProgress(),
+        `healthterms-progress-backup-${new Date().toISOString()}.json`,
+      );
+    }
+
     const text = await file.text();
     try {
       importProgress(text);
@@ -42,6 +71,15 @@ export function SettingsPage() {
     const confirmed = window.confirm("Reset all local progress for HealthTerms.com?");
     if (!confirmed) {
       return;
+    }
+    if (
+      hasTrackedProgress &&
+      window.confirm("Download a backup of the current local progress before reset?")
+    ) {
+      downloadFile(
+        exportProgress(),
+        `healthterms-progress-backup-${new Date().toISOString()}.json`,
+      );
     }
     resetProgress();
     setMessage("Reset local progress.");
@@ -78,11 +116,36 @@ export function SettingsPage() {
         </p>
       </section>
 
+      {recoveryNotice || hasRecoverySnapshot ? (
+        <section className="card stack">
+          <h3>Recovery notice</h3>
+          {recoveryNotice ? <p>{recoveryNotice}</p> : null}
+          <p className="meta-copy">Recovery storage key: {RECOVERY_STORAGE_KEY}</p>
+          {recoverySnapshot ? (
+            <div className="hero-actions">
+              <button
+                type="button"
+                className="button"
+                onClick={() =>
+                  downloadFile(
+                    recoverySnapshot,
+                    `healthterms-recovery-${new Date().toISOString()}.json`,
+                  )
+                }
+              >
+                Download preserved raw snapshot
+              </button>
+            </div>
+          ) : null}
+        </section>
+      ) : null}
+
       <section className="card stack">
         <h3>Import and export</h3>
         <p className="meta-copy">
-          Export before resetting or replacing progress. Imports replace the
-          current local snapshot after validation.
+          Export before resetting or replacing progress. Imports require
+          confirmation and replace the current local snapshot only after
+          validation.
         </p>
         <div className="hero-actions">
           <button type="button" className="button button-primary" onClick={handleExport}>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { ExerciseCard } from "../components/ExerciseCard";
@@ -42,6 +42,11 @@ export function LessonPage() {
   const allAnswered = lessonExercises.every((exercise) => answers[exercise.id]);
   const nextLesson = getNextLesson(lesson.id);
   const priorScoreLabel = getLessonScoreLabel(lesson.id);
+  const lessonIndex = content.lessons.findIndex((entry) => entry.id === lesson.id);
+
+  useEffect(() => {
+    setCurrentLesson(lesson.id);
+  }, [lesson.id]);
 
   function handleComplete(): void {
     const activeLesson = lesson;
@@ -72,8 +77,11 @@ export function LessonPage() {
         </div>
         <p>{lesson.objective}</p>
         <p className="meta-copy">
-          Why this matters: {lesson.whyItMatters} · {lesson.estimatedMinutes} min
+          Lesson {lessonIndex + 1} of {content.lessons.length} · {lesson.estimatedMinutes} min
           {priorScoreLabel ? ` · ${priorScoreLabel}` : ""}
+        </p>
+        <p className="meta-copy">
+          Why this matters: {lesson.whyItMatters}
         </p>
       </section>
 

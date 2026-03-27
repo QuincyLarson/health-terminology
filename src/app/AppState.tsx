@@ -22,11 +22,13 @@ import {
   createProgressExport,
   createDefaultProgressState,
   createLessonProgress,
+  getRecoverySnapshot,
   getStorageSnapshotSize,
-  loadProgressState,
+  loadProgressStateResult,
   parseImportedProgress,
   saveProgressState,
   seedLessonTerms,
+  touchLessonProgress,
   updateTermAfterReview,
 } from "../lib/progress/storage";
 import type { Lesson, Term } from "../types/content";
@@ -36,7 +38,10 @@ interface AppStateValue {
   eligibleTerms: Term[];
   mixedTerms: Term[];
   progress: ProgressState;
+  recommendedLesson: Lesson | undefined;
+  recoveryNotice: string | null;
   dueTerms: Term[];
+  hasRecoverySnapshot: boolean;
   newTerms: Term[];
   orderedLessons: Lesson[];
   storageSnapshotSize: number;
@@ -64,12 +69,14 @@ function findLesson(lessonId: string): Lesson | undefined {
 }
 
 export function AppStateProvider({ children }: PropsWithChildren) {
+  const [initialLoad] = useState(() => loadProgressStateResult());
   const [progress, setProgress] = useState<ProgressState>(() => {
-    if (typeof window === "undefined") {
-      return createDefaultProgressState();
-    }
-    return loadProgressState();
+    return initialLoad.state ?? createDefaultProgressState();
   });
+  const [recoveryNotice] = useState<string | null>(initialLoad.recoveryNotice);
+  const [hasRecoverySnapshot] = useState<boolean>(
+    initialLoad.hasRecoverySnapshot || Boolean(getRecoverySnapshot()),
+  );
 
   useEffect(() => {
     saveProgressState(progress);
@@ -82,6 +89,7 @@ export function AppStateProvider({ children }: PropsWithChildren) {
   const mixedTerms = getMixedTerms(progress);
   const stats = buildProgressStats(progress);
   const storageSnapshotSize = getStorageSnapshotSize(progress);
+  const recommendedLesson = getNextRecommendedLesson(progress) ?? orderedLessons[0];
 
   function getLessonById(lessonId: string): Lesson | undefined {
     return findLesson(lessonId);
@@ -102,6 +110,10 @@ export function AppStateProvider({ children }: PropsWithChildren) {
     }
     setProgress((current) => ({
       ...current,
+      lessons: {
+        ...current.lessons,
+        [lesson.id]: touchLessonProgress(current.lessons[lesson.id]),
+      },
       user: {
         currentLessonId: lesson.id,
         currentUnitId: lesson.unitId,
@@ -207,7 +219,10 @@ export function AppStateProvider({ children }: PropsWithChildren) {
         eligibleTerms,
         mixedTerms,
         progress,
+        recommendedLesson,
+        recoveryNotice,
         dueTerms,
+        hasRecoverySnapshot,
         newTerms,
         orderedLessons,
         storageSnapshotSize,
