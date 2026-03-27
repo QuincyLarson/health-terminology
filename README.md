@@ -10,6 +10,8 @@ The repository now has a working Vite + React seed app. The product direction, c
 
 The current app includes a curriculum map, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 3 units, 14 lessons, 35 parts, 40 terms, 26 exercises, and 7 abbreviations, with Unit 2 extended through cardiovascular, respiratory, and gastrointestinal starter modules.
 
+The current implementation now meets the PRD's minimum lovable release bar: Unit 0 and Unit 1 are usable, multiple body-system modules are coherent end-to-end, review and endless study work, JSON export/import/reset works, and recovery-aware local progress handling is in place.
+
 ## Planned Architecture
 
 The intended stack is simple and static:
@@ -39,6 +41,7 @@ Useful checks:
 - `npm run build`
 
 The settings page includes JSON export/import/reset, snapshot size diagnostics, and validation of imported progress payloads.
+Unreadable local snapshots are now preserved into a recovery backup key and surfaced back to the learner with a visible warning and download path.
 
 ## Repository Shape
 
@@ -70,7 +73,7 @@ Planned top-level structure:
 
 ## Immediate Next Steps
 
-1. Finish the minimum lovable release runtime gaps from the PRD, especially resume guidance, safer import/reset flows, and clearer empty-state routing.
+1. Expand beyond the minimum lovable release with deeper body-system coverage and larger validated term batches.
 2. Continue Unit 2 into musculoskeletal and nervous-system starter batches.
 3. Add Unit 3 clinical-language starter lessons and the first passage-style decoding content.
 4. Grow validated terms, parts, and exercises in 200-500 term batches.

@@ -31,6 +31,7 @@ Each future unit and module entry should accumulate:
 - Endless mode is implemented as a separate surface and only shows eligible terms.
 - Abbreviations are implemented as a dedicated recognition surface separate from the main lesson flow.
 - Progress/stats is implemented as a separate surface with lesson and storage diagnostics.
+- The minimum lovable release bar is now satisfied; remaining work is breadth, deeper SRS tuning, and continued curriculum scale-out.
 
 ## Unit 0 - How Medical Terms Work
 ### Module 0.1: Word Parts and Parsing
