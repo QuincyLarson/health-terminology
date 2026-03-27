@@ -2,6 +2,7 @@ import type { Lesson, Term } from "../../types/content";
 import type {
   AppSettings,
   LessonProgress,
+  ProgressExport,
   ProgressState,
   TermProgress,
 } from "../../types/progress";
@@ -52,8 +53,12 @@ export function saveProgressState(state: ProgressState): void {
   window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
+function isPlainObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
 export function migrateProgressState(
-  state: Partial<ProgressState>,
+  state: Partial<ProgressState> | Partial<ProgressExport>,
 ): ProgressState {
   return {
     version: STORAGE_VERSION,
@@ -69,6 +74,34 @@ export function migrateProgressState(
         state.settings?.reducedMotion ?? defaultSettings.reducedMotion,
     },
   };
+}
+
+export function createProgressExport(state: ProgressState): ProgressExport {
+  return {
+    version: STORAGE_VERSION,
+    exportedAt: new Date().toISOString(),
+    user: state.user,
+    lessons: state.lessons,
+    terms: state.terms,
+    settings: state.settings,
+  };
+}
+
+export function parseImportedProgress(raw: string): ProgressState {
+  const parsed = JSON.parse(raw) as unknown;
+  if (!isPlainObject(parsed)) {
+    throw new Error("Progress import must be a JSON object.");
+  }
+
+  if (typeof parsed.version !== "number") {
+    throw new Error("Progress import is missing a numeric version.");
+  }
+
+  return migrateProgressState(parsed as Partial<ProgressState>);
+}
+
+export function getStorageSnapshotSize(state: ProgressState): number {
+  return new Blob([JSON.stringify(state)]).size;
 }
 
 export function createLessonProgress(

@@ -1,9 +1,16 @@
 import { useState } from "react";
+import { STORAGE_KEY } from "../lib/progress/storage";
 import { useAppState } from "../app/AppState";
 
 export function SettingsPage() {
-  const { exportProgress, importProgress, progress, resetProgress, setSetting } =
-    useAppState();
+  const {
+    exportProgress,
+    importProgress,
+    progress,
+    resetProgress,
+    setSetting,
+    storageSnapshotSize,
+  } = useAppState();
   const [message, setMessage] = useState<string>("");
 
   function handleExport(): void {
@@ -22,8 +29,12 @@ export function SettingsPage() {
     try {
       importProgress(text);
       setMessage("Imported progress successfully.");
-    } catch {
-      setMessage("Import failed. Please use a valid JSON export from this app.");
+    } catch (error) {
+      setMessage(
+        error instanceof Error
+          ? `Import failed: ${error.message}`
+          : "Import failed. Please use a valid JSON export from this app.",
+      );
     }
   }
 
@@ -57,10 +68,22 @@ export function SettingsPage() {
             onChange={(event) => setSetting("reducedMotion", event.target.checked)}
           />
         </label>
+        <p className="meta-copy">
+          Storage key: {STORAGE_KEY} · Schema version: {progress.version}
+        </p>
+        <p className="meta-copy">
+          Snapshot size: {storageSnapshotSize} bytes · Tracked lessons:{" "}
+          {Object.keys(progress.lessons).length} · Tracked terms:{" "}
+          {Object.keys(progress.terms).length}
+        </p>
       </section>
 
       <section className="card stack">
         <h3>Import and export</h3>
+        <p className="meta-copy">
+          Export before resetting or replacing progress. Imports replace the
+          current local snapshot after validation.
+        </p>
         <div className="hero-actions">
           <button type="button" className="button button-primary" onClick={handleExport}>
             Export progress

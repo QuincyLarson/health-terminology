@@ -1,33 +1,33 @@
 import { Link } from "react-router-dom";
-import { content } from "../content";
 import { useAppState } from "../app/AppState";
 
 export function HomePage() {
-  const { dueTerms, newTerms, orderedLessons, progress } = useAppState();
+  const { dueTerms, eligibleTerms, newTerms, orderedLessons, progress, stats } =
+    useAppState();
   const currentLessonId =
     progress.user.currentLessonId ?? orderedLessons[0]?.id ?? "lesson-unit0-word-parts";
   const currentLesson =
     orderedLessons.find((lesson) => lesson.id === currentLessonId) ?? orderedLessons[0];
-  const completedLessons = orderedLessons.filter(
-    (lesson) => progress.lessons[lesson.id]?.completed,
-  ).length;
 
   return (
     <div className="page-grid">
       <section className="card hero-card">
         <p className="eyebrow">Current state</p>
-        <h2>Documentation has moved into a working seed app.</h2>
+        <h2>Curriculum, review, endless study, and local progress now work together.</h2>
         <p>
-          The current build includes Unit 0 foundations, first-pass Unit 1
-          affix lessons, content validation, local progress persistence, and
-          basic review queues.
+          The current build follows the PRD more closely: curriculum guidance,
+          lesson progression, due/new/mixed review, endless mode, and
+          progress/stats all live in the same local-only app.
         </p>
         <div className="hero-actions">
           <Link className="button button-primary" to={`/lesson/${currentLesson?.id}`}>
-            {completedLessons === 0 ? "Start Unit 0" : "Resume learning"}
+            {stats.completedLessons === 0 ? "Start Unit 0" : "Resume learning"}
           </Link>
           <Link className="button" to="/curriculum">
             Open curriculum map
+          </Link>
+          <Link className="button" to="/endless">
+            Open endless mode
           </Link>
         </div>
       </section>
@@ -36,7 +36,7 @@ export function HomePage() {
         <article className="card stat-card">
           <p className="stat-label">Lessons complete</p>
           <p className="stat-value">
-            {completedLessons} / {orderedLessons.length}
+            {stats.completedLessons} / {stats.totalLessons}
           </p>
         </article>
         <article className="card stat-card">
@@ -48,18 +48,35 @@ export function HomePage() {
           <p className="stat-value">{dueTerms.length}</p>
         </article>
         <article className="card stat-card">
-          <p className="stat-label">Seed terms</p>
-          <p className="stat-value">{content.terms.length}</p>
+          <p className="stat-label">Eligible terms</p>
+          <p className="stat-value">{eligibleTerms.length}</p>
         </article>
       </section>
 
-      <section className="card">
-        <p className="eyebrow">Next lesson</p>
-        <h3>{currentLesson?.title}</h3>
-        <p>{currentLesson?.objective}</p>
-        <Link className="text-link" to={`/lesson/${currentLesson?.id}`}>
-          Continue to lesson
-        </Link>
+      <section className="card stack">
+        <div>
+          <p className="eyebrow">Next lesson</p>
+          <h3>{currentLesson?.title}</h3>
+          <p>{currentLesson?.objective}</p>
+          <Link className="text-link" to={`/lesson/${currentLesson?.id}`}>
+            Continue to lesson
+          </Link>
+        </div>
+        <div>
+          <p className="eyebrow">Next review move</p>
+          <p className="meta-copy">
+            Due now: {dueTerms.length} · New queue: {newTerms.length} · Accuracy:{" "}
+            {Math.round(stats.accuracyRate * 100)}%
+          </p>
+          <div className="hero-actions">
+            <Link className="button" to="/review">
+              Start review
+            </Link>
+            <Link className="button" to="/progress">
+              Open progress
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

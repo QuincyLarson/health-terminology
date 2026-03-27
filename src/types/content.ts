@@ -1,6 +1,13 @@
 export type PartType = "root" | "prefix" | "suffix" | "combining_form";
 export type Compositionality = "full" | "partial" | "opaque";
 export type SourceType = "show_like" | "lay_exposure" | "pedagogic";
+export type ContentStatus =
+  | "planned"
+  | "drafted"
+  | "validated"
+  | "lesson-linked"
+  | "review-ready"
+  | "shipped";
 export type ExerciseType =
   | "root_match"
   | "split_term"
@@ -62,10 +69,13 @@ export interface Lesson {
   unitId: string;
   objective: string;
   whyItMatters: string;
+  prerequisiteLessonIds: string[];
   introducesPartIds: string[];
   introducesTermIds: string[];
+  reinforcesTermIds: string[];
   exerciseSetIds: string[];
   estimatedMinutes: number;
+  status: ContentStatus;
 }
 
 export interface Unit {
@@ -74,7 +84,7 @@ export interface Unit {
   summary: string;
   lessonIds: string[];
   prerequisiteUnitIds: string[];
-  status: "planned" | "drafted" | "validated" | "lesson-linked";
+  status: ContentStatus;
 }
 
 export interface Abbreviation {

@@ -3,7 +3,8 @@ import { content } from "../content";
 import { useAppState } from "../app/AppState";
 
 export function CurriculumPage() {
-  const { getLessonScoreLabel, progress, setCurrentLesson } = useAppState();
+  const { getLessonScoreLabel, isLessonUnlocked, progress, setCurrentLesson } =
+    useAppState();
 
   return (
     <div className="stack">
@@ -37,6 +38,12 @@ export function CurriculumPage() {
 
                 const scoreLabel = getLessonScoreLabel(lesson.id);
                 const completed = progress.lessons[lesson.id]?.completed;
+                const unlocked = isLessonUnlocked(lesson.id);
+                const prerequisiteTitles = lesson.prerequisiteLessonIds
+                  .map((prerequisiteId) =>
+                    content.lessons.find((item) => item.id === prerequisiteId)?.title,
+                  )
+                  .filter((title): title is string => Boolean(title));
 
                 return (
                   <li key={lesson.id} className="lesson-row">
@@ -46,11 +53,18 @@ export function CurriculumPage() {
                       <p className="meta-copy">
                         {lesson.estimatedMinutes} min
                         {scoreLabel ? ` · ${scoreLabel}` : ""}
+                        {!unlocked && prerequisiteTitles.length > 0
+                          ? ` · Recommended after ${prerequisiteTitles.join(", ")}`
+                          : ""}
                       </p>
                     </div>
                     <div className="lesson-actions">
                       <span className={completed ? "lesson-state done" : "lesson-state"}>
-                        {completed ? "Completed" : "Open"}
+                        {completed
+                          ? "Completed"
+                          : unlocked
+                            ? "Ready"
+                            : "Recommended later"}
                       </span>
                       <Link
                         className="button"

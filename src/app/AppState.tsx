@@ -7,10 +7,24 @@ import {
 } from "react";
 import { content } from "../content";
 import {
+  buildProgressStats,
+  getDueTerms,
+  getEligibleTerms,
+  getMixedTerms,
+  getNewTerms,
+  getNextRecommendedLesson,
+  getOrderedLessons,
+  getUnlockedLessons,
+  isLessonUnlocked,
+  isTermEligible,
+} from "../lib/curriculum/selectors";
+import {
+  createProgressExport,
   createDefaultProgressState,
   createLessonProgress,
+  getStorageSnapshotSize,
   loadProgressState,
-  migrateProgressState,
+  parseImportedProgress,
   saveProgressState,
   seedLessonTerms,
   updateTermAfterReview,
@@ -19,16 +33,23 @@ import type { Lesson, Term } from "../types/content";
 import type { ProgressState } from "../types/progress";
 
 interface AppStateValue {
+  eligibleTerms: Term[];
+  mixedTerms: Term[];
   progress: ProgressState;
   dueTerms: Term[];
   newTerms: Term[];
   orderedLessons: Lesson[];
+  storageSnapshotSize: number;
+  unlockedLessons: Lesson[];
+  stats: ReturnType<typeof buildProgressStats>;
   completeLesson: (lessonId: string, score: number, totalExercises: number) => void;
   exportProgress: () => string;
   getLessonById: (lessonId: string) => Lesson | undefined;
   getLessonScoreLabel: (lessonId: string) => string | null;
   getNextLesson: (lessonId: string) => Lesson | undefined;
   importProgress: (raw: string) => void;
+  isLessonUnlocked: (lessonId: string) => boolean;
+  isTermEligible: (termId: string) => boolean;
   recordReviewResult: (termId: string, correct: boolean) => void;
   resetProgress: () => void;
   setCurrentLesson: (lessonId: string) => void;
@@ -36,20 +57,7 @@ interface AppStateValue {
 }
 
 const AppStateContext = createContext<AppStateValue | null>(null);
-
-function buildOrderedLessons(): Lesson[] {
-  return content.units.flatMap((unit) =>
-    unit.lessonIds
-      .map((lessonId) => content.lessons.find((lesson) => lesson.id === lessonId))
-      .filter((lesson): lesson is Lesson => Boolean(lesson)),
-  );
-}
-
-const orderedLessons = buildOrderedLessons();
-
-function findNextIncompleteLesson(progress: ProgressState): Lesson | undefined {
-  return orderedLessons.find((lesson) => !progress.lessons[lesson.id]?.completed);
-}
+const orderedLessons = getOrderedLessons();
 
 function findLesson(lessonId: string): Lesson | undefined {
   return content.lessons.find((lesson) => lesson.id === lessonId);
@@ -67,18 +75,13 @@ export function AppStateProvider({ children }: PropsWithChildren) {
     saveProgressState(progress);
   }, [progress]);
 
-  const dueTerms = content.terms.filter((term) => {
-    const state = progress.terms[term.id];
-    if (!state || state.suspended || state.seenCount === 0 || !state.nextDueAt) {
-      return false;
-    }
-    return new Date(state.nextDueAt) <= new Date();
-  });
-
-  const newTerms = content.terms.filter((term) => {
-    const state = progress.terms[term.id];
-    return Boolean(state) && state.seenCount === 0 && !state.suspended;
-  });
+  const unlockedLessons = getUnlockedLessons(progress);
+  const eligibleTerms = getEligibleTerms(progress);
+  const dueTerms = getDueTerms(progress);
+  const newTerms = getNewTerms(progress);
+  const mixedTerms = getMixedTerms(progress);
+  const stats = buildProgressStats(progress);
+  const storageSnapshotSize = getStorageSnapshotSize(progress);
 
   function getLessonById(lessonId: string): Lesson | undefined {
     return findLesson(lessonId);
@@ -117,14 +120,20 @@ export function AppStateProvider({ children }: PropsWithChildren) {
     }
 
     setProgress((current) => {
-      const nextLesson = getNextLesson(lessonId) ?? findNextIncompleteLesson(current);
-      return {
+      const lessons = {
+        ...current.lessons,
+        [lessonId]: createLessonProgress(score, totalExercises),
+      };
+      const terms = seedLessonTerms(current.terms, lesson, content.terms);
+      const draftState = {
         ...current,
-        lessons: {
-          ...current.lessons,
-          [lessonId]: createLessonProgress(score, totalExercises),
-        },
-        terms: seedLessonTerms(current.terms, lesson, content.terms),
+        lessons,
+        terms,
+      };
+      const nextLesson =
+        getNextRecommendedLesson(draftState) ?? getNextLesson(lessonId);
+      return {
+        ...draftState,
         user: {
           currentLessonId: nextLesson?.id ?? lesson.id,
           currentUnitId: nextLesson?.unitId ?? lesson.unitId,
@@ -144,12 +153,11 @@ export function AppStateProvider({ children }: PropsWithChildren) {
   }
 
   function exportProgress(): string {
-    return JSON.stringify(progress, null, 2);
+    return JSON.stringify(createProgressExport(progress), null, 2);
   }
 
   function importProgress(raw: string): void {
-    const parsed = JSON.parse(raw) as Partial<ProgressState>;
-    setProgress(migrateProgressState(parsed));
+    setProgress(parseImportedProgress(raw));
   }
 
   function resetProgress(): void {
@@ -177,19 +185,42 @@ export function AppStateProvider({ children }: PropsWithChildren) {
     return `${Math.round(lesson.mastery * 100)}% mastery`;
   }
 
+  function getLessonUnlocked(lessonId: string): boolean {
+    const lesson = findLesson(lessonId);
+    if (!lesson) {
+      return false;
+    }
+    return isLessonUnlocked(lesson, progress);
+  }
+
+  function getTermEligible(termId: string): boolean {
+    const term = content.terms.find((item) => item.id === termId);
+    if (!term) {
+      return false;
+    }
+    return isTermEligible(term, progress);
+  }
+
   return (
     <AppStateContext.Provider
       value={{
+        eligibleTerms,
+        mixedTerms,
         progress,
         dueTerms,
         newTerms,
         orderedLessons,
+        storageSnapshotSize,
+        unlockedLessons,
+        stats,
         completeLesson,
         exportProgress,
         getLessonById,
         getLessonScoreLabel,
         getNextLesson,
         importProgress,
+        isLessonUnlocked: getLessonUnlocked,
+        isTermEligible: getTermEligible,
         recordReviewResult,
         resetProgress,
         setCurrentLesson,

@@ -66,6 +66,19 @@ input {
   color: var(--muted);
 }
 
+.utility-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.9rem;
+}
+
+.utility-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+}
+
 .eyebrow {
   margin: 0 0 0.35rem;
   text-transform: uppercase;
@@ -106,7 +119,9 @@ input {
 .stack,
 .tag-grid,
 .choice-list,
-.lesson-list {
+.lesson-list,
+.filter-grid,
+.breakdown-grid {
   display: grid;
   gap: 1rem;
 }
@@ -117,6 +132,14 @@ input {
 
 .tag-grid {
   grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.filter-grid {
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.breakdown-grid {
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
 }
 
 .card {
@@ -166,6 +189,17 @@ input {
 .button-quiet {
   padding: 0.45rem 0.8rem;
   background: transparent;
+}
+
+.text-input,
+.select-input {
+  width: 100%;
+  margin-top: 0.35rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 0.9rem;
+  border: 1px solid var(--panel-border);
+  background: #fffdf9;
+  color: var(--text);
 }
 
 .text-link {
@@ -221,6 +255,10 @@ input {
 .lesson-row:last-child {
   padding-bottom: 0;
   border-bottom: 0;
+}
+
+.lesson-row > div:first-child {
+  flex: 1 1 16rem;
 }
 
 .choice-list {

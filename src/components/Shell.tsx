@@ -1,12 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import type { PropsWithChildren } from "react";
 
 const navItems = [
   { label: "Home", to: "/" },
   { label: "Curriculum", to: "/curriculum" },
   { label: "Review", to: "/review" },
-  { label: "Settings", to: "/settings" },
-  { label: "About", to: "/about" },
+  { label: "Progress", to: "/progress" },
 ];
 
 export function Shell({ children }: PropsWithChildren) {
@@ -21,6 +20,11 @@ export function Shell({ children }: PropsWithChildren) {
           Learn roots, affixes, combining forms, and common exceptions without
           an account or a backend.
         </p>
+        <div className="utility-links">
+          <Link to="/endless">Endless mode</Link>
+          <Link to="/settings">Settings</Link>
+          <Link to="/about">About</Link>
+        </div>
       </header>
       <nav className="nav-bar" aria-label="Primary">
         {navItems.map((item) => (

@@ -7,7 +7,7 @@ export const units: Unit[] = [
     summary: "Foundational lessons on roots, suffixes, and combining vowels.",
     lessonIds: ["lesson-unit0-word-parts", "lesson-unit0-combining-vowels"],
     prerequisiteUnitIds: [],
-    status: "lesson-linked",
+    status: "shipped",
   },
   {
     id: "unit-1",
@@ -15,7 +15,7 @@ export const units: Unit[] = [
     summary: "The first high-frequency prefixes and suffixes that recur across systems.",
     lessonIds: ["lesson-unit1-common-suffixes", "lesson-unit1-common-prefixes"],
     prerequisiteUnitIds: ["unit-0"],
-    status: "drafted",
+    status: "lesson-linked",
   },
   {
     id: "unit-2",

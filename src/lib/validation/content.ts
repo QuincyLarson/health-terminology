@@ -72,6 +72,13 @@ export function validateContent(input: ValidationInput): ValidationResult {
     if (!unitIds.has(lesson.unitId)) {
       errors.push(`lesson ${lesson.id} references missing unit ${lesson.unitId}`);
     }
+    for (const prerequisiteId of lesson.prerequisiteLessonIds) {
+      if (!lessonIds.has(prerequisiteId)) {
+        errors.push(
+          `lesson ${lesson.id} references missing prerequisite lesson ${prerequisiteId}`,
+        );
+      }
+    }
     for (const partId of lesson.introducesPartIds) {
       if (!partIds.has(partId)) {
         errors.push(`lesson ${lesson.id} references missing part ${partId}`);
@@ -80,6 +87,11 @@ export function validateContent(input: ValidationInput): ValidationResult {
     for (const termId of lesson.introducesTermIds) {
       if (!termIds.has(termId)) {
         errors.push(`lesson ${lesson.id} references missing term ${termId}`);
+      }
+    }
+    for (const termId of lesson.reinforcesTermIds) {
+      if (!termIds.has(termId)) {
+        errors.push(`lesson ${lesson.id} references missing reinforced term ${termId}`);
       }
     }
     for (const exerciseId of lesson.exerciseSetIds) {

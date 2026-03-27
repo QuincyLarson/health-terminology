@@ -34,3 +34,12 @@ export interface ProgressState {
   terms: Record<string, TermProgress>;
   settings: AppSettings;
 }
+
+export interface ProgressExport {
+  version: number;
+  exportedAt: string;
+  user: AppUserState;
+  lessons: Record<string, LessonProgress>;
+  terms: Record<string, TermProgress>;
+  settings: AppSettings;
+}
