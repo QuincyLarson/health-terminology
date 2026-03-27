@@ -141,5 +141,17 @@ export function validateContent(input: ValidationInput): ValidationResult {
     }
   }
 
+  const shortForms = new Map<string, string>();
+  for (const abbreviation of input.abbreviations) {
+    const normalizedShortForm = abbreviation.shortForm.toLowerCase();
+    if (shortForms.has(normalizedShortForm)) {
+      errors.push(
+        `abbreviation collision: ${abbreviation.shortForm} (${shortForms.get(normalizedShortForm)} and ${abbreviation.id})`,
+      );
+      continue;
+    }
+    shortForms.set(normalizedShortForm, abbreviation.id);
+  }
+
   return { errors, warnings };
 }

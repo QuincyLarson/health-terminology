@@ -22,6 +22,7 @@ export function Shell({ children }: PropsWithChildren) {
         </p>
         <div className="utility-links">
           <Link to="/endless">Endless mode</Link>
+          <Link to="/abbreviations">Abbreviations</Link>
           <Link to="/settings">Settings</Link>
           <Link to="/about">About</Link>
         </div>

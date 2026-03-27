@@ -1,6 +1,7 @@
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AppStateProvider } from "./AppState";
 import { Shell } from "../components/Shell";
+import { AbbreviationsPage } from "../pages/AbbreviationsPage";
 import { AboutPage } from "../pages/AboutPage";
 import { CurriculumPage } from "../pages/CurriculumPage";
 import { EndlessPage } from "../pages/EndlessPage";
@@ -22,6 +23,7 @@ export function App() {
             <Route path="/review" element={<ReviewPage />} />
             <Route path="/endless" element={<EndlessPage />} />
             <Route path="/progress" element={<ProgressPage />} />
+            <Route path="/abbreviations" element={<AbbreviationsPage />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
