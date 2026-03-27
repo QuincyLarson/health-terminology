@@ -8,6 +8,8 @@ This is not a medical encyclopedia, certification prep tool, or clinical decisio
 
 The repository now has a working Vite + React seed app. The product direction, curriculum strategy, and implementation rules are defined in `docs/prd.md`, `docs/agents.md`, and the root `AGENTS.md`, and the first curriculum slice is implemented in `src/content`.
 
+The current app includes a curriculum map, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence.
+
 ## Planned Architecture
 
 The intended stack is simple and static:
@@ -20,7 +22,7 @@ The intended stack is simple and static:
 - JSON export/import/reset for user data
 - Static deployment on GitHub Pages
 
-The design target is a calm, rigorous, mobile-first learning experience with minimal chrome and fast initial load. The current build uses a hash router, a lesson page, a curriculum map, a review page, and settings for local progress management.
+The design target is a calm, rigorous, mobile-first learning experience with minimal chrome and fast initial load. The current build uses a hash router, a lesson page, a curriculum map, a review page, an endless mode page, an abbreviations page, a progress/stats page, and settings for local progress management.
 
 ## Development
 
@@ -33,6 +35,8 @@ Useful checks:
 
 - `npm run validate:content`
 - `npm run build`
+
+The settings page includes JSON export/import/reset, snapshot size diagnostics, and validation of imported progress payloads.
 
 ## Repository Shape
 
@@ -66,9 +70,9 @@ Planned top-level structure:
 
 1. Expand Unit 0 and Unit 1 beyond the seed lessons.
 2. Add more validated parts, terms, and exercises in 200-500 term batches.
-3. Tighten the lesson engine and review behavior.
-4. Add more body-system coverage.
-5. Grow endless mode and spaced repetition after the curriculum spine is broader.
+3. Grow body-system coverage and the abbreviation inventory.
+4. Tighten spaced repetition, due-session tuning, and mixed-session filtering.
+5. Extend progress and stats surfaces as more content lands.
 6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
 
 ## Working Notes

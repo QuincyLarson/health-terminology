@@ -25,8 +25,11 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable.
 - Unit 1 has a first slice covering suffixes and prefixes.
-- The app currently exposes 4 lessons, 6 terms, 8 parts, and 2 abbreviations.
-- Review flow is basic but functional and uses the seeded term set.
+- The app currently exposes 4 lessons, 6 terms, 8 parts, and 7 abbreviations.
+- Review flow now uses due, new, and mixed queues with caps and filter controls.
+- Endless mode is implemented as a separate surface and only shows eligible terms.
+- Abbreviations are implemented as a dedicated recognition surface separate from the main lesson flow.
+- Progress/stats is implemented as a separate surface with lesson and storage diagnostics.
 
 ## Unit 0 - How Medical Terms Work
 ### Module 0.1: Word Parts and Parsing
@@ -34,12 +37,14 @@ Each future unit and module entry should accumulate:
 - Representative content: `cardi`, `hyper-`, `-itis`, `arthr/o`.
 - Priority: highest.
 - Status: seeded.
+- Prerequisite guidance: this is the entry point for the curriculum.
 
 ### Module 0.2: Combining Vowels and Form Logic
 - Lesson goal: understand how term parts join and why combining vowels exist.
 - Representative content: `oste/o`, `neur/o`, `gastr/o`.
 - Priority: highest.
 - Status: seeded.
+- Prerequisite guidance: best taken after Unit 0 word-parts parsing.
 
 ### Module 0.3: Singular and Plural Basics
 - Lesson goal: recognize common singular/plural patterns in medical terms.
@@ -57,6 +62,7 @@ Each future unit and module entry should accumulate:
 - Representative content: `-itis`, `-algia`, `-osis`, `pain`, `swelling`.
 - Priority: highest.
 - Status: seeded as a suffix-first slice.
+- Prerequisite guidance: should follow Unit 0 word-parts parsing.
 
 ### Module 1.2: Procedures and Interventions
 - Lesson goal: identify common procedure-related parts.
@@ -75,6 +81,7 @@ Each future unit and module entry should accumulate:
 - Representative content: `hyper-`, `hypo-`, `tachy-`, `brady-`, `peri-`, `endo-`, `epi-`, `sub-`, `intra-`, `inter-`, `dys-`, `eu-`, `neo-`.
 - Priority: highest.
 - Status: seeded for `hyper-` and `hypo-`; remaining prefixes planned.
+- Prerequisite guidance: follow suffix introduction and general parsing.
 
 ## Unit 2 - Body Systems
 ### Module 2.1: Cardiovascular
@@ -226,4 +233,5 @@ Each future unit and module entry should accumulate:
 - Keep Unit 5 as a dedicated section rather than folding abbreviations into general lessons.
 - Author lessons in small batches so each module can be validated against the term bank and prerequisite graph.
 - Treat the curriculum map as an implementation checklist, not just a descriptive outline.
-- The current seed app demonstrates the curriculum path, progress persistence, and a simple review queue, but it is not yet a full curriculum.
+- Use lesson prerequisite metadata to gate later modules and to keep endless mode from surfacing terms too early.
+- The current seed app demonstrates the curriculum path, progress persistence, a simple review queue, endless mode, and progress diagnostics, but it is not yet a full curriculum.

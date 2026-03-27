@@ -2,7 +2,7 @@
 
 ## Current Repository State
 - Repository now contains a working Vite + React seed app plus the product docs.
-- The app includes deterministic content files, content validation scripts, localStorage persistence, and JSON import/export/reset support.
+- The app includes deterministic content files, content validation scripts, localStorage persistence, JSON import/export/reset support, dedicated endless mode, and a progress/stats page.
 - The current implementation target is to broaden the seed curriculum and review flow in validated batches.
 
 ## Content Status
@@ -25,12 +25,15 @@
 - Canonical term bank with typed entities for roots, prefixes, suffixes, combining forms, terms, lessons, and exercises.
 - Validation rules for duplicate IDs, broken references, missing prerequisites, and schema correctness.
 - Lesson and curriculum indices that can drive curriculum navigation and endless mode eligibility.
+- Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 2 abbreviations.
+- Seed content exists for 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 7 abbreviations.
 - Unit 0 is partially implemented with word-part and combining-vowel lessons.
 - Unit 1 has an initial slice covering high-yield suffixes and prefixes.
-- The review flow is basic but functional: due, new, and mixed queues are present.
+- The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
+- Endless mode is implemented as a separate page with search, unit, body-system, and due-only filters.
+- Progress diagnostics now report storage key, schema version, and snapshot size.
 - No large term batches have been generated yet.
 
 ## Staged Expansion Plan
@@ -48,6 +51,7 @@
 ### Stage 1 Status
 - Core data types, seed content, validation scripts, and localStorage persistence exist.
 - Export/import/reset work against the current progress model.
+- Import parsing now rejects malformed payloads earlier and records version-aware migrations.
 - Migration logic is basic and still needs hardening as the schema grows.
 
 ### Stage 2: Lesson Engine
@@ -59,6 +63,7 @@
 - A lesson page, exercise cards, audio playback helper, and completion flow exist.
 - Lesson completion seeds introduced terms into review.
 - Mastery tracking is present at a basic level.
+- Lesson content now carries prerequisite lesson guidance and reinforced-term links.
 
 ### Stage 3: Seed Curriculum
 - Author Unit 0 and the first high-yield building-block modules.
@@ -68,7 +73,7 @@
 ### Stage 3 Status
 - Unit 0 foundations and an initial Unit 1 slice are implemented.
 - Body-system modules are still planned.
-- The abbreviation section has only a starter set.
+- The abbreviation section now has a dedicated recognition page and a larger starter set, but not yet a full module.
 
 ### Stage 4: Endless Mode and SRS
 - Add due, new, and mixed queues.
@@ -76,9 +81,10 @@
 - Wire eligibility rules to prerequisite completion.
 
 ### Stage 4 Status
-- A basic review page exists with due, new, and mixed modes.
-- Review cards are plain-English recognition prompts.
+- A basic review page exists with due, new, and mixed modes, session caps, and content filters.
+- Review cards are plain-English recognition prompts, and the queue respects the current seed curriculum.
 - Spaced repetition exists as local progress state, but full SRS tuning still needs work.
+- Endless mode is separate from review and exposes eligible terms with filters instead of a single unbounded drill list.
 
 ### Stage 5: Scale-Out Content Generation
 - Expand the term bank in batches of 200 to 500 terms.
@@ -102,7 +108,8 @@
 
 ## Batch Ledger
 - Seed batch authored: Unit 0 foundations plus the first high-yield root, suffix, and prefix families.
-- Current seed totals: 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 2 abbreviations.
+- Current seed totals: 3 units, 4 lessons, 8 parts, 6 terms, 6 exercises, and 7 abbreviations.
+- Current runtime surfaces: curriculum, lesson, review, endless, abbreviations, progress, settings, and about.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
 
 ## Validation Expectations
