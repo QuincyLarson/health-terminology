@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import type { PropsWithChildren } from "react";
+import { useAppState } from "../app/AppState";
 
 const navItems = [
   { label: "Home", to: "/" },
@@ -9,6 +10,8 @@ const navItems = [
 ];
 
 export function Shell({ children }: PropsWithChildren) {
+  const { recoveryNotice } = useAppState();
+
   return (
     <div className="shell">
       <header className="masthead">
@@ -27,6 +30,12 @@ export function Shell({ children }: PropsWithChildren) {
           <Link to="/about">About</Link>
         </div>
       </header>
+      {recoveryNotice ? (
+        <section className="banner banner-warning">
+          <p>{recoveryNotice}</p>
+          <Link to="/settings">Open settings</Link>
+        </section>
+      ) : null}
       <nav className="nav-bar" aria-label="Primary">
         {navItems.map((item) => (
           <NavLink

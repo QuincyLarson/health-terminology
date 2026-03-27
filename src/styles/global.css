@@ -151,6 +151,25 @@ input {
   backdrop-filter: blur(8px);
 }
 
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--panel-border);
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  margin: 0;
+}
+
+.banner-warning {
+  background: rgba(124, 63, 35, 0.12);
+}
+
 .hero-card {
   padding: 1.4rem;
 }
