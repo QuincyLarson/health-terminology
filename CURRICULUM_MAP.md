@@ -25,8 +25,10 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, and procedure language.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, and gastrointestinal language.
-- The app currently exposes 14 lessons, 40 terms, 35 parts, and 7 abbreviations.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, and renal/urinary language.
+- Unit 3 now includes starter lessons for clinical language patterns.
+- Unit 4 now includes starter lessons for administrative and document language.
+- The app currently exposes 20 lessons, 67 terms, 46 parts, 44 exercises, and 7 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -107,6 +109,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, and renal/urinary language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -132,6 +135,7 @@ Each future unit and module entry should accumulate:
 - Lesson goal: understand bones, joints, movement, and connective tissue.
 - Representative content: `oste/o`, `arthr/o`, `my/o`, `-pathy`, `-plasty`.
 - Priority: high.
+- Status: seeded.
 
 ### Module 2.5: Nervous System
 - Lesson goal: parse terms involving nerves, brain, sensation, and function.
@@ -145,8 +149,9 @@ Each future unit and module entry should accumulate:
 
 ### Module 2.7: Urinary / Renal
 - Lesson goal: recognize kidney, bladder, urine, and filtration terms.
-- Representative content: `nephr/o`, `ren/o`, `cyst/o`, `ur/o`.
+- Representative content: `nephr/o`, `cyst/o`, `-itis`, `-scopy`, `-uria`.
 - Priority: medium-high.
+- Status: seeded.
 
 ### Module 2.8: Reproductive
 - Lesson goal: decode anatomy and common reproductive-system terms.
@@ -174,6 +179,7 @@ Each future unit and module entry should accumulate:
 - Priority: medium.
 
 ## Unit 3 - Clinical Language Patterns
+Unit 3 now has authored starter slices for symptoms/status language and procedure families.
 ### Module 3.1: Symptoms and Signs
 - Lesson goal: distinguish what a patient reports from what is observed.
 - Representative content: pain, fever, nausea, edema, dyspnea.
@@ -210,6 +216,7 @@ Each future unit and module entry should accumulate:
 - Priority: medium.
 
 ## Unit 4 - Administrative and Document Language
+Unit 4 now has authored starter slices for scheduling, follow-up, records, orders, and authorization language.
 ### Module 4.1: Forms and Scheduling
 - Lesson goal: understand common administrative vocabulary.
 - Representative content: appointment, intake, insurance, authorization, reschedule.

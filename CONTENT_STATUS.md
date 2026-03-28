@@ -5,7 +5,7 @@
 - The app includes deterministic content files, content validation scripts, a migration test, localStorage persistence, JSON import/export/reset support, a browse-first term index, dedicated endless mode, and a progress/stats page.
 - The runtime preserves unreadable local snapshots into a recovery backup, confirms destructive import/reset flows, and surfaces recovery messaging in settings.
 - Lesson flow now uses first-attempt mastery scoring with retry support instead of requiring perfect recall on a single pass.
-- The current implementation target is now scale-out content growth and SRS refinement rather than reaching a first playable release.
+- The current implementation target is now scale-out content growth, deeper curriculum breadth, and SRS refinement rather than reaching a first playable release.
 
 ## Content Status
 
@@ -30,16 +30,18 @@
 - Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 3 units, 14 lessons, 35 parts, 40 terms, 26 exercises, and 7 abbreviations.
+- Seed content exists for 5 units, 20 lessons, 46 parts, 67 terms, 44 exercises, and 7 abbreviations.
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
 - Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, and procedure language.
-- Unit 2 now includes cardiovascular, respiratory, and gastrointestinal starter lessons with airway, breathing-status, inflammation, and procedure language.
+- Unit 2 now includes cardiovascular, respiratory, gastrointestinal, musculoskeletal, and renal/urinary starter lessons with airway, breathing-status, inflammation, procedure, pain, repair, and urinary language.
+- Unit 3 now includes starter lessons for symptoms/status language and cross-system procedure families.
+- Unit 4 now includes starter lessons for scheduling, follow-up, records, orders, and authorization language.
 - Browse mode is implemented as a separate surface and labels future terms as `not yet taught`.
 - The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
 - Endless mode is implemented as a separate page with search, unit, body-system, and due-only filters.
 - Curriculum now exposes clearer lesson states such as in-progress and review-recommended.
 - Progress diagnostics now report storage key, schema version, recovery status, and snapshot size.
-- No large term batches have been generated yet.
+- The seed curriculum has now reached a broader starter footprint, but large term batches are still the next scale-out step.
 
 ## Staged Expansion Plan
 
@@ -80,7 +82,9 @@
 ### Stage 3 Status
 - Unit 0 foundations now include plural and pronunciation coverage.
 - Unit 1 is broader, with roots, prefixes, and procedure language.
-- Unit 2 now has coherent cardiovascular, respiratory, and gastrointestinal starter slices.
+- Unit 2 now has coherent cardiovascular, respiratory, gastrointestinal, musculoskeletal, and renal/urinary starter slices.
+- Unit 3 now has a starter slice for clinical-language patterns.
+- Unit 4 now has a starter slice for administrative and document language.
 - The abbreviation section now has a dedicated recognition page and a larger starter set, but not yet a full module.
 
 ### Stage 4: Endless Mode and SRS
@@ -117,8 +121,8 @@
 - Keep authored lessons aligned to the batch so prerequisites remain understandable.
 
 ## Batch Ledger
-- Seed batch authored: Unit 0 foundations plus plural/pronunciation lessons, broader Unit 1 roots/prefixes/procedures, and Unit 2 starter lessons for cardiovascular, respiratory, and gastrointestinal language.
-- Current seed totals: 3 units, 14 lessons, 35 parts, 40 terms, 26 exercises, and 7 abbreviations.
+- Seed batch authored: Unit 0 foundations plus plural/pronunciation lessons, broader Unit 1 roots/prefixes/procedures, expanded Unit 2 starter lessons, and the first Unit 3 and Unit 4 starter lessons.
+- Current seed totals: 5 units, 20 lessons, 46 parts, 67 terms, 44 exercises, and 7 abbreviations.
 - Current runtime surfaces: curriculum, lesson, browse, review, endless, abbreviations, progress, settings, and about.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
