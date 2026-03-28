@@ -1423,6 +1423,226 @@ export const exercises: Exercise[] = [
     explanation: "A prior authorization notice usually means additional approval is needed before a service or medicine is covered.",
     linkedTermIds: ["term-prior-authorization-notice", "term-coverage"],
     linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit2-integumentary-1",
+    type: "infer_meaning",
+    prompt: "If `sub-` means under and `cutane/o` points to skin, what does `subcutaneous` suggest?",
+    choices: [
+      "under the skin",
+      "inflammation of the skin",
+      "study of the skin",
+      "ear examination"
+    ],
+    answer: "under the skin",
+    explanation: "The prefix and skin word part together point to something below or under the skin.",
+    linkedTermIds: ["term-subcutaneous"],
+    linkedPartIds: ["part-sub-prefix", "part-cutane-combining"],
+  },
+  {
+    id: "exercise-unit2-integumentary-2",
+    type: "root_match",
+    prompt: "Which combining form points to skin in `cutaneous` language?",
+    choices: ["cutane/o", "ophthalm/o", "onc/o", "ot/o"],
+    answer: "cutane/o",
+    explanation: "`cutane/o` points to skin in terms like `cutaneous` and `subcutaneous`.",
+    linkedTermIds: ["term-cutaneous", "term-subcutaneous"],
+    linkedPartIds: ["part-cutane-combining"],
+  },
+  {
+    id: "exercise-unit2-integumentary-3",
+    type: "infer_meaning",
+    prompt: "What does `dermatosis` suggest?",
+    choices: [
+      "an abnormal skin condition",
+      "study of the skin",
+      "removal of skin tissue",
+      "ear inflammation"
+    ],
+    answer: "an abnormal skin condition",
+    explanation: "`derm/o` points to skin and `-osis` often points to an abnormal condition.",
+    linkedTermIds: ["term-dermatosis"],
+    linkedPartIds: ["part-derm-combining", "part-osis-suffix"],
+  },
+  {
+    id: "exercise-unit2-sensory-1",
+    type: "infer_meaning",
+    prompt: "If `ophthalm/o` means eye and `-logy` means study of, what does `ophthalmology` suggest?",
+    choices: [
+      "study and treatment of the eye",
+      "inflammation of the ear",
+      "viewing the ear with a scope",
+      "hearing loss caused by a tumor"
+    ],
+    answer: "study and treatment of the eye",
+    explanation: "The eye combining form plus `-logy` points to the field that focuses on eye care.",
+    linkedTermIds: ["term-ophthalmology"],
+    linkedPartIds: ["part-ophthalm-combining", "part-ology-suffix"],
+  },
+  {
+    id: "exercise-unit2-sensory-2",
+    type: "infer_meaning",
+    prompt: "What does `otitis` suggest?",
+    choices: [
+      "inflammation of the ear",
+      "study of hearing",
+      "viewing the eye with a scope",
+      "under the skin"
+    ],
+    answer: "inflammation of the ear",
+    explanation: "`ot/o` points to the ear and `-itis` points to inflammation.",
+    linkedTermIds: ["term-otitis"],
+    linkedPartIds: ["part-ot-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-sensory-3",
+    type: "split_term",
+    prompt: "Which suffix in `otoscopy` signals viewing with a scope?",
+    choices: ["-scopy", "-logy", "-itis", "-oma"],
+    answer: "-scopy",
+    explanation: "`-scopy` marks an examination or viewing procedure with a scope or similar instrument.",
+    linkedTermIds: ["term-otoscopy"],
+    linkedPartIds: ["part-scopy-suffix"],
+  },
+  {
+    id: "exercise-unit2-oncology-1",
+    type: "infer_meaning",
+    prompt: "If `onc/o` means tumor or cancer and `-logy` means study of, what does `oncology` suggest?",
+    choices: [
+      "study and treatment of tumors or cancer",
+      "a noncancerous growth",
+      "an abnormal skin condition",
+      "an ear examination"
+    ],
+    answer: "study and treatment of tumors or cancer",
+    explanation: "`onc/o` plus `-logy` points to the medical field centered on cancer care.",
+    linkedTermIds: ["term-oncology"],
+    linkedPartIds: ["part-onc-combining", "part-ology-suffix"],
+  },
+  {
+    id: "exercise-unit2-oncology-2",
+    type: "infer_meaning",
+    prompt: "What does `carcinoma` suggest?",
+    choices: [
+      "a cancerous tumor",
+      "the study of hearing",
+      "ear inflammation",
+      "skin under the surface"
+    ],
+    answer: "a cancerous tumor",
+    explanation: "`carcin/o` points to cancer and `-oma` points to a mass or tumor.",
+    linkedTermIds: ["term-carcinoma"],
+    linkedPartIds: ["part-carcin-combining", "part-oma-suffix"],
+  },
+  {
+    id: "exercise-unit2-oncology-3",
+    type: "cloze",
+    prompt: "Complete the contrast: `benign` means not cancerous, while `malignant` means ___.",
+    choices: [
+      "cancerous or likely to spread",
+      "under the skin",
+      "within normal limits",
+      "study of the eye"
+    ],
+    answer: "cancerous or likely to spread",
+    explanation: "`benign` and `malignant` are high-yield opposites in tumor language.",
+    linkedTermIds: ["term-benign", "term-malignant"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit5-chart-1",
+    type: "infer_meaning",
+    prompt: "Exam line: `Otoscopy WNL.` What does `WNL` mean here?",
+    choices: [
+      "within normal limits",
+      "without new lesions",
+      "will need labs",
+      "watch next level"
+    ],
+    answer: "within normal limits",
+    explanation: "`WNL` is chart shorthand meaning the finding is in the expected normal range.",
+    linkedTermIds: ["term-otoscopy"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-wnl"],
+  },
+  {
+    id: "exercise-unit5-chart-2",
+    type: "infer_meaning",
+    prompt: "Medication note: `Give insulin SQ.` What does `SQ` mean?",
+    choices: [
+      "subcutaneous",
+      "as needed",
+      "by mouth",
+      "within normal limits"
+    ],
+    answer: "subcutaneous",
+    explanation: "`SQ` means the medicine is given under the skin.",
+    linkedTermIds: ["term-subcutaneous"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sq"],
+  },
+  {
+    id: "exercise-unit5-chart-3",
+    type: "infer_meaning",
+    prompt: "Chart phrase: `cough w/o fever, improved w/ rest.` Which paraphrase best matches?",
+    choices: [
+      "cough without fever, improved with rest",
+      "cough with fever, improved without rest",
+      "cough with oxygen, improved while resting in the office",
+      "cough without oxygen, improved with fluids only"
+    ],
+    answer: "cough without fever, improved with rest",
+    explanation: "`w/` means with and `w/o` means without in shorthand note language.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-w-with", "abbr-wo"],
+  },
+  {
+    id: "exercise-unit6-rapid-1",
+    type: "infer_meaning",
+    prompt: "Progress note: `SQ injection given w/o complication; site WNL.` Which paraphrase fits best?",
+    choices: [
+      "An under-the-skin injection was given and the site looked normal afterward",
+      "The patient was told to avoid injections because the site looked infected",
+      "A vein injection caused complications and urgent reassessment",
+      "No medicine was given because the patient had to remain NPO"
+    ],
+    answer: "An under-the-skin injection was given and the site looked normal afterward",
+    explanation: "This line combines route shorthand, note shorthand, and a normal-finding abbreviation in one compact sentence.",
+    linkedTermIds: ["term-subcutaneous", "term-injection", "term-progress-note"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sq", "abbr-wo", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit6-rapid-2",
+    type: "infer_meaning",
+    prompt: "If `carcin/o` means cancer and `-oma` means mass or tumor, what does `carcinoma` suggest?",
+    choices: [
+      "a cancerous tumor",
+      "a harmless skin rash",
+      "viewing the ear with a scope",
+      "study of the eye"
+    ],
+    answer: "a cancerous tumor",
+    explanation: "This is a direct tumor-language decoding pattern that reinforces the new oncology lesson.",
+    linkedTermIds: ["term-carcinoma"],
+    linkedPartIds: ["part-carcin-combining", "part-oma-suffix"],
+  },
+  {
+    id: "exercise-unit6-rapid-3",
+    type: "infer_meaning",
+    prompt: "Referral note: `f/u w/ ophthalmology; otoscopy WNL.` Which paraphrase best matches?",
+    choices: [
+      "Return for follow-up with the eye specialist; the ear exam looked normal",
+      "Follow-up is complete and the eye exam found a malignant tumor",
+      "The patient needs surgery on the ear and should avoid all food",
+      "The patient should request records before the eye exam can happen"
+    ],
+    answer: "Return for follow-up with the eye specialist; the ear exam looked normal",
+    explanation: "This short line mixes workflow shorthand, a specialty term, a procedure term, and a normal-finding abbreviation.",
+    linkedTermIds: ["term-ophthalmology", "term-otoscopy"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-fu", "abbr-w-with", "abbr-wnl"],
   }
 ];
 
@@ -2456,6 +2676,150 @@ export const lessons: Lesson[] = [
       "exercise-unit6-admin-1",
       "exercise-unit6-admin-2",
       "exercise-unit6-admin-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-integumentary-language",
+    title: "Integumentary and Skin Language",
+    unitId: "unit-2",
+    objective: "Decode a first set of skin-related terms that bridge body-system vocabulary and medication route language.",
+    whyItMatters: "Skin language appears in dermatology, injections, wound care, and everyday chart descriptions.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-immune-and-lymphatic-language",
+      "lesson-unit1-condition-suffixes"
+    ],
+    introducesPartIds: ["part-cutane-combining", "part-sub-prefix"],
+    introducesTermIds: [
+      "term-dermatology",
+      "term-cutaneous",
+      "term-subcutaneous",
+      "term-dermatosis"
+    ],
+    reinforcesTermIds: ["term-dermatitis", "term-topical", "term-injection"],
+    exerciseSetIds: [
+      "exercise-unit2-integumentary-1",
+      "exercise-unit2-integumentary-2",
+      "exercise-unit2-integumentary-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-eye-ear-and-hearing-language",
+    title: "Eye, Ear, and Hearing Language",
+    unitId: "unit-2",
+    objective: "Decode a compact starter set of eye, ear, and hearing terms without relying on specialty background.",
+    whyItMatters: "Sensory-system terminology shows up in referrals, urgent care notes, and exam documentation.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-integumentary-language",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: [
+      "part-ophthalm-combining",
+      "part-ot-combining",
+      "part-audi-combining"
+    ],
+    introducesTermIds: [
+      "term-ophthalmology",
+      "term-otitis",
+      "term-otoscopy",
+      "term-audiology"
+    ],
+    reinforcesTermIds: ["term-neurology", "term-bronchoscopy", "term-colonoscopy"],
+    exerciseSetIds: [
+      "exercise-unit2-sensory-1",
+      "exercise-unit2-sensory-2",
+      "exercise-unit2-sensory-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-oncology-and-tumor-language",
+    title: "Oncology and Tumor Language",
+    unitId: "unit-2",
+    objective: "Recognize a first pass through cancer-field vocabulary and the basic contrast between benign and malignant growths.",
+    whyItMatters: "Tumor language appears in pathology, referrals, imaging follow-up, and many general clinical conversations.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-eye-ear-and-hearing-language",
+      "lesson-unit1-condition-suffixes"
+    ],
+    introducesPartIds: ["part-onc-combining", "part-carcin-combining"],
+    introducesTermIds: [
+      "term-oncology",
+      "term-carcinoma",
+      "term-neoplasm",
+      "term-benign",
+      "term-malignant"
+    ],
+    reinforcesTermIds: ["term-lymphoma", "term-neuroma", "term-hematoma"],
+    exerciseSetIds: [
+      "exercise-unit2-oncology-1",
+      "exercise-unit2-oncology-2",
+      "exercise-unit2-oncology-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-chart-and-note-abbreviations",
+    title: "Chart and Note Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize compact shorthand used in chart lines for normal findings, under-the-skin injections, and with or without phrasing.",
+    whyItMatters: "These abbreviations compress real note language, and learners need to decode them quickly when reading short passages.",
+    prerequisiteLessonIds: ["lesson-unit5-measurement-and-route-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-wnl",
+      "abbr-sq",
+      "abbr-w-with",
+      "abbr-wo"
+    ],
+    reinforcesTermIds: [
+      "term-subcutaneous",
+      "term-progress-note",
+      "term-physical-exam",
+      "term-reassessment"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-chart-1",
+      "exercise-unit5-chart-2",
+      "exercise-unit5-chart-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-rapid-parsing-drills",
+    title: "Rapid Parsing Drills",
+    unitId: "unit-6",
+    objective: "Practice quick meaning extraction from dense short lines that mix abbreviations, body-system terms, and workflow language.",
+    whyItMatters: "The final step toward real reading is fast parsing without stopping on every unfamiliar-looking token.",
+    prerequisiteLessonIds: ["lesson-unit6-admin-passage-decoding"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-subcutaneous",
+      "term-ophthalmology",
+      "term-otoscopy",
+      "term-carcinoma",
+      "term-benign",
+      "term-malignant"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-sq",
+      "abbr-wnl",
+      "abbr-w-with",
+      "abbr-wo",
+      "abbr-fu"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-rapid-1",
+      "exercise-unit6-rapid-2",
+      "exercise-unit6-rapid-3"
     ],
     estimatedMinutes: 8,
     status: "shipped",

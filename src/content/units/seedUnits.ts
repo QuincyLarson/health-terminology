@@ -44,7 +44,10 @@ export const units: Unit[] = [
       "lesson-unit2-nervous-system-disorder-language",
       "lesson-unit2-endocrine-and-glycemic-language",
       "lesson-unit2-reproductive-language-starter",
-      "lesson-unit2-immune-and-lymphatic-language"
+      "lesson-unit2-immune-and-lymphatic-language",
+      "lesson-unit2-integumentary-language",
+      "lesson-unit2-eye-ear-and-hearing-language",
+      "lesson-unit2-oncology-and-tumor-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
@@ -88,7 +91,8 @@ export const units: Unit[] = [
     lessonIds: [
       "lesson-unit5-core-clinical-abbreviations",
       "lesson-unit5-document-and-workflow-abbreviations",
-      "lesson-unit5-measurement-and-route-abbreviations"
+      "lesson-unit5-measurement-and-route-abbreviations",
+      "lesson-unit5-chart-and-note-abbreviations"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4"],
     status: "lesson-linked",
@@ -100,7 +104,8 @@ export const units: Unit[] = [
     lessonIds: [
       "lesson-unit6-mixed-review-recognition",
       "lesson-unit6-clinical-passage-decoding",
-      "lesson-unit6-admin-passage-decoding"
+      "lesson-unit6-admin-passage-decoding",
+      "lesson-unit6-rapid-parsing-drills"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "lesson-linked",

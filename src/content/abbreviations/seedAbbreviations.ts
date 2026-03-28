@@ -144,5 +144,37 @@ export const abbreviations: Abbreviation[] = [
     category: "measurement",
     meaning: "metric unit of mass commonly used for medicine doses",
     ambiguous: false,
+  },
+  {
+    id: "abbr-wnl",
+    shortForm: "WNL",
+    expandedForm: "within normal limits",
+    category: "clinical",
+    meaning: "findings are in the expected or normal range",
+    ambiguous: false,
+  },
+  {
+    id: "abbr-sq",
+    shortForm: "SQ",
+    expandedForm: "subcutaneous",
+    category: "route",
+    meaning: "given under the skin",
+    ambiguous: false,
+  },
+  {
+    id: "abbr-w-with",
+    shortForm: "w/",
+    expandedForm: "with",
+    category: "document",
+    meaning: "used in charting or instructions to mean with",
+    ambiguous: false,
+  },
+  {
+    id: "abbr-wo",
+    shortForm: "w/o",
+    expandedForm: "without",
+    category: "document",
+    meaning: "used in charting or instructions to mean without",
+    ambiguous: false,
   }
 ];
