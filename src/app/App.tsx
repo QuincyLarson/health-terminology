@@ -2,7 +2,11 @@ import { Suspense, lazy } from "react";
 import { HashRouter, Navigate, Route, Routes } from "react-router-dom";
 import { AppStateProvider } from "./AppState";
 import { Shell } from "../components/Shell";
-import { HomePage } from "../pages/HomePage";
+
+const HomePage = lazy(async () => {
+  const module = await import("../pages/HomePage");
+  return { default: module.HomePage };
+});
 
 const BrowsePage = lazy(async () => {
   const module = await import("../pages/BrowsePage");

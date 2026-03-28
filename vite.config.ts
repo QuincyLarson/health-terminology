@@ -18,8 +18,28 @@ export default defineConfig({
             return "vendor";
           }
 
-          if (id.includes("/src/content/")) {
-            return "content";
+          if (id.includes("/src/content/terms/")) {
+            return "content-terms";
+          }
+
+          if (id.includes("/src/content/lessons/")) {
+            return "content-lessons";
+          }
+
+          if (id.includes("/src/content/parts/")) {
+            return "content-parts";
+          }
+
+          if (id.includes("/src/content/abbreviations/")) {
+            return "content-abbreviations";
+          }
+
+          if (id.includes("/src/content/units/")) {
+            return "content-units";
+          }
+
+          if (id.includes("/src/content/index")) {
+            return "content-index";
           }
 
           if (
