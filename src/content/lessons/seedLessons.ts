@@ -1643,6 +1643,145 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-ophthalmology", "term-otoscopy"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-w-with", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit5-history-1",
+    type: "infer_meaning",
+    prompt: "Chart line: `c/o cough and dyspnea.` What does `c/o` mean here?",
+    choices: [
+      "complains of",
+      "cleared for observation",
+      "chronic onset",
+      "continue orally"
+    ],
+    answer: "complains of",
+    explanation: "`c/o` introduces what the patient says they are experiencing.",
+    linkedTermIds: ["term-dyspnea", "term-chief-complaint"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-co"],
+  },
+  {
+    id: "exercise-unit5-history-2",
+    type: "infer_meaning",
+    prompt: "Allergy line: `NKDA.` What does this mean?",
+    choices: [
+      "no known drug allergies",
+      "new known diagnosis added",
+      "needs kidney disease assessment",
+      "no key discharge advice"
+    ],
+    answer: "no known drug allergies",
+    explanation: "`NKDA` records that no medication allergies are known.",
+    linkedTermIds: ["term-allergies"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-nkda"],
+  },
+  {
+    id: "exercise-unit5-history-3",
+    type: "infer_meaning",
+    prompt: "Progress note: `s/p appendectomy, pain improving.` What does `s/p` suggest?",
+    choices: [
+      "after the appendectomy",
+      "scheduled for appendectomy",
+      "skin pain pattern",
+      "scope procedure pending"
+    ],
+    answer: "after the appendectomy",
+    explanation: "`s/p` means status post, or after a listed event or procedure.",
+    linkedTermIds: ["term-appendectomy", "term-progress-note"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sp"],
+  },
+  {
+    id: "exercise-unit5-frequency-1",
+    type: "infer_meaning",
+    prompt: "Medication instruction: `Take one tablet BID.` What does `BID` mean?",
+    choices: [
+      "twice daily",
+      "three times daily",
+      "as needed",
+      "by mouth"
+    ],
+    answer: "twice daily",
+    explanation: "`BID` is common shorthand for two times each day.",
+    linkedTermIds: ["term-dosage"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-bid"],
+  },
+  {
+    id: "exercise-unit5-frequency-2",
+    type: "root_match",
+    prompt: "Which abbreviation means `three times daily`?",
+    choices: ["TID", "BID", "CBC", "PRN"],
+    answer: "TID",
+    explanation: "`TID` means three times daily, while `BID` means twice daily.",
+    linkedTermIds: ["term-dosage"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-tid", "abbr-bid"],
+  },
+  {
+    id: "exercise-unit5-frequency-3",
+    type: "infer_meaning",
+    prompt: "Lab order: `CBC this morning.` What does `CBC` stand for?",
+    choices: [
+      "complete blood count",
+      "chronic breathing complaint",
+      "covered billing claim",
+      "cardiac biopsy check"
+    ],
+    answer: "complete blood count",
+    explanation: "`CBC` names a common blood-cell lab test.",
+    linkedTermIds: ["term-hematology", "term-anemia"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc"],
+  },
+  {
+    id: "exercise-unit6-results-1",
+    type: "infer_meaning",
+    prompt: "Triage note: `c/o cough, NKDA, start inhaler BID.` Which paraphrase fits best?",
+    choices: [
+      "The patient reports cough, has no known drug allergies, and should use the inhaler twice a day",
+      "The patient has chronic cough, known allergies, and should use the inhaler only as needed",
+      "The patient is ready for discharge after a normal blood test",
+      "The patient needs surgery before any breathing treatment"
+    ],
+    answer: "The patient reports cough, has no known drug allergies, and should use the inhaler twice a day",
+    explanation: "This line mixes complaint shorthand, allergy shorthand, and medication-frequency shorthand.",
+    linkedTermIds: ["term-chief-complaint", "term-allergies", "term-dosage"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-co", "abbr-nkda", "abbr-bid"],
+  },
+  {
+    id: "exercise-unit6-results-2",
+    type: "infer_meaning",
+    prompt: "Discharge line: `s/p appendectomy; take antibiotic TID and f/u with PCP.` Which paraphrase best matches?",
+    choices: [
+      "After the appendix removal, take the antibiotic three times daily and follow up with the main clinician",
+      "Before the appendix removal, take the antibiotic twice daily and request records",
+      "After the eye exam, use the antibiotic only as needed and return to billing",
+      "The patient should not eat or drink until after the clinic closes"
+    ],
+    answer: "After the appendix removal, take the antibiotic three times daily and follow up with the main clinician",
+    explanation: "This line combines procedure status, medication frequency, and workflow shorthand.",
+    linkedTermIds: ["term-appendectomy", "term-discharge-instructions", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sp", "abbr-tid", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-results-3",
+    type: "infer_meaning",
+    prompt: "Lab update: `CBC WNL.` What does this suggest?",
+    choices: [
+      "The blood count test was within the expected range",
+      "The patient needs three medicines a day",
+      "The patient has no known drug allergies",
+      "The patient should return for eye follow-up"
+    ],
+    answer: "The blood count test was within the expected range",
+    explanation: "`CBC` names the blood-count test and `WNL` says the result was within normal limits.",
+    linkedTermIds: ["term-monitoring", "term-findings"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc", "abbr-wnl"],
   }
 ];
 
@@ -2793,6 +2932,62 @@ export const lessons: Lesson[] = [
     status: "shipped",
   },
   {
+    id: "lesson-unit5-history-and-status-abbreviations",
+    title: "History and Status Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize common shorthand for patient complaints, allergy status, and after-procedure charting.",
+    whyItMatters: "These abbreviations appear in triage notes, allergy sections, progress notes, and surgical follow-up language.",
+    prerequisiteLessonIds: ["lesson-unit5-chart-and-note-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-co",
+      "abbr-sp",
+      "abbr-nkda"
+    ],
+    reinforcesTermIds: [
+      "term-chief-complaint",
+      "term-allergies",
+      "term-progress-note",
+      "term-appendectomy"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-history-1",
+      "exercise-unit5-history-2",
+      "exercise-unit5-history-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-frequency-and-lab-abbreviations",
+    title: "Frequency and Lab Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize high-frequency shorthand for medication timing and one of the most common lab orders.",
+    whyItMatters: "Learners regularly encounter medication frequency and basic lab shorthand in visit summaries and chart instructions.",
+    prerequisiteLessonIds: ["lesson-unit5-history-and-status-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-bid",
+      "abbr-tid",
+      "abbr-cbc"
+    ],
+    reinforcesTermIds: [
+      "term-dosage",
+      "term-monitoring",
+      "term-findings",
+      "term-hematology"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-frequency-1",
+      "exercise-unit5-frequency-2",
+      "exercise-unit5-frequency-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
     id: "lesson-unit6-rapid-parsing-drills",
     title: "Rapid Parsing Drills",
     unitId: "unit-6",
@@ -2823,6 +3018,45 @@ export const lessons: Lesson[] = [
       "exercise-unit6-rapid-1",
       "exercise-unit6-rapid-2",
       "exercise-unit6-rapid-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-results-and-discharge-synthesis",
+    title: "Results and Discharge Synthesis",
+    unitId: "unit-6",
+    objective: "Parse compact notes that mix complaints, allergy status, medication frequency, lab results, and discharge follow-up.",
+    whyItMatters: "Learners need realistic short-note practice where several common abbreviations appear together in one clinical thread.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-rapid-parsing-drills",
+      "lesson-unit5-frequency-and-lab-abbreviations"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-chief-complaint",
+      "term-allergies",
+      "term-discharge-instructions",
+      "term-dosage",
+      "term-monitoring",
+      "term-findings"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-co",
+      "abbr-nkda",
+      "abbr-bid",
+      "abbr-tid",
+      "abbr-cbc",
+      "abbr-sp",
+      "abbr-fu",
+      "abbr-pcp",
+      "abbr-wnl"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-results-1",
+      "exercise-unit6-results-2",
+      "exercise-unit6-results-3"
     ],
     estimatedMinutes: 8,
     status: "shipped",
