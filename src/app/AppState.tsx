@@ -32,7 +32,7 @@ import {
   updateTermAfterReview,
 } from "../lib/progress/storage";
 import type { Lesson, Term } from "../types/content";
-import type { ProgressState } from "../types/progress";
+import type { ProgressState, ThemePreference } from "../types/progress";
 
 interface AppStateValue {
   eligibleTerms: Term[];
@@ -44,7 +44,9 @@ interface AppStateValue {
   hasRecoverySnapshot: boolean;
   newTerms: Term[];
   orderedLessons: Lesson[];
+  resolvedTheme: "light" | "dark";
   storageSnapshotSize: number;
+  themePreference: ThemePreference;
   unlockedLessons: Lesson[];
   stats: ReturnType<typeof buildProgressStats>;
   completeLesson: (lessonId: string, score: number, totalExercises: number) => void;
@@ -59,6 +61,7 @@ interface AppStateValue {
   resetProgress: () => void;
   setCurrentLesson: (lessonId: string) => void;
   setSetting: (key: "audioEnabled" | "reducedMotion", value: boolean) => void;
+  setThemePreference: (value: ThemePreference) => void;
 }
 
 const AppStateContext = createContext<AppStateValue | null>(null);
@@ -77,10 +80,48 @@ export function AppStateProvider({ children }: PropsWithChildren) {
   const [hasRecoverySnapshot] = useState<boolean>(
     initialLoad.hasRecoverySnapshot || Boolean(getRecoverySnapshot()),
   );
+  const [systemPrefersDark, setSystemPrefersDark] = useState<boolean>(() => {
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return false;
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
   useEffect(() => {
     saveProgressState(progress);
   }, [progress]);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) {
+      return;
+    }
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (event: MediaQueryListEvent): void => {
+      setSystemPrefersDark(event.matches);
+    };
+
+    setSystemPrefersDark(mediaQuery.matches);
+    mediaQuery.addEventListener("change", handleChange);
+    return () => mediaQuery.removeEventListener("change", handleChange);
+  }, []);
+
+  const themePreference = progress.settings.themePreference;
+  const resolvedTheme =
+    themePreference === "system"
+      ? systemPrefersDark
+        ? "dark"
+        : "light"
+      : themePreference;
+
+  useEffect(() => {
+    if (typeof document === "undefined") {
+      return;
+    }
+
+    document.documentElement.dataset.theme = resolvedTheme;
+    document.documentElement.style.colorScheme = resolvedTheme;
+  }, [resolvedTheme]);
 
   const unlockedLessons = getUnlockedLessons(progress);
   const eligibleTerms = getEligibleTerms(progress);
@@ -189,6 +230,16 @@ export function AppStateProvider({ children }: PropsWithChildren) {
     }));
   }
 
+  function setThemePreference(value: ThemePreference): void {
+    setProgress((current) => ({
+      ...current,
+      settings: {
+        ...current.settings,
+        themePreference: value,
+      },
+    }));
+  }
+
   function getLessonScoreLabel(lessonId: string): string | null {
     const lesson = progress.lessons[lessonId];
     if (!lesson) {
@@ -225,7 +276,9 @@ export function AppStateProvider({ children }: PropsWithChildren) {
         hasRecoverySnapshot,
         newTerms,
         orderedLessons,
+        resolvedTheme,
         storageSnapshotSize,
+        themePreference,
         unlockedLessons,
         stats,
         completeLesson,
@@ -240,6 +293,7 @@ export function AppStateProvider({ children }: PropsWithChildren) {
         resetProgress,
         setCurrentLesson,
         setSetting,
+        setThemePreference,
       }}
     >
       {children}

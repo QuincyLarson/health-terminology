@@ -28,6 +28,7 @@
   },
   "settings": {
     "audioEnabled": true,
-    "reducedMotion": false
+    "reducedMotion": false,
+    "themePreference": "system"
   }
 }

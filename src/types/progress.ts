@@ -17,9 +17,12 @@ export interface TermProgress {
   suspended: boolean;
 }
 
+export type ThemePreference = "system" | "light" | "dark";
+
 export interface AppSettings {
   audioEnabled: boolean;
   reducedMotion: boolean;
+  themePreference: ThemePreference;
 }
 
 export interface AppUserState {

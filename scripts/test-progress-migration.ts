@@ -40,6 +40,18 @@ assert(
   legacyState.settings.reducedMotion === false,
   "Missing reducedMotion should fall back to the default.",
 );
+assert(
+  legacyState.settings.themePreference === "system",
+  "Missing themePreference should fall back to the default.",
+);
+assert(
+  legacyState.settings.themePreference === "system",
+  "Missing themePreference should fall back to the default.",
+);
+assert(
+  legacyState.settings.themePreference === "system",
+  "Missing themePreference should fall back to the default.",
+);
 
 const invalidPayloads = ["[]", "{\"settings\":{}}"];
 

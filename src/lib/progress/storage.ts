@@ -6,10 +6,13 @@ import type {
   ProgressExport,
   ProgressState,
   TermProgress,
+  ThemePreference,
 } from "../../types/progress";
 
-export const STORAGE_KEY = "healthterms.progress.v1";
-export const RECOVERY_STORAGE_KEY = "healthterms.progress.v1.recovery";
+export const STORAGE_KEY = "healthterminology.progress.v1";
+export const RECOVERY_STORAGE_KEY = "healthterminology.progress.v1.recovery";
+export const LEGACY_STORAGE_KEY = "healthterms.progress.v1";
+export const LEGACY_RECOVERY_STORAGE_KEY = "healthterms.progress.v1.recovery";
 export const STORAGE_VERSION = 1;
 
 interface StorageLike {
@@ -36,7 +39,12 @@ export interface LoadProgressResult {
 const defaultSettings: AppSettings = {
   audioEnabled: true,
   reducedMotion: false,
+  themePreference: "system",
 };
+
+function isThemePreference(value: unknown): value is ThemePreference {
+  return value === "system" || value === "light" || value === "dark";
+}
 
 function getBrowserStorage(): StorageLike | null {
   if (typeof globalThis !== "object" || globalThis === null) {
@@ -57,7 +65,13 @@ function preserveRecoverySnapshot(raw: string): void {
 
 export function getRecoverySnapshot(): string | null {
   const storage = getBrowserStorage();
-  return storage?.getItem(RECOVERY_STORAGE_KEY) ?? null;
+  if (!storage) {
+    return null;
+  }
+  return (
+    storage.getItem(RECOVERY_STORAGE_KEY) ??
+    storage.getItem(LEGACY_RECOVERY_STORAGE_KEY)
+  );
 }
 
 export function createDefaultProgressState(): ProgressState {
@@ -83,10 +97,13 @@ export function loadProgressStateResult(): LoadProgressResult {
     };
   }
 
-  const raw = storage.getItem(STORAGE_KEY);
+  const raw = storage.getItem(STORAGE_KEY) ?? storage.getItem(LEGACY_STORAGE_KEY);
   if (!raw) {
     return {
-      hasRecoverySnapshot: Boolean(storage.getItem(RECOVERY_STORAGE_KEY)),
+      hasRecoverySnapshot: Boolean(
+        storage.getItem(RECOVERY_STORAGE_KEY) ??
+          storage.getItem(LEGACY_RECOVERY_STORAGE_KEY),
+      ),
       recoveryNotice: null,
       state: createDefaultProgressState(),
     };
@@ -105,7 +122,10 @@ export function loadProgressStateResult(): LoadProgressResult {
     }
 
     return {
-      hasRecoverySnapshot: Boolean(storage.getItem(RECOVERY_STORAGE_KEY)),
+      hasRecoverySnapshot: Boolean(
+        storage.getItem(RECOVERY_STORAGE_KEY) ??
+          storage.getItem(LEGACY_RECOVERY_STORAGE_KEY),
+      ),
       recoveryNotice: null,
       state: migrateProgressState(parsed as ProgressImportShape),
     };
@@ -151,6 +171,9 @@ export function migrateProgressState(
       audioEnabled: state.settings?.audioEnabled ?? defaultSettings.audioEnabled,
       reducedMotion:
         state.settings?.reducedMotion ?? defaultSettings.reducedMotion,
+      themePreference: isThemePreference(state.settings?.themePreference)
+        ? state.settings.themePreference
+        : defaultSettings.themePreference,
     },
   };
 }
