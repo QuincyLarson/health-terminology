@@ -1,0 +1,313 @@
+import type { Exercise, Lesson } from "../../types/content";
+
+export const exercises: Exercise[] = [
+  {
+    id: "exercise-unit6-passage-a-results-1",
+    type: "infer_meaning",
+    prompt:
+      "Follow-up note: Hx of dysuria and polyuria. CBC WNL. UA still shows proteinuria and trace hematuria. Assessment: patient stable, no acute change. Plan: continue monitoring, repeat UA next week, and f/u with PCP; nephrology consult if symptoms worsen. Which paraphrase best matches?",
+    choices: [
+      "The patient is stable, but urine findings still need repeat review and possible nephrology follow-up",
+      "The patient needs emergency surgery because the CBC is abnormal",
+      "The note is mainly about insurance coverage and a billing problem",
+      "The note says symptoms are gone and no further action is planned",
+    ],
+    answer:
+      "The patient is stable, but urine findings still need repeat review and possible nephrology follow-up",
+    explanation:
+      "The note keeps the patient in monitoring status and asks for repeat testing and follow-up.",
+    linkedTermIds: [
+      "term-dysuria",
+      "term-polyuria",
+      "term-proteinuria",
+      "term-hematuria",
+      "term-stable",
+      "term-acute",
+      "term-monitoring",
+      "term-follow-up",
+      "term-consult",
+      "term-nephrology",
+      "term-urinalysis",
+      "term-assessment",
+      "term-plan",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc", "abbr-wnl", "abbr-fu", "abbr-pcp", "abbr-hx"],
+  },
+  {
+    id: "exercise-unit6-passage-a-results-2",
+    type: "cloze",
+    prompt:
+      "Same note, different line: `CBC WNL`. What does `WNL` mean in this passage?",
+    choices: [
+      "within normal limits",
+      "waiting on new labs",
+      "worsening neurologic lesion",
+      "with note left",
+    ],
+    answer: "within normal limits",
+    explanation: "WNL is a standard shortcut for normal-range findings.",
+    linkedTermIds: ["term-findings", "term-monitoring", "term-stable"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit6-passage-a-results-3",
+    type: "infer_meaning",
+    prompt:
+      "A later line says, `compare with prior UA if symptoms continue.` What is the main point of that instruction?",
+    choices: [
+      "Use the earlier urine study as a reference point to see whether the pattern is changing",
+      "Ignore the earlier study because only the newest one matters",
+      "Switch the patient to a different insurance plan before testing",
+      "Prepare the patient for immediate discharge with no follow-up",
+    ],
+    answer:
+      "Use the earlier urine study as a reference point to see whether the pattern is changing",
+    explanation:
+      "The phrase asks the reader to compare the current result with an earlier one.",
+    linkedTermIds: ["term-compare-with-prior", "term-reassessment", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ua", "abbr-fu"],
+  },
+  {
+    id: "exercise-unit6-passage-a-discharge-1",
+    type: "infer_meaning",
+    prompt:
+      "Postoperative discharge note: s/p bronchoscopy, the patient is stable and breathing comfortably. AVS says take pain medicine PRN, drink fluids, keep the site clean, and f/u with PCP in 7 days. Referral to ENT is listed if cough or fever returns. Which paraphrase best matches?",
+    choices: [
+      "The patient is stable after a procedure and needs home instructions plus scheduled follow-up",
+      "The patient is being admitted for a new surgery because breathing is worsening",
+      "The note is mostly about insurance denial and claim reversal",
+      "The note says the results are abnormal and no discharge plan exists",
+    ],
+    answer: "The patient is stable after a procedure and needs home instructions plus scheduled follow-up",
+    explanation:
+      "This is a discharge note with home care directions, a follow-up visit, and a specialist referral if needed.",
+    linkedTermIds: [
+      "term-postoperative",
+      "term-bronchoscopy",
+      "term-stable",
+      "term-discharge",
+      "term-discharge-instructions",
+      "term-after-visit-summary",
+      "term-follow-up",
+      "term-referral",
+      "term-consult",
+      "term-patient-portal",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sp", "abbr-avs", "abbr-prn", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-passage-a-discharge-2",
+    type: "cloze",
+    prompt:
+      "In that discharge note, what does `s/p` mean?",
+    choices: [
+      "status post",
+      "shortness of pulse",
+      "same plan",
+      "scan performed",
+    ],
+    answer: "status post",
+    explanation: "s/p is a common chart shorthand for after a procedure or event.",
+    linkedTermIds: ["term-postoperative", "term-discharge", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sp"],
+  },
+  {
+    id: "exercise-unit6-passage-a-discharge-3",
+    type: "infer_meaning",
+    prompt:
+      "The note says `take pain medicine PRN` and `f/u with PCP`. What does that mean for the patient?",
+    choices: [
+      "Use the medicine only when needed and return to the primary care provider for follow-up",
+      "Take the medicine on a strict hourly schedule and avoid any follow-up visit",
+      "Stop all medication and wait for the specialist to call first",
+      "Use the medicine only before surgery and ignore the discharge sheet",
+    ],
+    answer: "Use the medicine only when needed and return to the primary care provider for follow-up",
+    explanation:
+      "PRN means as needed, and f/u points to a follow-up visit with the PCP.",
+    linkedTermIds: ["term-discharge-instructions", "term-follow-up", "term-referral"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-prn", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-passage-a-workflow-1",
+    type: "infer_meaning",
+    prompt:
+      "Portal message: DOB verified, ROI on file. Prior authorization notice is pending, so the claim will not drop until coverage is confirmed. Billing statement shows a balance due only after the estimate is updated. The patient will get an appt reminder, and staff will post test results plus an impression once radiology signs off. Which paraphrase best matches?",
+    choices: [
+      "The office is still waiting on coverage approval before the patient gets final results and billing details",
+      "The patient has already been discharged and does not need any more portal updates",
+      "The message is mainly about a new procedure because the CBC is abnormal",
+      "The office is asking the patient to stop all medicine and remain NPO",
+    ],
+    answer: "The office is still waiting on coverage approval before the patient gets final results and billing details",
+    explanation:
+      "The passage combines insurance workflow, portal communication, and result posting after review.",
+    linkedTermIds: [
+      "term-verification",
+      "term-documentation",
+      "term-prior-authorization",
+      "term-coverage",
+      "term-claim",
+      "term-billing-statement",
+      "term-balance-due",
+      "term-estimate",
+      "term-appointment-reminder",
+      "term-test-results",
+      "term-impression",
+      "term-patient-portal",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-dob", "abbr-roi", "abbr-appt"],
+  },
+  {
+    id: "exercise-unit6-passage-a-workflow-2",
+    type: "cloze",
+    prompt:
+      "In that portal message, what does `ROI` mean?",
+    choices: [
+      "release of information",
+      "results on imaging",
+      "record of injury",
+      "routine office intake",
+    ],
+    answer: "release of information",
+    explanation:
+      "ROI is the permission step that allows records to be shared with another party.",
+    linkedTermIds: ["term-documentation", "term-patient-portal", "term-claim"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-roi"],
+  },
+  {
+    id: "exercise-unit6-passage-a-workflow-3",
+    type: "infer_meaning",
+    prompt:
+      "Another line says the claim is pending because coverage is not yet confirmed. What is the office doing first?",
+    choices: [
+      "Checking authorization and coverage before the billing workflow moves forward",
+      "Ignoring the claim until the patient asks for surgery",
+      "Changing the diagnosis because the urine test was normal",
+      "Sending the patient directly to discharge without review",
+    ],
+    answer: "Checking authorization and coverage before the billing workflow moves forward",
+    explanation:
+      "The message says the claim is waiting on authorization and coverage review.",
+    linkedTermIds: ["term-prior-authorization", "term-coverage", "term-claim", "term-billing-statement"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-dob", "abbr-roi", "abbr-appt"],
+  },
+];
+
+export const lessons: Lesson[] = [
+  {
+    id: "lesson-unit6-passage-results-recheck",
+    title: "Results, Recheck, and Escalation",
+    unitId: "unit-6",
+    objective:
+      "Read a dense result note and pull out the main message without getting lost in the abbreviations.",
+    whyItMatters:
+      "Clinical notes compress status, results, and next steps into short lines.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-results-and-discharge-synthesis",
+      "lesson-unit5-frequency-and-lab-abbreviations",
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-dysuria",
+      "term-polyuria",
+      "term-proteinuria",
+      "term-hematuria",
+      "term-stable",
+      "term-acute",
+      "term-monitoring",
+      "term-follow-up",
+      "term-consult",
+      "term-nephrology",
+      "term-urinalysis",
+      "term-assessment",
+      "term-plan",
+      "term-compare-with-prior",
+    ],
+    reinforcesAbbreviationIds: ["abbr-cbc", "abbr-wnl", "abbr-fu", "abbr-pcp", "abbr-hx", "abbr-ua"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-a-results-1",
+      "exercise-unit6-passage-a-results-2",
+      "exercise-unit6-passage-a-results-3",
+    ],
+    estimatedMinutes: 9,
+    status: "drafted",
+  },
+  {
+    id: "lesson-unit6-passage-discharge-referral",
+    title: "Discharge, Referral, and Home Instructions",
+    unitId: "unit-6",
+    objective:
+      "Read a discharge note that mixes home instructions, specialist referral, and follow-up timing.",
+    whyItMatters:
+      "Discharge instructions often pack multiple actions into a single short paragraph.",
+    prerequisiteLessonIds: ["lesson-unit6-passage-results-recheck"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-postoperative",
+      "term-bronchoscopy",
+      "term-stable",
+      "term-discharge",
+      "term-discharge-instructions",
+      "term-after-visit-summary",
+      "term-follow-up",
+      "term-referral",
+      "term-consult",
+      "term-patient-portal",
+      "term-plan",
+    ],
+    reinforcesAbbreviationIds: ["abbr-sp", "abbr-avs", "abbr-prn", "abbr-fu", "abbr-pcp"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-a-discharge-1",
+      "exercise-unit6-passage-a-discharge-2",
+      "exercise-unit6-passage-a-discharge-3",
+    ],
+    estimatedMinutes: 9,
+    status: "drafted",
+  },
+  {
+    id: "lesson-unit6-passage-coverage-workflow",
+    title: "Coverage, Portal, and Result Workflow",
+    unitId: "unit-6",
+    objective:
+      "Read a billing-and-portal passage that blends coverage, results, and follow-through.",
+    whyItMatters:
+      "Administrative messages often combine insurance, portal, and result-review details.",
+    prerequisiteLessonIds: ["lesson-unit6-passage-discharge-referral"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-verification",
+      "term-documentation",
+      "term-prior-authorization",
+      "term-coverage",
+      "term-claim",
+      "term-billing-statement",
+      "term-balance-due",
+      "term-estimate",
+      "term-appointment-reminder",
+      "term-test-results",
+      "term-impression",
+      "term-patient-portal",
+    ],
+    reinforcesAbbreviationIds: ["abbr-dob", "abbr-roi", "abbr-appt"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-a-workflow-1",
+      "exercise-unit6-passage-a-workflow-2",
+      "exercise-unit6-passage-a-workflow-3",
+    ],
+    estimatedMinutes: 10,
+    status: "drafted",
+  },
+];
