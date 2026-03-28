@@ -25,12 +25,12 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor language.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, and blood or clotting language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
-- Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, and frequency or lab shorthand coverage.
-- Unit 6 now exists as a lesson-linked final synthesis unit with rapid-parsing and results or discharge synthesis drills.
-- The app currently exposes 49 lessons, 149 terms, 67 parts, 131 exercises, and 28 abbreviations.
+- Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
+- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, and urgent-imaging drills.
+- The app currently exposes 52 lessons, 153 terms, 71 parts, 142 exercises, and 32 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -111,7 +111,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
-Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor language.
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, and blood or clotting language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -173,7 +173,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Lesson goal: recognize blood, immune, and lymph terms.
 - Representative content: `hemat/o`, `immun/o`, `lymph/o`, `splen/o`.
 - Priority: medium.
-- Status: seeded as an immune and lymphatic starter slice.
+- Status: seeded as immune, lymphatic, and blood-language starter slices.
 
 ### Module 2.11: Sensory Systems
 - Lesson goal: understand eye, ear, and sensory terminology.
@@ -270,7 +270,7 @@ Unit 4 now has authored starter slices for scheduling, follow-up, records, order
 - Status: seeded.
 
 ## Unit 5 - Abbreviations and Acronyms
-Unit 5 now has authored starter slices for clinical, document, measurement, route, chart-note, history or status, and frequency or lab abbreviations.
+Unit 5 now has authored starter slices for clinical, document, measurement, route, chart-note, history or status, frequency or lab, and imaging or urgency abbreviations.
 ### Module 5.1: Clinical Abbreviations
 - Lesson goal: recognize high-frequency chart abbreviations.
 - Representative content: BP, HR, RR, SOB, NPO, PRN.
@@ -307,8 +307,14 @@ Unit 5 now has authored starter slices for clinical, document, measurement, rout
 - Priority: medium-high.
 - Status: seeded.
 
+### Module 5.7: Imaging and Urgency Abbreviations
+- Lesson goal: recognize common imaging-study and urgent-action shorthand.
+- Representative content: CT, MRI, UA, STAT.
+- Priority: medium-high.
+- Status: seeded.
+
 ## Unit 6 - Final Synthesis
-Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, and results or discharge synthesis.
+Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, and urgent-imaging synthesis.
 ### Module 6.1: Mixed Review
 - Lesson goal: combine roots, affixes, abbreviations, and context clues.
 - Representative content: mixed term sets from all prior units.
@@ -330,6 +336,12 @@ Unit 6 now has authored starter slices for mixed recognition, passage decoding, 
 ### Module 6.4: Results and Discharge Synthesis
 - Lesson goal: read short chart, result, and discharge lines that mix abbreviation families from earlier units.
 - Representative content: CBC WNL, s/p procedure notes, c/o lines, frequency shorthand, follow-up instructions.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.5: Urgent and Imaging Synthesis
+- Lesson goal: read urgent-care and result snippets that mix imaging, urgency, reassessment, and follow-up shorthand.
+- Representative content: CT STAT, MRI impression, UA WNL, urgent note follow-up language.
 - Priority: medium.
 - Status: seeded.
 

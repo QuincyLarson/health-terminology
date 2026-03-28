@@ -8,7 +8,7 @@ This is not a medical encyclopedia, certification prep tool, or clinical decisio
 
 The repository now has a working Vite + React seed app. The product direction, curriculum strategy, and implementation rules are defined in `docs/prd.md`, `docs/agents.md`, and the root `AGENTS.md`, and the first curriculum slice is implemented in `src/content`.
 
-The current app includes a curriculum map, a browse-first term index, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 7 units, 49 lessons, 67 parts, 149 terms, 131 exercises, and 28 abbreviations. Unit 1 includes condition-suffix coverage, Unit 2 now extends through reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor starter slices, Unit 3 includes condition-state and chart-passage lessons, Unit 4 includes administrative passage decoding, Unit 5 now includes chart-note, history or status, and frequency or lab abbreviation lessons, and Unit 6 now includes rapid-parsing plus results or discharge synthesis on top of mixed-recognition and passage-decoding lessons.
+The current app includes a curriculum map, a browse-first term index, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 7 units, 52 lessons, 71 parts, 153 terms, 142 exercises, and 32 abbreviations. Unit 1 includes condition-suffix coverage, Unit 2 now extends through reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, and blood or clotting starter slices, Unit 3 includes condition-state and chart-passage lessons, Unit 4 includes administrative passage decoding, Unit 5 now includes chart-note, history or status, frequency or lab, and imaging or urgency abbreviation lessons, and Unit 6 now includes rapid parsing, results or discharge synthesis, and urgent-imaging synthesis on top of mixed-recognition and passage-decoding lessons.
 
 The current implementation now exceeds the PRD's minimum lovable release bar and has a full seeded path through Units 0 to 6. Review and endless study work, lesson retry or first-attempt mastery tracking exists, JSON export/import/reset works, recovery-aware local progress handling is in place, and abbreviation lessons now exist as first-class curriculum content rather than only as a separate browse surface. The remaining work is full-v1 breadth, especially larger content scale-out inside the seeded units, broader abbreviation inventory and ambiguity handling, a larger Unit 6 passage bank, and stronger review tuning.
 
@@ -74,9 +74,9 @@ Planned top-level structure:
 
 ## Immediate Next Steps
 
-1. Deepen the seeded Unit 2 systems with larger validated batches across respiratory, gastrointestinal, integumentary, sensory, oncology, and hematologic language.
-2. Expand Unit 5 with more abbreviation coverage, ambiguity handling, and denser chart-style shorthand.
-3. Grow Unit 6 passage volume and rapid-parsing drills with more realistic chart, portal, referral, discharge, and results snippets.
+1. Deepen the seeded Unit 2 systems with larger validated batches across respiratory, gastrointestinal, sensory, oncology, hematologic, and renal language.
+2. Expand Unit 5 with more abbreviation coverage, explicit ambiguity handling, and denser imaging, lab, and workflow shorthand.
+3. Grow Unit 6 passage volume with more urgent-care, referral, results, discharge, and administrative snippets.
 4. Grow validated terms, parts, exercises, and abbreviations in 200-500 item batches.
 5. Tighten spaced repetition, mixed-session tuning, and browse or ranking behavior as the content bank grows.
 6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
