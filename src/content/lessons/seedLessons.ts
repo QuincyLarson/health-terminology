@@ -335,6 +335,246 @@ export const exercises: Exercise[] = [
     explanation: "`cholecyst/o` points to the gallbladder and `-ectomy` points to removal.",
     linkedTermIds: ["term-cholecystectomy"],
     linkedPartIds: ["part-cholecyst-combining", "part-ectomy-suffix"],
+  },
+  {
+    id: "exercise-musculoskeletal-1",
+    type: "root_match",
+    prompt: "Which suffix points to a disease or disorder?",
+    choices: ["-pathy", "-plasty", "-algia", "-uria"],
+    answer: "-pathy",
+    explanation: "`-pathy` points to disease or disorder in terms like `myopathy` and `arthropathy`.",
+    linkedTermIds: ["term-myopathy", "term-arthropathy"],
+    linkedPartIds: ["part-pathy-suffix"],
+  },
+  {
+    id: "exercise-musculoskeletal-2",
+    type: "infer_meaning",
+    prompt: "If `my/o` means muscle and `-algia` means pain, what does `myalgia` suggest?",
+    choices: [
+      "muscle pain",
+      "muscle repair",
+      "joint disease",
+      "blood in the urine"
+    ],
+    answer: "muscle pain",
+    explanation: "The combining form points to muscle and the suffix points to pain.",
+    linkedTermIds: ["term-myalgia"],
+    linkedPartIds: ["part-my-combining", "part-algia-suffix"],
+  },
+  {
+    id: "exercise-musculoskeletal-3",
+    type: "infer_meaning",
+    prompt: "What does `arthroplasty` suggest?",
+    choices: [
+      "surgical repair or reconstruction of a joint",
+      "inflammation of a joint",
+      "joint pain",
+      "an image of a joint"
+    ],
+    answer: "surgical repair or reconstruction of a joint",
+    explanation: "`arthr/o` points to a joint and `-plasty` points to repair or reconstruction.",
+    linkedTermIds: ["term-arthroplasty"],
+    linkedPartIds: ["part-arthr-combining", "part-plasty-suffix"],
+  },
+  {
+    id: "exercise-renal-1",
+    type: "infer_meaning",
+    prompt: "If `cyst/o` means bladder and `-itis` means inflammation, what does `cystitis` suggest?",
+    choices: [
+      "inflammation of the bladder",
+      "viewing the bladder with a scope",
+      "blood in the urine",
+      "the study of the bladder"
+    ],
+    answer: "inflammation of the bladder",
+    explanation: "This follows the same inflammation pattern used in earlier body-system lessons.",
+    linkedTermIds: ["term-cystitis"],
+    linkedPartIds: ["part-cyst-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-renal-2",
+    type: "infer_meaning",
+    prompt: "What does `hematuria` suggest?",
+    choices: [
+      "blood in the urine",
+      "kidney inflammation",
+      "bladder viewing with a scope",
+      "slow urination"
+    ],
+    answer: "blood in the urine",
+    explanation: "`hemat/o` points to blood and `-uria` points to a urine condition or urination finding.",
+    linkedTermIds: ["term-hematuria"],
+    linkedPartIds: ["part-hemat-combining", "part-uria-suffix"],
+  },
+  {
+    id: "exercise-renal-3",
+    type: "infer_meaning",
+    prompt: "What does `cystoscopy` suggest?",
+    choices: [
+      "viewing the bladder with a scope",
+      "surgical removal of the bladder",
+      "inflammation of the bladder",
+      "blood in the urine"
+    ],
+    answer: "viewing the bladder with a scope",
+    explanation: "`cyst/o` points to the bladder and `-scopy` points to viewing with a scope.",
+    linkedTermIds: ["term-cystoscopy"],
+    linkedPartIds: ["part-cyst-combining", "part-scopy-suffix"],
+  },
+  {
+    id: "exercise-unit3-status-1",
+    type: "root_match",
+    prompt: "Which suffix points to enlargement?",
+    choices: ["-megaly", "-emia", "-uria", "-pathy"],
+    answer: "-megaly",
+    explanation: "`-megaly` signals enlargement in terms like `cardiomegaly` and `hepatomegaly`.",
+    linkedTermIds: ["term-cardiomegaly", "term-hepatomegaly"],
+    linkedPartIds: ["part-megaly-suffix"],
+  },
+  {
+    id: "exercise-unit3-status-2",
+    type: "infer_meaning",
+    prompt: "If `cardi` means heart and `-megaly` means enlargement, what does `cardiomegaly` suggest?",
+    choices: [
+      "enlargement of the heart",
+      "pain in the heart",
+      "imaging of the heart",
+      "a fast heart rate"
+    ],
+    answer: "enlargement of the heart",
+    explanation: "The root and suffix together point to an enlarged heart.",
+    linkedTermIds: ["term-cardiomegaly"],
+    linkedPartIds: ["part-cardi-root", "part-megaly-suffix"],
+  },
+  {
+    id: "exercise-unit3-status-3",
+    type: "infer_meaning",
+    prompt: "Which term best matches swelling from extra fluid?",
+    choices: ["edema", "anemia", "dyspnea", "neuralgia"],
+    answer: "edema",
+    explanation: "`edema` is a high-frequency clinical status word for swelling caused by extra fluid.",
+    linkedTermIds: ["term-edema"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-procedures-1",
+    type: "root_match",
+    prompt: "Which suffix points to the process of recording or imaging?",
+    choices: ["-graphy", "-gram", "-scopy", "-otomy"],
+    answer: "-graphy",
+    explanation: "`-graphy` points to the process of imaging or recording rather than the final image itself.",
+    linkedTermIds: ["term-angiography", "term-cardiography"],
+    linkedPartIds: ["part-graphy-suffix"],
+  },
+  {
+    id: "exercise-unit3-procedures-2",
+    type: "infer_meaning",
+    prompt: "What does `angioplasty` suggest?",
+    choices: [
+      "surgical repair or widening of a vessel",
+      "an image of a vessel",
+      "viewing a vessel with a scope",
+      "inflammation of a vessel"
+    ],
+    answer: "surgical repair or widening of a vessel",
+    explanation: "`angi/o` points to a vessel and `-plasty` points to repair or reshaping.",
+    linkedTermIds: ["term-angioplasty"],
+    linkedPartIds: ["part-angi-combining", "part-plasty-suffix"],
+  },
+  {
+    id: "exercise-unit3-procedures-3",
+    type: "infer_meaning",
+    prompt: "If `arthr/o` means joint and `-scopy` means viewing with a scope, what does `arthroscopy` mean?",
+    choices: [
+      "viewing a joint with a scope",
+      "repairing a joint",
+      "cutting into bone",
+      "recording heart activity"
+    ],
+    answer: "viewing a joint with a scope",
+    explanation: "This is the same procedure-family pattern used in other scope terms across systems.",
+    linkedTermIds: ["term-arthroscopy"],
+    linkedPartIds: ["part-arthr-combining", "part-scopy-suffix"],
+  },
+  {
+    id: "exercise-unit4-scheduling-1",
+    type: "root_match",
+    prompt: "Which prefix points to before?",
+    choices: ["pre-", "post-", "contra-", "hypo-"],
+    answer: "pre-",
+    explanation: "`pre-` points to something happening before an operation or other event.",
+    linkedTermIds: ["term-preoperative"],
+    linkedPartIds: ["part-pre-prefix"],
+  },
+  {
+    id: "exercise-unit4-scheduling-2",
+    type: "infer_meaning",
+    prompt: "What does `postoperative` suggest?",
+    choices: [
+      "after an operation",
+      "before an operation",
+      "care without hospital admission",
+      "approval needed before care"
+    ],
+    answer: "after an operation",
+    explanation: "`post-` points to after, so `postoperative` refers to the period after surgery.",
+    linkedTermIds: ["term-postoperative"],
+    linkedPartIds: ["part-post-prefix"],
+  },
+  {
+    id: "exercise-unit4-scheduling-3",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches care without hospital admission?",
+    choices: ["outpatient", "inpatient", "follow-up", "preoperative"],
+    answer: "outpatient",
+    explanation: "`outpatient` refers to care that does not require staying in the hospital.",
+    linkedTermIds: ["term-outpatient"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-records-1",
+    type: "infer_meaning",
+    prompt: "Which phrase means approval is needed before some care is covered?",
+    choices: [
+      "prior authorization",
+      "referral",
+      "documentation",
+      "discharge instructions"
+    ],
+    answer: "prior authorization",
+    explanation: "`prior authorization` means approval is needed before certain services or medications are covered.",
+    linkedTermIds: ["term-prior-authorization"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-records-2",
+    type: "infer_meaning",
+    prompt: "If `contra-` means against, what does `contraindication` suggest?",
+    choices: [
+      "a reason not to use a treatment or medication",
+      "a record of treatment",
+      "permission to proceed with treatment",
+      "instructions after discharge"
+    ],
+    answer: "a reason not to use a treatment or medication",
+    explanation: "`contra-` points to something that argues against an intervention.",
+    linkedTermIds: ["term-contraindication"],
+    linkedPartIds: ["part-contra-prefix"],
+  },
+  {
+    id: "exercise-unit4-records-3",
+    type: "infer_meaning",
+    prompt: "Which document should a learner read after leaving the hospital or clinic?",
+    choices: [
+      "discharge instructions",
+      "referral",
+      "documentation",
+      "prior authorization"
+    ],
+    answer: "discharge instructions",
+    explanation: "`discharge instructions` are the take-home directions given after care.",
+    linkedTermIds: ["term-discharge-instructions"],
+    linkedPartIds: [],
   }
 ];
 
@@ -604,6 +844,171 @@ export const lessons: Lesson[] = [
     reinforcesTermIds: ["term-colonoscopy", "term-appendectomy", "term-gastrotomy"],
     exerciseSetIds: ["exercise-gastro-procedures-1"],
     estimatedMinutes: 6,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-musculoskeletal-pain-and-repair",
+    title: "Musculoskeletal Pain and Repair Language",
+    unitId: "unit-2",
+    objective: "Recognize common muscle and joint terms for pain, disorder, and repair.",
+    whyItMatters: "Bone, joint, and muscle language shows up often in imaging, surgery, rehab, and everyday injury talk.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-gastrointestinal-procedures",
+      "lesson-unit1-core-body-roots"
+    ],
+    introducesPartIds: [
+      "part-my-combining",
+      "part-pathy-suffix",
+      "part-plasty-suffix"
+    ],
+    introducesTermIds: [
+      "term-myalgia",
+      "term-myopathy",
+      "term-arthropathy",
+      "term-arthroplasty"
+    ],
+    reinforcesTermIds: ["term-arthritis", "term-neuralgia"],
+    exerciseSetIds: [
+      "exercise-musculoskeletal-1",
+      "exercise-musculoskeletal-2",
+      "exercise-musculoskeletal-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-renal-urinary-language",
+    title: "Renal and Urinary Language",
+    unitId: "unit-2",
+    objective: "Decode common kidney, bladder, urine, and urinary-procedure terms.",
+    whyItMatters: "Urinary terms appear in urgent care, lab results, imaging notes, and procedure instructions.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-musculoskeletal-pain-and-repair",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: ["part-cyst-combining", "part-uria-suffix"],
+    introducesTermIds: [
+      "term-nephritis",
+      "term-cystitis",
+      "term-cystoscopy",
+      "term-hematuria"
+    ],
+    reinforcesTermIds: ["term-nephrology", "term-hematology", "term-colonoscopy"],
+    exerciseSetIds: ["exercise-renal-1", "exercise-renal-2", "exercise-renal-3"],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-symptoms-signs-status-language",
+    title: "Symptoms, Signs, and Status Language",
+    unitId: "unit-3",
+    objective: "Decode common clinical status words that describe complaints and observed findings.",
+    whyItMatters: "These words show up in triage notes, assessment sections, and discharge instructions.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-renal-urinary-language",
+      "lesson-unit1-core-body-roots",
+      "lesson-unit1-common-prefixes"
+    ],
+    introducesPartIds: ["part-megaly-suffix", "part-emia-suffix"],
+    introducesTermIds: [
+      "term-cardiomegaly",
+      "term-hepatomegaly",
+      "term-anemia",
+      "term-edema"
+    ],
+    reinforcesTermIds: ["term-dyspnea", "term-hypoxia", "term-neuralgia"],
+    exerciseSetIds: [
+      "exercise-unit3-status-1",
+      "exercise-unit3-status-2",
+      "exercise-unit3-status-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-clinical-procedure-families",
+    title: "Clinical Procedure Families Across Systems",
+    unitId: "unit-3",
+    objective: "Recognize repeating procedure and imaging patterns even when the organ root changes.",
+    whyItMatters: "Charts and referral notes reuse the same action suffixes across specialties.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-symptoms-signs-status-language",
+      "lesson-unit2-musculoskeletal-pain-and-repair",
+      "lesson-unit2-gastrointestinal-procedures"
+    ],
+    introducesPartIds: ["part-graphy-suffix"],
+    introducesTermIds: [
+      "term-angioplasty",
+      "term-angiography",
+      "term-cardiography",
+      "term-arthroscopy",
+      "term-osteotomy"
+    ],
+    reinforcesTermIds: [
+      "term-bronchoscopy",
+      "term-colonoscopy",
+      "term-tracheotomy",
+      "term-cholecystectomy",
+      "term-angiogram"
+    ],
+    exerciseSetIds: [
+      "exercise-unit3-procedures-1",
+      "exercise-unit3-procedures-2",
+      "exercise-unit3-procedures-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-scheduling-and-followup",
+    title: "Scheduling and Follow-Up Language",
+    unitId: "unit-4",
+    objective: "Recognize the most common appointment and care-transition phrases.",
+    whyItMatters: "Learners see this language in portals, paperwork, referral messages, and discharge planning.",
+    prerequisiteLessonIds: ["lesson-unit3-clinical-procedure-families"],
+    introducesPartIds: ["part-pre-prefix", "part-post-prefix"],
+    introducesTermIds: [
+      "term-follow-up",
+      "term-outpatient",
+      "term-inpatient",
+      "term-preoperative",
+      "term-postoperative"
+    ],
+    reinforcesTermIds: [
+      "term-appendectomy",
+      "term-bronchoscopy",
+      "term-cholecystectomy"
+    ],
+    exerciseSetIds: [
+      "exercise-unit4-scheduling-1",
+      "exercise-unit4-scheduling-2",
+      "exercise-unit4-scheduling-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-records-orders-and-authorization",
+    title: "Records, Orders, and Authorization Language",
+    unitId: "unit-4",
+    objective: "Decode common record, approval, and take-home document phrases without forcing fake decomposition.",
+    whyItMatters: "This language appears in portals, insurer notices, chart summaries, and office communication.",
+    prerequisiteLessonIds: ["lesson-unit4-scheduling-and-followup"],
+    introducesPartIds: ["part-contra-prefix"],
+    introducesTermIds: [
+      "term-prior-authorization",
+      "term-referral",
+      "term-documentation",
+      "term-contraindication",
+      "term-discharge-instructions"
+    ],
+    reinforcesTermIds: ["term-dyspnea", "term-hypoxia", "term-bronchoscopy"],
+    exerciseSetIds: [
+      "exercise-unit4-records-1",
+      "exercise-unit4-records-2",
+      "exercise-unit4-records-3"
+    ],
+    estimatedMinutes: 8,
     status: "shipped",
   }
 ];

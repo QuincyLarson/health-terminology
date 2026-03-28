@@ -37,9 +37,33 @@ export const units: Unit[] = [
       "lesson-unit2-respiratory-airway-language",
       "lesson-unit2-respiratory-breathing-status",
       "lesson-unit2-gastrointestinal-inflammation",
-      "lesson-unit2-gastrointestinal-procedures"
+      "lesson-unit2-gastrointestinal-procedures",
+      "lesson-unit2-musculoskeletal-pain-and-repair",
+      "lesson-unit2-renal-urinary-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
+    status: "lesson-linked",
+  },
+  {
+    id: "unit-3",
+    title: "Clinical Language Patterns",
+    summary: "Cross-cutting symptom, status, and procedure-family language that appears across specialties.",
+    lessonIds: [
+      "lesson-unit3-symptoms-signs-status-language",
+      "lesson-unit3-clinical-procedure-families"
+    ],
+    prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2"],
+    status: "lesson-linked",
+  },
+  {
+    id: "unit-4",
+    title: "Administrative and Document Language",
+    summary: "Practical scheduling, follow-up, record, and authorization vocabulary for real medical paperwork and workflow.",
+    lessonIds: [
+      "lesson-unit4-scheduling-and-followup",
+      "lesson-unit4-records-orders-and-authorization"
+    ],
+    prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3"],
     status: "lesson-linked",
   }
 ];
