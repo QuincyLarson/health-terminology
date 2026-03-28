@@ -21,22 +21,6 @@ export function BrowsePage() {
   );
   const lessonMap = contentMaps.lessonMap;
 
-  const bodySystemOptions = useMemo(
-    () => Array.from(new Set(content.terms.map((term) => term.bodySystem))).sort(),
-    [],
-  );
-  const partOptions = useMemo(
-    () =>
-      Array.from(
-        new Set(
-          content.terms.flatMap((term) =>
-            term.parts.map((part) => `${part.text} · ${part.meaning}`),
-          ),
-        ),
-      ).sort(),
-    [],
-  );
-
   const filteredTerms = useMemo(
     () =>
       content.terms.filter((term) => {
@@ -51,7 +35,7 @@ export function BrowsePage() {
           bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
         const matchesPart =
           partFilter === "all" ||
-          term.parts.some((part) => `${part.text} · ${part.meaning}` === partFilter);
+          (contentMaps.partFilterLabelsByTermId.get(term.id) ?? []).includes(partFilter);
         const matchesTaught =
           taughtFilter === "all" ||
           (taughtFilter === "taught" ? eligible : !eligible);
@@ -67,7 +51,6 @@ export function BrowsePage() {
     [
       bodySystemFilter,
       eligibleTermIds,
-      lessonMap,
       normalizedSearch,
       partFilter,
       taughtFilter,
@@ -134,7 +117,7 @@ export function BrowsePage() {
               }}
             >
               <option value="all">All systems</option>
-              {bodySystemOptions.map((bodySystem) => (
+              {contentMaps.bodySystemOptions.map((bodySystem) => (
                 <option key={bodySystem} value={bodySystem}>
                   {bodySystem}
                 </option>
@@ -152,7 +135,7 @@ export function BrowsePage() {
               }}
             >
               <option value="all">All part families</option>
-              {partOptions.map((partOption) => (
+              {contentMaps.partFilterOptions.map((partOption) => (
                 <option key={partOption} value={partOption}>
                   {partOption}
                 </option>

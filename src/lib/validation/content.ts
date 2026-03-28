@@ -51,6 +51,59 @@ function findDuplicateValues(values: string[], label: string): string[] {
   return duplicates;
 }
 
+function findGraphCycles<T extends { id: string }>(
+  items: T[],
+  label: string,
+  getEdges: (item: T) => string[],
+): string[] {
+  const itemMap = new Map(items.map((item) => [item.id, item]));
+  const state = new Map<string, "visiting" | "visited">();
+  const stack: string[] = [];
+  const cycles: string[] = [];
+  const seenCycles = new Set<string>();
+
+  function visit(itemId: string): void {
+    const currentState = state.get(itemId);
+    if (currentState === "visited") {
+      return;
+    }
+
+    if (currentState === "visiting") {
+      const cycleStartIndex = stack.indexOf(itemId);
+      const cyclePath = [...stack.slice(cycleStartIndex), itemId];
+      const cycleKey = cyclePath.join(" -> ");
+      if (!seenCycles.has(cycleKey)) {
+        cycles.push(`${label} prerequisite cycle: ${cycleKey}`);
+        seenCycles.add(cycleKey);
+      }
+      return;
+    }
+
+    const item = itemMap.get(itemId);
+    if (!item) {
+      return;
+    }
+
+    state.set(itemId, "visiting");
+    stack.push(itemId);
+
+    for (const edgeId of getEdges(item)) {
+      if (itemMap.has(edgeId)) {
+        visit(edgeId);
+      }
+    }
+
+    stack.pop();
+    state.set(itemId, "visited");
+  }
+
+  for (const item of items) {
+    visit(item.id);
+  }
+
+  return cycles;
+}
+
 export function validateContent(input: ValidationInput): ValidationResult {
   const errors: string[] = [];
   const warnings: string[] = [];
@@ -106,6 +159,9 @@ export function validateContent(input: ValidationInput): ValidationResult {
       }
     }
   }
+  errors.push(
+    ...findGraphCycles(input.units, "unit", (unit) => unit.prerequisiteUnitIds),
+  );
 
   for (const lesson of input.lessons) {
     errors.push(
@@ -209,6 +265,13 @@ export function validateContent(input: ValidationInput): ValidationResult {
       exerciseIdsInLessons.add(exerciseId);
     }
   }
+  errors.push(
+    ...findGraphCycles(
+      input.lessons,
+      "lesson",
+      (lesson) => lesson.prerequisiteLessonIds,
+    ),
+  );
 
   for (const part of input.parts) {
     errors.push(

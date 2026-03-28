@@ -26,6 +26,7 @@ export const content = {
   units: mergedUnits,
 };
 
+const unitMap = new Map(content.units.map((unit) => [unit.id, unit]));
 const lessonMap = new Map(content.lessons.map((lesson) => [lesson.id, lesson]));
 const exerciseMap = new Map(content.exercises.map((exercise) => [exercise.id, exercise]));
 const partMap = new Map(content.parts.map((part) => [part.id, part]));
@@ -84,18 +85,36 @@ const termSearchTextById = new Map(
     `${term.term} ${term.plainMeaning} ${term.shortDefinition}`.toLowerCase(),
   ]),
 );
+const bodySystemOptions = Array.from(
+  new Set(content.terms.map((term) => term.bodySystem)),
+).sort();
+const partFilterLabelsByTermId = new Map(
+  content.terms.map((term) => [
+    term.id,
+    term.parts.map((part) => `${part.text} · ${part.meaning}`),
+  ]),
+);
+const partFilterOptions = Array.from(
+  new Set(
+    content.terms.flatMap((term) => partFilterLabelsByTermId.get(term.id) ?? []),
+  ),
+).sort();
 
 export const contentMaps = {
   abbreviationMap,
+  bodySystemOptions,
   exerciseMap,
   lessonMap,
   lessonsByUnitId,
   lessonTitlesByTermId,
   partMap,
+  partFilterLabelsByTermId,
+  partFilterOptions,
   partsByLessonId,
   termMap,
   termSearchTextById,
   termsByLessonId,
+  unitMap,
   unitIdsByTermId,
 };
 

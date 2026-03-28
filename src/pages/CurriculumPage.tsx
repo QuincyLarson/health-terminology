@@ -1,3 +1,4 @@
+import { useMemo } from "react";
 import { Link } from "react-router-dom";
 import { content, contentMaps } from "../content";
 import { useAppState } from "../app/AppState";
@@ -12,8 +13,14 @@ export function CurriculumPage() {
     progress,
     setCurrentLesson,
   } = useAppState();
-  const dueTermIds = new Set(dueTerms.map((term) => term.id));
-  const newTermIds = new Set(newTerms.map((term) => term.id));
+  const dueTermIds = useMemo(
+    () => new Set(dueTerms.map((term) => term.id)),
+    [dueTerms],
+  );
+  const newTermIds = useMemo(
+    () => new Set(newTerms.map((term) => term.id)),
+    [newTerms],
+  );
 
   return (
     <div className="stack">

@@ -24,13 +24,13 @@ Each future unit and module entry should accumulate:
 
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
-- Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, condition-suffix decoding, location-prefix families, `-stomy` procedure families, common root recombinations, a dedicated vessel-root family, blood-count families, broader prefix-shift and dysfunction families, and imaging or heart-tracing record families.
+- Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, condition-suffix decoding, location-prefix families, `-stomy` procedure families, common root recombinations, a dedicated vessel-root family, blood-count families, broader prefix-shift and dysfunction families, imaging or heart-tracing record families, inflammation or narrowing families, `-oma` and growth-language families, urine or discharge families, and measurement or recording families.
 - Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, chart passages, severity or progression language, results or interpretation language, and report-comparison language.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, purpose-built passage language, verification or network language, preparation or instruction language, and billing-resolution language.
 - Unit 5 now exists as a broader abbreviations unit with chart-note, history or status, frequency or lab, imaging or urgency, schedule or form, and ambiguity-safety shorthand coverage.
-- Unit 6 now exists as a broader final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, reproductive follow-up synthesis drills, verification-prep crossover drills, ambiguity-results synthesis drills, billing-report follow-through drills, and additional long-form passages for results recheck, discharge or referral, coverage workflow, imaging impressions, medication reconciliation, and consult or portal handoff reading.
-- The app currently exposes 102 lessons, 288 terms, 132 parts, 340 exercises, and 44 abbreviations.
+- Unit 6 now exists as a broader final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, reproductive follow-up synthesis drills, verification-prep crossover drills, ambiguity-results synthesis drills, billing-report follow-through drills, and additional long-form passages for results recheck, discharge or referral, coverage workflow, imaging impressions, medication reconciliation, consult or portal handoff reading, ED reassessment, lab-trend follow-through, operative-note specimen handoff, discharge medication planning, and refill or authorization imaging follow-up.
+- The app currently exposes 123 lessons, 370 terms, 182 parts, 422 exercises, and 44 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Drills now use due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -158,6 +158,34 @@ Each future unit and module entry should accumulate:
 - Priority: highest.
 - Status: seeded.
 - Prerequisite guidance: follow the Unit 1 blood-count and prefix-shift batches.
+
+### Module 1.14: Inflammation, Narrowing, and Protrusion Families
+- Lesson goal: reuse a small set of high-frequency endings across inflammation, narrowing, bleeding, and bulge words.
+- Representative content: `-itis`, `sten/o`, `-stenosis`, `-ectasis`, `-rrhage`, `-rrhagia`, `-cele`.
+- Priority: highest.
+- Status: seeded.
+- Prerequisite guidance: follow the early suffix and body-root lessons plus the imaging-record batches.
+
+### Module 1.15: Growth, Mass, and `-Oma` Families
+- Lesson goal: decode common pathology and tumor words by learning the reusable growth and mass patterns first.
+- Representative content: neoplastic, metaplastic, adenoma, melanoma, lipoma, myeloma, sarcoma, fibroadenoma.
+- Priority: highest.
+- Status: seeded.
+- Prerequisite guidance: follow the inflammation and tissue-change batches.
+
+### Module 1.16: Urine, Bleeding, and Discharge Families
+- Lesson goal: decode high-frequency output and discharge words rather than memorizing them as isolated symptom terms.
+- Representative content: anuria, nocturia, pyuria, hematemesis, hemoptysis, diarrhea, galactorrhea, steatorrhea.
+- Priority: highest.
+- Status: seeded.
+- Prerequisite guidance: follow the inflammation, protrusion, and growth-language batches.
+
+### Module 1.17: Measurement and Recording Families
+- Lesson goal: distinguish instruments, measurements, records, and recording processes across common tests.
+- Representative content: spirometer, spirometry, oximeter, thermometry, electroencephalogram, tomography, echocardiography.
+- Priority: highest.
+- Status: seeded.
+- Prerequisite guidance: follow the earlier diagnostic-record families and the urine or discharge batches.
 
 ## Unit 2 - Body Systems
 Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.

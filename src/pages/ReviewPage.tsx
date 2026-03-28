@@ -60,14 +60,14 @@ export function DrillsPage() {
         .filter((term) => {
           const matchesUnit =
             unitFilter === "all" ||
-            term.lessonIds.some((lessonId) => lessonMap.get(lessonId)?.unitId === unitFilter);
+            (contentMaps.unitIdsByTermId.get(term.id) ?? []).includes(unitFilter);
           const matchesBodySystem =
             bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
 
           return matchesUnit && matchesBodySystem;
         })
         .slice(0, SESSION_CAPS[queueMode]),
-    [baseQueue, bodySystemFilter, lessonMap, queueMode, unitFilter],
+    [baseQueue, bodySystemFilter, queueMode, unitFilter],
   );
   const rootQueue = useMemo(
     () => queue.filter((term) => isDrillReady(term)),
