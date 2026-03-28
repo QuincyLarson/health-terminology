@@ -25,10 +25,10 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, and procedure language.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, and nervous-system language.
-- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, and workflow language.
-- Unit 4 now includes starter lessons for administrative, intake, and billing language.
-- The app currently exposes 25 lessons, 89 terms, 49 parts, 59 exercises, and 7 abbreviations.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, and endocrine language.
+- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, and medication basics.
+- Unit 4 now includes starter lessons for administrative, intake, billing, portal, and reminder language.
+- The app currently exposes 29 lessons, 109 terms, 52 parts, 71 exercises, and 7 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -109,7 +109,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
-Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, and nervous-system language.
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, and endocrine language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -147,6 +147,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Lesson goal: identify hormone, gland, and regulation terms.
 - Representative content: `aden/o`, `gluc/o`, `glyc/o`, `thyroid` family terms.
 - Priority: medium-high.
+- Status: seeded as a glycemic and thyroid slice.
 
 ### Module 2.7: Urinary / Renal
 - Lesson goal: recognize kidney, bladder, urine, and filtration terms.
@@ -180,7 +181,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Priority: medium.
 
 ## Unit 3 - Clinical Language Patterns
-Unit 3 now has authored starter slices for symptoms/status language, procedure families, chart phrasing, and workflow language.
+Unit 3 now has authored starter slices for symptoms/status language, procedure families, chart phrasing, workflow language, diagnostics, and medication basics.
 ### Module 3.1: Symptoms and Signs
 - Lesson goal: distinguish what a patient reports from what is observed.
 - Representative content: pain, fever, nausea, edema, dyspnea.
@@ -202,11 +203,13 @@ Unit 3 now has authored starter slices for symptoms/status language, procedure f
 - Lesson goal: identify tests, imaging, and result-reporting language.
 - Representative content: CBC, MRI, CT, X-ray, ultrasound, lab terms.
 - Priority: medium-high.
+- Status: seeded as a report-language and ultrasound slice.
 
 ### Module 3.5: Medications and Administration Basics
 - Lesson goal: understand route, dose, frequency, and administration language.
 - Representative content: oral, IV, IM, daily, PRN, contraindication.
 - Priority: medium-high.
+- Status: seeded as a route and dosage slice.
 
 ### Module 3.6: Chart-Style Phrasing
 - Lesson goal: read short record-style sentences without overload.
@@ -221,7 +224,7 @@ Unit 3 now has authored starter slices for symptoms/status language, procedure f
 - Status: seeded.
 
 ## Unit 4 - Administrative and Document Language
-Unit 4 now has authored starter slices for scheduling, follow-up, records, orders, authorization, intake, and billing language.
+Unit 4 now has authored starter slices for scheduling, follow-up, records, orders, authorization, intake, billing, portal, and reminder language.
 ### Module 4.1: Forms and Scheduling
 - Lesson goal: understand common administrative vocabulary.
 - Representative content: appointment, intake, insurance, authorization, reschedule.
@@ -240,7 +243,13 @@ Unit 4 now has authored starter slices for scheduling, follow-up, records, order
 - Priority: medium.
 - Status: seeded.
 
-### Module 4.4: Purpose-Built Passages
+### Module 4.4: Portals, Results, and Reminders
+- Lesson goal: read short portal and message-style administrative language.
+- Representative content: patient portal, test results, after-visit summary, refill request, appointment reminder.
+- Priority: medium.
+- Status: seeded.
+
+### Module 4.5: Purpose-Built Passages
 - Lesson goal: read short, realistic administrative passages for comprehension.
 - Representative content: simplified intake forms, reminders, discharge instructions.
 - Priority: medium.
