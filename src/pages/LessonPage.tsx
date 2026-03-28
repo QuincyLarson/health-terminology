@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { ExerciseCard } from "../components/ExerciseCard";
@@ -18,22 +18,75 @@ export function LessonPage() {
   const lesson = lessonId ? getLessonById(lessonId) : undefined;
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [firstAnswers, setFirstAnswers] = useState<Record<string, string>>({});
+  const [activeExerciseIndex, setActiveExerciseIndex] = useState(0);
+  const [celebratingExerciseId, setCelebratingExerciseId] = useState<string | null>(null);
   const [completedThisVisit, setCompletedThisVisit] = useState(false);
+
+  const lessonExercises = useMemo(
+    () =>
+      (lesson?.exerciseSetIds ?? [])
+        .map((exerciseId) => content.exercises.find((exercise) => exercise.id === exerciseId))
+        .filter((exercise): exercise is NonNullable<typeof exercise> => Boolean(exercise)),
+    [lesson],
+  );
+
+  useEffect(() => {
+    if (!lesson) {
+      return;
+    }
+
+    setCurrentLesson(lesson.id);
+    setAnswers({});
+    setFirstAnswers({});
+    setActiveExerciseIndex(0);
+    setCelebratingExerciseId(null);
+    setCompletedThisVisit(false);
+  }, [lesson?.id]);
+
+  useEffect(() => {
+    if (!lesson || !celebratingExerciseId) {
+      return;
+    }
+
+    const activeLesson = lesson;
+    const timeoutId = window.setTimeout(() => {
+      setCelebratingExerciseId(null);
+      const isLastExercise = activeExerciseIndex >= lessonExercises.length - 1;
+
+      if (isLastExercise) {
+        const score = lessonExercises.reduce((count, exercise) => {
+          return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
+        }, 0);
+        completeLesson(activeLesson.id, score, lessonExercises.length);
+        setCompletedThisVisit(true);
+        return;
+      }
+
+      setActiveExerciseIndex((current) => current + 1);
+    }, progress.settings.reducedMotion ? 250 : 1000);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [
+    activeExerciseIndex,
+    celebratingExerciseId,
+    completeLesson,
+    firstAnswers,
+    lesson,
+    lessonExercises,
+    progress.settings.reducedMotion,
+  ]);
 
   if (!lesson) {
     return (
       <section className="card">
         <h2>Lesson not found</h2>
-        <Link className="text-link" to="/curriculum">
+        <Link className="text-link" to="/">
           Return to curriculum
         </Link>
       </section>
     );
   }
 
-  const lessonExercises = lesson.exerciseSetIds
-    .map((exerciseId) => content.exercises.find((exercise) => exercise.id === exerciseId))
-    .filter((exercise): exercise is NonNullable<typeof exercise> => Boolean(exercise));
   const introducedParts = content.parts.filter((part) =>
     lesson.introducesPartIds.includes(part.id),
   );
@@ -43,32 +96,27 @@ export function LessonPage() {
   const introducedAbbreviations = content.abbreviations.filter((abbreviation) =>
     (lesson.introducesAbbreviationIds ?? []).includes(abbreviation.id),
   );
-  const allAnswered = lessonExercises.every((exercise) => answers[exercise.id]);
   const nextLesson = getNextLesson(lesson.id);
   const priorScoreLabel = getLessonScoreLabel(lesson.id);
   const lessonIndex = content.lessons.findIndex((entry) => entry.id === lesson.id);
   const firstAttemptCorrect = lessonExercises.reduce((count, exercise) => {
     return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
   }, 0);
-
-  useEffect(() => {
-    setCurrentLesson(lesson.id);
-  }, [lesson.id]);
-
-  function handleComplete(): void {
-    const activeLesson = lesson;
-    if (!activeLesson) {
-      return;
-    }
-    const score = lessonExercises.reduce((count, exercise) => {
-      return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
-    }, 0);
-
-    completeLesson(activeLesson.id, score, lessonExercises.length);
-    setCompletedThisVisit(true);
-  }
+  const activeExercise = lessonExercises[activeExerciseIndex];
+  const completedExercises = lessonExercises.filter(
+    (exercise) => answers[exercise.id] === exercise.answer,
+  ).length;
+  const progressPercent =
+    lessonExercises.length === 0
+      ? 100
+      : Math.round((completedExercises / lessonExercises.length) * 100);
 
   function handleSelect(exerciseId: string, choice: string): void {
+    const exercise = lessonExercises.find((item) => item.id === exerciseId);
+    if (!exercise) {
+      return;
+    }
+
     setAnswers((current) => ({
       ...current,
       [exerciseId]: choice,
@@ -81,14 +129,28 @@ export function LessonPage() {
             [exerciseId]: choice,
           },
     );
+
+    if (choice === exercise.answer) {
+      setCelebratingExerciseId(exerciseId);
+    }
+  }
+
+  function handleRetry(exerciseId: string): void {
+    setAnswers((current) => {
+      const next = { ...current };
+      delete next[exerciseId];
+      return next;
+    });
   }
 
   return (
-    <div className="stack">
-      <section className="card">
-        <p className="eyebrow">{lesson.unitId}</p>
+    <div className="stack lesson-shell">
+      <section className="card stack compact-card">
         <div className="title-row">
-          <h2>{lesson.title}</h2>
+          <div>
+            <p className="eyebrow">{lesson.unitId}</p>
+            <h1>{lesson.title}</h1>
+          </div>
           <button
             type="button"
             className="button button-quiet"
@@ -102,44 +164,37 @@ export function LessonPage() {
           Lesson {lessonIndex + 1} of {content.lessons.length} · {lesson.estimatedMinutes} min
           {priorScoreLabel ? ` · ${priorScoreLabel}` : ""} · {lessonExercises.length} checks
         </p>
-        <p className="meta-copy">
-          Why this matters: {lesson.whyItMatters}
-        </p>
+        <p className="meta-copy">Why this matters: {lesson.whyItMatters}</p>
       </section>
 
-      {introducedParts.length > 0 ? (
-        <section className="card stack">
-          <h3>Introduced parts</h3>
-          <div className="tag-grid">
+      <section className="lesson-reference-grid">
+        {introducedParts.length > 0 ? (
+          <article className="reference-panel stack">
+            <h3>Parts</h3>
             {introducedParts.map((part) => (
-              <article key={part.id} className="tag-card">
-                <div className="title-row">
+              <div key={part.id} className="mini-row">
+                <div>
                   <strong>{part.text}</strong>
-                  <button
-                    type="button"
-                    className="button button-quiet"
-                    onClick={() => speakText(part.text, progress.settings.audioEnabled)}
-                  >
-                    Speak
-                  </button>
+                  <p className="meta-copy">{part.plainMeaning}</p>
                 </div>
-                <p>{part.plainMeaning}</p>
-                <p className="meta-copy">
-                  {part.pronunciationText} · examples: {part.examples.join(", ")}
-                </p>
-              </article>
+                <button
+                  type="button"
+                  className="button button-quiet"
+                  onClick={() => speakText(part.text, progress.settings.audioEnabled)}
+                >
+                  Speak
+                </button>
+              </div>
             ))}
-          </div>
-        </section>
-      ) : null}
+          </article>
+        ) : null}
 
-      {introducedTerms.length > 0 ? (
-        <section className="card stack">
-          <h3>Example terms</h3>
-          <div className="tag-grid">
-            {introducedTerms.map((term) => (
-              <article key={term.id} className="tag-card">
-                <div className="title-row">
+        {introducedTerms.length > 0 ? (
+          <article className="reference-panel stack">
+            <h3>Example terms</h3>
+            {introducedTerms.slice(0, 6).map((term) => (
+              <div key={term.id} className="stack compact-card">
+                <div className="mini-row">
                   <strong>{term.term}</strong>
                   <button
                     type="button"
@@ -149,122 +204,85 @@ export function LessonPage() {
                     Speak
                   </button>
                 </div>
-                <p>{term.plainMeaning}</p>
-                <p className="meta-copy">
-                  {term.pronunciationText} · {term.bodySystem} · {term.compositionality}
-                </p>
-                <p className="meta-copy">{term.shortDefinition}</p>
-                <p className="meta-copy">
-                  {term.parts.length > 0
-                    ? term.parts
-                        .map((part) => `${part.text} = ${part.meaning}`)
-                        .join(" · ")
-                    : "Recognition-first term without a safe decomposition."}
-                </p>
-              </article>
+                <p className="meta-copy">{term.plainMeaning}</p>
+              </div>
             ))}
-          </div>
-        </section>
-      ) : null}
+          </article>
+        ) : null}
 
-      {introducedAbbreviations.length > 0 ? (
-        <section className="card stack">
-          <h3>Introduced abbreviations</h3>
-          <div className="tag-grid">
+        {introducedAbbreviations.length > 0 ? (
+          <article className="reference-panel stack">
+            <h3>Abbreviations</h3>
             {introducedAbbreviations.map((abbreviation) => (
-              <article key={abbreviation.id} className="tag-card">
-                <div className="title-row">
-                  <strong>{abbreviation.shortForm}</strong>
-                  <button
-                    type="button"
-                    className="button button-quiet"
-                    onClick={() =>
-                      speakText(abbreviation.shortForm, progress.settings.audioEnabled)
-                    }
-                  >
-                    Speak
-                  </button>
-                </div>
-                <p>{abbreviation.expandedForm}</p>
+              <div key={abbreviation.id} className="stack compact-card">
+                <strong>{abbreviation.shortForm}</strong>
                 <p className="meta-copy">
-                  {abbreviation.category}
-                  {abbreviation.ambiguous ? " · ambiguous" : " · recognition-first"}
+                  {abbreviation.expandedForm} · {abbreviation.category}
                 </p>
-                <p className="meta-copy">{abbreviation.meaning}</p>
-              </article>
+              </div>
             ))}
-          </div>
-        </section>
-      ) : null}
-
-      <section className="stack">
-        {lessonExercises.map((exercise, index) => (
-          <ExerciseCard
-            key={exercise.id}
-            allowRetry
-            exercise={exercise}
-            indexLabel={`Exercise ${index + 1} of ${lessonExercises.length}`}
-            onRetry={() =>
-              setAnswers((current) => {
-                const next = { ...current };
-                delete next[exercise.id];
-                return next;
-              })
-            }
-            selectedChoice={answers[exercise.id] ?? null}
-            onSelect={(choice) => handleSelect(exercise.id, choice)}
-          />
-        ))}
+          </article>
+        ) : null}
       </section>
 
-      <section className="card lesson-footer">
-        <p className="meta-copy">
-          Completion seeds introduced terms into review. Abbreviations remain
-          recognition-first lesson content and stay browseable on the dedicated abbreviations page.
-          Mastery uses first attempts, so retries support learning without requiring a perfect score.
-        </p>
-        {Object.keys(firstAnswers).length > 0 ? (
+      {activeExercise && !completedThisVisit ? (
+        <section className="card stack exercise-stage compact-card">
+          <div className="stack">
+            <div className="title-row">
+              <p className="eyebrow">
+                Challenge {activeExerciseIndex + 1} of {lessonExercises.length}
+              </p>
+              <span className="status-pill">{progressPercent}% complete</span>
+            </div>
+            <div className="exercise-progress-bar" aria-hidden="true">
+              <div
+                className="exercise-progress-value"
+                style={{ width: `${progressPercent}%` }}
+              />
+            </div>
+          </div>
+          <ExerciseCard
+            allowRetry
+            exercise={activeExercise}
+            indexLabel={`Challenge ${activeExerciseIndex + 1}`}
+            onRetry={() => handleRetry(activeExercise.id)}
+            selectedChoice={answers[activeExercise.id] ?? null}
+            showCelebration={celebratingExerciseId === activeExercise.id}
+            onSelect={(choice) => handleSelect(activeExercise.id, choice)}
+          />
           <p className="meta-copy">
             First-pass score this visit: {firstAttemptCorrect} / {lessonExercises.length}
           </p>
-        ) : null}
-        <div className="hero-actions">
-          <button
-            type="button"
-            className="button button-primary"
-            disabled={!allAnswered}
-            onClick={handleComplete}
-          >
-            Mark lesson complete
-          </button>
-          <Link className="button" to="/curriculum">
-            Back to curriculum
-          </Link>
-        </div>
-        {completedThisVisit ? (
-          <div className="completion-box">
-            <p>Lesson complete.</p>
+        </section>
+      ) : null}
+
+      {completedThisVisit ? (
+        <section className="card stack lesson-footer compact-card">
+          <div className="completion-box stack">
+            <h3>Lesson complete</h3>
+            <p>
+              First-pass mastery: {firstAttemptCorrect} / {lessonExercises.length}
+            </p>
             <div className="hero-actions">
               {nextLesson ? (
                 <Link
-                  className="text-link"
+                  className="button button-primary"
                   to={`/lesson/${nextLesson.id}`}
                   onClick={() => setCurrentLesson(nextLesson.id)}
                 >
                   Continue to {nextLesson.title}
                 </Link>
-              ) : (
-                <Link className="text-link" to="/review">
-                  Move into review
-                </Link>
-              )}
-              <Link className="text-link" to="/review">
-                Review newly seeded terms
+              ) : null}
+              <Link className="button" to="/drills">
+                Move into drills
+              </Link>
+              <Link className="button" to="/">
+                Back to curriculum
               </Link>
             </div>
           </div>
-        ) : null}
-      </section>
+        </section>
+      ) : null}
     </div>
   );
 }

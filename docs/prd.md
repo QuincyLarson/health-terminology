@@ -1,13 +1,13 @@
 # HealthTerminology.com PRD
 
 ## Product name
-HealthTerms.com
+HealthTerminology.com
 
 ## Version
 PRD v1
 
 ## Product summary
-HealthTerms.com is a free, fast, text-first medical terminology course for curious general learners. It teaches the structure of medical language so users can follow realistic dialogue, documents, and workplace language without needing a clinical background.
+HealthTerminology.com is a free, fast, text-first medical terminology course for curious general learners. It teaches the structure of medical language so users can follow realistic dialogue, documents, and workplace language without needing a clinical background.
 
 The product is not a medical encyclopedia, certification prep tool, or clinical decision aid. It is a decoding system: learn a relatively small set of high-yield roots, prefixes, suffixes, combining forms, and common exceptions; use them to understand thousands of medical terms.
 
@@ -153,12 +153,12 @@ First-session flow:
 
 Returning-user flow:
 1. Home shows a dominant `Resume` action if there is an in-progress lesson
-2. If no lesson is in progress, Home shows the next recommended lesson and a quieter `Review due terms` action
+2. If no lesson is in progress, Home shows the next recommended lesson and a quieter `Open drills` action
 3. Due review should be visible whenever it exists, but it should not replace the curriculum as the main product path
 
 Navigation rules:
 - Curriculum remains the primary spine of the product
-- Review and Endless mode are always reachable without leaving the learner stranded
+- Drills and Endless mode are always reachable without leaving the learner stranded
 - Lesson pages must provide a clear path back to the current unit and overall curriculum map
 - No screen should require more than one back action to return to a stable navigation surface
 - Mobile navigation should keep primary destinations to at most 4 top-level actions
@@ -302,8 +302,8 @@ Rendering rules:
 - Fully compositional terms should show segmented parts with part-by-part glosses
 - Partial terms should show the safe decomposition plus a note that the mapping is incomplete
 - Opaque terms should be labeled as recognition-first items rather than forced into fake decomposition
-- Lesson mode may show more scaffolding than review mode
-- Review and Endless mode should favor concise prompts and short explanations
+- Lesson mode may show more scaffolding than drills mode
+- Drills and Endless mode should favor concise prompts and short explanations
 
 ## Reading passages and example-content rules
 - Early lessons should use single-sentence examples or very short two-line exchanges
@@ -871,7 +871,7 @@ Mitigation:
 10. Polish and deploy
 
 ## Definition of done
-HealthTerms.com is done when:
+HealthTerminology.com is done when:
 - the static site builds and deploys
 - curriculum is navigable end-to-end
 - endless mode works

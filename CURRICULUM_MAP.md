@@ -32,7 +32,7 @@ Each future unit and module entry should accumulate:
 - Unit 6 now exists as a broader final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, reproductive follow-up synthesis drills, verification-prep crossover drills, ambiguity-results synthesis drills, and billing-report follow-through drills.
 - The app currently exposes 86 lessons, 245 terms, 97 parts, 272 exercises, and 44 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
-- Review flow now uses due, new, and mixed queues with caps and filter controls.
+- Drills now use due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
 - Abbreviations are implemented as a dedicated recognition surface separate from the main lesson flow.
 - Progress/stats is implemented as a separate surface with lesson and storage diagnostics.

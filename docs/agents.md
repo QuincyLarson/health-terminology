@@ -1,7 +1,7 @@
 # AGENTS.md
 
 ## Mission
-Build HealthTerms.com, a static, text-first, mobile-first medical terminology learning site.
+Build HealthTerminology.com, a static, text-first, mobile-first medical terminology learning site.
 
 ## Product rules
 - Accuracy over flair.

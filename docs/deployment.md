@@ -1,6 +1,6 @@
 # Deployment
 
-HealthTerms.com is built as a static Vite app and can be deployed to GitHub Pages without a backend.
+HealthTerminology.com is built as a static Vite app and can be deployed to GitHub Pages without a backend.
 
 ## Local build
 

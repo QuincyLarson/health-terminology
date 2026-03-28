@@ -2,8 +2,8 @@
 
 ## Current Repository State
 - Repository now contains a working Vite + React seed app plus the product docs.
-- The app includes deterministic content files, content validation scripts, a migration test, localStorage persistence, JSON import/export/reset support, a browse-first term index, dedicated endless mode, and a progress/stats page.
-- The runtime preserves unreadable local snapshots into a recovery backup, confirms destructive import/reset flows, and surfaces recovery messaging in settings.
+- The app includes deterministic content files, content validation scripts, a migration test, localStorage persistence, JSON import/export/reset support, a browse-first term index, dedicated endless mode, and a profile page for local study controls.
+- The runtime preserves unreadable local snapshots into a recovery backup, confirms destructive import/reset flows, and surfaces recovery messaging in the profile surface.
 - Lesson flow now uses first-attempt mastery scoring with retry support instead of requiring perfect recall on a single pass.
 - Lessons can now reference abbreviations directly, so Unit 5 exists as real curriculum content without collapsing abbreviations into ordinary term aliases.
 - Release plumbing now includes GitHub Pages workflow support, a deployment note, and a sample export artifact for import/export reference.
@@ -103,10 +103,10 @@
 - Wire eligibility rules to prerequisite completion.
 
 ### Stage 4 Status
-- A basic review page exists with due, new, and mixed modes, session caps, and content filters.
-- Review cards are plain-English recognition prompts, and the queue respects the current seed curriculum.
-- Spaced repetition exists as local progress state, and mixed review now favors due terms before filling with new items.
-- Endless mode is separate from review and exposes eligible terms with filters instead of a single unbounded drill list.
+- A drills page now exists with flashcard and root drag/drop modes, due, new, and mixed queue selection, session caps, and content filters.
+- Flashcard drills are plain-English recognition prompts, and the queue respects the current seed curriculum.
+- Spaced repetition exists as local progress state, and mixed drills now favor due terms before filling with new items.
+- Endless mode is separate from drills and exposes eligible terms with filters instead of a single unbounded drill list.
 - The minimum lovable release bar from the PRD is now met.
 - Final synthesis lessons now exist, but they still need a larger passage bank and more content depth before they feel close to full-v1 scale.
 - Remaining work is still meaningful, but it is now scale-out and refinement work rather than core release plumbing.
@@ -142,7 +142,8 @@
 - The newest root-first batch adds Unit 1 location-prefix families, the `-stomy` procedure family, and dense cross-root recombinations such as `cardiomyopathy`, `nephrectomy`, `endoscopy`, and `gastroenterology`.
 - The next root-family batch adds a dedicated vessel family with `vascular`, `vasculitis`, `endovascular`, `perivascular`, `arteriosclerosis`, and `atherosclerosis`.
 - Current seed totals: 7 units, 86 lessons, 97 parts, 245 terms, 272 exercises, and 44 abbreviations.
-- Current runtime surfaces: curriculum, lesson, browse, review, endless, abbreviations, progress, settings, and about.
+- Current primary runtime surfaces: curriculum landing, lesson, drills, profile, and endless.
+- Current secondary runtime surfaces: browse and abbreviations reference pages.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
 

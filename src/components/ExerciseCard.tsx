@@ -6,6 +6,7 @@ interface ExerciseCardProps {
   allowRetry?: boolean;
   onRetry?: () => void;
   selectedChoice: string | null;
+  showCelebration?: boolean;
   onSelect: (choice: string) => void;
 }
 
@@ -15,6 +16,7 @@ export function ExerciseCard({
   indexLabel,
   onRetry,
   selectedChoice,
+  showCelebration = false,
   onSelect,
 }: ExerciseCardProps) {
   const answered = selectedChoice !== null;
@@ -22,11 +24,16 @@ export function ExerciseCard({
 
   return (
     <article className="card exercise-card">
+      {showCelebration && correct ? (
+        <p className="success-burst" aria-live="assertive">
+          Correct!
+        </p>
+      ) : null}
       <p className="exercise-type">
         {indexLabel ? `${indexLabel} · ` : ""}
         {exercise.type.replaceAll("_", " ")}
       </p>
-      <h3>{exercise.prompt}</h3>
+      <h3 className="exercise-prompt">{exercise.prompt}</h3>
       <div className="choice-list">
         {exercise.choices.map((choice) => (
           <button
@@ -49,7 +56,7 @@ export function ExerciseCard({
         ))}
       </div>
       {answered ? (
-        <div className="stack">
+        <div className="stack compact-stack">
           <p className={`feedback ${correct ? "feedback-correct" : "feedback-incorrect"}`}>
             <strong>{correct ? "Correct." : "Needs another try."}</strong>{" "}
             {exercise.explanation}
