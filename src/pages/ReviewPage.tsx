@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
-import { content } from "../content";
+import { content, contentMaps } from "../content";
 import type { Term, TermPartLink } from "../types/content";
 
 type QueueMode = "due" | "new" | "mixed";
@@ -39,10 +39,7 @@ export function DrillsPage() {
   const [selectedPartId, setSelectedPartId] = useState<string | null>(null);
   const [dragResult, setDragResult] = useState<"correct" | "incorrect" | null>(null);
 
-  const lessonMap = useMemo(
-    () => new Map(content.lessons.map((lesson) => [lesson.id, lesson])),
-    [],
-  );
+  const lessonMap = contentMaps.lessonMap;
   const bodySystemOptions = useMemo(
     () => Array.from(new Set([...dueTerms, ...newTerms, ...mixedTerms].map((term) => term.bodySystem))).sort(),
     [dueTerms, mixedTerms, newTerms],

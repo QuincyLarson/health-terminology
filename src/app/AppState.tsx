@@ -2,21 +2,15 @@ import {
   createContext,
   useContext,
   useEffect,
+  useMemo,
   useState,
   type PropsWithChildren,
 } from "react";
-import { content } from "../content";
+import { content, contentMaps } from "../content";
 import {
   buildProgressStats,
-  getDueTerms,
-  getEligibleTerms,
-  getMixedTerms,
-  getNewTerms,
-  getNextRecommendedLesson,
+  deriveProgressCollections,
   getOrderedLessons,
-  getUnlockedLessons,
-  isLessonUnlocked,
-  isTermEligible,
 } from "../lib/curriculum/selectors";
 import {
   createProgressExport,
@@ -66,9 +60,10 @@ interface AppStateValue {
 
 const AppStateContext = createContext<AppStateValue | null>(null);
 const orderedLessons = getOrderedLessons();
+const lessonMap = contentMaps.lessonMap;
 
 function findLesson(lessonId: string): Lesson | undefined {
-  return content.lessons.find((lesson) => lesson.id === lessonId);
+  return lessonMap.get(lessonId);
 }
 
 export function AppStateProvider({ children }: PropsWithChildren) {
@@ -123,14 +118,18 @@ export function AppStateProvider({ children }: PropsWithChildren) {
     document.documentElement.style.colorScheme = resolvedTheme;
   }, [resolvedTheme]);
 
-  const unlockedLessons = getUnlockedLessons(progress);
-  const eligibleTerms = getEligibleTerms(progress);
-  const dueTerms = getDueTerms(progress);
-  const newTerms = getNewTerms(progress);
-  const mixedTerms = getMixedTerms(progress);
-  const stats = buildProgressStats(progress);
-  const storageSnapshotSize = getStorageSnapshotSize(progress);
-  const recommendedLesson = getNextRecommendedLesson(progress) ?? orderedLessons[0];
+  const derivedProgress = useMemo(() => deriveProgressCollections(progress), [progress]);
+  const unlockedLessons = derivedProgress.unlockedLessons;
+  const eligibleTerms = derivedProgress.eligibleTerms;
+  const dueTerms = derivedProgress.dueTerms;
+  const newTerms = derivedProgress.newTerms;
+  const mixedTerms = derivedProgress.mixedTerms;
+  const stats = derivedProgress.stats;
+  const storageSnapshotSize = useMemo(
+    () => getStorageSnapshotSize(progress),
+    [progress],
+  );
+  const recommendedLesson = derivedProgress.recommendedLesson ?? orderedLessons[0];
 
   function getLessonById(lessonId: string): Lesson | undefined {
     return findLesson(lessonId);
@@ -184,7 +183,7 @@ export function AppStateProvider({ children }: PropsWithChildren) {
         terms,
       };
       const nextLesson =
-        getNextRecommendedLesson(draftState) ?? getNextLesson(lessonId);
+        deriveProgressCollections(draftState).recommendedLesson ?? getNextLesson(lessonId);
       return {
         ...draftState,
         user: {
@@ -249,19 +248,11 @@ export function AppStateProvider({ children }: PropsWithChildren) {
   }
 
   function getLessonUnlocked(lessonId: string): boolean {
-    const lesson = findLesson(lessonId);
-    if (!lesson) {
-      return false;
-    }
-    return isLessonUnlocked(lesson, progress);
+    return derivedProgress.unlockedLessonIds.has(lessonId);
   }
 
   function getTermEligible(termId: string): boolean {
-    const term = content.terms.find((item) => item.id === termId);
-    if (!term) {
-      return false;
-    }
-    return isTermEligible(term, progress);
+    return derivedProgress.eligibleTermIds.has(termId);
   }
 
   return (

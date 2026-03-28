@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
-import { content } from "../content";
+import { contentMaps } from "../content";
 import {
   getRecoverySnapshot,
   RECOVERY_STORAGE_KEY,
@@ -27,32 +27,53 @@ export function ProgressPage() {
   } = useAppState();
   const [message, setMessage] = useState("");
 
-  const currentLesson = orderedLessons.find(
-    (lesson) => lesson.id === progress.user.currentLessonId,
+  const currentLesson = progress.user.currentLessonId
+    ? contentMaps.lessonMap.get(progress.user.currentLessonId)
+    : undefined;
+  const dueTermIds = useMemo(
+    () => new Set(dueTerms.map((term) => term.id)),
+    [dueTerms],
   );
-  const recentLessons = Object.entries(progress.lessons)
-    .sort(([, left], [, right]) =>
-      right.lastVisitedAt.localeCompare(left.lastVisitedAt),
-    )
-    .slice(0, 5)
-    .map(([lessonId, lessonProgress]) => ({
-      title: content.lessons.find((lesson) => lesson.id === lessonId)?.title ?? lessonId,
-      lessonProgress,
-    }));
-  const bodySystemStats = Array.from(
-    new Set(content.terms.map((term) => term.bodySystem)),
-  ).map((bodySystem) => {
-    const terms = eligibleTerms.filter((term) => term.bodySystem === bodySystem);
-    const seen = terms.filter((term) => (progress.terms[term.id]?.seenCount ?? 0) > 0).length;
-    const due = terms.filter((term) => dueTerms.some((dueTerm) => dueTerm.id === term.id)).length;
+  const recentLessons = useMemo(
+    () =>
+      Object.entries(progress.lessons)
+        .sort(([, left], [, right]) =>
+          right.lastVisitedAt.localeCompare(left.lastVisitedAt),
+        )
+        .slice(0, 5)
+        .map(([lessonId, lessonProgress]) => ({
+          title: contentMaps.lessonMap.get(lessonId)?.title ?? lessonId,
+          lessonProgress,
+        })),
+    [progress.lessons],
+  );
+  const bodySystemStats = useMemo(() => {
+    const statsBySystem = new Map<
+      string,
+      { bodySystem: string; due: number; eligible: number; seen: number }
+    >();
 
-    return {
-      bodySystem,
-      due,
-      eligible: terms.length,
-      seen,
-    };
-  });
+    for (const term of eligibleTerms) {
+      const entry = statsBySystem.get(term.bodySystem) ?? {
+        bodySystem: term.bodySystem,
+        due: 0,
+        eligible: 0,
+        seen: 0,
+      };
+      entry.eligible += 1;
+      if ((progress.terms[term.id]?.seenCount ?? 0) > 0) {
+        entry.seen += 1;
+      }
+      if (dueTermIds.has(term.id)) {
+        entry.due += 1;
+      }
+      statsBySystem.set(term.bodySystem, entry);
+    }
+
+    return Array.from(statsBySystem.values()).sort((left, right) =>
+      left.bodySystem.localeCompare(right.bodySystem),
+    );
+  }, [dueTermIds, eligibleTerms, progress.terms]);
   const recoverySnapshot = getRecoverySnapshot();
   const hasTrackedProgress =
     Object.keys(progress.lessons).length > 0 || Object.keys(progress.terms).length > 0;

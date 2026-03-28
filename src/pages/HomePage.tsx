@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
-import { content } from "../content";
+import { content, contentMaps } from "../content";
 import { getLessonSummary } from "../lib/curriculum/lessonSummary";
 
 export function HomePage() {
@@ -18,8 +18,7 @@ export function HomePage() {
 
   const currentLessonId =
     progress.user.currentLessonId ?? orderedLessons[0]?.id ?? "lesson-unit0-word-parts";
-  const currentLesson =
-    orderedLessons.find((lesson) => lesson.id === currentLessonId) ?? orderedLessons[0];
+  const currentLesson = contentMaps.lessonMap.get(currentLessonId) ?? orderedLessons[0];
   const currentLessonProgress = currentLesson ? progress.lessons[currentLesson.id] : undefined;
   const activeLesson =
     currentLessonProgress && !currentLessonProgress.completed
@@ -77,9 +76,7 @@ export function HomePage() {
       </section>
 
       {content.units.map((unit) => {
-        const authoredLessons = unit.lessonIds
-          .map((lessonId) => content.lessons.find((lesson) => lesson.id === lessonId))
-          .filter((lesson): lesson is NonNullable<typeof lesson> => Boolean(lesson));
+        const authoredLessons = contentMaps.lessonsByUnitId.get(unit.id) ?? [];
         const completedCount = authoredLessons.filter((lesson) =>
           completedLessonIds.has(lesson.id),
         ).length;

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { content } from "../content";
+import { content, contentMaps } from "../content";
 import { useAppState } from "../app/AppState";
 import { getLessonSummary } from "../lib/curriculum/lessonSummary";
 
@@ -39,12 +39,7 @@ export function CurriculumPage() {
           <p>{unit.summary}</p>
           {unit.lessonIds.length > 0 ? (
             <ul className="lesson-list">
-              {unit.lessonIds.map((lessonId) => {
-                const lesson = content.lessons.find((item) => item.id === lessonId);
-                if (!lesson) {
-                  return null;
-                }
-
+              {(contentMaps.lessonsByUnitId.get(unit.id) ?? []).map((lesson) => {
                 const scoreLabel = getLessonScoreLabel(lesson.id);
                 const lessonProgress = progress.lessons[lesson.id];
                 const completed = lessonProgress?.completed;
@@ -57,7 +52,7 @@ export function CurriculumPage() {
                   );
                 const prerequisiteTitles = lesson.prerequisiteLessonIds
                   .map((prerequisiteId) =>
-                    content.lessons.find((item) => item.id === prerequisiteId)?.title,
+                    contentMaps.lessonMap.get(prerequisiteId)?.title,
                   )
                   .filter((title): title is string => Boolean(title));
                 const lessonState = completed

@@ -1,12 +1,12 @@
 import { useDeferredValue, useMemo, useState } from "react";
 import { useAppState } from "../app/AppState";
-import { content } from "../content";
+import { content, contentMaps } from "../content";
 
 type TaughtFilter = "all" | "taught" | "not_taught";
 const RESULT_PAGE_SIZE = 24;
 
 export function BrowsePage() {
-  const { isTermEligible } = useAppState();
+  const { eligibleTerms } = useAppState();
   const [search, setSearch] = useState("");
   const [unitFilter, setUnitFilter] = useState("all");
   const [bodySystemFilter, setBodySystemFilter] = useState("all");
@@ -14,10 +14,12 @@ export function BrowsePage() {
   const [taughtFilter, setTaughtFilter] = useState<TaughtFilter>("all");
   const [visibleCount, setVisibleCount] = useState(RESULT_PAGE_SIZE);
   const deferredSearch = useDeferredValue(search);
-  const lessonMap = useMemo(
-    () => new Map(content.lessons.map((lesson) => [lesson.id, lesson])),
-    [],
+  const normalizedSearch = deferredSearch.trim().toLowerCase();
+  const eligibleTermIds = useMemo(
+    () => new Set(eligibleTerms.map((term) => term.id)),
+    [eligibleTerms],
   );
+  const lessonMap = contentMaps.lessonMap;
 
   const bodySystemOptions = useMemo(
     () => Array.from(new Set(content.terms.map((term) => term.bodySystem))).sort(),
@@ -38,15 +40,13 @@ export function BrowsePage() {
   const filteredTerms = useMemo(
     () =>
       content.terms.filter((term) => {
-        const eligible = isTermEligible(term.id);
+        const eligible = eligibleTermIds.has(term.id);
         const matchesSearch =
-          deferredSearch.length === 0 ||
-          `${term.term} ${term.plainMeaning} ${term.shortDefinition}`
-            .toLowerCase()
-            .includes(deferredSearch.toLowerCase());
+          normalizedSearch.length === 0 ||
+          (contentMaps.termSearchTextById.get(term.id) ?? "").includes(normalizedSearch);
         const matchesUnit =
           unitFilter === "all" ||
-          term.lessonIds.some((lessonId) => lessonMap.get(lessonId)?.unitId === unitFilter);
+          (contentMaps.unitIdsByTermId.get(term.id) ?? []).includes(unitFilter);
         const matchesBodySystem =
           bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
         const matchesPart =
@@ -66,13 +66,17 @@ export function BrowsePage() {
       }),
     [
       bodySystemFilter,
-      deferredSearch,
-      isTermEligible,
+      eligibleTermIds,
       lessonMap,
+      normalizedSearch,
       partFilter,
       taughtFilter,
       unitFilter,
     ],
+  );
+  const eligibleMatchCount = useMemo(
+    () => filteredTerms.filter((term) => eligibleTermIds.has(term.id)).length,
+    [eligibleTermIds, filteredTerms],
   );
 
   const visibleTerms = filteredTerms.slice(0, visibleCount);
@@ -172,17 +176,14 @@ export function BrowsePage() {
           </label>
         </div>
         <p className="meta-copy">
-          Matching terms: {filteredTerms.length} · Eligible now:{" "}
-          {filteredTerms.filter((term) => isTermEligible(term.id)).length}
+          Matching terms: {filteredTerms.length} · Eligible now: {eligibleMatchCount}
         </p>
       </section>
 
       <section className="term-grid">
         {visibleTerms.map((term) => {
-          const eligible = isTermEligible(term.id);
-          const lessonTitles = term.lessonIds
-            .map((lessonId) => lessonMap.get(lessonId)?.title)
-            .filter((title): title is string => Boolean(title));
+          const eligible = eligibleTermIds.has(term.id);
+          const lessonTitles = contentMaps.lessonTitlesByTermId.get(term.id) ?? [];
           const primaryLesson =
             term.lessonIds.length > 0 ? lessonMap.get(term.lessonIds[0]) : undefined;
 

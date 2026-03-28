@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { ExerciseCard } from "../components/ExerciseCard";
-import { content } from "../content";
+import { contentMaps } from "../content";
 import { getLessonSummary } from "../lib/curriculum/lessonSummary";
 import { speakText } from "../lib/audio/speak";
 
@@ -25,7 +25,7 @@ export function LessonPage() {
   const lessonExercises = useMemo(
     () =>
       (lesson?.exerciseSetIds ?? [])
-        .map((exerciseId) => content.exercises.find((exercise) => exercise.id === exerciseId))
+        .map((exerciseId) => contentMaps.exerciseMap.get(exerciseId))
         .filter((exercise): exercise is NonNullable<typeof exercise> => Boolean(exercise)),
     [lesson],
   );
@@ -87,15 +87,13 @@ export function LessonPage() {
     );
   }
 
-  const introducedParts = content.parts.filter((part) =>
-    lesson.introducesPartIds.includes(part.id),
-  );
-  const introducedTerms = content.terms.filter((term) =>
-    lesson.introducesTermIds.includes(term.id),
-  );
-  const introducedAbbreviations = content.abbreviations.filter((abbreviation) =>
-    (lesson.introducesAbbreviationIds ?? []).includes(abbreviation.id),
-  );
+  const introducedParts = contentMaps.partsByLessonId.get(lesson.id) ?? [];
+  const introducedTerms = contentMaps.termsByLessonId.get(lesson.id) ?? [];
+  const introducedAbbreviations = (lesson.introducesAbbreviationIds ?? [])
+    .map((abbreviationId) => contentMaps.abbreviationMap.get(abbreviationId))
+    .filter((abbreviation): abbreviation is NonNullable<typeof abbreviation> =>
+      Boolean(abbreviation),
+    );
   const nextLesson = getNextLesson(lesson.id);
   const firstAttemptCorrect = lessonExercises.reduce((count, exercise) => {
     return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
@@ -103,7 +101,7 @@ export function LessonPage() {
   const activeExercise = lessonExercises[activeExerciseIndex];
 
   function handleSelect(exerciseId: string, choice: string): void {
-    const exercise = lessonExercises.find((item) => item.id === exerciseId);
+    const exercise = contentMaps.exerciseMap.get(exerciseId);
     if (!exercise) {
       return;
     }

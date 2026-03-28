@@ -1,7 +1,7 @@
 import { useDeferredValue, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
-import { content } from "../content";
+import { content, contentMaps } from "../content";
 import type { Term } from "../types/content";
 
 type EndlessMode = "multiple_choice" | "flashcard";
@@ -27,10 +27,7 @@ export function EndlessPage() {
   const [selected, setSelected] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
   const deferredSearch = useDeferredValue(search);
-  const lessonMap = useMemo(
-    () => new Map(content.lessons.map((lesson) => [lesson.id, lesson])),
-    [],
-  );
+  const normalizedSearch = deferredSearch.trim().toLowerCase();
   const dueIds = useMemo(() => new Set(dueTerms.map((term) => term.id)), [dueTerms]);
   const bodySystemOptions = useMemo(
     () => Array.from(new Set(eligibleTerms.map((term) => term.bodySystem))).sort(),
@@ -41,20 +38,18 @@ export function EndlessPage() {
     () =>
       eligibleTerms.filter((term) => {
         const matchesSearch =
-          deferredSearch.length === 0 ||
-          `${term.term} ${term.plainMeaning} ${term.shortDefinition}`
-            .toLowerCase()
-            .includes(deferredSearch.toLowerCase());
+          normalizedSearch.length === 0 ||
+          (contentMaps.termSearchTextById.get(term.id) ?? "").includes(normalizedSearch);
         const matchesUnit =
           unitFilter === "all" ||
-          term.lessonIds.some((lessonId) => lessonMap.get(lessonId)?.unitId === unitFilter);
+          (contentMaps.unitIdsByTermId.get(term.id) ?? []).includes(unitFilter);
         const matchesBodySystem =
           bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
         const matchesDue = !dueOnly || dueIds.has(term.id);
 
         return matchesSearch && matchesUnit && matchesBodySystem && matchesDue;
       }),
-    [bodySystemFilter, deferredSearch, dueIds, dueOnly, eligibleTerms, lessonMap, unitFilter],
+    [bodySystemFilter, dueIds, dueOnly, eligibleTerms, normalizedSearch, unitFilter],
   );
 
   const current = filteredTerms[index];
@@ -195,10 +190,7 @@ export function EndlessPage() {
           </p>
           <p className="meta-copy">
             Source lessons:{" "}
-            {current.lessonIds
-              .map((lessonId) => lessonMap.get(lessonId)?.title)
-              .filter((title): title is string => Boolean(title))
-              .join(", ")}
+            {(contentMaps.lessonTitlesByTermId.get(current.id) ?? []).join(", ")}
           </p>
 
           {mode === "multiple_choice" ? (
