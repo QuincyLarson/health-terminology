@@ -25,7 +25,7 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, eye or ear or hearing, and oncology or tumor language.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
 - Unit 5 now exists as a lesson-linked abbreviations unit with chart-note shorthand coverage.
@@ -111,7 +111,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
-Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, and endocrine language.
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -181,7 +181,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Priority: medium.
 - Status: seeded as an eye, ear, and hearing starter slice.
 
-### Module 2.12: Oncology and Pathology Cross-Cutting Terms
+### Module 2.12: Oncology and Tumor Cross-Cutting Terms
 - Lesson goal: decode mass, tumor, cancer, benign, malignant, and tissue-change terms.
 - Representative content: `onc/o`, `carcin/o`, `-oma`, `-plasia`, `-malacia`.
 - Priority: medium.
@@ -288,6 +288,12 @@ Unit 5 now has authored starter slices for clinical, document, measurement, rout
 - Representative content: mg, mL, qd, bid, tid, PO, IV, IM, SQ.
 - Priority: high.
 - Status: seeded as a route and dose-unit slice.
+
+### Module 5.4: Chart and Note Abbreviations
+- Lesson goal: recognize compressed shorthand for normal findings and with or without phrasing.
+- Representative content: WNL, w/, w/o, SQ in context.
+- Priority: medium.
+- Status: seeded.
 
 ## Unit 6 - Final Synthesis
 Unit 6 now has authored starter slices for mixed recognition, passage decoding, and rapid parsing.

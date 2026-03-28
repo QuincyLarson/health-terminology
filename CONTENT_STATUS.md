@@ -112,7 +112,7 @@
 
 ### Stage 5 Status
 - The scale-out process is now underway through post-seed curriculum batches that keep extending Units 2, 5, and 6.
-- Batch validators are present, but the bank is still a starter corpus rather than a large corpus.
+- Batch validators are present, but the bank is still a starter corpus rather than a true scale-out corpus.
 
 ### Stage 6: Polish and Release Hardening
 - Run performance and accessibility passes.
@@ -127,6 +127,7 @@
 
 ## Batch Ledger
 - Seed batch authored: Unit 0 foundations, broader Unit 1 roots/prefixes/procedures plus condition suffixes, expanded Unit 2 body-system slices, broader Unit 3 and Unit 4 language coverage, and the first lesson-linked Units 5 and 6.
+- Latest scale-out batch added Unit 2 integumentary, sensory, and oncology or tumor language, expanded Unit 5 chart-note abbreviations, and added Unit 6 rapid parsing drills.
 - Current seed totals: 7 units, 46 lessons, 67 parts, 149 terms, 122 exercises, and 22 abbreviations.
 - Current runtime surfaces: curriculum, lesson, browse, review, endless, abbreviations, progress, settings, and about.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.

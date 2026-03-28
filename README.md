@@ -10,7 +10,7 @@ The repository now has a working Vite + React seed app. The product direction, c
 
 The current app includes a curriculum map, a browse-first term index, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 7 units, 46 lessons, 67 parts, 149 terms, 122 exercises, and 22 abbreviations. Unit 1 includes condition-suffix coverage, Unit 2 now extends through reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor starter slices, Unit 3 includes condition-state and chart-passage lessons, Unit 4 includes administrative passage decoding, Unit 5 now adds chart-note shorthand on top of the first abbreviation slices, and Unit 6 now includes rapid-parsing drills in addition to mixed-recognition and passage-decoding lessons.
 
-The current implementation now exceeds the PRD's minimum lovable release bar and has a full seeded path through Units 0 to 6. Review and endless study work, lesson retry or first-attempt mastery tracking exists, JSON export/import/reset works, recovery-aware local progress handling is in place, and abbreviation lessons now exist as first-class curriculum content rather than only as a separate browse surface. The remaining work is full-v1 breadth, especially larger content scale-out, deeper remaining Unit 2 system coverage, broader abbreviation inventory, and stronger review tuning.
+The current implementation now exceeds the PRD's minimum lovable release bar and has a full seeded path through Units 0 to 6. Review and endless study work, lesson retry or first-attempt mastery tracking exists, JSON export/import/reset works, recovery-aware local progress handling is in place, and abbreviation lessons now exist as first-class curriculum content rather than only as a separate browse surface. The remaining work is full-v1 breadth, especially larger content scale-out inside the seeded units, broader abbreviation inventory and ambiguity handling, a larger Unit 6 passage bank, and stronger review tuning.
 
 ## Planned Architecture
 
@@ -74,9 +74,9 @@ Planned top-level structure:
 
 ## Immediate Next Steps
 
-1. Deepen the remaining Unit 2 body-system gaps, especially respiratory, gastrointestinal, and other still-thin starter slices.
-2. Expand Unit 5 with more abbreviation coverage, ambiguity handling, and larger validated abbreviation sets.
-3. Grow Unit 6 passage volume with more realistic chart, portal, referral, discharge, and results snippets.
+1. Deepen the seeded Unit 2 systems with larger validated batches across respiratory, gastrointestinal, integumentary, sensory, oncology, and hematologic language.
+2. Expand Unit 5 with more abbreviation coverage, ambiguity handling, and denser chart-style shorthand.
+3. Grow Unit 6 passage volume and rapid-parsing drills with more realistic chart, portal, referral, discharge, and results snippets.
 4. Grow validated terms, parts, exercises, and abbreviations in 200-500 item batches.
 5. Tighten spaced repetition, mixed-session tuning, and browse or ranking behavior as the content bank grows.
 6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
