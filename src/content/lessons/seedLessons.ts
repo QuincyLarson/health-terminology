@@ -2122,6 +2122,123 @@ export const exercises: Exercise[] = [
     explanation: "`leuk/o` points to white, `cyt/o` points to cell, and `-osis` marks an abnormal condition.",
     linkedTermIds: ["term-leukocytosis"],
     linkedPartIds: ["part-leuk-combining", "part-cyt-combining", "part-osis-suffix"],
+  },
+  {
+    id: "exercise-unit2-hepatobiliary-1",
+    type: "root_match",
+    prompt: "Which suffix points to a stone condition or the presence of stones?",
+    choices: ["-lithiasis", "-itis", "-megaly", "-gram"],
+    answer: "-lithiasis",
+    explanation: "`-lithiasis` points to a condition involving stones, such as kidney stones or gallstones.",
+    linkedTermIds: ["term-cholelithiasis", "term-nephrolithiasis"],
+    linkedPartIds: ["part-lithiasis-suffix"],
+  },
+  {
+    id: "exercise-unit2-hepatobiliary-2",
+    type: "infer_meaning",
+    prompt: "If `pancreat/o` means pancreas and `-itis` means inflammation, what does `pancreatitis` suggest?",
+    choices: [
+      "inflammation of the pancreas",
+      "stone condition of the pancreas",
+      "study of the pancreas",
+      "enlargement of the liver"
+    ],
+    answer: "inflammation of the pancreas",
+    explanation: "`pancreatitis` follows the familiar organ-plus-inflammation pattern.",
+    linkedTermIds: ["term-pancreatitis"],
+    linkedPartIds: ["part-pancreat-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-hepatobiliary-3",
+    type: "infer_meaning",
+    prompt: "What does `cholecystitis` suggest?",
+    choices: [
+      "inflammation of the gallbladder",
+      "surgical removal of the gallbladder",
+      "presence of kidney stones",
+      "inflammation of the pancreas"
+    ],
+    answer: "inflammation of the gallbladder",
+    explanation: "`cholecyst/o` points to the gallbladder and `-itis` points to inflammation.",
+    linkedTermIds: ["term-cholecystitis"],
+    linkedPartIds: ["part-cholecyst-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-hepatobiliary-4",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `cholelithiasis`?",
+    choices: [
+      "a gallstone condition",
+      "inflammation of the liver",
+      "blood in the urine",
+      "study of the kidney"
+    ],
+    answer: "a gallstone condition",
+    explanation: "`chol/e` points to bile or gall and `-lithiasis` points to stones.",
+    linkedTermIds: ["term-cholelithiasis"],
+    linkedPartIds: ["part-chole-combining", "part-lithiasis-suffix"],
+  },
+  {
+    id: "exercise-unit2-hepatobiliary-5",
+    type: "infer_meaning",
+    prompt: "What does `nephrolithiasis` suggest?",
+    choices: [
+      "kidney stone condition",
+      "painful urination",
+      "inflammation of the kidney",
+      "gallbladder inflammation"
+    ],
+    answer: "kidney stone condition",
+    explanation: "`nephr/o` points to the kidney and `-lithiasis` points to stones.",
+    linkedTermIds: ["term-nephrolithiasis"],
+    linkedPartIds: ["part-nephr-combining", "part-lithiasis-suffix"],
+  },
+  {
+    id: "exercise-unit6-abdominal-synth-1",
+    type: "infer_meaning",
+    prompt: "ED note: `CT shows nephrolithiasis and UA shows hematuria. Pain improved after fluids. f/u with PCP if symptoms return.` Which paraphrase best matches?",
+    choices: [
+      "The scan found kidney stones, the urine showed blood, and follow-up is needed if the problem comes back",
+      "The scan found a gallbladder infection and the urine test was normal",
+      "The patient must remain NPO because the pancreas is inflamed",
+      "The message is mainly about prior authorization paperwork"
+    ],
+    answer: "The scan found kidney stones, the urine showed blood, and follow-up is needed if the problem comes back",
+    explanation: "This passage mixes imaging, urine-test shorthand, kidney-stone language, and follow-up instructions.",
+    linkedTermIds: ["term-nephrolithiasis", "term-hematuria", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ct", "abbr-ua", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-abdominal-synth-2",
+    type: "infer_meaning",
+    prompt: "Ultrasound impression: `cholelithiasis with probable cholecystitis. Patient kept NPO and monitoring continues.` Which paraphrase fits best?",
+    choices: [
+      "Gallstones are present with likely gallbladder inflammation, so the patient is not eating or drinking while observation continues",
+      "Kidney stones were excluded and the patient can go home immediately",
+      "The pancreas is normal but the urine test shows protein",
+      "The note mainly describes a routine vaccination visit"
+    ],
+    answer: "Gallstones are present with likely gallbladder inflammation, so the patient is not eating or drinking while observation continues",
+    explanation: "This line combines an imaging interpretation with stone language, inflammation language, and the `NPO` instruction.",
+    linkedTermIds: ["term-ultrasound", "term-impression", "term-cholelithiasis", "term-cholecystitis", "term-monitoring"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-npo"],
+  },
+  {
+    id: "exercise-unit6-abdominal-synth-3",
+    type: "infer_meaning",
+    prompt: "Assessment: `Pancreatitis likely. Continue monitoring and return if abdominal pain worsens.` Which plain-English meaning best matches `pancreatitis`?",
+    choices: [
+      "inflammation of the pancreas",
+      "presence of kidney stones",
+      "enlargement of the liver",
+      "blood in the urine"
+    ],
+    answer: "inflammation of the pancreas",
+    explanation: "`pancreatitis` follows the same organ-plus-inflammation pattern used in other `-itis` terms.",
+    linkedTermIds: ["term-pancreatitis", "term-monitoring"],
+    linkedPartIds: ["part-pancreat-combining", "part-itis-suffix"],
   }
 ];
 
@@ -3593,6 +3710,76 @@ export const lessons: Lesson[] = [
       "exercise-unit6-blood-synth-1",
       "exercise-unit6-blood-synth-2",
       "exercise-unit6-blood-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-hepatobiliary-and-stone-language",
+    title: "Hepatobiliary and Stone Language",
+    unitId: "unit-2",
+    objective: "Decode high-yield pancreas, gallbladder, gallstone, and kidney-stone terms that recur in imaging and abdominal-pain notes.",
+    whyItMatters: "These terms show up often in urgent care, emergency notes, imaging reports, and surgical follow-up.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-urinary-output-and-testing-language",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: [
+      "part-pancreat-combining",
+      "part-chole-combining",
+      "part-lithiasis-suffix"
+    ],
+    introducesTermIds: [
+      "term-pancreatitis",
+      "term-cholecystitis",
+      "term-cholelithiasis",
+      "term-nephrolithiasis"
+    ],
+    reinforcesTermIds: [
+      "term-hepatitis",
+      "term-hepatomegaly",
+      "term-cholecystectomy",
+      "term-hematuria"
+    ],
+    exerciseSetIds: [
+      "exercise-unit2-hepatobiliary-1",
+      "exercise-unit2-hepatobiliary-2",
+      "exercise-unit2-hepatobiliary-3",
+      "exercise-unit2-hepatobiliary-4",
+      "exercise-unit2-hepatobiliary-5"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-abdominal-and-stone-synthesis",
+    title: "Abdominal and Stone Synthesis",
+    unitId: "unit-6",
+    objective: "Read abdominal-pain and imaging passages that mix stone language, inflammation terms, shorthand orders, and follow-up instructions.",
+    whyItMatters: "Abdominal and stone workups generate compact result messages that are dense but highly pattern-driven once the learner knows the parts.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-blood-and-count-synthesis",
+      "lesson-unit2-hepatobiliary-and-stone-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-pancreatitis",
+      "term-cholecystitis",
+      "term-cholelithiasis",
+      "term-nephrolithiasis",
+      "term-hepatomegaly",
+      "term-ultrasound",
+      "term-impression",
+      "term-follow-up",
+      "term-hematuria",
+      "term-monitoring"
+    ],
+    reinforcesAbbreviationIds: ["abbr-ct", "abbr-ua", "abbr-npo", "abbr-fu", "abbr-pcp"],
+    exerciseSetIds: [
+      "exercise-unit6-abdominal-synth-1",
+      "exercise-unit6-abdominal-synth-2",
+      "exercise-unit6-abdominal-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",
