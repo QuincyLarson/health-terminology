@@ -24,11 +24,13 @@ Each future unit and module entry should accumulate:
 
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
-- Unit 1 now covers suffixes, roots, prefixes, rate prefixes, and procedure language.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, and endocrine language.
-- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, and medication basics.
-- Unit 4 now includes starter lessons for administrative, intake, billing, portal, and reminder language.
-- The app currently exposes 29 lessons, 109 terms, 52 parts, 71 exercises, and 7 abbreviations.
+- Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, and immune or lymphatic language.
+- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
+- Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
+- Unit 5 now exists as a lesson-linked abbreviations unit.
+- Unit 6 now exists as a lesson-linked final synthesis unit.
+- The app currently exposes 41 lessons, 136 terms, 60 parts, 107 exercises, and 18 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -70,7 +72,7 @@ Each future unit and module entry should accumulate:
 - Lesson goal: decode common disease-state endings and symptom words.
 - Representative content: `-itis`, `-algia`, `-osis`, `pain`, `swelling`.
 - Priority: highest.
-- Status: seeded as a suffix-first slice.
+- Status: seeded as a suffix-first slice with added condition-suffix coverage.
 - Prerequisite guidance: should follow Unit 0 word-parts parsing.
 
 ### Module 1.2: Procedures and Interventions
@@ -159,6 +161,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Lesson goal: decode anatomy and common reproductive-system terms.
 - Representative content: `hyster/o`, `metr/o`, `ovari/o`, `orch/i`, `salping/o`.
 - Priority: medium-high.
+- Status: seeded as a starter procedure and inflammation slice.
 
 ### Module 2.9: Integumentary
 - Lesson goal: learn skin, hair, nail, and surface-related language.
@@ -169,6 +172,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Lesson goal: recognize blood, immune, and lymph terms.
 - Representative content: `hemat/o`, `immun/o`, `lymph/o`, `splen/o`.
 - Priority: medium.
+- Status: seeded as an immune and lymphatic starter slice.
 
 ### Module 2.11: Sensory Systems
 - Lesson goal: understand eye, ear, and sensory terminology.
@@ -192,6 +196,7 @@ Unit 3 now has authored starter slices for symptoms/status language, procedure f
 - Lesson goal: parse diagnosis-style phrasing and condition naming patterns.
 - Representative content: chronic, acute, syndrome, disorder, deficiency, infection.
 - Priority: high.
+- Status: seeded.
 
 ### Module 3.3: Procedures and Surgeries
 - Lesson goal: recognize how common procedures are named and described.
@@ -220,6 +225,12 @@ Unit 3 now has authored starter slices for symptoms/status language, procedure f
 ### Module 3.7: Admissions, Discharge, and Workflow
 - Lesson goal: understand common workflow language used in clinical settings.
 - Representative content: admit, discharge, transfer, consult, referral.
+- Priority: medium.
+- Status: seeded.
+
+### Module 3.8: Chart Passage Decoding
+- Lesson goal: read short chart fragments that mix section labels, symptoms, and updates.
+- Representative content: history of present illness, physical exam, progress note, reassessment.
 - Priority: medium.
 - Status: seeded.
 
@@ -253,33 +264,41 @@ Unit 4 now has authored starter slices for scheduling, follow-up, records, order
 - Lesson goal: read short, realistic administrative passages for comprehension.
 - Representative content: simplified intake forms, reminders, discharge instructions.
 - Priority: medium.
+- Status: seeded.
 
 ## Unit 5 - Abbreviations and Acronyms
+Unit 5 now has authored starter slices for clinical, document, measurement, and route abbreviations.
 ### Module 5.1: Clinical Abbreviations
 - Lesson goal: recognize high-frequency chart abbreviations.
 - Representative content: BP, HR, RR, SOB, NPO, PRN.
 - Priority: high.
+- Status: seeded.
 
 ### Module 5.2: Document Abbreviations
 - Lesson goal: recognize administrative and document abbreviations.
 - Representative content: DOB, PCP, ROI, hx, f/u, w/ and w/o.
 - Priority: medium-high.
+- Status: seeded as a workflow and chart-shorthand slice.
 
 ### Module 5.3: Measurement and Route Abbreviations
 - Lesson goal: recognize unit, dose, and administration shorthand.
 - Representative content: mg, mL, qd, bid, tid, PO, IV, IM, SQ.
 - Priority: high.
+- Status: seeded as a route and dose-unit slice.
 
 ## Unit 6 - Final Synthesis
+Unit 6 now has authored starter slices for mixed recognition and passage decoding.
 ### Module 6.1: Mixed Review
 - Lesson goal: combine roots, affixes, abbreviations, and context clues.
 - Representative content: mixed term sets from all prior units.
 - Priority: medium.
+- Status: seeded.
 
 ### Module 6.2: Passage Decoding
 - Lesson goal: read longer passages with layered terminology.
 - Representative content: chart fragments, discharge summaries, and workplace language.
 - Priority: medium.
+- Status: seeded across separate clinical and administrative passage lessons.
 
 ### Module 6.3: Rapid Parsing Drills
 - Lesson goal: split unseen terms quickly and infer likely meaning.

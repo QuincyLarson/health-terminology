@@ -8,9 +8,9 @@ This is not a medical encyclopedia, certification prep tool, or clinical decisio
 
 The repository now has a working Vite + React seed app. The product direction, curriculum strategy, and implementation rules are defined in `docs/prd.md`, `docs/agents.md`, and the root `AGENTS.md`, and the first curriculum slice is implemented in `src/content`.
 
-The current app includes a curriculum map, a browse-first term index, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 5 units, 29 lessons, 52 parts, 109 terms, 71 exercises, and 7 abbreviations, with Unit 2 extended through cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, and endocrine starter modules, broader chart, workflow, diagnostics, and medication language now present in Unit 3, and intake, billing, plus portal or reminder language now present in Unit 4.
+The current app includes a curriculum map, a browse-first term index, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 7 units, 41 lessons, 60 parts, 136 terms, 107 exercises, and 18 abbreviations. Unit 1 now includes condition-suffix coverage, Unit 2 now extends through reproductive and immune or lymphatic starter slices, Unit 3 now includes condition-state and chart-passage lessons, Unit 4 now includes administrative passage decoding, Unit 5 is now a dedicated lesson-linked abbreviations unit, and Unit 6 now seeds mixed-recognition and passage-decoding synthesis lessons.
 
-The current implementation now exceeds the PRD's minimum lovable release bar: Unit 0 and Unit 1 are usable, multiple body-system modules are coherent end-to-end, review and endless study work, lesson retry/first-attempt mastery tracking exists, JSON export/import/reset works, and recovery-aware local progress handling is in place. The remaining work is full-v1 breadth, especially larger content scale-out and deeper SRS tuning.
+The current implementation now exceeds the PRD's minimum lovable release bar and has a full seeded path through Units 0 to 6. Review and endless study work, lesson retry or first-attempt mastery tracking exists, JSON export/import/reset works, recovery-aware local progress handling is in place, and abbreviation lessons now exist as first-class curriculum content rather than only as a separate browse surface. The remaining work is full-v1 breadth, especially larger content scale-out, deeper remaining Unit 2 system coverage, and stronger review tuning.
 
 ## Planned Architecture
 
@@ -74,11 +74,11 @@ Planned top-level structure:
 
 ## Immediate Next Steps
 
-1. Expand beyond the minimum lovable release with deeper body-system coverage and larger validated term batches.
-2. Continue Unit 2 into reproductive, integumentary, and hematologic or immune starter coverage.
-3. Expand Unit 3 into condition-state language and deeper passage-style chart-reading content.
-4. Grow validated terms, parts, and exercises in 200-500 term batches.
-5. Tighten spaced repetition, mixed-session tuning, and term-browse/ranking behavior as the term bank grows.
+1. Deepen the remaining Unit 2 body-system gaps, especially integumentary, sensory, and oncology or pathology cross-cutting language.
+2. Expand Unit 5 with more abbreviation coverage, ambiguity handling, and larger validated abbreviation sets.
+3. Grow Unit 6 passage volume with more realistic chart, portal, referral, and discharge snippets.
+4. Grow validated terms, parts, exercises, and abbreviations in 200-500 item batches.
+5. Tighten spaced repetition, mixed-session tuning, and browse or ranking behavior as the content bank grows.
 6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
 
 ## Working Notes
