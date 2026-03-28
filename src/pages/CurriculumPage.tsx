@@ -20,9 +20,9 @@ export function CurriculumPage() {
         <p className="eyebrow">Curriculum map</p>
         <h2>Seed curriculum</h2>
         <p>
-          This first pass focuses on Unit 0 foundations and a narrow Unit 1
-          launch slice. Later units remain visible so the sequence stays
-          concrete.
+          The current seed now spans Units 0 through 6 with authored lessons
+          for foundations, body systems, clinical language, administrative
+          text, abbreviations, and mixed synthesis.
         </p>
       </section>
 

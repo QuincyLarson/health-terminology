@@ -52,6 +52,7 @@ export function validateContent(input: ValidationInput): ValidationResult {
   const partIds = new Set(input.parts.map((item) => item.id));
   const termIds = new Set(input.terms.map((item) => item.id));
   const exerciseIds = new Set(input.exercises.map((item) => item.id));
+  const abbreviationIds = new Set(input.abbreviations.map((item) => item.id));
 
   for (const unit of input.units) {
     for (const lessonId of unit.lessonIds) {
@@ -89,9 +90,23 @@ export function validateContent(input: ValidationInput): ValidationResult {
         errors.push(`lesson ${lesson.id} references missing term ${termId}`);
       }
     }
+    for (const abbreviationId of lesson.introducesAbbreviationIds ?? []) {
+      if (!abbreviationIds.has(abbreviationId)) {
+        errors.push(
+          `lesson ${lesson.id} references missing abbreviation ${abbreviationId}`,
+        );
+      }
+    }
     for (const termId of lesson.reinforcesTermIds) {
       if (!termIds.has(termId)) {
         errors.push(`lesson ${lesson.id} references missing reinforced term ${termId}`);
+      }
+    }
+    for (const abbreviationId of lesson.reinforcesAbbreviationIds ?? []) {
+      if (!abbreviationIds.has(abbreviationId)) {
+        errors.push(
+          `lesson ${lesson.id} references missing reinforced abbreviation ${abbreviationId}`,
+        );
       }
     }
     for (const exerciseId of lesson.exerciseSetIds) {
@@ -158,6 +173,16 @@ export function validateContent(input: ValidationInput): ValidationResult {
       continue;
     }
     shortForms.set(normalizedShortForm, abbreviation.id);
+  }
+
+  for (const exercise of input.exercises) {
+    for (const abbreviationId of exercise.linkedAbbreviationIds ?? []) {
+      if (!abbreviationIds.has(abbreviationId)) {
+        errors.push(
+          `exercise ${exercise.id} references missing abbreviation ${abbreviationId}`,
+        );
+      }
+    }
   }
 
   return { errors, warnings };

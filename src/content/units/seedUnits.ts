@@ -21,6 +21,7 @@ export const units: Unit[] = [
     lessonIds: [
       "lesson-unit1-common-suffixes",
       "lesson-unit1-core-body-roots",
+      "lesson-unit1-condition-suffixes",
       "lesson-unit1-common-prefixes",
       "lesson-unit1-rate-prefixes",
       "lesson-unit1-procedure-language"
@@ -41,7 +42,9 @@ export const units: Unit[] = [
       "lesson-unit2-musculoskeletal-pain-and-repair",
       "lesson-unit2-renal-urinary-language",
       "lesson-unit2-nervous-system-disorder-language",
-      "lesson-unit2-endocrine-and-glycemic-language"
+      "lesson-unit2-endocrine-and-glycemic-language",
+      "lesson-unit2-reproductive-language-starter",
+      "lesson-unit2-immune-and-lymphatic-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
@@ -56,7 +59,9 @@ export const units: Unit[] = [
       "lesson-unit3-chart-style-phrasing",
       "lesson-unit3-admissions-discharge-and-workflow",
       "lesson-unit3-diagnostic-and-imaging-language",
-      "lesson-unit3-medication-and-administration-basics"
+      "lesson-unit3-medication-and-administration-basics",
+      "lesson-unit3-condition-and-disease-state-language",
+      "lesson-unit3-chart-passage-decoding"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2"],
     status: "lesson-linked",
@@ -70,9 +75,34 @@ export const units: Unit[] = [
       "lesson-unit4-records-orders-and-authorization",
       "lesson-unit4-intake-form-language",
       "lesson-unit4-coverage-and-billing-language",
-      "lesson-unit4-portal-results-and-reminders"
+      "lesson-unit4-portal-results-and-reminders",
+      "lesson-unit4-admin-passage-decoding"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3"],
+    status: "lesson-linked",
+  },
+  {
+    id: "unit-5",
+    title: "Abbreviations and Acronyms",
+    summary: "Recognition-first coverage of high-frequency clinical, document, measurement, and route abbreviations.",
+    lessonIds: [
+      "lesson-unit5-core-clinical-abbreviations",
+      "lesson-unit5-document-and-workflow-abbreviations",
+      "lesson-unit5-measurement-and-route-abbreviations"
+    ],
+    prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4"],
+    status: "lesson-linked",
+  },
+  {
+    id: "unit-6",
+    title: "Final Synthesis",
+    summary: "Mixed recognition and passage decoding that combines roots, terms, abbreviations, and administrative language.",
+    lessonIds: [
+      "lesson-unit6-mixed-review-recognition",
+      "lesson-unit6-clinical-passage-decoding",
+      "lesson-unit6-admin-passage-decoding"
+    ],
+    prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "lesson-linked",
   }
 ];

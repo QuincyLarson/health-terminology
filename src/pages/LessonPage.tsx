@@ -40,6 +40,9 @@ export function LessonPage() {
   const introducedTerms = content.terms.filter((term) =>
     lesson.introducesTermIds.includes(term.id),
   );
+  const introducedAbbreviations = content.abbreviations.filter((abbreviation) =>
+    (lesson.introducesAbbreviationIds ?? []).includes(abbreviation.id),
+  );
   const allAnswered = lessonExercises.every((exercise) => answers[exercise.id]);
   const nextLesson = getNextLesson(lesson.id);
   const priorScoreLabel = getLessonScoreLabel(lesson.id);
@@ -164,6 +167,36 @@ export function LessonPage() {
         </section>
       ) : null}
 
+      {introducedAbbreviations.length > 0 ? (
+        <section className="card stack">
+          <h3>Introduced abbreviations</h3>
+          <div className="tag-grid">
+            {introducedAbbreviations.map((abbreviation) => (
+              <article key={abbreviation.id} className="tag-card">
+                <div className="title-row">
+                  <strong>{abbreviation.shortForm}</strong>
+                  <button
+                    type="button"
+                    className="button button-quiet"
+                    onClick={() =>
+                      speakText(abbreviation.shortForm, progress.settings.audioEnabled)
+                    }
+                  >
+                    Speak
+                  </button>
+                </div>
+                <p>{abbreviation.expandedForm}</p>
+                <p className="meta-copy">
+                  {abbreviation.category}
+                  {abbreviation.ambiguous ? " · ambiguous" : " · recognition-first"}
+                </p>
+                <p className="meta-copy">{abbreviation.meaning}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       <section className="stack">
         {lessonExercises.map((exercise, index) => (
           <ExerciseCard
@@ -186,8 +219,9 @@ export function LessonPage() {
 
       <section className="card lesson-footer">
         <p className="meta-copy">
-          Completion seeds introduced terms into review. Mastery uses first
-          attempts, so retries support learning without requiring a perfect score.
+          Completion seeds introduced terms into review. Abbreviations remain
+          recognition-first lesson content and stay browseable on the dedicated abbreviations page.
+          Mastery uses first attempts, so retries support learning without requiring a perfect score.
         </p>
         {Object.keys(firstAnswers).length > 0 ? (
           <p className="meta-copy">

@@ -940,6 +940,489 @@ export const exercises: Exercise[] = [
     explanation: "`refill request` means asking for another supply of a medicine that is already prescribed.",
     linkedTermIds: ["term-refill-request"],
     linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit1-condition-1",
+    type: "root_match",
+    prompt: "Which suffix often points to an abnormal condition or disease state?",
+    choices: ["-osis", "-oma", "-itis", "-gram"],
+    answer: "-osis",
+    explanation: "`-osis` often signals an abnormal condition or disease pattern.",
+    linkedTermIds: ["term-nephrosis", "term-osteosis"],
+    linkedPartIds: ["part-osis-suffix"],
+  },
+  {
+    id: "exercise-unit1-condition-2",
+    type: "infer_meaning",
+    prompt: "If `hemat/o` means blood and `-oma` means mass or swelling, what does `hematoma` suggest?",
+    choices: [
+      "a blood collection causing swelling",
+      "blood inflammation",
+      "the study of blood",
+      "blood in the urine"
+    ],
+    answer: "a blood collection causing swelling",
+    explanation: "`hematoma` points to a blood-related swelling or pooled collection.",
+    linkedTermIds: ["term-hematoma"],
+    linkedPartIds: ["part-hemat-combining", "part-oma-suffix"],
+  },
+  {
+    id: "exercise-unit1-condition-3",
+    type: "infer_meaning",
+    prompt: "What does `neuroma` suggest?",
+    choices: [
+      "a nerve-related mass or tumor",
+      "an inflamed nerve",
+      "the study of nerves",
+      "pain coming from a nerve"
+    ],
+    answer: "a nerve-related mass or tumor",
+    explanation: "`neur` points to nerve and `-oma` points to a mass or tumor.",
+    linkedTermIds: ["term-neuroma"],
+    linkedPartIds: ["part-neur-root", "part-oma-suffix"],
+  },
+  {
+    id: "exercise-unit2-reproductive-1",
+    type: "root_match",
+    prompt: "Which combining form points to the fallopian tube?",
+    choices: ["salping/o", "hyster/o", "ovari/o", "cyst/o"],
+    answer: "salping/o",
+    explanation: "`salping/o` points to the fallopian tube in terms like `salpingitis` and `salpingectomy`.",
+    linkedTermIds: ["term-salpingitis", "term-salpingectomy"],
+    linkedPartIds: ["part-salping-combining"],
+  },
+  {
+    id: "exercise-unit2-reproductive-2",
+    type: "infer_meaning",
+    prompt: "What does `hysterectomy` suggest?",
+    choices: [
+      "surgical removal of the uterus",
+      "viewing the uterus with a scope",
+      "inflammation of the uterus",
+      "surgical removal of an ovary"
+    ],
+    answer: "surgical removal of the uterus",
+    explanation: "`hyster/o` points to the uterus and `-ectomy` points to surgical removal.",
+    linkedTermIds: ["term-hysterectomy"],
+    linkedPartIds: ["part-hyster-combining", "part-ectomy-suffix"],
+  },
+  {
+    id: "exercise-unit2-reproductive-3",
+    type: "infer_meaning",
+    prompt: "If `salping/o` means fallopian tube and `-ectomy` means surgical removal, what does `salpingectomy` suggest?",
+    choices: [
+      "surgical removal of a fallopian tube",
+      "inflammation of a fallopian tube",
+      "viewing the uterus with a scope",
+      "surgical removal of an ovary"
+    ],
+    answer: "surgical removal of a fallopian tube",
+    explanation: "This follows the same organ-plus-procedure pattern used in other `-ectomy` terms.",
+    linkedTermIds: ["term-salpingectomy"],
+    linkedPartIds: ["part-salping-combining", "part-ectomy-suffix"],
+  },
+  {
+    id: "exercise-unit2-immune-1",
+    type: "root_match",
+    prompt: "Which combining form points to lymphatic tissue?",
+    choices: ["lymph/o", "splen/o", "immun/o", "hemat/o"],
+    answer: "lymph/o",
+    explanation: "`lymph/o` points to lymphatic tissue in words like `lymphoma`.",
+    linkedTermIds: ["term-lymphoma"],
+    linkedPartIds: ["part-lymph-combining"],
+  },
+  {
+    id: "exercise-unit2-immune-2",
+    type: "infer_meaning",
+    prompt: "If `lymph/o` means lymphatic tissue and `-oma` means mass or tumor, what does `lymphoma` suggest?",
+    choices: [
+      "a tumor involving lymphatic tissue",
+      "the study of the immune system",
+      "surgical removal of the spleen",
+      "enlargement of the spleen"
+    ],
+    answer: "a tumor involving lymphatic tissue",
+    explanation: "`lymphoma` follows the tissue-plus-mass naming pattern.",
+    linkedTermIds: ["term-lymphoma"],
+    linkedPartIds: ["part-lymph-combining", "part-oma-suffix"],
+  },
+  {
+    id: "exercise-unit2-immune-3",
+    type: "infer_meaning",
+    prompt: "Which term best matches enlargement of the spleen?",
+    choices: ["splenomegaly", "splenectomy", "immunology", "lymphoma"],
+    answer: "splenomegaly",
+    explanation: "`splen/o` points to the spleen and `-megaly` points to enlargement.",
+    linkedTermIds: ["term-splenomegaly"],
+    linkedPartIds: ["part-splen-combining", "part-megaly-suffix"],
+  },
+  {
+    id: "exercise-unit3-condition-1",
+    type: "infer_meaning",
+    prompt: "What does `acute` usually suggest?",
+    choices: [
+      "sudden or short in duration",
+      "long-lasting over time",
+      "a group of related findings",
+      "not enough of a needed substance"
+    ],
+    answer: "sudden or short in duration",
+    explanation: "`acute` usually points to a rapid onset or short course.",
+    linkedTermIds: ["term-acute"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-condition-2",
+    type: "infer_meaning",
+    prompt: "What does `chronic` usually suggest?",
+    choices: [
+      "long-lasting or recurring over time",
+      "sudden and brief",
+      "caused by surgery",
+      "limited to one office visit"
+    ],
+    answer: "long-lasting or recurring over time",
+    explanation: "`chronic` usually describes a condition that persists or returns over time.",
+    linkedTermIds: ["term-chronic"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-condition-3",
+    type: "infer_meaning",
+    prompt: "Which word best matches a recognizable group of signs and symptoms?",
+    choices: ["syndrome", "infection", "deficiency", "acute"],
+    answer: "syndrome",
+    explanation: "`syndrome` refers to a set of findings that tend to occur together as a pattern.",
+    linkedTermIds: ["term-syndrome"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-chart-passage-1",
+    type: "infer_meaning",
+    prompt: "Chart note: `History of present illness: cough and dyspnea for 3 days. Physical exam: mild wheeze. Reassessment after treatment shows easier breathing.` Which phrase names the section that tells the current symptom story?",
+    choices: [
+      "history of present illness",
+      "physical exam",
+      "reassessment",
+      "progress note"
+    ],
+    answer: "history of present illness",
+    explanation: "`history of present illness` is the chart section that explains how the current problem started and changed.",
+    linkedTermIds: ["term-history-of-present-illness"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-chart-passage-2",
+    type: "infer_meaning",
+    prompt: "In chart language, what does `reassessment` suggest?",
+    choices: [
+      "checking the patient again after an initial evaluation or treatment",
+      "the first description of the current illness",
+      "the final billing statement",
+      "a request for old records"
+    ],
+    answer: "checking the patient again after an initial evaluation or treatment",
+    explanation: "`reassessment` means the clinician looked again to see whether the condition changed.",
+    linkedTermIds: ["term-reassessment"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-chart-passage-3",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches the section that reports what the clinician directly found on examination?",
+    choices: [
+      "physical exam",
+      "history of present illness",
+      "progress note",
+      "follow-up"
+    ],
+    answer: "physical exam",
+    explanation: "`physical exam` reports what the clinician observed directly during the exam.",
+    linkedTermIds: ["term-physical-exam"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-admin-passage-1",
+    type: "infer_meaning",
+    prompt: "Portal reminder: `Please complete check-in online and bring your insurance card.` What does `check-in` mean here?",
+    choices: [
+      "the arrival and registration step before the visit",
+      "the medical summary after the visit",
+      "a request to share old records",
+      "approval from insurance before care"
+    ],
+    answer: "the arrival and registration step before the visit",
+    explanation: "`check-in` is the arrival and confirmation step before being seen.",
+    linkedTermIds: ["term-check-in"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-admin-passage-2",
+    type: "infer_meaning",
+    prompt: "Message: `If you cannot attend tomorrow, please reschedule through the patient portal.` What does `reschedule` mean?",
+    choices: [
+      "move the appointment to a different time",
+      "send the chart to another office",
+      "request more medication",
+      "pay the copay in advance"
+    ],
+    answer: "move the appointment to a different time",
+    explanation: "`reschedule` means to change the appointment time or date.",
+    linkedTermIds: ["term-reschedule"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-admin-passage-3",
+    type: "infer_meaning",
+    prompt: "Office notice: `Submit a records request if you want your chart sent to another clinic.` Which phrase refers to asking for copies or release of chart documents?",
+    choices: [
+      "records request",
+      "insurance card",
+      "check-in",
+      "after-visit summary"
+    ],
+    answer: "records request",
+    explanation: "`records request` means asking that medical records be sent or released.",
+    linkedTermIds: ["term-records-request"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit5-clinical-1",
+    type: "infer_meaning",
+    prompt: "Which expansion best matches `SOB`?",
+    choices: ["shortness of breath", "surgical office booking", "stable oxygen baseline", "signs of bleeding"],
+    answer: "shortness of breath",
+    explanation: "`SOB` is a very common clinical abbreviation for shortness of breath.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sob"],
+  },
+  {
+    id: "exercise-unit5-clinical-2",
+    type: "infer_meaning",
+    prompt: "Pre-op instruction: `NPO after midnight.` What does `NPO` mean here?",
+    choices: [
+      "nothing by mouth",
+      "take only pain medicine",
+      "new patient orientation",
+      "normal physical observation"
+    ],
+    answer: "nothing by mouth",
+    explanation: "`NPO` means the patient should not eat or drink anything by mouth.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-npo"],
+  },
+  {
+    id: "exercise-unit5-clinical-3",
+    type: "infer_meaning",
+    prompt: "Vitals line: `BP 128/76, HR 84, RR 24.` Which abbreviation is the breathing-related measure?",
+    choices: ["RR", "HR", "BP", "NPO"],
+    answer: "RR",
+    explanation: "`RR` stands for respiratory rate, the number of breaths per minute.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-rr", "abbr-hr", "abbr-bp"],
+  },
+  {
+    id: "exercise-unit5-document-1",
+    type: "infer_meaning",
+    prompt: "Which abbreviation best matches `history`?",
+    choices: ["Hx", "Dx", "Tx", "ROI"],
+    answer: "Hx",
+    explanation: "`Hx` is a common chart abbreviation for history.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-hx"],
+  },
+  {
+    id: "exercise-unit5-document-2",
+    type: "infer_meaning",
+    prompt: "Instruction: `f/u with PCP in 2 weeks.` What does this usually suggest?",
+    choices: [
+      "return for follow-up with the primary care provider",
+      "file an insurance claim in 2 weeks",
+      "fast until the next appointment",
+      "request records from another clinic"
+    ],
+    answer: "return for follow-up with the primary care provider",
+    explanation: "`f/u` means follow-up and `PCP` means primary care provider.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit5-document-3",
+    type: "infer_meaning",
+    prompt: "Which abbreviation refers to paperwork that allows records to be shared?",
+    choices: ["ROI", "DOB", "Dx", "Tx"],
+    answer: "ROI",
+    explanation: "`ROI` stands for release of information.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-roi"],
+  },
+  {
+    id: "exercise-unit5-route-1",
+    type: "infer_meaning",
+    prompt: "Which abbreviation means a medicine is given into a vein?",
+    choices: ["IV", "PO", "IM", "mL"],
+    answer: "IV",
+    explanation: "`IV` stands for intravenous, meaning into a vein.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-iv"],
+  },
+  {
+    id: "exercise-unit5-route-2",
+    type: "infer_meaning",
+    prompt: "Which abbreviation is a dose amount rather than a liquid volume?",
+    choices: ["mg", "mL", "PO", "IM"],
+    answer: "mg",
+    explanation: "`mg` is a mass unit for medicine doses, while `mL` is a volume unit.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-mg", "abbr-ml"],
+  },
+  {
+    id: "exercise-unit5-route-3",
+    type: "infer_meaning",
+    prompt: "Medication instruction: `Take one tablet PRN for pain.` What does `PRN` mean here?",
+    choices: [
+      "use it as needed",
+      "take it only before meals",
+      "give it into a muscle",
+      "measure it in milliliters"
+    ],
+    answer: "use it as needed",
+    explanation: "`PRN` means something should be used or given as needed.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-prn"],
+  },
+  {
+    id: "exercise-unit6-mixed-1",
+    type: "infer_meaning",
+    prompt: "If `splen/o` means spleen and `-megaly` means enlargement, what does `splenomegaly` suggest?",
+    choices: [
+      "enlargement of the spleen",
+      "surgical removal of the spleen",
+      "a tumor involving lymphatic tissue",
+      "an inflamed fallopian tube"
+    ],
+    answer: "enlargement of the spleen",
+    explanation: "This is a direct root-plus-suffix decoding pattern from earlier lessons.",
+    linkedTermIds: ["term-splenomegaly"],
+    linkedPartIds: ["part-splen-combining", "part-megaly-suffix"],
+  },
+  {
+    id: "exercise-unit6-mixed-2",
+    type: "infer_meaning",
+    prompt: "Discharge line: `f/u with PCP after visit summary review.` What does `f/u` mean?",
+    choices: [
+      "follow-up",
+      "fluid unit",
+      "findings unknown",
+      "full use"
+    ],
+    answer: "follow-up",
+    explanation: "`f/u` is a common document abbreviation for follow-up.",
+    linkedTermIds: ["term-after-visit-summary"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-mixed-3",
+    type: "infer_meaning",
+    prompt: "Which plain-English paraphrase best matches `thyroidectomy`?",
+    choices: [
+      "surgical removal of the thyroid gland",
+      "inflammation of the thyroid gland",
+      "high blood sugar",
+      "a message about prior authorization"
+    ],
+    answer: "surgical removal of the thyroid gland",
+    explanation: "The thyroid root and `-ectomy` suffix point to surgical removal.",
+    linkedTermIds: ["term-thyroidectomy"],
+    linkedPartIds: ["part-thyroid-combining", "part-ectomy-suffix"],
+  },
+  {
+    id: "exercise-unit6-clinical-1",
+    type: "infer_meaning",
+    prompt: "Clinical note: `BP and HR stable. RR elevated with mild SOB. Patient kept NPO before biopsy. Impression: acute respiratory complaint improving with monitoring.` Which paraphrase best matches the note?",
+    choices: [
+      "Breathing symptoms were present, but the patient was improving while waiting for a procedure",
+      "The patient had a normal breathing rate and was cleared to eat",
+      "The note is mainly about insurance billing",
+      "The patient was discharged after chronic symptoms resolved"
+    ],
+    answer: "Breathing symptoms were present, but the patient was improving while waiting for a procedure",
+    explanation: "The note combines abbreviations, status words, and procedure language from several earlier units.",
+    linkedTermIds: ["term-biopsy", "term-impression", "term-acute", "term-monitoring"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-bp", "abbr-hr", "abbr-rr", "abbr-sob", "abbr-npo"],
+  },
+  {
+    id: "exercise-unit6-clinical-2",
+    type: "cloze",
+    prompt: "In the note above, `NPO` means the patient should ___ before the biopsy.",
+    choices: ["have nothing by mouth", "receive medicine as needed", "return in two weeks", "sign a release form"],
+    answer: "have nothing by mouth",
+    explanation: "`NPO` is standard shorthand for nothing by mouth.",
+    linkedTermIds: ["term-biopsy"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-npo"],
+  },
+  {
+    id: "exercise-unit6-clinical-3",
+    type: "infer_meaning",
+    prompt: "Which word labels the short summary interpretation at the end of many reports or notes?",
+    choices: ["impression", "specimen", "dosage", "check-in"],
+    answer: "impression",
+    explanation: "`impression` is commonly the short take-home interpretation at the end of a report.",
+    linkedTermIds: ["term-impression"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit6-admin-1",
+    type: "infer_meaning",
+    prompt: "Portal message: `DOB mismatch on file. Submit ROI if you want your records sent to your PCP. Refill request pending.` What does `ROI` mean here?",
+    choices: [
+      "release of information",
+      "respiratory observation index",
+      "return office instruction",
+      "route of injection"
+    ],
+    answer: "release of information",
+    explanation: "`ROI` is the permission form or process used to share records.",
+    linkedTermIds: ["term-refill-request", "term-patient-portal"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-dob", "abbr-roi", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-admin-2",
+    type: "infer_meaning",
+    prompt: "Appointment reminder: `Bring your insurance card to check-in and call to reschedule if needed.` Which phrase means move the visit to a different time?",
+    choices: ["reschedule", "check-in", "insurance card", "records request"],
+    answer: "reschedule",
+    explanation: "`reschedule` means to change the appointment time or date.",
+    linkedTermIds: ["term-reschedule", "term-check-in", "term-insurance-card"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit6-admin-3",
+    type: "infer_meaning",
+    prompt: "Coverage message: `Prior authorization notice: coverage delayed pending review.` What does this suggest?",
+    choices: [
+      "extra approval is needed before coverage proceeds",
+      "the patient should eat before the visit",
+      "the clinician needs a new physical exam",
+      "the after-visit summary is ready"
+    ],
+    answer: "extra approval is needed before coverage proceeds",
+    explanation: "A prior authorization notice usually means additional approval is needed before a service or medicine is covered.",
+    linkedTermIds: ["term-prior-authorization-notice", "term-coverage"],
+    linkedPartIds: [],
   }
 ];
 
@@ -1620,6 +2103,361 @@ export const lessons: Lesson[] = [
       "exercise-unit4-portal-3"
     ],
     estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit1-condition-suffixes",
+    title: "Condition Suffixes",
+    unitId: "unit-1",
+    objective: "Recognize high-yield suffixes that signal an abnormal condition, swelling, or tumor pattern.",
+    whyItMatters: "A small set of condition suffixes makes many unfamiliar diagnosis-style words easier to decode safely.",
+    prerequisiteLessonIds: [
+      "lesson-unit1-common-suffixes",
+      "lesson-unit1-core-body-roots"
+    ],
+    introducesPartIds: ["part-osis-suffix", "part-oma-suffix"],
+    introducesTermIds: [
+      "term-hematoma",
+      "term-nephrosis",
+      "term-neuroma",
+      "term-osteosis"
+    ],
+    reinforcesTermIds: ["term-gastritis", "term-nephritis", "term-neuralgia"],
+    exerciseSetIds: [
+      "exercise-unit1-condition-1",
+      "exercise-unit1-condition-2",
+      "exercise-unit1-condition-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-reproductive-language-starter",
+    title: "Reproductive System Starter",
+    unitId: "unit-2",
+    objective: "Decode a first set of common reproductive-system procedure and inflammation terms.",
+    whyItMatters: "These terms appear in gynecology, surgery, fertility discussions, and hospital records.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-endocrine-and-glycemic-language",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: [
+      "part-hyster-combining",
+      "part-ovari-combining",
+      "part-salping-combining"
+    ],
+    introducesTermIds: [
+      "term-hysterectomy",
+      "term-ovariectomy",
+      "term-salpingitis",
+      "term-salpingectomy",
+      "term-hysteroscopy"
+    ],
+    reinforcesTermIds: ["term-thyroidectomy", "term-colonoscopy", "term-appendectomy"],
+    exerciseSetIds: [
+      "exercise-unit2-reproductive-1",
+      "exercise-unit2-reproductive-2",
+      "exercise-unit2-reproductive-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-immune-and-lymphatic-language",
+    title: "Immune and Lymphatic Language",
+    unitId: "unit-2",
+    objective: "Recognize core immune, lymphatic, and spleen terminology using familiar decoding patterns.",
+    whyItMatters: "Immune and lymphatic language appears in oncology, infections, surgery, and general medical records.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-reproductive-language-starter",
+      "lesson-unit1-condition-suffixes",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: [
+      "part-immun-combining",
+      "part-lymph-combining",
+      "part-splen-combining"
+    ],
+    introducesTermIds: [
+      "term-immunology",
+      "term-lymphoma",
+      "term-splenectomy",
+      "term-splenomegaly"
+    ],
+    reinforcesTermIds: ["term-hematology", "term-hematoma", "term-cardiomegaly"],
+    exerciseSetIds: [
+      "exercise-unit2-immune-1",
+      "exercise-unit2-immune-2",
+      "exercise-unit2-immune-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-condition-and-disease-state-language",
+    title: "Condition and Disease-State Language",
+    unitId: "unit-3",
+    objective: "Recognize the highest-yield words used to describe how a condition behaves over time or presents as a named pattern.",
+    whyItMatters: "These words appear constantly in assessments, diagnoses, problem lists, and result summaries.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-symptoms-signs-status-language",
+      "lesson-unit3-diagnostic-and-imaging-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-acute",
+      "term-chronic",
+      "term-syndrome",
+      "term-deficiency",
+      "term-infection"
+    ],
+    reinforcesTermIds: ["term-anemia", "term-edema", "term-assessment"],
+    exerciseSetIds: [
+      "exercise-unit3-condition-1",
+      "exercise-unit3-condition-2",
+      "exercise-unit3-condition-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-chart-passage-decoding",
+    title: "Chart Passage Decoding",
+    unitId: "unit-3",
+    objective: "Read short chart-style passages without getting lost in section labels or workflow phrasing.",
+    whyItMatters: "Real chart text mixes familiar words, section headings, and updates in a compact format that learners need practice reading.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-chart-style-phrasing",
+      "lesson-unit3-admissions-discharge-and-workflow",
+      "lesson-unit3-diagnostic-and-imaging-language",
+      "lesson-unit3-medication-and-administration-basics"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-history-of-present-illness",
+      "term-physical-exam",
+      "term-progress-note",
+      "term-reassessment"
+    ],
+    reinforcesTermIds: ["term-dyspnea", "term-monitoring", "term-plan", "term-impression"],
+    exerciseSetIds: [
+      "exercise-unit3-chart-passage-1",
+      "exercise-unit3-chart-passage-2",
+      "exercise-unit3-chart-passage-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-admin-passage-decoding",
+    title: "Administrative Passage Decoding",
+    unitId: "unit-4",
+    objective: "Read short administrative messages and notices about scheduling, insurance, and records without guessing blindly.",
+    whyItMatters: "Administrative friction often comes from small notices and portal messages, not just isolated vocabulary items.",
+    prerequisiteLessonIds: [
+      "lesson-unit4-records-orders-and-authorization",
+      "lesson-unit4-coverage-and-billing-language",
+      "lesson-unit4-portal-results-and-reminders"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-check-in",
+      "term-insurance-card",
+      "term-records-request",
+      "term-reschedule",
+      "term-prior-authorization-notice"
+    ],
+    reinforcesTermIds: ["term-patient-portal", "term-coverage", "term-refill-request"],
+    exerciseSetIds: [
+      "exercise-unit4-admin-passage-1",
+      "exercise-unit4-admin-passage-2",
+      "exercise-unit4-admin-passage-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-core-clinical-abbreviations",
+    title: "Core Clinical Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize the most common abbreviation set used in vital signs, breathing complaints, and pre-procedure instructions.",
+    whyItMatters: "These abbreviations show up constantly in charts and instructions, and learners need recognition rather than memorized production.",
+    prerequisiteLessonIds: ["lesson-unit4-admin-passage-decoding"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-bp",
+      "abbr-hr",
+      "abbr-rr",
+      "abbr-sob",
+      "abbr-npo"
+    ],
+    reinforcesTermIds: [
+      "term-hypertension",
+      "term-tachycardia",
+      "term-tachypnea",
+      "term-dyspnea",
+      "term-preoperative"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-clinical-1",
+      "exercise-unit5-clinical-2",
+      "exercise-unit5-clinical-3"
+    ],
+    estimatedMinutes: 6,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-document-and-workflow-abbreviations",
+    title: "Document and Workflow Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize common shorthand used in chart headings, instructions, identity details, and records workflows.",
+    whyItMatters: "These abbreviations compress everyday paperwork and chart communication in ways that can block comprehension fast.",
+    prerequisiteLessonIds: ["lesson-unit5-core-clinical-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-hx",
+      "abbr-dx",
+      "abbr-tx",
+      "abbr-fu",
+      "abbr-pcp",
+      "abbr-dob",
+      "abbr-roi"
+    ],
+    reinforcesTermIds: [
+      "term-follow-up",
+      "term-documentation",
+      "term-referral",
+      "term-patient-portal"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-document-1",
+      "exercise-unit5-document-2",
+      "exercise-unit5-document-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-measurement-and-route-abbreviations",
+    title: "Measurement and Route Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize the most common route and dose-unit abbreviations used in medication instructions.",
+    whyItMatters: "Medication shorthand is everywhere in healthcare text, and misunderstanding route or units creates unnecessary confusion.",
+    prerequisiteLessonIds: ["lesson-unit5-document-and-workflow-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-iv",
+      "abbr-po",
+      "abbr-im",
+      "abbr-ml",
+      "abbr-mg",
+      "abbr-prn"
+    ],
+    reinforcesTermIds: ["term-intravenous", "term-oral", "term-dosage", "term-injection"],
+    exerciseSetIds: [
+      "exercise-unit5-route-1",
+      "exercise-unit5-route-2",
+      "exercise-unit5-route-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-mixed-review-recognition",
+    title: "Mixed Review Recognition",
+    unitId: "unit-6",
+    objective: "Combine roots, suffixes, administrative phrases, and abbreviations in one short mixed-recognition lesson.",
+    whyItMatters: "Learners need to move from isolated facts to quick recognition across different parts of the curriculum.",
+    prerequisiteLessonIds: ["lesson-unit5-measurement-and-route-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-splenomegaly",
+      "term-hyperglycemia",
+      "term-thyroidectomy",
+      "term-ultrasound",
+      "term-dosage",
+      "term-coverage",
+      "term-after-visit-summary"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-bp",
+      "abbr-hr",
+      "abbr-sob",
+      "abbr-hx",
+      "abbr-fu",
+      "abbr-iv",
+      "abbr-po"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-mixed-1",
+      "exercise-unit6-mixed-2",
+      "exercise-unit6-mixed-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-clinical-passage-decoding",
+    title: "Clinical Passage Decoding",
+    unitId: "unit-6",
+    objective: "Read a compact chart-style clinical passage and extract the main meaning without overfocusing on any one jargon item.",
+    whyItMatters: "This is the bridge from isolated drills to realistic reading where several learned concepts appear together.",
+    prerequisiteLessonIds: ["lesson-unit6-mixed-review-recognition"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-assessment",
+      "term-plan",
+      "term-monitoring",
+      "term-biopsy",
+      "term-findings",
+      "term-impression",
+      "term-intravenous"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-bp",
+      "abbr-hr",
+      "abbr-rr",
+      "abbr-sob",
+      "abbr-npo",
+      "abbr-prn"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-clinical-1",
+      "exercise-unit6-clinical-2",
+      "exercise-unit6-clinical-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-admin-passage-decoding",
+    title: "Administrative Passage Decoding",
+    unitId: "unit-6",
+    objective: "Read a short administrative passage that mixes portal, records, scheduling, and coverage language.",
+    whyItMatters: "Administrative comprehension is a core product promise, and learners need a realistic final pass through that language.",
+    prerequisiteLessonIds: ["lesson-unit6-clinical-passage-decoding"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-prior-authorization",
+      "term-refill-request",
+      "term-patient-portal",
+      "term-appointment-reminder",
+      "term-discharge-instructions",
+      "term-claim"
+    ],
+    reinforcesAbbreviationIds: ["abbr-dob", "abbr-roi", "abbr-pcp", "abbr-fu"],
+    exerciseSetIds: [
+      "exercise-unit6-admin-1",
+      "exercise-unit6-admin-2",
+      "exercise-unit6-admin-3"
+    ],
+    estimatedMinutes: 8,
     status: "shipped",
   }
 ];

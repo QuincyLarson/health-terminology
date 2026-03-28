@@ -62,6 +62,7 @@ export interface Exercise {
   explanation: string;
   linkedTermIds: string[];
   linkedPartIds: string[];
+  linkedAbbreviationIds?: string[];
 }
 
 export interface Lesson {
@@ -73,7 +74,9 @@ export interface Lesson {
   prerequisiteLessonIds: string[];
   introducesPartIds: string[];
   introducesTermIds: string[];
+  introducesAbbreviationIds?: string[];
   reinforcesTermIds: string[];
+  reinforcesAbbreviationIds?: string[];
   exerciseSetIds: string[];
   estimatedMinutes: number;
   status: ContentStatus;
