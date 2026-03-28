@@ -575,6 +575,201 @@ export const exercises: Exercise[] = [
     explanation: "`discharge instructions` are the take-home directions given after care.",
     linkedTermIds: ["term-discharge-instructions"],
     linkedPartIds: [],
+  },
+  {
+    id: "exercise-nervous-1",
+    type: "root_match",
+    prompt: "Which suffix points to paralysis?",
+    choices: ["-plegia", "-pathy", "-megaly", "-uria"],
+    answer: "-plegia",
+    explanation: "`-plegia` points to paralysis in terms like `hemiplegia` and `paraplegia`.",
+    linkedTermIds: ["term-hemiplegia"],
+    linkedPartIds: ["part-plegia-suffix"],
+  },
+  {
+    id: "exercise-nervous-2",
+    type: "infer_meaning",
+    prompt: "If `neur` means nerve and `-pathy` means disease or disorder, what does `neuropathy` suggest?",
+    choices: [
+      "nerve disease or nerve damage",
+      "inflammation of the brain",
+      "one-sided paralysis",
+      "swelling in brain tissue"
+    ],
+    answer: "nerve disease or nerve damage",
+    explanation: "`neuropathy` is a direct combination of the nerve root and a disorder suffix.",
+    linkedTermIds: ["term-neuropathy"],
+    linkedPartIds: ["part-neur-root", "part-pathy-suffix"],
+  },
+  {
+    id: "exercise-nervous-3",
+    type: "infer_meaning",
+    prompt: "What does `hemiplegia` suggest?",
+    choices: [
+      "paralysis affecting one side of the body",
+      "inflammation of one side of the brain",
+      "pain in half the body",
+      "a disease of the spinal cord"
+    ],
+    answer: "paralysis affecting one side of the body",
+    explanation: "`hemi-` points to one side and `-plegia` points to paralysis.",
+    linkedTermIds: ["term-hemiplegia"],
+    linkedPartIds: ["part-hemi-prefix", "part-plegia-suffix"],
+  },
+  {
+    id: "exercise-unit3-chart-1",
+    type: "infer_meaning",
+    prompt: "Which note section usually states the clinician's impression of what is going on?",
+    choices: ["assessment", "plan", "monitoring", "stable"],
+    answer: "assessment",
+    explanation: "`assessment` is the section where the clinician summarizes the evaluation or impression.",
+    linkedTermIds: ["term-assessment"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-chart-2",
+    type: "infer_meaning",
+    prompt: "What does `plan` usually suggest in chart language?",
+    choices: [
+      "the next treatment or follow-up steps",
+      "the patient's main symptom",
+      "a final billing decision",
+      "movement to another unit"
+    ],
+    answer: "the next treatment or follow-up steps",
+    explanation: "A chart `plan` usually covers orders, treatment decisions, or follow-up actions.",
+    linkedTermIds: ["term-plan"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-chart-3",
+    type: "infer_meaning",
+    prompt: "If a patient is described as `stable`, what does that usually suggest?",
+    choices: [
+      "the condition is steady and not currently worsening",
+      "the patient is ready for surgery right away",
+      "the patient has been discharged",
+      "the patient needs an insurance claim"
+    ],
+    answer: "the condition is steady and not currently worsening",
+    explanation: "`stable` usually signals that the condition is holding steady for now.",
+    linkedTermIds: ["term-stable"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-workflow-1",
+    type: "infer_meaning",
+    prompt: "What does `admission` suggest in hospital workflow?",
+    choices: [
+      "formally entering the hospital for care",
+      "leaving the hospital with instructions",
+      "requesting payment from an insurer",
+      "watching a patient over time"
+    ],
+    answer: "formally entering the hospital for care",
+    explanation: "`admission` refers to being taken into the hospital for ongoing treatment or observation.",
+    linkedTermIds: ["term-admission"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-workflow-2",
+    type: "infer_meaning",
+    prompt: "What does `consult` suggest?",
+    choices: [
+      "a request for another clinician's opinion",
+      "a transfer to another room",
+      "the main reason for the visit",
+      "approval before coverage"
+    ],
+    answer: "a request for another clinician's opinion",
+    explanation: "`consult` usually means another clinician or service is asked to evaluate the patient or provide input.",
+    linkedTermIds: ["term-consult"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-workflow-3",
+    type: "infer_meaning",
+    prompt: "Which term best matches moving a patient from one unit or facility to another?",
+    choices: ["transfer", "discharge", "assessment", "monitoring"],
+    answer: "transfer",
+    explanation: "`transfer` refers to movement between locations, services, or facilities within the care process.",
+    linkedTermIds: ["term-transfer"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-intake-1",
+    type: "infer_meaning",
+    prompt: "Which intake phrase usually means the main reason for today's visit?",
+    choices: ["chief complaint", "medical history", "consent form", "coverage"],
+    answer: "chief complaint",
+    explanation: "`chief complaint` is the standard label for the patient's main concern or reason for the visit.",
+    linkedTermIds: ["term-chief-complaint"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-intake-2",
+    type: "infer_meaning",
+    prompt: "Why does a clinic ask for a `medication list`?",
+    choices: [
+      "to know which medicines the patient is currently taking",
+      "to decide whether insurance will approve the visit",
+      "to record the clinician's final impression",
+      "to measure breathing difficulty"
+    ],
+    answer: "to know which medicines the patient is currently taking",
+    explanation: "A medication list helps the care team avoid errors, duplications, and harmful interactions.",
+    linkedTermIds: ["term-medication-list"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-intake-3",
+    type: "infer_meaning",
+    prompt: "Which intake item asks about drug, food, or environmental reactions that matter for safe care?",
+    choices: ["allergies", "copay", "claim", "transfer"],
+    answer: "allergies",
+    explanation: "`allergies` alerts the care team to reactions or sensitivities that can affect safe treatment.",
+    linkedTermIds: ["term-allergies"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-billing-1",
+    type: "infer_meaning",
+    prompt: "What does `copay` mean?",
+    choices: [
+      "a fixed amount the patient pays at the time of care",
+      "the full yearly insurance premium",
+      "a request sent to a specialist",
+      "a note about past medical problems"
+    ],
+    answer: "a fixed amount the patient pays at the time of care",
+    explanation: "`copay` is the set amount a patient pays for a visit, prescription, or other covered service.",
+    linkedTermIds: ["term-copay"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-billing-2",
+    type: "infer_meaning",
+    prompt: "What does `deductible` suggest?",
+    choices: [
+      "the amount paid before some insurance coverage starts",
+      "a second opinion request from another doctor",
+      "a document signed before a procedure",
+      "the main symptom written on intake paperwork"
+    ],
+    answer: "the amount paid before some insurance coverage starts",
+    explanation: "`deductible` refers to what the patient usually pays before the plan starts covering more costs.",
+    linkedTermIds: ["term-deductible"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-billing-3",
+    type: "infer_meaning",
+    prompt: "Which word best matches an insurer refusing payment or requested coverage?",
+    choices: ["denial", "coverage", "assessment", "allergies"],
+    answer: "denial",
+    explanation: "`denial` is the insurer's refusal to approve or pay for the requested item or service.",
+    linkedTermIds: ["term-denial"],
+    linkedPartIds: [],
   }
 ];
 
@@ -1007,6 +1202,142 @@ export const lessons: Lesson[] = [
       "exercise-unit4-records-1",
       "exercise-unit4-records-2",
       "exercise-unit4-records-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-nervous-system-disorder-language",
+    title: "Nervous System Disorder Language",
+    unitId: "unit-2",
+    objective: "Decode common nerve and brain disorder terms that recur in neurology and general clinical notes.",
+    whyItMatters: "Nervous-system vocabulary often looks dense, but a few roots and suffixes make many high-yield terms readable.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-renal-urinary-language",
+      "lesson-unit2-musculoskeletal-pain-and-repair",
+      "lesson-unit1-core-body-roots"
+    ],
+    introducesPartIds: [
+      "part-encephal-combining",
+      "part-hemi-prefix",
+      "part-plegia-suffix"
+    ],
+    introducesTermIds: [
+      "term-neuropathy",
+      "term-encephalitis",
+      "term-encephalopathy",
+      "term-hemiplegia"
+    ],
+    reinforcesTermIds: ["term-neuralgia", "term-myopathy", "term-dyspnea"],
+    exerciseSetIds: ["exercise-nervous-1", "exercise-nervous-2", "exercise-nervous-3"],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-chart-style-phrasing",
+    title: "Chart-Style Phrasing",
+    unitId: "unit-3",
+    objective: "Recognize common note-section language and status phrasing that appear across clinical documentation.",
+    whyItMatters: "Learners regularly meet note labels before they understand them, and these words are essential for reading real charts.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-clinical-procedure-families",
+      "lesson-unit2-nervous-system-disorder-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-assessment",
+      "term-plan",
+      "term-monitoring",
+      "term-stable"
+    ],
+    reinforcesTermIds: ["term-edema", "term-dyspnea", "term-contraindication"],
+    exerciseSetIds: [
+      "exercise-unit3-chart-1",
+      "exercise-unit3-chart-2",
+      "exercise-unit3-chart-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-admissions-discharge-and-workflow",
+    title: "Admissions, Discharge, and Workflow Language",
+    unitId: "unit-3",
+    objective: "Recognize the core workflow words that describe entering, moving through, and leaving care settings.",
+    whyItMatters: "These words appear constantly in handoffs, discharge summaries, admission notes, and care transitions.",
+    prerequisiteLessonIds: ["lesson-unit3-chart-style-phrasing"],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-admission",
+      "term-discharge",
+      "term-transfer",
+      "term-consult"
+    ],
+    reinforcesTermIds: [
+      "term-follow-up",
+      "term-discharge-instructions",
+      "term-outpatient",
+      "term-inpatient"
+    ],
+    exerciseSetIds: [
+      "exercise-unit3-workflow-1",
+      "exercise-unit3-workflow-2",
+      "exercise-unit3-workflow-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-intake-form-language",
+    title: "Intake Form Language",
+    unitId: "unit-4",
+    objective: "Read the most common intake and registration form phrases without forcing fake decomposition.",
+    whyItMatters: "Patients and learners see this paperwork early and often, so direct recognition matters.",
+    prerequisiteLessonIds: [
+      "lesson-unit4-records-orders-and-authorization",
+      "lesson-unit3-admissions-discharge-and-workflow"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-chief-complaint",
+      "term-medical-history",
+      "term-medication-list",
+      "term-allergies",
+      "term-consent-form"
+    ],
+    reinforcesTermIds: ["term-documentation", "term-contraindication", "term-follow-up"],
+    exerciseSetIds: [
+      "exercise-unit4-intake-1",
+      "exercise-unit4-intake-2",
+      "exercise-unit4-intake-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-coverage-and-billing-language",
+    title: "Coverage and Billing Language",
+    unitId: "unit-4",
+    objective: "Recognize the most common insurance and payment words that appear in portals, offices, and billing notices.",
+    whyItMatters: "This language creates real friction for learners and patients, so the app should make it readable early.",
+    prerequisiteLessonIds: ["lesson-unit4-intake-form-language"],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-coverage",
+      "term-claim",
+      "term-copay",
+      "term-deductible",
+      "term-denial"
+    ],
+    reinforcesTermIds: [
+      "term-prior-authorization",
+      "term-referral",
+      "term-documentation"
+    ],
+    exerciseSetIds: [
+      "exercise-unit4-billing-1",
+      "exercise-unit4-billing-2",
+      "exercise-unit4-billing-3"
     ],
     estimatedMinutes: 8,
     status: "shipped",

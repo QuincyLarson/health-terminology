@@ -39,7 +39,8 @@ export const units: Unit[] = [
       "lesson-unit2-gastrointestinal-inflammation",
       "lesson-unit2-gastrointestinal-procedures",
       "lesson-unit2-musculoskeletal-pain-and-repair",
-      "lesson-unit2-renal-urinary-language"
+      "lesson-unit2-renal-urinary-language",
+      "lesson-unit2-nervous-system-disorder-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
@@ -50,7 +51,9 @@ export const units: Unit[] = [
     summary: "Cross-cutting symptom, status, and procedure-family language that appears across specialties.",
     lessonIds: [
       "lesson-unit3-symptoms-signs-status-language",
-      "lesson-unit3-clinical-procedure-families"
+      "lesson-unit3-clinical-procedure-families",
+      "lesson-unit3-chart-style-phrasing",
+      "lesson-unit3-admissions-discharge-and-workflow"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2"],
     status: "lesson-linked",
@@ -61,7 +64,9 @@ export const units: Unit[] = [
     summary: "Practical scheduling, follow-up, record, and authorization vocabulary for real medical paperwork and workflow.",
     lessonIds: [
       "lesson-unit4-scheduling-and-followup",
-      "lesson-unit4-records-orders-and-authorization"
+      "lesson-unit4-records-orders-and-authorization",
+      "lesson-unit4-intake-form-language",
+      "lesson-unit4-coverage-and-billing-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3"],
     status: "lesson-linked",
