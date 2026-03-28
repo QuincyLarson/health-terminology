@@ -3246,6 +3246,156 @@ export const exercises: Exercise[] = [
     explanation: "This note mixes telephone workflow language with visit-arrival instructions.",
     linkedTermIds: ["term-callback-request", "term-arrival-time"],
     linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit5-schedule-1",
+    type: "infer_meaning",
+    prompt: "If a medication label says `qAM`, when should it usually be taken?",
+    choices: [
+      "every morning",
+      "every night at bedtime",
+      "four times daily",
+      "as needed only"
+    ],
+    answer: "every morning",
+    explanation: "`qAM` is recognition-first shorthand for every morning.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-qam"],
+  },
+  {
+    id: "exercise-unit5-schedule-2",
+    type: "infer_meaning",
+    prompt: "Which abbreviation points to a nightly bedtime schedule?",
+    choices: ["qHS", "qAM", "QID", "PRN"],
+    answer: "qHS",
+    explanation: "`qHS` is used for every night at bedtime.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-qhs"],
+  },
+  {
+    id: "exercise-unit5-schedule-3",
+    type: "infer_meaning",
+    prompt: "Prescription note: `1 tab QID.` What is the main schedule meaning?",
+    choices: [
+      "one tablet four times daily",
+      "one capsule every morning",
+      "one tablet only if needed",
+      "one capsule at bedtime"
+    ],
+    answer: "one tablet four times daily",
+    explanation: "`tab` means tablet and `QID` means four times daily.",
+    linkedTermIds: ["term-dosage"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-tab", "abbr-qid"],
+  },
+  {
+    id: "exercise-unit5-schedule-4",
+    type: "infer_meaning",
+    prompt: "Which abbreviation line best points to a capsule rather than a tablet?",
+    choices: ["cap qHS", "tab qAM", "AVS sent", "appt confirmed"],
+    answer: "cap qHS",
+    explanation: "`cap` points to a capsule, while `tab` points to a tablet.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cap", "abbr-qhs"],
+  },
+  {
+    id: "exercise-unit5-schedule-5",
+    type: "infer_meaning",
+    prompt: "Portal note: `AVS available in portal; appt confirmed.` What is being communicated?",
+    choices: [
+      "the after-visit summary is available and the appointment is confirmed",
+      "the imaging result was urgently abnormal",
+      "the patient must stop eating before surgery",
+      "a prior authorization was denied"
+    ],
+    answer: "the after-visit summary is available and the appointment is confirmed",
+    explanation: "`AVS` points to the after-visit summary and `appt` points to the appointment.",
+    linkedTermIds: ["term-after-visit-summary", "term-patient-portal"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-avs", "abbr-appt"],
+  },
+  {
+    id: "exercise-unit5-ambiguity-1",
+    type: "infer_meaning",
+    prompt: "Result note: `PA still pending before MRI scheduling.` In this sentence, what does `PA` most likely mean?",
+    choices: [
+      "prior authorization",
+      "physician assistant",
+      "physical therapy",
+      "patient"
+    ],
+    answer: "prior authorization",
+    explanation: "Scheduling context points to insurance workflow, so `PA` most likely means prior authorization here.",
+    linkedTermIds: ["term-prior-authorization"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pa", "abbr-mri"],
+  },
+  {
+    id: "exercise-unit5-ambiguity-2",
+    type: "infer_meaning",
+    prompt: "Referral note: `PT ordered for gait and balance training.` In this sentence, what does `PT` most likely mean?",
+    choices: [
+      "physical therapy",
+      "patient",
+      "prior authorization",
+      "platelet test"
+    ],
+    answer: "physical therapy",
+    explanation: "Referral and training context point to a therapy service, not simply the patient.",
+    linkedTermIds: ["term-referral"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pt"],
+  },
+  {
+    id: "exercise-unit5-ambiguity-3",
+    type: "infer_meaning",
+    prompt: "History section: `MS diagnosed several years ago; no new weakness today.` What does `MS` most likely mean here?",
+    choices: [
+      "multiple sclerosis",
+      "morphine sulfate",
+      "medical summary",
+      "muscle strain"
+    ],
+    answer: "multiple sclerosis",
+    explanation: "Diagnosis-history context points to the neurologic condition rather than the medication.",
+    linkedTermIds: ["term-medical-history"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ms"],
+  },
+  {
+    id: "exercise-unit5-ambiguity-4",
+    type: "infer_meaning",
+    prompt: "Assessment line: `BS elevated after meal; continue monitoring.` What does `BS` most likely mean here?",
+    choices: [
+      "blood sugar",
+      "bowel sounds",
+      "blood specimen",
+      "breath sounds"
+    ],
+    answer: "blood sugar",
+    explanation: "The food and monitoring context point to glucose status rather than an exam finding like bowel sounds.",
+    linkedTermIds: ["term-monitoring"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-bs"],
+  },
+  {
+    id: "exercise-unit5-ambiguity-5",
+    type: "infer_meaning",
+    prompt: "Chart note: `Hx of CP since childhood; no active pain today.` Which reading best fits `CP` here?",
+    choices: [
+      "cerebral palsy",
+      "chest pain",
+      "capillary pressure",
+      "care plan"
+    ],
+    answer: "cerebral palsy",
+    explanation: "The history wording and `since childhood` cue point to a diagnosis, not a current symptom complaint.",
+    linkedTermIds: ["term-medical-history"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cp", "abbr-hx"],
   }
 ];
 
@@ -4722,6 +4872,72 @@ export const lessons: Lesson[] = [
       "exercise-unit5-imaging-4"
     ],
     estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-schedule-and-form-abbreviations",
+    title: "Schedule and Form Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize common shorthand for daily timing, medication forms, and visit-summary paperwork.",
+    whyItMatters: "These abbreviations appear in instructions, labels, and portal messages where learners need quick recognition rather than production.",
+    prerequisiteLessonIds: ["lesson-unit5-imaging-and-urgency-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-qam",
+      "abbr-qhs",
+      "abbr-qid",
+      "abbr-tab",
+      "abbr-cap",
+      "abbr-avs",
+      "abbr-appt"
+    ],
+    reinforcesTermIds: [
+      "term-dosage",
+      "term-after-visit-summary",
+      "term-appointment-reminder",
+      "term-patient-portal"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-schedule-1",
+      "exercise-unit5-schedule-2",
+      "exercise-unit5-schedule-3",
+      "exercise-unit5-schedule-4",
+      "exercise-unit5-schedule-5"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-ambiguous-abbreviations-and-safer-reading",
+    title: "Ambiguous Abbreviations and Safer Reading",
+    unitId: "unit-5",
+    objective: "Recognize high-risk context-dependent abbreviations and practice reading them only with nearby clues.",
+    whyItMatters: "A serious terminology product should teach when not to assume an expansion, especially for abbreviations that can point to very different things.",
+    prerequisiteLessonIds: ["lesson-unit5-schedule-and-form-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-pa",
+      "abbr-pt",
+      "abbr-ms",
+      "abbr-bs",
+      "abbr-cp"
+    ],
+    reinforcesTermIds: [
+      "term-prior-authorization",
+      "term-referral",
+      "term-medical-history",
+      "term-monitoring"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-ambiguity-1",
+      "exercise-unit5-ambiguity-2",
+      "exercise-unit5-ambiguity-3",
+      "exercise-unit5-ambiguity-4",
+      "exercise-unit5-ambiguity-5"
+    ],
+    estimatedMinutes: 9,
     status: "shipped",
   },
   {

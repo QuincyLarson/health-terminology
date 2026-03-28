@@ -107,10 +107,12 @@ export const units: Unit[] = [
       "lesson-unit5-chart-and-note-abbreviations",
       "lesson-unit5-history-and-status-abbreviations",
       "lesson-unit5-frequency-and-lab-abbreviations",
-      "lesson-unit5-imaging-and-urgency-abbreviations"
+      "lesson-unit5-imaging-and-urgency-abbreviations",
+      "lesson-unit5-schedule-and-form-abbreviations",
+      "lesson-unit5-ambiguous-abbreviations-and-safer-reading"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4"],
-    status: "lesson-linked",
+    status: "shipped",
   },
   {
     id: "unit-6",

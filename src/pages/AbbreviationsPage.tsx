@@ -63,6 +63,11 @@ export function AbbreviationsPage() {
                 <h3>{abbreviation.shortForm}</h3>
                 <span className="status-pill">{abbreviation.category}</span>
               </div>
+              {abbreviation.ambiguous ? (
+                <p className="meta-copy">
+                  Context dependent. Check the sentence before assuming one expansion.
+                </p>
+              ) : null}
               {revealed ? (
                 <>
                   <p>{abbreviation.expandedForm}</p>

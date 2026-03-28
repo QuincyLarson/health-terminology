@@ -28,9 +28,9 @@ Each future unit and module entry should accumulate:
 - Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, chart passages, severity or progression language, and results or interpretation language.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, purpose-built passage language, verification or network language, and preparation or instruction language.
-- Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
+- Unit 5 now exists as a broader abbreviations unit with chart-note, history or status, frequency or lab, imaging or urgency, schedule or form, and ambiguity-safety shorthand coverage.
 - Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, and reproductive follow-up synthesis drills.
-- The app currently exposes 75 lessons, 207 terms, 89 parts, 229 exercises, and 32 abbreviations.
+- The app currently exposes 77 lessons, 207 terms, 89 parts, 239 exercises, and 44 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -324,7 +324,7 @@ Unit 4 now has authored slices for scheduling, follow-up, records, orders, autho
 - Status: seeded.
 
 ## Unit 5 - Abbreviations and Acronyms
-Unit 5 now has authored starter slices for clinical, document, measurement, route, chart-note, history or status, frequency or lab, and imaging or urgency abbreviations.
+Unit 5 now has authored slices for clinical, document, measurement, route, chart-note, history or status, frequency or lab, imaging or urgency, schedule or form, and ambiguity-safety abbreviations.
 ### Module 5.1: Clinical Abbreviations
 - Lesson goal: recognize high-frequency chart abbreviations.
 - Representative content: BP, HR, RR, SOB, NPO, PRN.
@@ -365,6 +365,18 @@ Unit 5 now has authored starter slices for clinical, document, measurement, rout
 - Lesson goal: recognize common imaging-study and urgent-action shorthand.
 - Representative content: CT, MRI, UA, STAT.
 - Priority: medium-high.
+- Status: seeded.
+
+### Module 5.8: Schedule and Form Abbreviations
+- Lesson goal: recognize shorthand for daily timing, medication forms, and visit-summary paperwork.
+- Representative content: qAM, qHS, QID, tab, cap, AVS, appt.
+- Priority: medium-high.
+- Status: seeded.
+
+### Module 5.9: Ambiguous Abbreviations and Safer Reading
+- Lesson goal: identify context-dependent abbreviations and practice reading them only with nearby clues.
+- Representative content: PA, PT, MS, BS, CP.
+- Priority: high.
 - Status: seeded.
 
 ## Unit 6 - Final Synthesis
