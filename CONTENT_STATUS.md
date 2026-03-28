@@ -34,7 +34,7 @@
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
 - Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, and procedure language.
 - Unit 2 now includes cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, and nervous-system starter lessons with airway, breathing-status, inflammation, procedure, pain, repair, urinary, and neuro-disorder language.
-- Unit 3 now includes starter lessons for symptoms/status language, cross-system procedure families, chart-style phrasing, and admissions or discharge workflow language.
+- Unit 3 now includes starter lessons for symptoms/status language, cross-system procedure families, chart-style phrasing, and admissions, discharge, and workflow language.
 - Unit 4 now includes starter lessons for scheduling, follow-up, records, orders, authorization, intake forms, and billing language.
 - Browse mode is implemented as a separate surface and labels future terms as `not yet taught`.
 - The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
