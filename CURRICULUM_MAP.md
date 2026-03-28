@@ -26,11 +26,11 @@ Each future unit and module entry should accumulate:
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
 - Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.
-- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
+- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, chart passages, severity or progression language, and results or interpretation language.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
 - Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
 - Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, and reproductive follow-up synthesis drills.
-- The app currently exposes 71 lessons, 187 terms, 89 parts, 213 exercises, and 32 abbreviations.
+- The app currently exposes 73 lessons, 197 terms, 89 parts, 221 exercises, and 32 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -218,7 +218,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Status: seeded.
 
 ## Unit 3 - Clinical Language Patterns
-Unit 3 now has authored starter slices for symptoms/status language, procedure families, chart phrasing, workflow language, diagnostics, and medication basics.
+Unit 3 now has authored slices for symptoms/status language, procedure families, chart phrasing, workflow language, diagnostics, medication basics, chart passages, severity or progression language, and results or interpretation language.
 ### Module 3.1: Symptoms and Signs
 - Lesson goal: distinguish what a patient reports from what is observed.
 - Representative content: pain, fever, nausea, edema, dyspnea.
@@ -264,6 +264,18 @@ Unit 3 now has authored starter slices for symptoms/status language, procedure f
 ### Module 3.8: Chart Passage Decoding
 - Lesson goal: read short chart fragments that mix section labels, symptoms, and updates.
 - Representative content: history of present illness, physical exam, progress note, reassessment.
+- Priority: medium.
+- Status: seeded.
+
+### Module 3.9: Severity and Progression Language
+- Lesson goal: recognize high-yield chart words for worsening, recurrence, persistence, and quieter periods.
+- Representative content: exacerbation, remission, recurrent, persistent, progressive.
+- Priority: medium.
+- Status: seeded.
+
+### Module 3.10: Results and Interpretation Language
+- Lesson goal: understand the result-summary words that signal above-range, below-range, present, absent, or nothing notable.
+- Representative content: elevated, decreased, positive, negative, unremarkable.
 - Priority: medium.
 - Status: seeded.
 

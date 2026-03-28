@@ -3010,6 +3010,122 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-mastalgia", "term-postpartum", "term-monitoring", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pcp"],
+  },
+  {
+    id: "exercise-unit3-severity-1",
+    type: "infer_meaning",
+    prompt: "What does `exacerbation` usually suggest in a note?",
+    choices: [
+      "a worsening episode or flare",
+      "a normal result",
+      "a planned discharge summary",
+      "a test that found nothing"
+    ],
+    answer: "a worsening episode or flare",
+    explanation: "`Exacerbation` is a common chart word for a period when symptoms or disease activity get worse.",
+    linkedTermIds: ["term-exacerbation"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-severity-2",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `remission`?",
+    choices: [
+      "a period when disease activity is reduced",
+      "a sudden worsening of pain",
+      "a positive test result",
+      "a transfer to another facility"
+    ],
+    answer: "a period when disease activity is reduced",
+    explanation: "`Remission` points to a quieter period rather than a worsening flare.",
+    linkedTermIds: ["term-remission"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-severity-3",
+    type: "cloze",
+    prompt: "Complete the sentence: if a symptom keeps coming back after improving, it is often described as ___.",
+    choices: ["recurrent", "negative", "stable", "discharged"],
+    answer: "recurrent",
+    explanation: "`Recurrent` means returning again after it seemed to improve or stop.",
+    linkedTermIds: ["term-recurrent"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-severity-4",
+    type: "infer_meaning",
+    prompt: "Assessment line: `Persistent cough with progressive dyspnea.` What combination is being described?",
+    choices: [
+      "a cough that keeps going and breathing trouble that is getting worse",
+      "a cough that resolved and breathing that is normal",
+      "a lab result that is lower than expected",
+      "a portal request for records release"
+    ],
+    answer: "a cough that keeps going and breathing trouble that is getting worse",
+    explanation: "`Persistent` points to something ongoing, while `progressive` points to something advancing or worsening.",
+    linkedTermIds: ["term-persistent", "term-progressive", "term-dyspnea"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-results-1",
+    type: "infer_meaning",
+    prompt: "If a lab value is described as `elevated`, what does that suggest?",
+    choices: [
+      "it is higher than expected",
+      "it is absent",
+      "it has not been checked",
+      "it is part of the discharge plan"
+    ],
+    answer: "it is higher than expected",
+    explanation: "`Elevated` is a common results word for a value above the expected range.",
+    linkedTermIds: ["term-elevated"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-results-2",
+    type: "infer_meaning",
+    prompt: "Which plain-English idea matches `decreased` in a result summary?",
+    choices: [
+      "lower than before or lower than expected",
+      "worsening rapidly",
+      "requiring surgery",
+      "returning for follow-up"
+    ],
+    answer: "lower than before or lower than expected",
+    explanation: "`Decreased` is used to show a drop in amount, level, or intensity.",
+    linkedTermIds: ["term-decreased"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-results-3",
+    type: "infer_meaning",
+    prompt: "Test note: `Influenza test negative.` What is the note saying?",
+    choices: [
+      "the test did not show influenza",
+      "the test clearly confirmed influenza",
+      "the sample was not collected",
+      "the patient needs emergency surgery"
+    ],
+    answer: "the test did not show influenza",
+    explanation: "In this context, `negative` means the targeted finding was not detected.",
+    linkedTermIds: ["term-negative"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-results-4",
+    type: "infer_meaning",
+    prompt: "Imaging impression: `Chest CT unremarkable.` Which paraphrase fits best?",
+    choices: [
+      "the scan did not show an important abnormal finding",
+      "the scan found a growing mass",
+      "the scan was urgently repeated because symptoms worsened",
+      "the scan confirmed a positive infection test"
+    ],
+    answer: "the scan did not show an important abnormal finding",
+    explanation: "`Unremarkable` is report language for no notable abnormal finding.",
+    linkedTermIds: ["term-unremarkable", "term-impression"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ct"],
   }
 ];
 
@@ -3831,6 +3947,75 @@ export const lessons: Lesson[] = [
       "exercise-unit3-chart-passage-1",
       "exercise-unit3-chart-passage-2",
       "exercise-unit3-chart-passage-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-severity-and-progression-language",
+    title: "Severity and Progression Language",
+    unitId: "unit-3",
+    objective: "Recognize common chart words that describe worsening, persistence, recurrence, and quieter periods.",
+    whyItMatters: "These words are central to understanding whether a condition is improving, returning, or moving in the wrong direction.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-condition-and-disease-state-language",
+      "lesson-unit3-chart-passage-decoding"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-exacerbation",
+      "term-remission",
+      "term-recurrent",
+      "term-persistent",
+      "term-progressive"
+    ],
+    reinforcesTermIds: [
+      "term-acute",
+      "term-chronic",
+      "term-dyspnea",
+      "term-monitoring",
+      "term-reassessment"
+    ],
+    exerciseSetIds: [
+      "exercise-unit3-severity-1",
+      "exercise-unit3-severity-2",
+      "exercise-unit3-severity-3",
+      "exercise-unit3-severity-4"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-results-and-interpretation-language",
+    title: "Results and Interpretation Language",
+    unitId: "unit-3",
+    objective: "Read the most common result-summary words that signal above-range, below-range, present, absent, or nothing notable.",
+    whyItMatters: "Learners see these words constantly in labs, imaging impressions, portal results, and visit summaries.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-diagnostic-and-imaging-language",
+      "lesson-unit3-severity-and-progression-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-elevated",
+      "term-decreased",
+      "term-positive",
+      "term-negative",
+      "term-unremarkable"
+    ],
+    reinforcesTermIds: [
+      "term-findings",
+      "term-impression",
+      "term-monitoring",
+      "term-ultrasound",
+      "term-hematology"
+    ],
+    reinforcesAbbreviationIds: ["abbr-cbc", "abbr-ct"],
+    exerciseSetIds: [
+      "exercise-unit3-results-1",
+      "exercise-unit3-results-2",
+      "exercise-unit3-results-3",
+      "exercise-unit3-results-4"
     ],
     estimatedMinutes: 8,
     status: "shipped",

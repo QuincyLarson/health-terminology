@@ -72,10 +72,12 @@ export const units: Unit[] = [
       "lesson-unit3-diagnostic-and-imaging-language",
       "lesson-unit3-medication-and-administration-basics",
       "lesson-unit3-condition-and-disease-state-language",
-      "lesson-unit3-chart-passage-decoding"
+      "lesson-unit3-chart-passage-decoding",
+      "lesson-unit3-severity-and-progression-language",
+      "lesson-unit3-results-and-interpretation-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2"],
-    status: "lesson-linked",
+    status: "shipped",
   },
   {
     id: "unit-4",
