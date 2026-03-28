@@ -8,7 +8,7 @@ This is not a medical encyclopedia, certification prep tool, or clinical decisio
 
 The repository now has a working Vite + React seed app. The product direction, curriculum strategy, and implementation rules are defined in `docs/prd.md`, `docs/agents.md`, and the root `AGENTS.md`, and the first curriculum slice is implemented in `src/content`.
 
-The current app includes a curriculum map, a browse-first term index, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 5 units, 20 lessons, 46 parts, 67 terms, 44 exercises, and 7 abbreviations, with Unit 2 extended through cardiovascular, respiratory, gastrointestinal, musculoskeletal, and renal/urinary starter modules and starter coverage now present in Units 3 and 4.
+The current app includes a curriculum map, a browse-first term index, lesson page, review page, dedicated endless mode, abbreviations page, progress/stats page, and settings page for local-only persistence. The seeded curriculum now covers 5 units, 25 lessons, 49 parts, 89 terms, 59 exercises, and 7 abbreviations, with Unit 2 extended through cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, and nervous-system starter modules, broader chart/workflow language now present in Unit 3, and intake plus billing language now present in Unit 4.
 
 The current implementation now exceeds the PRD's minimum lovable release bar: Unit 0 and Unit 1 are usable, multiple body-system modules are coherent end-to-end, review and endless study work, lesson retry/first-attempt mastery tracking exists, JSON export/import/reset works, and recovery-aware local progress handling is in place. The remaining work is full-v1 breadth, especially larger content scale-out and deeper SRS tuning.
 
@@ -75,8 +75,8 @@ Planned top-level structure:
 ## Immediate Next Steps
 
 1. Expand beyond the minimum lovable release with deeper body-system coverage and larger validated term batches.
-2. Continue Unit 2 into deeper musculoskeletal, renal/urinary, nervous-system, endocrine, and reproductive coverage.
-3. Expand Unit 3 clinical-language starter lessons and add the first passage-style decoding content.
+2. Continue Unit 2 into endocrine, reproductive, integumentary, and hematologic or immune starter coverage.
+3. Expand Unit 3 into condition-state, diagnostics, medication-administration, and passage-style chart-reading content.
 4. Grow validated terms, parts, and exercises in 200-500 term batches.
 5. Tighten spaced repetition, mixed-session tuning, and term-browse/ranking behavior as the term bank grows.
 6. Keep `CONTENT_STATUS.md` and `CURRICULUM_MAP.md` current as implementation and content batches land.
