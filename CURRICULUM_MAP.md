@@ -29,8 +29,8 @@ Each future unit and module entry should accumulate:
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, chart passages, severity or progression language, and results or interpretation language.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, purpose-built passage language, verification or network language, and preparation or instruction language.
 - Unit 5 now exists as a broader abbreviations unit with chart-note, history or status, frequency or lab, imaging or urgency, schedule or form, and ambiguity-safety shorthand coverage.
-- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, and reproductive follow-up synthesis drills.
-- The app currently exposes 77 lessons, 207 terms, 89 parts, 239 exercises, and 44 abbreviations.
+- Unit 6 now exists as a broader final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, reproductive follow-up synthesis drills, verification-prep crossover drills, and ambiguity-results synthesis drills.
+- The app currently exposes 79 lessons, 207 terms, 89 parts, 245 exercises, and 44 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -480,6 +480,18 @@ Unit 6 now has authored starter slices for mixed recognition, passage decoding, 
 ### Module 6.17: Reproductive Follow-Up Synthesis
 - Lesson goal: read reproductive and postpartum follow-up passages that mix symptoms, imaging, portal, and PCP workflow language.
 - Representative content: dysmenorrhea, amenorrhea, mastitis, mastalgia, postpartum, ultrasound, PCP, f/u.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.18: Verification and Prep Crossover
+- Lesson goal: read administrative passages that mix network status, authorization, subscriber details, and pre-visit instructions.
+- Representative content: eligibility, in-network, out-of-network, subscriber, PA, AVS, appt, fasting instructions.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.19: Ambiguity and Results Synthesis
+- Lesson goal: read clinical notes where context decides the abbreviation meaning and result-status language decides the main interpretation.
+- Representative content: PT, MS, BS, CP, elevated, negative, unremarkable, recurrent.
 - Priority: medium.
 - Status: seeded.
 

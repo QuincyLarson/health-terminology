@@ -31,14 +31,14 @@
 - Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 7 units, 77 lessons, 89 parts, 207 terms, 239 exercises, and 44 abbreviations.
+- Seed content exists for 7 units, 79 lessons, 89 parts, 207 terms, 245 exercises, and 44 abbreviations.
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
 - Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, procedure language, and condition-suffix decoding.
 - Unit 2 now includes cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up starter lessons.
 - Unit 3 now includes symptoms/status language, procedure families, chart-style phrasing, admissions or discharge workflow language, diagnostics or imaging language, medication-administration basics, condition-state language, chart-passage decoding, severity or progression language, and results or interpretation language.
 - Unit 4 now includes scheduling, follow-up, records, orders, authorization, intake forms, billing language, portal or reminder language, administrative passage decoding, verification or network language, and preparation or instruction language.
 - Unit 5 now exists as a broader abbreviations unit with clinical, document, measurement, route, chart-shorthand, history or status, frequency or lab, imaging or urgency, schedule or form, and ambiguity-safety coverage.
-- Unit 6 now exists as a lesson-linked synthesis unit with mixed recognition, passage-decoding, rapid-parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover, upper-airway or throat synthesis, respiratory recheck or escalation, pleural or chest synthesis, oncology or pathology synthesis, immune or node synthesis, and reproductive follow-up synthesis lessons.
+- Unit 6 now exists as a broader synthesis unit with mixed recognition, passage-decoding, rapid-parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover, upper-airway or throat synthesis, respiratory recheck or escalation, pleural or chest synthesis, oncology or pathology synthesis, immune or node synthesis, reproductive follow-up synthesis, verification-prep crossover, and ambiguity-results synthesis lessons.
 - Browse mode is implemented as a separate surface and labels future terms as `not yet taught`.
 - The abbreviations surface now also flags context-dependent items so learners can see when a short form should not be read as a single guaranteed expansion.
 - The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
@@ -132,7 +132,7 @@
 ## Batch Ledger
 - Seed batch authored: Unit 0 foundations, broader Unit 1 roots/prefixes/procedures plus condition suffixes, expanded Unit 2 body-system slices, broader Unit 3 and Unit 4 language coverage, and the first lesson-linked Units 5 and 6.
 - Latest scale-out batches added Unit 2 integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language, expanded Unit 5 chart-note plus history or status plus frequency or lab plus imaging or urgency abbreviations, and added Unit 6 rapid parsing plus results or discharge plus urgent-imaging plus renal-lab plus blood-count plus abdominal-and-stone plus referral-and-consult plus handoff-and-reassessment plus portal-and-authorization crossover plus upper-airway or throat plus respiratory recheck or escalation plus pleural or chest plus oncology or pathology plus immune or node plus reproductive follow-up synthesis drills.
-- Current seed totals: 7 units, 77 lessons, 89 parts, 207 terms, 239 exercises, and 44 abbreviations.
+- Current seed totals: 7 units, 79 lessons, 89 parts, 207 terms, 245 exercises, and 44 abbreviations.
 - Current runtime surfaces: curriculum, lesson, browse, review, endless, abbreviations, progress, settings, and about.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.

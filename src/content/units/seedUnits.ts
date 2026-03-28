@@ -136,7 +136,9 @@ export const units: Unit[] = [
       "lesson-unit6-pleural-and-chest-synthesis",
       "lesson-unit6-oncology-and-pathology-synthesis",
       "lesson-unit6-immune-and-node-synthesis",
-      "lesson-unit6-reproductive-followup-synthesis"
+      "lesson-unit6-reproductive-followup-synthesis",
+      "lesson-unit6-verification-and-prep-crossover",
+      "lesson-unit6-ambiguity-and-results-synthesis"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "shipped",

@@ -3396,6 +3396,106 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-medical-history"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cp", "abbr-hx"],
+  },
+  {
+    id: "exercise-unit6-verification-synth-1",
+    type: "infer_meaning",
+    prompt: "Portal message: `Eligibility verification complete. Service remains in-network and PA was approved before appt scheduling.` What is the main message?",
+    choices: [
+      "coverage was checked, the service is inside the plan network, and prior authorization was approved before the appointment was booked",
+      "the service is outside the network and must be canceled",
+      "the patient has a positive infection test and needs urgent imaging",
+      "the office needs a pathology specimen before discharge"
+    ],
+    answer: "coverage was checked, the service is inside the plan network, and prior authorization was approved before the appointment was booked",
+    explanation: "This passage mixes verification, network, authorization, and appointment shorthand in one short workflow note.",
+    linkedTermIds: ["term-eligibility", "term-verification", "term-in-network"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pa", "abbr-appt"],
+  },
+  {
+    id: "exercise-unit6-verification-synth-2",
+    type: "infer_meaning",
+    prompt: "Check-in note: `Subscriber information updated during pre-registration. Review fasting instructions and arrival time in AVS.` Which paraphrase fits best?",
+    choices: [
+      "policy-holder details were updated before the visit, and the patient should review food restrictions and when to arrive in the after-visit summary",
+      "the patient already finished the procedure and is ready for discharge",
+      "a chest CT was normal and no follow-up is needed",
+      "the office is requesting a neurology consult"
+    ],
+    answer: "policy-holder details were updated before the visit, and the patient should review food restrictions and when to arrive in the after-visit summary",
+    explanation: "This line combines policy-holder language, advance registration, pre-visit instructions, and summary paperwork shorthand.",
+    linkedTermIds: [
+      "term-subscriber",
+      "term-pre-registration",
+      "term-fasting-instructions",
+      "term-arrival-time"
+    ],
+    linkedPartIds: ["part-pre-prefix"],
+    linkedAbbreviationIds: ["abbr-avs"],
+  },
+  {
+    id: "exercise-unit6-verification-synth-3",
+    type: "infer_meaning",
+    prompt: "Office note: `Out-of-network warning reviewed. Callback request sent so benefits can be discussed before arrival.` What is happening?",
+    choices: [
+      "the office warned that coverage may differ and arranged a call back before the visit",
+      "the office confirmed a negative test result and closed the chart",
+      "the office documented recurrent chest pain after discharge",
+      "the office switched the patient from tablets to capsules"
+    ],
+    answer: "the office warned that coverage may differ and arranged a call back before the visit",
+    explanation: "This message links network-status language to follow-up phone workflow before the patient arrives.",
+    linkedTermIds: ["term-out-of-network", "term-callback-request", "term-arrival-time"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit6-ambiguity-synth-1",
+    type: "infer_meaning",
+    prompt: "Progress note: `PT referral placed. BS remains elevated after meals, but imaging was otherwise unremarkable.` Which reading best fits the line?",
+    choices: [
+      "physical therapy was ordered, blood sugar is still high, and the scan showed nothing notable otherwise",
+      "the patient was discharged, bowel sounds were absent, and the scan confirmed spread of cancer",
+      "prior authorization was denied, breath sounds were normal, and surgery was scheduled",
+      "the patient had chest pain, blood specimen was lost, and the scan was urgently repeated"
+    ],
+    answer: "physical therapy was ordered, blood sugar is still high, and the scan showed nothing notable otherwise",
+    explanation: "Referral context points `PT` to physical therapy, meal context points `BS` to blood sugar, and `unremarkable` means no notable abnormal finding.",
+    linkedTermIds: ["term-elevated", "term-unremarkable", "term-referral"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pt", "abbr-bs"],
+  },
+  {
+    id: "exercise-unit6-ambiguity-synth-2",
+    type: "infer_meaning",
+    prompt: "History update: `Hx of MS with recurrent weakness. MRI negative for new active findings.` What is the note mainly saying?",
+    choices: [
+      "the patient has a history of multiple sclerosis and the MRI did not show a new active problem",
+      "the patient received morphine sulfate and the MRI was urgently canceled",
+      "the patient has muscle strain and the MRI confirmed a positive fracture",
+      "the patient needs pre-registration before the MRI can be ordered"
+    ],
+    answer: "the patient has a history of multiple sclerosis and the MRI did not show a new active problem",
+    explanation: "History context points `MS` to multiple sclerosis, while `negative` points to a finding that was not detected.",
+    linkedTermIds: ["term-medical-history", "term-recurrent", "term-negative"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ms", "abbr-hx", "abbr-mri"],
+  },
+  {
+    id: "exercise-unit6-ambiguity-synth-3",
+    type: "infer_meaning",
+    prompt: "Urgent note: `CP more persistent today, but flu test negative and O2 stable. Reassessment planned.` Which interpretation fits best?",
+    choices: [
+      "chest pain is still continuing, but the flu test did not show infection and the patient will be reassessed",
+      "cerebral palsy was newly diagnosed and oxygen suddenly fell",
+      "the capsule dose changed because imaging was abnormal",
+      "the office only needed a call back about insurance coverage"
+    ],
+    answer: "chest pain is still continuing, but the flu test did not show infection and the patient will be reassessed",
+    explanation: "Current urgent-symptom context points `CP` to chest pain here, while `negative` and `stable` guide the rest of the note.",
+    linkedTermIds: ["term-persistent", "term-negative", "term-stable", "term-reassessment"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cp"],
   }
 ];
 
@@ -5636,6 +5736,70 @@ export const lessons: Lesson[] = [
       "exercise-unit6-reproductive-synth-1",
       "exercise-unit6-reproductive-synth-2",
       "exercise-unit6-reproductive-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-verification-and-prep-crossover",
+    title: "Verification and Prep Crossover",
+    unitId: "unit-6",
+    objective: "Read realistic administrative passages that mix network status, authorization, subscriber details, and pre-visit instructions.",
+    whyItMatters: "This is the kind of practical reading people actually face in portals and front-desk communication, where insurance and arrival instructions are compressed together.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-reproductive-followup-synthesis",
+      "lesson-unit4-preparation-and-instruction-language",
+      "lesson-unit5-ambiguous-abbreviations-and-safer-reading"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-eligibility",
+      "term-verification",
+      "term-in-network",
+      "term-out-of-network",
+      "term-subscriber",
+      "term-pre-registration",
+      "term-fasting-instructions",
+      "term-arrival-time",
+      "term-callback-request"
+    ],
+    reinforcesAbbreviationIds: ["abbr-pa", "abbr-avs", "abbr-appt"],
+    exerciseSetIds: [
+      "exercise-unit6-verification-synth-1",
+      "exercise-unit6-verification-synth-2",
+      "exercise-unit6-verification-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-ambiguity-and-results-synthesis",
+    title: "Ambiguity and Results Synthesis",
+    unitId: "unit-6",
+    objective: "Practice reading short clinical notes where context decides the abbreviation meaning and results language decides the clinical message.",
+    whyItMatters: "This is the safest capstone behavior for a terminology learner: do not guess blindly, use the nearby sentence clues, and separate result-status words from disease labels.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-verification-and-prep-crossover",
+      "lesson-unit3-results-and-interpretation-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-elevated",
+      "term-negative",
+      "term-unremarkable",
+      "term-recurrent",
+      "term-persistent",
+      "term-stable",
+      "term-reassessment",
+      "term-referral"
+    ],
+    reinforcesAbbreviationIds: ["abbr-pt", "abbr-ms", "abbr-bs", "abbr-cp", "abbr-hx", "abbr-mri"],
+    exerciseSetIds: [
+      "exercise-unit6-ambiguity-synth-1",
+      "exercise-unit6-ambiguity-synth-2",
+      "exercise-unit6-ambiguity-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",
