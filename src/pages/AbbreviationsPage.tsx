@@ -1,21 +1,31 @@
-import { useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import { content } from "../content";
+
+const RESULT_PAGE_SIZE = 24;
 
 export function AbbreviationsPage() {
   const [search, setSearch] = useState("");
   const [category, setCategory] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(RESULT_PAGE_SIZE);
   const [revealedIds, setRevealedIds] = useState<Record<string, boolean>>({});
+  const deferredSearch = useDeferredValue(search);
 
-  const filteredAbbreviations = content.abbreviations.filter((abbreviation) => {
-    const matchesSearch =
-      search.length === 0 ||
-      `${abbreviation.shortForm} ${abbreviation.expandedForm} ${abbreviation.meaning}`
-        .toLowerCase()
-        .includes(search.toLowerCase());
-    const matchesCategory =
-      category === "all" || abbreviation.category === category;
-    return matchesSearch && matchesCategory;
-  });
+  const filteredAbbreviations = useMemo(
+    () =>
+      content.abbreviations.filter((abbreviation) => {
+        const matchesSearch =
+          deferredSearch.length === 0 ||
+          `${abbreviation.shortForm} ${abbreviation.expandedForm} ${abbreviation.meaning}`
+            .toLowerCase()
+            .includes(deferredSearch.toLowerCase());
+        const matchesCategory =
+          category === "all" || abbreviation.category === category;
+        return matchesSearch && matchesCategory;
+      }),
+    [category, deferredSearch],
+  );
+  const visibleAbbreviations = filteredAbbreviations.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredAbbreviations.length;
 
   return (
     <div className="stack">
@@ -33,7 +43,10 @@ export function AbbreviationsPage() {
               className="text-input"
               type="search"
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={(event) => {
+                setSearch(event.target.value);
+                setVisibleCount(RESULT_PAGE_SIZE);
+              }}
               placeholder="BP, IV, blood pressure..."
             />
           </label>
@@ -42,7 +55,10 @@ export function AbbreviationsPage() {
             <select
               className="select-input"
               value={category}
-              onChange={(event) => setCategory(event.target.value)}
+              onChange={(event) => {
+                setCategory(event.target.value);
+                setVisibleCount(RESULT_PAGE_SIZE);
+              }}
             >
               <option value="all">All categories</option>
               <option value="clinical">Clinical</option>
@@ -52,10 +68,13 @@ export function AbbreviationsPage() {
             </select>
           </label>
         </div>
+        <p className="meta-copy">
+          Matching abbreviations: {filteredAbbreviations.length} · Showing: {visibleAbbreviations.length}
+        </p>
       </section>
 
       <section className="breakdown-grid">
-        {filteredAbbreviations.map((abbreviation) => {
+        {visibleAbbreviations.map((abbreviation) => {
           const revealed = revealedIds[abbreviation.id] ?? false;
           return (
             <article key={abbreviation.id} className="card stack">
@@ -92,6 +111,25 @@ export function AbbreviationsPage() {
           );
         })}
       </section>
+
+      {hasMore ? (
+        <section className="card stack pager-card">
+          <p className="meta-copy">
+            Showing {visibleAbbreviations.length} of {filteredAbbreviations.length} matching abbreviations.
+          </p>
+          <button
+            type="button"
+            className="button"
+            onClick={() =>
+              setVisibleCount((current) =>
+                Math.min(current + RESULT_PAGE_SIZE, filteredAbbreviations.length),
+              )
+            }
+          >
+            Load more
+          </button>
+        </section>
+      ) : null}
     </div>
   );
 }
