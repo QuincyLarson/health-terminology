@@ -33,7 +33,7 @@ export function SettingsPage() {
   }
 
   function handleExport(): void {
-    downloadFile(exportProgress(), "healthterms-progress.json");
+    downloadFile(exportProgress(), "healthterminology-progress.json");
     setMessage("Exported current progress as JSON.");
   }
 
@@ -50,7 +50,7 @@ export function SettingsPage() {
     ) {
       downloadFile(
         exportProgress(),
-        `healthterms-progress-backup-${new Date().toISOString()}.json`,
+        `healthterminology-progress-backup-${new Date().toISOString()}.json`,
       );
     }
 
@@ -68,7 +68,9 @@ export function SettingsPage() {
   }
 
   function handleReset(): void {
-    const confirmed = window.confirm("Reset all local progress for HealthTerms.com?");
+    const confirmed = window.confirm(
+      "Reset all local progress for HealthTerminology.com?",
+    );
     if (!confirmed) {
       return;
     }
@@ -78,7 +80,7 @@ export function SettingsPage() {
     ) {
       downloadFile(
         exportProgress(),
-        `healthterms-progress-backup-${new Date().toISOString()}.json`,
+        `healthterminology-progress-backup-${new Date().toISOString()}.json`,
       );
     }
     resetProgress();
@@ -89,7 +91,7 @@ export function SettingsPage() {
     <div className="stack">
       <section className="card stack">
         <p className="eyebrow">Settings</p>
-        <h2>Local-only progress</h2>
+        <h2>Local-only settings</h2>
         <label className="toggle-row">
           <span>Audio enabled</span>
           <input
@@ -129,7 +131,7 @@ export function SettingsPage() {
                 onClick={() =>
                   downloadFile(
                     recoverySnapshot,
-                    `healthterms-recovery-${new Date().toISOString()}.json`,
+                    `healthterminology-recovery-${new Date().toISOString()}.json`,
                   )
                 }
               >

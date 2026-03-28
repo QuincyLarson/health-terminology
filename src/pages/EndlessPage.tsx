@@ -175,7 +175,7 @@ export function EndlessPage() {
             Adjust the filters or complete more lessons so additional terms
             become eligible.
           </p>
-          <Link className="text-link" to="/curriculum">
+          <Link className="text-link" to="/">
             Return to curriculum
           </Link>
         </section>
@@ -277,7 +277,7 @@ export function EndlessPage() {
       <section className="card">
         <p className="eyebrow">Storage mode</p>
         <p>
-          Endless mode uses the same local progress store as lessons and review.
+          Endless mode uses the same local progress store as lessons and drills.
           There is no account wall or server dependency.
         </p>
         <p className="meta-copy">

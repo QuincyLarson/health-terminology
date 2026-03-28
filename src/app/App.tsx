@@ -13,19 +13,14 @@ const BrowsePage = lazy(async () => {
   return { default: module.BrowsePage };
 });
 
-const CurriculumPage = lazy(async () => {
-  const module = await import("../pages/CurriculumPage");
-  return { default: module.CurriculumPage };
-});
-
 const LessonPage = lazy(async () => {
   const module = await import("../pages/LessonPage");
   return { default: module.LessonPage };
 });
 
-const ReviewPage = lazy(async () => {
+const DrillsPage = lazy(async () => {
   const module = await import("../pages/ReviewPage");
-  return { default: module.ReviewPage };
+  return { default: module.DrillsPage };
 });
 
 const EndlessPage = lazy(async () => {
@@ -33,7 +28,7 @@ const EndlessPage = lazy(async () => {
   return { default: module.EndlessPage };
 });
 
-const ProgressPage = lazy(async () => {
+const ProfilePage = lazy(async () => {
   const module = await import("../pages/ProgressPage");
   return { default: module.ProgressPage };
 });
@@ -41,16 +36,6 @@ const ProgressPage = lazy(async () => {
 const AbbreviationsPage = lazy(async () => {
   const module = await import("../pages/AbbreviationsPage");
   return { default: module.AbbreviationsPage };
-});
-
-const SettingsPage = lazy(async () => {
-  const module = await import("../pages/SettingsPage");
-  return { default: module.SettingsPage };
-});
-
-const AboutPage = lazy(async () => {
-  const module = await import("../pages/AboutPage");
-  return { default: module.AboutPage };
 });
 
 function RouteFallback() {
@@ -69,15 +54,17 @@ export function App() {
           <Suspense fallback={<RouteFallback />}>
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/curriculum" element={<HomePage />} />
               <Route path="/browse" element={<BrowsePage />} />
-              <Route path="/curriculum" element={<CurriculumPage />} />
               <Route path="/lesson/:lessonId" element={<LessonPage />} />
-              <Route path="/review" element={<ReviewPage />} />
+              <Route path="/drills" element={<DrillsPage />} />
+              <Route path="/review" element={<Navigate to="/drills" replace />} />
               <Route path="/endless" element={<EndlessPage />} />
-              <Route path="/progress" element={<ProgressPage />} />
+              <Route path="/profile" element={<ProfilePage />} />
+              <Route path="/progress" element={<Navigate to="/profile" replace />} />
               <Route path="/abbreviations" element={<AbbreviationsPage />} />
-              <Route path="/settings" element={<SettingsPage />} />
-              <Route path="/about" element={<AboutPage />} />
+              <Route path="/settings" element={<Navigate to="/profile" replace />} />
+              <Route path="/about" element={<Navigate to="/" replace />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </Suspense>

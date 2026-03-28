@@ -1,10 +1,32 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { content } from "../content";
+import {
+  getRecoverySnapshot,
+  RECOVERY_STORAGE_KEY,
+  STORAGE_KEY,
+} from "../lib/progress/storage";
 
 export function ProgressPage() {
-  const { dueTerms, eligibleTerms, newTerms, orderedLessons, progress, stats, storageSnapshotSize } =
-    useAppState();
+  const {
+    dueTerms,
+    eligibleTerms,
+    exportProgress,
+    hasRecoverySnapshot,
+    importProgress,
+    newTerms,
+    orderedLessons,
+    progress,
+    recoveryNotice,
+    resetProgress,
+    setSetting,
+    stats,
+    storageSnapshotSize,
+    themePreference,
+  } = useAppState();
+  const [message, setMessage] = useState("");
+
   const currentLesson = orderedLessons.find(
     (lesson) => lesson.id === progress.user.currentLessonId,
   );
@@ -23,22 +45,94 @@ export function ProgressPage() {
     const terms = eligibleTerms.filter((term) => term.bodySystem === bodySystem);
     const seen = terms.filter((term) => (progress.terms[term.id]?.seenCount ?? 0) > 0).length;
     const due = terms.filter((term) => dueTerms.some((dueTerm) => dueTerm.id === term.id)).length;
+
     return {
       bodySystem,
+      due,
       eligible: terms.length,
       seen,
-      due,
     };
   });
+  const recoverySnapshot = getRecoverySnapshot();
+  const hasTrackedProgress =
+    Object.keys(progress.lessons).length > 0 || Object.keys(progress.terms).length > 0;
+
+  function downloadFile(contents: string, filename: string): void {
+    const blob = new Blob([contents], { type: "application/json" });
+    const url = window.URL.createObjectURL(blob);
+    const anchor = document.createElement("a");
+    anchor.href = url;
+    anchor.download = filename;
+    anchor.click();
+    window.URL.revokeObjectURL(url);
+  }
+
+  function handleExport(): void {
+    downloadFile(exportProgress(), "healthterminology-progress.json");
+    setMessage("Exported current progress as JSON.");
+  }
+
+  async function handleImport(file: File): Promise<void> {
+    const confirmed = window.confirm(
+      "Importing will replace the current local progress after validation. Continue?",
+    );
+    if (!confirmed) {
+      return;
+    }
+
+    if (
+      hasTrackedProgress &&
+      window.confirm("Download a backup of the current local progress before import?")
+    ) {
+      downloadFile(
+        exportProgress(),
+        `healthterminology-progress-backup-${new Date().toISOString()}.json`,
+      );
+    }
+
+    const text = await file.text();
+    try {
+      importProgress(text);
+      setMessage("Imported progress successfully.");
+    } catch (error) {
+      setMessage(
+        error instanceof Error
+          ? `Import failed: ${error.message}`
+          : "Import failed. Please use a valid JSON export from this app.",
+      );
+    }
+  }
+
+  function handleReset(): void {
+    const confirmed = window.confirm(
+      "Reset all local progress for HealthTerminology.com?",
+    );
+    if (!confirmed) {
+      return;
+    }
+
+    if (
+      hasTrackedProgress &&
+      window.confirm("Download a backup of the current local progress before reset?")
+    ) {
+      downloadFile(
+        exportProgress(),
+        `healthterminology-progress-backup-${new Date().toISOString()}.json`,
+      );
+    }
+
+    resetProgress();
+    setMessage("Reset local progress.");
+  }
 
   return (
     <div className="stack">
       <section className="card">
-        <p className="eyebrow">Progress</p>
-        <h2>Local progress and study stats</h2>
+        <p className="eyebrow">Profile</p>
+        <h2>Local study record</h2>
         <p>
-          Progress tracks lesson completion, review state, and app settings
-          entirely in localStorage.
+          Everything stays in your browser: lessons, drills, endless study, audio,
+          motion, and theme preference.
         </p>
       </section>
 
@@ -66,21 +160,97 @@ export function ProgressPage() {
       <section className="card stack">
         <h3>Current path</h3>
         <p>
-          Current lesson: {currentLesson?.title ?? "None selected"} · New terms
-          available: {newTerms.length} · Eligible terms: {eligibleTerms.length}
+          Current lesson: {currentLesson?.title ?? "None selected"} · New drill terms:{" "}
+          {newTerms.length} · Eligible terms: {eligibleTerms.length}
         </p>
         <div className="hero-actions">
-          <Link className="button button-primary" to={`/lesson/${currentLesson?.id ?? orderedLessons[0]?.id}`}>
+          <Link
+            className="button button-primary"
+            to={`/lesson/${currentLesson?.id ?? orderedLessons[0]?.id}`}
+          >
             Resume lesson
           </Link>
-          <Link className="button" to="/review">
-            Review due terms
+          <Link className="button" to="/drills">
+            Open drills
           </Link>
-          <Link className="button" to="/settings">
-            Manage backup
+          <Link className="button" to="/endless">
+            Endless study
           </Link>
         </div>
       </section>
+
+      <section className="card stack">
+        <h3>Local settings and backup</h3>
+        <label className="toggle-row">
+          <span>Audio enabled</span>
+          <input
+            type="checkbox"
+            checked={progress.settings.audioEnabled}
+            onChange={(event) => setSetting("audioEnabled", event.target.checked)}
+          />
+        </label>
+        <label className="toggle-row">
+          <span>Reduced motion</span>
+          <input
+            type="checkbox"
+            checked={progress.settings.reducedMotion}
+            onChange={(event) => setSetting("reducedMotion", event.target.checked)}
+          />
+        </label>
+        <p className="meta-copy">
+          Theme: {themePreference} · Storage key: {STORAGE_KEY} · Schema version:{" "}
+          {progress.version}
+        </p>
+        <p className="meta-copy">
+          Snapshot size: {storageSnapshotSize} bytes · Tracked lessons:{" "}
+          {Object.keys(progress.lessons).length} · Tracked terms:{" "}
+          {Object.keys(progress.terms).length}
+        </p>
+        <div className="hero-actions">
+          <button type="button" className="button button-primary" onClick={handleExport}>
+            Export progress
+          </button>
+          <label className="button file-button">
+            Import progress
+            <input
+              type="file"
+              accept="application/json"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                if (file) {
+                  void handleImport(file);
+                }
+              }}
+            />
+          </label>
+          <button type="button" className="button" onClick={handleReset}>
+            Reset progress
+          </button>
+        </div>
+        {message ? <p className="meta-copy">{message}</p> : null}
+      </section>
+
+      {recoveryNotice || hasRecoverySnapshot ? (
+        <section className="card stack">
+          <h3>Recovery snapshot</h3>
+          {recoveryNotice ? <p>{recoveryNotice}</p> : null}
+          <p className="meta-copy">Recovery storage key: {RECOVERY_STORAGE_KEY}</p>
+          {recoverySnapshot ? (
+            <button
+              type="button"
+              className="button"
+              onClick={() =>
+                downloadFile(
+                  recoverySnapshot,
+                  `healthterminology-recovery-${new Date().toISOString()}.json`,
+                )
+              }
+            >
+              Download preserved raw snapshot
+            </button>
+          ) : null}
+        </section>
+      ) : null}
 
       <section className="card stack">
         <h3>Recent lessons</h3>
@@ -104,7 +274,7 @@ export function ProgressPage() {
       </section>
 
       <section className="card stack">
-        <h3>Body-system coverage</h3>
+        <h3>Coverage by system</h3>
         <div className="breakdown-grid">
           {bodySystemStats.map((entry) => (
             <article key={entry.bodySystem} className="tag-card">
@@ -115,17 +285,6 @@ export function ProgressPage() {
             </article>
           ))}
         </div>
-      </section>
-
-      <section className="card stack">
-        <h3>Storage diagnostics</h3>
-        <p className="meta-copy">
-          Schema version: {progress.version} · Snapshot size: {storageSnapshotSize} bytes
-        </p>
-        <p className="meta-copy">
-          Lessons tracked: {Object.keys(progress.lessons).length} · Terms tracked:{" "}
-          {Object.keys(progress.terms).length}
-        </p>
       </section>
     </div>
   );

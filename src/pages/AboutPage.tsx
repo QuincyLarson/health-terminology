@@ -5,9 +5,9 @@ export function AboutPage() {
         <p className="eyebrow">Methodology</p>
         <h2>Decode, do not memorize blindly.</h2>
         <p>
-          HealthTerms.com teaches medical language as a system of reusable parts
-          and patterns. The goal is fast inference, not encyclopedic coverage or
-          clinical advice.
+          HealthTerminology.com teaches medical language as a system of reusable
+          parts and patterns. The goal is fast inference, not encyclopedic
+          coverage or clinical advice.
         </p>
         <p>
           This seed app is static, text-first, mobile-first, and local-only.
