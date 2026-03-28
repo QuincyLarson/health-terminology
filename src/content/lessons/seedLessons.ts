@@ -2892,6 +2892,124 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-lymphocyte", "term-infection", "term-consult"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-wnl"],
+  },
+  {
+    id: "exercise-unit2-reproductive-followup-1",
+    type: "root_match",
+    prompt: "Which combining form points to menstruation or monthly flow?",
+    choices: ["men/o", "mast/o", "hyster/o", "ovari/o"],
+    answer: "men/o",
+    explanation: "`men/o` points to menstruation and helps decode common cycle-related terms.",
+    linkedTermIds: ["term-dysmenorrhea", "term-amenorrhea"],
+    linkedPartIds: ["part-men-combining"],
+  },
+  {
+    id: "exercise-unit2-reproductive-followup-2",
+    type: "infer_meaning",
+    prompt: "If `dys-` means difficult or painful, `men/o` points to menstruation, and `-rrhea` points to flow, what does `dysmenorrhea` suggest?",
+    choices: [
+      "painful or difficult menstrual flow",
+      "absence of menstrual flow",
+      "inflammation of the breast",
+      "surgical viewing of the uterus"
+    ],
+    answer: "painful or difficult menstrual flow",
+    explanation: "`dysmenorrhea` combines difficulty language with menstruation and flow language.",
+    linkedTermIds: ["term-dysmenorrhea"],
+    linkedPartIds: ["part-dys-prefix", "part-men-combining", "part-rrhea-suffix"],
+  },
+  {
+    id: "exercise-unit2-reproductive-followup-3",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `amenorrhea`?",
+    choices: [
+      "absence of menstrual flow",
+      "painful breast inflammation",
+      "after childbirth",
+      "surgical removal of an ovary"
+    ],
+    answer: "absence of menstrual flow",
+    explanation: "`amenorrhea` is taught as a recognition-first term for missing or absent menstrual flow.",
+    linkedTermIds: ["term-amenorrhea"],
+    linkedPartIds: ["part-men-combining", "part-rrhea-suffix"],
+  },
+  {
+    id: "exercise-unit2-reproductive-followup-4",
+    type: "infer_meaning",
+    prompt: "What does `mastitis` suggest?",
+    choices: [
+      "inflammation of the breast",
+      "breast pain without inflammation",
+      "after childbirth",
+      "difficult menstrual flow"
+    ],
+    answer: "inflammation of the breast",
+    explanation: "`mast/o` points to the breast and `-itis` points to inflammation.",
+    linkedTermIds: ["term-mastitis"],
+    linkedPartIds: ["part-mast-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-reproductive-followup-5",
+    type: "infer_meaning",
+    prompt: "If `mast/o` means breast and `-algia` means pain, what does `mastalgia` suggest?",
+    choices: [
+      "breast pain",
+      "breast inflammation",
+      "absence of menstruation",
+      "after childbirth"
+    ],
+    answer: "breast pain",
+    explanation: "`mastalgia` follows the familiar body-part-plus-pain pattern.",
+    linkedTermIds: ["term-mastalgia"],
+    linkedPartIds: ["part-mast-combining", "part-algia-suffix"],
+  },
+  {
+    id: "exercise-unit6-reproductive-synth-1",
+    type: "infer_meaning",
+    prompt: "Portal message: `Postpartum visit scheduled. f/u requested for persistent mastitis symptoms despite PRN pain control.` Which paraphrase best matches?",
+    choices: [
+      "A follow-up visit after childbirth is being arranged because breast inflammation symptoms are still continuing",
+      "A chest procedure is planned because pleural fluid has returned",
+      "The patient has normal menstrual flow and does not need care",
+      "The main issue is records release for imaging"
+    ],
+    answer: "A follow-up visit after childbirth is being arranged because breast inflammation symptoms are still continuing",
+    explanation: "This message mixes after-childbirth timing, breast inflammation, and follow-up workflow language.",
+    linkedTermIds: ["term-postpartum", "term-mastitis", "term-follow-up", "term-patient-portal"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-fu", "abbr-prn"],
+  },
+  {
+    id: "exercise-unit6-reproductive-synth-2",
+    type: "infer_meaning",
+    prompt: "Clinic note: `Other symptoms were not discussed today, but dysmenorrhea and amenorrhea remain in the assessment. PCP requested ultrasound follow-up.` Which contrast is the note making?",
+    choices: [
+      "Painful menstrual flow and absent menstrual flow are both still active concerns",
+      "Breast inflammation is improving after delivery",
+      "The chart now favors lymph-node disease over reproductive issues",
+      "The patient no longer needs imaging or follow-up"
+    ],
+    answer: "Painful menstrual flow and absent menstrual flow are both still active concerns",
+    explanation: "This note centers on two different menstrual-pattern problems and a planned imaging follow-up.",
+    linkedTermIds: ["term-dysmenorrhea", "term-amenorrhea", "term-assessment", "term-ultrasound", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-reproductive-synth-3",
+    type: "infer_meaning",
+    prompt: "Follow-up note: `Mastalgia improved, but postpartum monitoring continues and PCP review remains planned.` What is the main message?",
+    choices: [
+      "Breast pain is getting better, but after-childbirth follow-up is still ongoing",
+      "A malignant cancer with spread is now the main concern",
+      "The patient developed sudden chest pain and low oxygen",
+      "A urine infection was confirmed on recent testing"
+    ],
+    answer: "Breast pain is getting better, but after-childbirth follow-up is still ongoing",
+    explanation: "This line combines symptom improvement with ongoing postpartum follow-up language.",
+    linkedTermIds: ["term-mastalgia", "term-postpartum", "term-monitoring", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pcp"],
   }
 ];
 
@@ -4861,6 +4979,74 @@ export const lessons: Lesson[] = [
       "exercise-unit6-immune-synth-1",
       "exercise-unit6-immune-synth-2",
       "exercise-unit6-immune-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-reproductive-symptoms-and-followup-language",
+    title: "Reproductive Symptoms and Follow-Up Language",
+    unitId: "unit-2",
+    objective: "Decode high-yield reproductive symptom, breast, and after-childbirth terms that appear in follow-up visits and portal messages.",
+    whyItMatters: "These terms show up in outpatient follow-up, imaging review, postpartum care, and common symptom documentation.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-reproductive-language-starter",
+      "lesson-unit4-scheduling-and-followup"
+    ],
+    introducesPartIds: ["part-men-combining", "part-mast-combining"],
+    introducesTermIds: [
+      "term-dysmenorrhea",
+      "term-amenorrhea",
+      "term-mastitis",
+      "term-mastalgia",
+      "term-postpartum"
+    ],
+    reinforcesTermIds: [
+      "term-hysteroscopy",
+      "term-ovariectomy",
+      "term-salpingitis",
+      "term-follow-up",
+      "term-ultrasound"
+    ],
+    exerciseSetIds: [
+      "exercise-unit2-reproductive-followup-1",
+      "exercise-unit2-reproductive-followup-2",
+      "exercise-unit2-reproductive-followup-3",
+      "exercise-unit2-reproductive-followup-4",
+      "exercise-unit2-reproductive-followup-5"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-reproductive-followup-synthesis",
+    title: "Reproductive Follow-Up Synthesis",
+    unitId: "unit-6",
+    objective: "Read reproductive and postpartum follow-up passages that mix symptoms, imaging, portal, and PCP workflow language.",
+    whyItMatters: "These notes are practical synthesis targets because they combine symptoms, timing, follow-up, and routine imaging or office communication in short real-world passages.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-immune-and-node-synthesis",
+      "lesson-unit2-reproductive-symptoms-and-followup-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-dysmenorrhea",
+      "term-amenorrhea",
+      "term-mastitis",
+      "term-mastalgia",
+      "term-postpartum",
+      "term-follow-up",
+      "term-patient-portal",
+      "term-ultrasound",
+      "term-monitoring",
+      "term-assessment"
+    ],
+    reinforcesAbbreviationIds: ["abbr-fu", "abbr-prn", "abbr-pcp"],
+    exerciseSetIds: [
+      "exercise-unit6-reproductive-synth-1",
+      "exercise-unit6-reproductive-synth-2",
+      "exercise-unit6-reproductive-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",

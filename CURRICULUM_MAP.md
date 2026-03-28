@@ -25,12 +25,12 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, and lymph-node or immune-condition language.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
 - Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
-- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, and immune or node synthesis drills.
-- The app currently exposes 69 lessons, 182 terms, 87 parts, 205 exercises, and 32 abbreviations.
+- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, and reproductive follow-up synthesis drills.
+- The app currently exposes 71 lessons, 187 terms, 89 parts, 213 exercises, and 32 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -111,7 +111,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
-Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, and lymph-node or immune-condition language.
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -208,6 +208,12 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 ### Module 2.16: Lymph-Node and Immune Conditions
 - Lesson goal: decode high-yield lymph-node, immune-condition, and immune-cell terms that appear in consults, labs, and infection follow-up.
 - Representative content: `aden/o`, lymphadenopathy, lymphadenitis, lymphocyte, immunodeficiency.
+- Priority: medium-high.
+- Status: seeded.
+
+### Module 2.17: Reproductive Symptoms and Follow-Up
+- Lesson goal: decode high-yield reproductive symptom, breast, and after-childbirth terms that appear in follow-up visits and portal messages.
+- Representative content: `men/o`, `mast/o`, dysmenorrhea, amenorrhea, mastitis, postpartum.
 - Priority: medium-high.
 - Status: seeded.
 
@@ -338,7 +344,7 @@ Unit 5 now has authored starter slices for clinical, document, measurement, rout
 - Status: seeded.
 
 ## Unit 6 - Final Synthesis
-Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover, upper-airway or throat synthesis, respiratory recheck or escalation, pleural or chest synthesis, oncology or pathology synthesis, and immune or node synthesis.
+Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover, upper-airway or throat synthesis, respiratory recheck or escalation, pleural or chest synthesis, oncology or pathology synthesis, immune or node synthesis, and reproductive follow-up synthesis.
 ### Module 6.1: Mixed Review
 - Lesson goal: combine roots, affixes, abbreviations, and context clues.
 - Representative content: mixed term sets from all prior units.
@@ -432,6 +438,12 @@ Unit 6 now has authored starter slices for mixed recognition, passage decoding, 
 ### Module 6.16: Immune and Node Synthesis
 - Lesson goal: read immune and lymph-node passages that mix CBC, consult, infection, and follow-up language.
 - Representative content: lymphadenopathy, lymphadenitis, lymphocyte, immunodeficiency, CBC, WNL, consult.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.17: Reproductive Follow-Up Synthesis
+- Lesson goal: read reproductive and postpartum follow-up passages that mix symptoms, imaging, portal, and PCP workflow language.
+- Representative content: dysmenorrhea, amenorrhea, mastitis, mastalgia, postpartum, ultrasound, PCP, f/u.
 - Priority: medium.
 - Status: seeded.
 
