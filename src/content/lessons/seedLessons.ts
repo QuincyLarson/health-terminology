@@ -3126,6 +3126,126 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-unremarkable", "term-impression"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ct"],
+  },
+  {
+    id: "exercise-unit4-verification-1",
+    type: "infer_meaning",
+    prompt: "What does `eligibility verification` usually mean in scheduling or billing messages?",
+    choices: [
+      "checking whether coverage details are active and correct",
+      "starting emergency treatment right away",
+      "reviewing a pathology specimen",
+      "measuring the patient's heart rate"
+    ],
+    answer: "checking whether coverage details are active and correct",
+    explanation: "This phrase points to confirming that insurance or registration details are valid for the visit.",
+    linkedTermIds: ["term-eligibility", "term-verification"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-verification-2",
+    type: "infer_meaning",
+    prompt: "Which plain-English idea matches `in-network`?",
+    choices: [
+      "the clinician or service is inside the plan's approved group",
+      "the visit is happening inside the hospital",
+      "the test result is normal",
+      "the records request was denied"
+    ],
+    answer: "the clinician or service is inside the plan's approved group",
+    explanation: "`In-network` refers to plan participation, not physical location.",
+    linkedTermIds: ["term-in-network"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-verification-3",
+    type: "infer_meaning",
+    prompt: "Insurance note: `Service may be out-of-network.` What is the main warning?",
+    choices: [
+      "the service may fall outside the plan's approved provider group",
+      "the service must happen after midnight",
+      "the result was not yet reviewed by the PCP",
+      "the patient should stop all medication"
+    ],
+    answer: "the service may fall outside the plan's approved provider group",
+    explanation: "`Out-of-network` warns that coverage or cost may differ because the provider is outside the plan arrangement.",
+    linkedTermIds: ["term-out-of-network"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-verification-4",
+    type: "infer_meaning",
+    prompt: "On many forms, who is the `subscriber`?",
+    choices: [
+      "the person who holds the insurance policy",
+      "the person who reads the imaging report",
+      "the clinician who ordered the CT",
+      "the front-desk staff member"
+    ],
+    answer: "the person who holds the insurance policy",
+    explanation: "The subscriber is the plan holder tied to the coverage, even if that person is not the patient.",
+    linkedTermIds: ["term-subscriber"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-prep-1",
+    type: "infer_meaning",
+    prompt: "What does `pre-registration` usually mean?",
+    choices: [
+      "registration completed before the visit date",
+      "registration rejected after the visit",
+      "a repeat imaging study",
+      "a request to transfer records"
+    ],
+    answer: "registration completed before the visit date",
+    explanation: "The `pre-` cue helps here: it means registration happens ahead of time.",
+    linkedTermIds: ["term-pre-registration"],
+    linkedPartIds: ["part-pre-prefix"],
+  },
+  {
+    id: "exercise-unit4-prep-2",
+    type: "infer_meaning",
+    prompt: "Portal notice: `Review preparation instructions before arrival.` What is the notice asking the patient to do?",
+    choices: [
+      "read the directions that must be followed before the visit",
+      "appeal an insurance denial",
+      "send pathology slides to another office",
+      "schedule a chest CT"
+    ],
+    answer: "read the directions that must be followed before the visit",
+    explanation: "Preparation instructions tell the patient what to do before arriving or before a procedure.",
+    linkedTermIds: ["term-preparation-instructions", "term-arrival-time"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-prep-3",
+    type: "infer_meaning",
+    prompt: "If a message includes `fasting instructions`, what is usually being discussed?",
+    choices: [
+      "when to stop eating or drinking before care",
+      "how to refill a medication",
+      "where to send a records release form",
+      "whether a service is in-network"
+    ],
+    answer: "when to stop eating or drinking before care",
+    explanation: "Fasting instructions are a specific kind of preparation guidance before testing or procedures.",
+    linkedTermIds: ["term-fasting-instructions"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-prep-4",
+    type: "infer_meaning",
+    prompt: "Message: `Callback request logged; arrival time remains 7:30 AM.` What has happened?",
+    choices: [
+      "the office noted a request to call back and kept the planned arrival time",
+      "the office canceled the visit and denied coverage",
+      "the office found a positive imaging result",
+      "the office confirmed the patient is out-of-network"
+    ],
+    answer: "the office noted a request to call back and kept the planned arrival time",
+    explanation: "This note mixes telephone workflow language with visit-arrival instructions.",
+    linkedTermIds: ["term-callback-request", "term-arrival-time"],
+    linkedPartIds: [],
   }
 ];
 
@@ -4044,6 +4164,74 @@ export const lessons: Lesson[] = [
       "exercise-unit4-admin-passage-1",
       "exercise-unit4-admin-passage-2",
       "exercise-unit4-admin-passage-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-verification-and-network-language",
+    title: "Verification and Network Language",
+    unitId: "unit-4",
+    objective: "Recognize the most common insurance-verification and network-status terms that appear before visits and in billing notices.",
+    whyItMatters: "A lot of practical confusion comes from messages about active coverage, plan participation, and who the policy belongs to.",
+    prerequisiteLessonIds: [
+      "lesson-unit4-coverage-and-billing-language",
+      "lesson-unit4-admin-passage-decoding"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-eligibility",
+      "term-verification",
+      "term-in-network",
+      "term-out-of-network",
+      "term-subscriber"
+    ],
+    reinforcesTermIds: [
+      "term-coverage",
+      "term-claim",
+      "term-copay",
+      "term-deductible",
+      "term-prior-authorization"
+    ],
+    exerciseSetIds: [
+      "exercise-unit4-verification-1",
+      "exercise-unit4-verification-2",
+      "exercise-unit4-verification-3",
+      "exercise-unit4-verification-4"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-preparation-and-instruction-language",
+    title: "Preparation and Instruction Language",
+    unitId: "unit-4",
+    objective: "Read common pre-visit, pre-procedure, and callback messages without getting lost in office workflow wording.",
+    whyItMatters: "Preparation messages are where admin language directly affects whether a learner understands what to do next.",
+    prerequisiteLessonIds: [
+      "lesson-unit4-verification-and-network-language",
+      "lesson-unit4-portal-results-and-reminders"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-pre-registration",
+      "term-preparation-instructions",
+      "term-fasting-instructions",
+      "term-arrival-time",
+      "term-callback-request"
+    ],
+    reinforcesTermIds: [
+      "term-check-in",
+      "term-appointment-reminder",
+      "term-preoperative",
+      "term-patient-portal",
+      "term-discharge-instructions"
+    ],
+    exerciseSetIds: [
+      "exercise-unit4-prep-1",
+      "exercise-unit4-prep-2",
+      "exercise-unit4-prep-3",
+      "exercise-unit4-prep-4"
     ],
     estimatedMinutes: 8,
     status: "shipped",

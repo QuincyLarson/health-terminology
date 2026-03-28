@@ -89,10 +89,12 @@ export const units: Unit[] = [
       "lesson-unit4-intake-form-language",
       "lesson-unit4-coverage-and-billing-language",
       "lesson-unit4-portal-results-and-reminders",
-      "lesson-unit4-admin-passage-decoding"
+      "lesson-unit4-admin-passage-decoding",
+      "lesson-unit4-verification-and-network-language",
+      "lesson-unit4-preparation-and-instruction-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3"],
-    status: "lesson-linked",
+    status: "shipped",
   },
   {
     id: "unit-5",

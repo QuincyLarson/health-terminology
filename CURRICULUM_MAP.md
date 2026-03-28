@@ -27,10 +27,10 @@ Each future unit and module entry should accumulate:
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
 - Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, chart passages, severity or progression language, and results or interpretation language.
-- Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
+- Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, purpose-built passage language, verification or network language, and preparation or instruction language.
 - Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
 - Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, and reproductive follow-up synthesis drills.
-- The app currently exposes 73 lessons, 197 terms, 89 parts, 221 exercises, and 32 abbreviations.
+- The app currently exposes 75 lessons, 207 terms, 89 parts, 229 exercises, and 32 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -280,7 +280,7 @@ Unit 3 now has authored slices for symptoms/status language, procedure families,
 - Status: seeded.
 
 ## Unit 4 - Administrative and Document Language
-Unit 4 now has authored starter slices for scheduling, follow-up, records, orders, authorization, intake, billing, portal, and reminder language.
+Unit 4 now has authored slices for scheduling, follow-up, records, orders, authorization, intake, billing, portal, reminder, verification or network, and preparation or instruction language.
 ### Module 4.1: Forms and Scheduling
 - Lesson goal: understand common administrative vocabulary.
 - Representative content: appointment, intake, insurance, authorization, reschedule.
@@ -308,6 +308,18 @@ Unit 4 now has authored starter slices for scheduling, follow-up, records, order
 ### Module 4.5: Purpose-Built Passages
 - Lesson goal: read short, realistic administrative passages for comprehension.
 - Representative content: simplified intake forms, reminders, discharge instructions.
+- Priority: medium.
+- Status: seeded.
+
+### Module 4.6: Verification and Network Language
+- Lesson goal: understand the terms used to confirm active coverage, plan participation, and policy ownership.
+- Representative content: eligibility, verification, in-network, out-of-network, subscriber.
+- Priority: medium.
+- Status: seeded.
+
+### Module 4.7: Preparation and Instruction Language
+- Lesson goal: read the most common pre-visit, pre-procedure, and callback instruction phrases without confusion.
+- Representative content: pre-registration, preparation instructions, fasting instructions, arrival time, callback request.
 - Priority: medium.
 - Status: seeded.
 
