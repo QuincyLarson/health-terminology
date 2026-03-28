@@ -2798,7 +2798,10 @@ export const lessons: Lesson[] = [
     unitId: "unit-6",
     objective: "Practice quick meaning extraction from dense short lines that mix abbreviations, body-system terms, and workflow language.",
     whyItMatters: "The final step toward real reading is fast parsing without stopping on every unfamiliar-looking token.",
-    prerequisiteLessonIds: ["lesson-unit6-admin-passage-decoding"],
+    prerequisiteLessonIds: [
+      "lesson-unit6-admin-passage-decoding",
+      "lesson-unit5-chart-and-note-abbreviations"
+    ],
     introducesPartIds: [],
     introducesTermIds: [],
     reinforcesTermIds: [
