@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { content } from "../content";
@@ -29,23 +29,32 @@ export function ReviewPage() {
   const [bodySystemFilter, setBodySystemFilter] = useState("all");
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
-  const bodySystemOptions = Array.from(
-    new Set([...dueTerms, ...newTerms].map((term) => term.bodySystem)),
-  ).sort();
-  const baseQueue = mode === "due" ? dueTerms : mode === "new" ? newTerms : mixedTerms;
-  const queue = baseQueue
-    .filter((term) => {
-      const matchesUnit =
-        unitFilter === "all" ||
-        term.lessonIds.some((lessonId) => {
-          const lesson = content.lessons.find((candidate) => candidate.id === lessonId);
-          return lesson?.unitId === unitFilter;
-        });
-      const matchesBodySystem =
-        bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
-      return matchesUnit && matchesBodySystem;
-    })
-    .slice(0, SESSION_CAPS[mode]);
+  const lessonMap = useMemo(
+    () => new Map(content.lessons.map((lesson) => [lesson.id, lesson])),
+    [],
+  );
+  const bodySystemOptions = useMemo(
+    () => Array.from(new Set([...dueTerms, ...newTerms].map((term) => term.bodySystem))).sort(),
+    [dueTerms, newTerms],
+  );
+  const baseQueue = useMemo(
+    () => (mode === "due" ? dueTerms : mode === "new" ? newTerms : mixedTerms),
+    [dueTerms, mixedTerms, mode, newTerms],
+  );
+  const queue = useMemo(
+    () =>
+      baseQueue
+        .filter((term) => {
+          const matchesUnit =
+            unitFilter === "all" ||
+            term.lessonIds.some((lessonId) => lessonMap.get(lessonId)?.unitId === unitFilter);
+          const matchesBodySystem =
+            bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
+          return matchesUnit && matchesBodySystem;
+        })
+        .slice(0, SESSION_CAPS[mode]),
+    [baseQueue, bodySystemFilter, lessonMap, mode, unitFilter],
+  );
 
   const current = queue[index];
   const choices = current ? buildChoices(current) : [];
@@ -185,7 +194,7 @@ export function ReviewPage() {
           <p className="meta-copy">
             Source lessons:{" "}
             {current.lessonIds
-              .map((lessonId) => content.lessons.find((lesson) => lesson.id === lessonId)?.title)
+              .map((lessonId) => lessonMap.get(lessonId)?.title)
               .filter((title): title is string => Boolean(title))
               .join(", ")}
           </p>
@@ -214,16 +223,16 @@ export function ReviewPage() {
           {selected ? (
             <div className="completion-box">
               <p>{current.shortDefinition}</p>
-                <button
-                  type="button"
-                  className="button button-primary"
-                  onClick={() => advance(selected === current.plainMeaning)}
-                >
-                  Next card
-                </button>
-              </div>
-            ) : null}
-          </section>
+              <button
+                type="button"
+                className="button button-primary"
+                onClick={() => advance(selected === current.plainMeaning)}
+              >
+                Next card
+              </button>
+            </div>
+          ) : null}
+        </section>
       )}
     </div>
   );

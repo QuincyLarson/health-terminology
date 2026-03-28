@@ -1,13 +1,9 @@
-import { useMemo, useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import { useAppState } from "../app/AppState";
 import { content } from "../content";
 
 type TaughtFilter = "all" | "taught" | "not_taught";
-
-function getPrimaryUnitId(lessonIds: string[]): string | null {
-  const lesson = content.lessons.find((candidate) => lessonIds.includes(candidate.id));
-  return lesson?.unitId ?? null;
-}
+const RESULT_PAGE_SIZE = 24;
 
 export function BrowsePage() {
   const { isTermEligible } = useAppState();
@@ -16,6 +12,12 @@ export function BrowsePage() {
   const [bodySystemFilter, setBodySystemFilter] = useState("all");
   const [partFilter, setPartFilter] = useState("all");
   const [taughtFilter, setTaughtFilter] = useState<TaughtFilter>("all");
+  const [visibleCount, setVisibleCount] = useState(RESULT_PAGE_SIZE);
+  const deferredSearch = useDeferredValue(search);
+  const lessonMap = useMemo(
+    () => new Map(content.lessons.map((lesson) => [lesson.id, lesson])),
+    [],
+  );
 
   const bodySystemOptions = useMemo(
     () => Array.from(new Set(content.terms.map((term) => term.bodySystem))).sort(),
@@ -33,32 +35,48 @@ export function BrowsePage() {
     [],
   );
 
-  const filteredTerms = content.terms.filter((term) => {
-    const eligible = isTermEligible(term.id);
-    const matchesSearch =
-      search.length === 0 ||
-      `${term.term} ${term.plainMeaning} ${term.shortDefinition}`
-        .toLowerCase()
-        .includes(search.toLowerCase());
-    const matchesUnit =
-      unitFilter === "all" || getPrimaryUnitId(term.lessonIds) === unitFilter;
-    const matchesBodySystem =
-      bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
-    const matchesPart =
-      partFilter === "all" ||
-      term.parts.some((part) => `${part.text} · ${part.meaning}` === partFilter);
-    const matchesTaught =
-      taughtFilter === "all" ||
-      (taughtFilter === "taught" ? eligible : !eligible);
+  const filteredTerms = useMemo(
+    () =>
+      content.terms.filter((term) => {
+        const eligible = isTermEligible(term.id);
+        const matchesSearch =
+          deferredSearch.length === 0 ||
+          `${term.term} ${term.plainMeaning} ${term.shortDefinition}`
+            .toLowerCase()
+            .includes(deferredSearch.toLowerCase());
+        const matchesUnit =
+          unitFilter === "all" ||
+          term.lessonIds.some((lessonId) => lessonMap.get(lessonId)?.unitId === unitFilter);
+        const matchesBodySystem =
+          bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
+        const matchesPart =
+          partFilter === "all" ||
+          term.parts.some((part) => `${part.text} · ${part.meaning}` === partFilter);
+        const matchesTaught =
+          taughtFilter === "all" ||
+          (taughtFilter === "taught" ? eligible : !eligible);
 
-    return (
-      matchesSearch &&
-      matchesUnit &&
-      matchesBodySystem &&
-      matchesPart &&
-      matchesTaught
-    );
-  });
+        return (
+          matchesSearch &&
+          matchesUnit &&
+          matchesBodySystem &&
+          matchesPart &&
+          matchesTaught
+        );
+      }),
+    [
+      bodySystemFilter,
+      deferredSearch,
+      isTermEligible,
+      lessonMap,
+      partFilter,
+      taughtFilter,
+      unitFilter,
+    ],
+  );
+
+  const visibleTerms = filteredTerms.slice(0, visibleCount);
+  const hasMore = visibleCount < filteredTerms.length;
 
   return (
     <div className="stack">
@@ -76,7 +94,10 @@ export function BrowsePage() {
               className="text-input"
               type="search"
               value={search}
-              onChange={(event) => setSearch(event.target.value)}
+              onChange={(event) => {
+                setSearch(event.target.value);
+                setVisibleCount(RESULT_PAGE_SIZE);
+              }}
               placeholder="dyspnea, stomach, -itis..."
             />
           </label>
@@ -85,7 +106,10 @@ export function BrowsePage() {
             <select
               className="select-input"
               value={unitFilter}
-              onChange={(event) => setUnitFilter(event.target.value)}
+              onChange={(event) => {
+                setUnitFilter(event.target.value);
+                setVisibleCount(RESULT_PAGE_SIZE);
+              }}
             >
               <option value="all">All units</option>
               {content.units.map((unit) => (
@@ -100,7 +124,10 @@ export function BrowsePage() {
             <select
               className="select-input"
               value={bodySystemFilter}
-              onChange={(event) => setBodySystemFilter(event.target.value)}
+              onChange={(event) => {
+                setBodySystemFilter(event.target.value);
+                setVisibleCount(RESULT_PAGE_SIZE);
+              }}
             >
               <option value="all">All systems</option>
               {bodySystemOptions.map((bodySystem) => (
@@ -115,7 +142,10 @@ export function BrowsePage() {
             <select
               className="select-input"
               value={partFilter}
-              onChange={(event) => setPartFilter(event.target.value)}
+              onChange={(event) => {
+                setPartFilter(event.target.value);
+                setVisibleCount(RESULT_PAGE_SIZE);
+              }}
             >
               <option value="all">All part families</option>
               {partOptions.map((partOption) => (
@@ -130,7 +160,10 @@ export function BrowsePage() {
             <select
               className="select-input"
               value={taughtFilter}
-              onChange={(event) => setTaughtFilter(event.target.value as TaughtFilter)}
+              onChange={(event) => {
+                setTaughtFilter(event.target.value as TaughtFilter);
+                setVisibleCount(RESULT_PAGE_SIZE);
+              }}
             >
               <option value="all">All terms</option>
               <option value="taught">Taught or eligible</option>
@@ -145,17 +178,19 @@ export function BrowsePage() {
       </section>
 
       <section className="term-grid">
-        {filteredTerms.map((term) => {
+        {visibleTerms.map((term) => {
           const eligible = isTermEligible(term.id);
           const lessonTitles = term.lessonIds
-            .map((lessonId) => content.lessons.find((lesson) => lesson.id === lessonId)?.title)
+            .map((lessonId) => lessonMap.get(lessonId)?.title)
             .filter((title): title is string => Boolean(title));
+          const primaryLesson =
+            term.lessonIds.length > 0 ? lessonMap.get(term.lessonIds[0]) : undefined;
 
           return (
             <article key={term.id} className="card stack">
               <div className="title-row">
                 <div>
-                  <p className="eyebrow">{getPrimaryUnitId(term.lessonIds) ?? "unit-?"}</p>
+                  <p className="eyebrow">{primaryLesson?.unitId ?? "unit-?"}</p>
                   <h3>{term.term}</h3>
                 </div>
                 <span className={`status-pill ${eligible ? "" : "status-planned"}`}>
@@ -200,6 +235,24 @@ export function BrowsePage() {
           );
         })}
       </section>
+      {hasMore ? (
+        <section className="card stack pager-card">
+          <p className="meta-copy">
+            Showing {visibleTerms.length} of {filteredTerms.length} matching terms.
+          </p>
+          <button
+            type="button"
+            className="button"
+            onClick={() =>
+              setVisibleCount((current) =>
+                Math.min(current + RESULT_PAGE_SIZE, filteredTerms.length),
+              )
+            }
+          >
+            Load more
+          </button>
+        </section>
+      ) : null}
     </div>
   );
 }

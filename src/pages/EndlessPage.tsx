@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useDeferredValue, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { content } from "../content";
 import type { Term } from "../types/content";
 
 type EndlessMode = "multiple_choice" | "flashcard";
+const CHOICE_POOL_LIMIT = 250;
 
 function buildChoices(term: Term, pool: Term[]): string[] {
   const distractors = pool
@@ -13,11 +14,6 @@ function buildChoices(term: Term, pool: Term[]): string[] {
     .map((candidate) => candidate.plainMeaning);
 
   return [...distractors, term.plainMeaning].sort();
-}
-
-function getTermUnitId(term: Term): string | null {
-  const lesson = content.lessons.find((item) => term.lessonIds.includes(item.id));
-  return lesson?.unitId ?? null;
 }
 
 export function EndlessPage() {
@@ -30,28 +26,40 @@ export function EndlessPage() {
   const [index, setIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [revealed, setRevealed] = useState(false);
-  const dueIds = new Set(dueTerms.map((term) => term.id));
-  const bodySystemOptions = Array.from(
-    new Set(eligibleTerms.map((term) => term.bodySystem)),
-  ).sort();
+  const deferredSearch = useDeferredValue(search);
+  const lessonMap = useMemo(
+    () => new Map(content.lessons.map((lesson) => [lesson.id, lesson])),
+    [],
+  );
+  const dueIds = useMemo(() => new Set(dueTerms.map((term) => term.id)), [dueTerms]);
+  const bodySystemOptions = useMemo(
+    () => Array.from(new Set(eligibleTerms.map((term) => term.bodySystem))).sort(),
+    [eligibleTerms],
+  );
 
-  const filteredTerms = eligibleTerms.filter((term) => {
-    const matchesSearch =
-      search.length === 0 ||
-      `${term.term} ${term.plainMeaning} ${term.shortDefinition}`
-        .toLowerCase()
-        .includes(search.toLowerCase());
-    const matchesUnit =
-      unitFilter === "all" || getTermUnitId(term) === unitFilter;
-    const matchesBodySystem =
-      bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
-    const matchesDue = !dueOnly || dueIds.has(term.id);
+  const filteredTerms = useMemo(
+    () =>
+      eligibleTerms.filter((term) => {
+        const matchesSearch =
+          deferredSearch.length === 0 ||
+          `${term.term} ${term.plainMeaning} ${term.shortDefinition}`
+            .toLowerCase()
+            .includes(deferredSearch.toLowerCase());
+        const matchesUnit =
+          unitFilter === "all" ||
+          term.lessonIds.some((lessonId) => lessonMap.get(lessonId)?.unitId === unitFilter);
+        const matchesBodySystem =
+          bodySystemFilter === "all" || term.bodySystem === bodySystemFilter;
+        const matchesDue = !dueOnly || dueIds.has(term.id);
 
-    return matchesSearch && matchesUnit && matchesBodySystem && matchesDue;
-  });
+        return matchesSearch && matchesUnit && matchesBodySystem && matchesDue;
+      }),
+    [bodySystemFilter, deferredSearch, dueIds, dueOnly, eligibleTerms, lessonMap, unitFilter],
+  );
 
   const current = filteredTerms[index];
-  const choices = current ? buildChoices(current, filteredTerms) : [];
+  const choicePool = filteredTerms.slice(0, CHOICE_POOL_LIMIT);
+  const choices = current ? buildChoices(current, choicePool) : [];
 
   function resetSession(): void {
     setIndex(0);
@@ -150,11 +158,15 @@ export function EndlessPage() {
             }}
           />
         </label>
-        <p className="meta-copy">
-          Eligible now: {eligibleTerms.length} · Matching filters: {filteredTerms.length} ·
-          Due now: {dueTerms.length}
-        </p>
-      </section>
+          <p className="meta-copy">
+            Eligible now: {eligibleTerms.length} · Matching filters: {filteredTerms.length} ·
+            Due now: {dueTerms.length}
+          </p>
+          <p className="meta-copy">
+            Choice pool limited to {Math.min(filteredTerms.length, CHOICE_POOL_LIMIT)} terms for
+            faster distractor generation.
+          </p>
+        </section>
 
       {!current ? (
         <section className="card">
@@ -184,7 +196,7 @@ export function EndlessPage() {
           <p className="meta-copy">
             Source lessons:{" "}
             {current.lessonIds
-              .map((lessonId) => content.lessons.find((lesson) => lesson.id === lessonId)?.title)
+              .map((lessonId) => lessonMap.get(lessonId)?.title)
               .filter((title): title is string => Boolean(title))
               .join(", ")}
           </p>
