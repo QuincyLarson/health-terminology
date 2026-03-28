@@ -25,12 +25,12 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, and blood or clotting language.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, and deeper urinary-output or testing language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
 - Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
-- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, and urgent-imaging drills.
-- The app currently exposes 52 lessons, 153 terms, 71 parts, 142 exercises, and 32 abbreviations.
+- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, and blood-count synthesis.
+- The app currently exposes 55 lessons, 158 terms, 73 parts, 153 exercises, and 32 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -111,7 +111,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
-Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, and blood or clotting language.
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, and deeper urinary-output or testing language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -155,7 +155,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Lesson goal: recognize kidney, bladder, urine, and filtration terms.
 - Representative content: `nephr/o`, `cyst/o`, `-itis`, `-scopy`, `-uria`.
 - Priority: medium-high.
-- Status: seeded.
+- Status: seeded with added urine-output and urine-testing depth.
 
 ### Module 2.8: Reproductive
 - Lesson goal: decode anatomy and common reproductive-system terms.
@@ -314,7 +314,7 @@ Unit 5 now has authored starter slices for clinical, document, measurement, rout
 - Status: seeded.
 
 ## Unit 6 - Final Synthesis
-Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, and urgent-imaging synthesis.
+Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, and blood-count synthesis.
 ### Module 6.1: Mixed Review
 - Lesson goal: combine roots, affixes, abbreviations, and context clues.
 - Representative content: mixed term sets from all prior units.
@@ -342,6 +342,18 @@ Unit 6 now has authored starter slices for mixed recognition, passage decoding, 
 ### Module 6.5: Urgent and Imaging Synthesis
 - Lesson goal: read urgent-care and result snippets that mix imaging, urgency, reassessment, and follow-up shorthand.
 - Representative content: CT STAT, MRI impression, UA WNL, urgent note follow-up language.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.6: Renal and Lab Synthesis
+- Lesson goal: read urine-test and urinary-symptom passages that mix lab shorthand, output terms, and follow-up language.
+- Representative content: UA WNL, dysuria, hematuria, proteinuria, nephrology follow-up.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.7: Blood and Count Synthesis
+- Lesson goal: read blood-count and clotting passages that mix CBC shorthand, cell-count terms, and interpretation language.
+- Representative content: CBC, leukocytosis, erythrocyte, thrombosis, monitoring or reassessment notes.
 - Priority: medium.
 - Status: seeded.
 
