@@ -47,7 +47,8 @@ export const units: Unit[] = [
       "lesson-unit2-immune-and-lymphatic-language",
       "lesson-unit2-integumentary-language",
       "lesson-unit2-eye-ear-and-hearing-language",
-      "lesson-unit2-oncology-and-tumor-language"
+      "lesson-unit2-oncology-and-tumor-language",
+      "lesson-unit2-blood-and-clotting-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
@@ -94,7 +95,8 @@ export const units: Unit[] = [
       "lesson-unit5-measurement-and-route-abbreviations",
       "lesson-unit5-chart-and-note-abbreviations",
       "lesson-unit5-history-and-status-abbreviations",
-      "lesson-unit5-frequency-and-lab-abbreviations"
+      "lesson-unit5-frequency-and-lab-abbreviations",
+      "lesson-unit5-imaging-and-urgency-abbreviations"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4"],
     status: "lesson-linked",
@@ -108,7 +110,8 @@ export const units: Unit[] = [
       "lesson-unit6-clinical-passage-decoding",
       "lesson-unit6-admin-passage-decoding",
       "lesson-unit6-rapid-parsing-drills",
-      "lesson-unit6-results-and-discharge-synthesis"
+      "lesson-unit6-results-and-discharge-synthesis",
+      "lesson-unit6-urgent-and-imaging-synthesis"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "lesson-linked",

@@ -224,5 +224,37 @@ export const abbreviations: Abbreviation[] = [
     category: "clinical",
     meaning: "a common lab test that measures blood cell counts",
     ambiguous: false,
+  },
+  {
+    id: "abbr-stat",
+    shortForm: "STAT",
+    expandedForm: "immediately",
+    category: "clinical",
+    meaning: "used when an order or action should happen without delay",
+    ambiguous: false,
+  },
+  {
+    id: "abbr-ct",
+    shortForm: "CT",
+    expandedForm: "computed tomography",
+    category: "clinical",
+    meaning: "an imaging scan that uses X-rays to create cross-sectional pictures",
+    ambiguous: false,
+  },
+  {
+    id: "abbr-mri",
+    shortForm: "MRI",
+    expandedForm: "magnetic resonance imaging",
+    category: "clinical",
+    meaning: "an imaging scan that uses magnetic fields and radio waves",
+    ambiguous: false,
+  },
+  {
+    id: "abbr-ua",
+    shortForm: "UA",
+    expandedForm: "urinalysis",
+    category: "clinical",
+    meaning: "a test of the urine used to check for several common findings",
+    ambiguous: false,
   }
 ];

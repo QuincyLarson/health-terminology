@@ -1782,6 +1782,178 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-monitoring", "term-findings"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cbc", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit2-blood-1",
+    type: "root_match",
+    prompt: "Which combining form points to a cell?",
+    choices: ["cyt/o", "thromb/o", "leuk/o", "erythr/o"],
+    answer: "cyt/o",
+    explanation: "`cyt/o` points to a cell in terms like `erythrocyte` and `leukocyte`.",
+    linkedTermIds: ["term-erythrocyte", "term-leukocyte"],
+    linkedPartIds: ["part-cyt-combining"],
+  },
+  {
+    id: "exercise-unit2-blood-2",
+    type: "infer_meaning",
+    prompt: "If `erythr/o` means red and `cyt/o` means cell, what does `erythrocyte` suggest?",
+    choices: [
+      "red blood cell",
+      "white blood cell",
+      "blood clotting condition",
+      "blood test image"
+    ],
+    answer: "red blood cell",
+    explanation: "The parts point to a red-colored cell, which is the red blood cell.",
+    linkedTermIds: ["term-erythrocyte"],
+    linkedPartIds: ["part-erythr-combining", "part-cyt-combining"],
+  },
+  {
+    id: "exercise-unit2-blood-3",
+    type: "infer_meaning",
+    prompt: "If `leuk/o` means white and `cyt/o` means cell, what does `leukocyte` suggest?",
+    choices: [
+      "white blood cell",
+      "red blood cell",
+      "blood clot",
+      "blood imaging study"
+    ],
+    answer: "white blood cell",
+    explanation: "`leuk/o` plus `cyt/o` points to the white blood cell.",
+    linkedTermIds: ["term-leukocyte"],
+    linkedPartIds: ["part-leuk-combining", "part-cyt-combining"],
+  },
+  {
+    id: "exercise-unit2-blood-4",
+    type: "infer_meaning",
+    prompt: "What does `thrombosis` suggest?",
+    choices: [
+      "formation of a blood clot in a vessel",
+      "low red blood cell count",
+      "study of blood cells",
+      "a normal urine test"
+    ],
+    answer: "formation of a blood clot in a vessel",
+    explanation: "`thromb/o` points to clot and `-osis` points to an abnormal condition or process.",
+    linkedTermIds: ["term-thrombosis"],
+    linkedPartIds: ["part-thromb-combining", "part-osis-suffix"],
+  },
+  {
+    id: "exercise-unit5-imaging-1",
+    type: "infer_meaning",
+    prompt: "Order line: `CT head today.` What does `CT` stand for?",
+    choices: [
+      "computed tomography",
+      "chronic treatment",
+      "cardiac tracing",
+      "cell test"
+    ],
+    answer: "computed tomography",
+    explanation: "`CT` is a common imaging abbreviation for computed tomography.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ct"],
+  },
+  {
+    id: "exercise-unit5-imaging-2",
+    type: "infer_meaning",
+    prompt: "Results note: `MRI pending.` What does `MRI` stand for?",
+    choices: [
+      "magnetic resonance imaging",
+      "medical records intake",
+      "monitoring reassessment instruction",
+      "muscle repair injection"
+    ],
+    answer: "magnetic resonance imaging",
+    explanation: "`MRI` names an imaging study that uses magnetic fields and radio waves.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-mri"],
+  },
+  {
+    id: "exercise-unit5-imaging-3",
+    type: "infer_meaning",
+    prompt: "Lab request: `UA before follow-up.` What does `UA` mean?",
+    choices: [
+      "urinalysis",
+      "urgent assessment",
+      "upper airway",
+      "ultrasound appointment"
+    ],
+    answer: "urinalysis",
+    explanation: "`UA` is a common shorthand for a urine test.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ua"],
+  },
+  {
+    id: "exercise-unit5-imaging-4",
+    type: "infer_meaning",
+    prompt: "Instruction: `Send patient to CT STAT.` What does `STAT` mean here?",
+    choices: [
+      "immediately",
+      "after the visit",
+      "three times daily",
+      "within normal limits"
+    ],
+    answer: "immediately",
+    explanation: "`STAT` means the action should happen without delay.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-stat", "abbr-ct"],
+  },
+  {
+    id: "exercise-unit6-urgent-imaging-1",
+    type: "infer_meaning",
+    prompt: "Urgent note: `Pt c/o acute headache and nausea. HR 108, RR 22, NKDA. Send for CT STAT. Reassessment after fluids shows stable exam, but symptoms persist. Plan: f/u with PCP if imaging is WNL.` Which paraphrase best matches?",
+    choices: [
+      "The patient reports sudden headache and nausea, a rapid CT is ordered, and follow-up with the main clinician depends on a normal scan",
+      "The patient has no symptoms and only needs routine blood work before discharge",
+      "The patient already has a malignant tumor and must go straight to surgery",
+      "The patient should take antibiotics three times a day for ear pain"
+    ],
+    answer: "The patient reports sudden headache and nausea, a rapid CT is ordered, and follow-up with the main clinician depends on a normal scan",
+    explanation: "This note mixes complaint, allergy, vital-sign, urgency, reassessment, and follow-up shorthand in one short passage.",
+    linkedTermIds: ["term-acute", "term-reassessment", "term-stable", "term-plan", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: [
+      "abbr-co",
+      "abbr-hr",
+      "abbr-rr",
+      "abbr-nkda",
+      "abbr-ct",
+      "abbr-stat",
+      "abbr-fu",
+      "abbr-pcp",
+      "abbr-wnl"
+    ],
+  },
+  {
+    id: "exercise-unit6-urgent-imaging-2",
+    type: "infer_meaning",
+    prompt: "Results message: `MRI impression: benign lesion. UA WNL. Continue monitoring and keep nephrology follow-up if flank pain returns.` Which paraphrase fits best?",
+    choices: [
+      "The MRI found a noncancerous lesion, the urine test looked normal, and kidney follow-up should continue if symptoms come back",
+      "The MRI confirmed a malignant tumor and urgent surgery is required",
+      "The urine test showed severe infection and the patient should remain NPO",
+      "The message is mainly about insurance denial and billing review"
+    ],
+    answer: "The MRI found a noncancerous lesion, the urine test looked normal, and kidney follow-up should continue if symptoms come back",
+    explanation: "This line combines imaging, result-summary, benign or malignant contrast, urine testing, and follow-up planning.",
+    linkedTermIds: ["term-impression", "term-benign", "term-monitoring", "term-nephrology", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-mri", "abbr-ua", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit6-urgent-imaging-3",
+    type: "cloze",
+    prompt: "In the urgent note above, `STAT` means the CT should happen ___.",
+    choices: ["immediately", "at the next annual visit", "three times daily", "only if symptoms fully resolve"],
+    answer: "immediately",
+    explanation: "`STAT` signals urgency and means the test or action should happen right away.",
+    linkedTermIds: [],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-stat", "abbr-ct"],
   }
 ];
 
@@ -3059,6 +3231,111 @@ export const lessons: Lesson[] = [
       "exercise-unit6-results-3"
     ],
     estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-blood-and-clotting-language",
+    title: "Blood Cells and Clotting Language",
+    unitId: "unit-2",
+    objective: "Decode a first set of blood-cell and clotting terms using high-yield color, cell, and condition patterns.",
+    whyItMatters: "Blood-count and clotting language appears in labs, emergency notes, inpatient care, and result summaries.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-oncology-and-tumor-language",
+      "lesson-unit1-condition-suffixes"
+    ],
+    introducesPartIds: [
+      "part-erythr-combining",
+      "part-leuk-combining",
+      "part-cyt-combining",
+      "part-thromb-combining"
+    ],
+    introducesTermIds: [
+      "term-erythrocyte",
+      "term-leukocyte",
+      "term-leukocytosis",
+      "term-thrombosis"
+    ],
+    reinforcesTermIds: ["term-hematology", "term-anemia", "term-hematoma"],
+    exerciseSetIds: [
+      "exercise-unit2-blood-1",
+      "exercise-unit2-blood-2",
+      "exercise-unit2-blood-3",
+      "exercise-unit2-blood-4"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit5-imaging-and-urgency-abbreviations",
+    title: "Imaging and Urgency Abbreviations",
+    unitId: "unit-5",
+    objective: "Recognize common imaging-study and urgent-action shorthand used in notes, orders, and result messages.",
+    whyItMatters: "Imaging and urgency abbreviations are common in real patient instructions and chart communication.",
+    prerequisiteLessonIds: ["lesson-unit5-frequency-and-lab-abbreviations"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    introducesAbbreviationIds: [
+      "abbr-stat",
+      "abbr-ct",
+      "abbr-mri",
+      "abbr-ua"
+    ],
+    reinforcesTermIds: [
+      "term-test-results",
+      "term-impression",
+      "term-reassessment",
+      "term-nephrology"
+    ],
+    exerciseSetIds: [
+      "exercise-unit5-imaging-1",
+      "exercise-unit5-imaging-2",
+      "exercise-unit5-imaging-3",
+      "exercise-unit5-imaging-4"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-urgent-and-imaging-synthesis",
+    title: "Urgent and Imaging Synthesis",
+    unitId: "unit-6",
+    objective: "Read short urgent-care and results passages that mix complaint, urgency, imaging, and follow-up shorthand.",
+    whyItMatters: "This is close to real chart reading, where timing, imaging, and follow-up details are compressed into short notes.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-results-and-discharge-synthesis",
+      "lesson-unit5-imaging-and-urgency-abbreviations"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-acute",
+      "term-reassessment",
+      "term-stable",
+      "term-plan",
+      "term-impression",
+      "term-benign",
+      "term-nephrology",
+      "term-follow-up"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-co",
+      "abbr-hr",
+      "abbr-rr",
+      "abbr-nkda",
+      "abbr-ct",
+      "abbr-stat",
+      "abbr-fu",
+      "abbr-pcp",
+      "abbr-wnl",
+      "abbr-mri",
+      "abbr-ua"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-urgent-imaging-1",
+      "exercise-unit6-urgent-imaging-2",
+      "exercise-unit6-urgent-imaging-3"
+    ],
+    estimatedMinutes: 9,
     status: "shipped",
   }
 ];
