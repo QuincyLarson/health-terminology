@@ -2378,6 +2378,167 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-refill-request", "term-test-results", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit2-upper-airway-1",
+    type: "root_match",
+    prompt: "Which combining form points to the pharynx or throat?",
+    choices: ["pharyng/o", "laryng/o", "rhin/o", "bronch/o"],
+    answer: "pharyng/o",
+    explanation: "`pharyng/o` points to the pharynx, which is the throat area behind the mouth and nose.",
+    linkedTermIds: ["term-pharyngitis"],
+    linkedPartIds: ["part-pharyng-combining"],
+  },
+  {
+    id: "exercise-unit2-upper-airway-2",
+    type: "infer_meaning",
+    prompt: "If `rhin/o` means nose and `-itis` means inflammation, what does `rhinitis` suggest?",
+    choices: [
+      "inflammation of the nose",
+      "inflammation of the throat",
+      "nasal discharge",
+      "difficulty breathing"
+    ],
+    answer: "inflammation of the nose",
+    explanation: "`rhinitis` follows the familiar organ-plus-inflammation pattern.",
+    linkedTermIds: ["term-rhinitis"],
+    linkedPartIds: ["part-rhin-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-upper-airway-3",
+    type: "infer_meaning",
+    prompt: "If `-rrhea` means discharge or flow, what does `rhinorrhea` suggest?",
+    choices: [
+      "nasal discharge or a runny nose",
+      "inflammation of the sinuses",
+      "voice-box inflammation",
+      "a lung infection"
+    ],
+    answer: "nasal discharge or a runny nose",
+    explanation: "`rhin/o` points to the nose and `-rrhea` points to discharge or flow.",
+    linkedTermIds: ["term-rhinorrhea"],
+    linkedPartIds: ["part-rhin-combining", "part-rrhea-suffix"],
+  },
+  {
+    id: "exercise-unit2-upper-airway-4",
+    type: "split_term",
+    prompt: "Split `sinusitis` into the organ word part and the inflammation suffix.",
+    choices: [
+      "sinus/o + -itis",
+      "rhin/o + -rrhea",
+      "pharyng/o + -itis",
+      "laryng/o + -itis"
+    ],
+    answer: "sinus/o + -itis",
+    explanation: "`sinusitis` combines the sinus word part with the inflammation suffix.",
+    linkedTermIds: ["term-sinusitis"],
+    linkedPartIds: ["part-sinus-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-upper-airway-5",
+    type: "cloze",
+    prompt: "`laryngitis` means inflammation of the ___.",
+    choices: ["voice box", "nose", "sinus cavity", "bronchial tube"],
+    answer: "voice box",
+    explanation: "`laryng/o` points to the larynx, also called the voice box.",
+    linkedTermIds: ["term-laryngitis"],
+    linkedPartIds: ["part-laryng-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit6-upper-airway-1",
+    type: "infer_meaning",
+    prompt: "Urgent care note: `Patient c/o rhinorrhea and sore throat for 3 days. HR 88, RR 18, no acute SOB. Assessment: rhinitis with probable pharyngitis. PRN treatment and f/u with PCP if symptoms worsen.` Which paraphrase best matches?",
+    choices: [
+      "The patient has nasal discharge and likely nose and throat inflammation, with as-needed treatment and follow-up if things get worse",
+      "The patient has a lung infection and needs emergency surgery now",
+      "The note is mainly about records release and insurance billing",
+      "The patient has kidney stones and should remain NPO"
+    ],
+    answer: "The patient has nasal discharge and likely nose and throat inflammation, with as-needed treatment and follow-up if things get worse",
+    explanation: "This passage mixes upper-airway terms with complaint, vital-sign, treatment, and follow-up shorthand.",
+    linkedTermIds: ["term-rhinorrhea", "term-rhinitis", "term-pharyngitis", "term-acute", "term-assessment", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-co", "abbr-hr", "abbr-rr", "abbr-sob", "abbr-prn", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-upper-airway-2",
+    type: "infer_meaning",
+    prompt: "Portal message: `Sinusitis suspected. Continue PRN medication, hydrate, and f/u with PCP if facial pressure or fever persists.` What is the main message?",
+    choices: [
+      "A sinus problem is suspected, supportive treatment should continue as needed, and follow-up is needed if symptoms keep going",
+      "A blood clot was confirmed and hospital transfer is required",
+      "The patient must complete a release-of-information form before treatment",
+      "A urine test came back normal and no further care is needed"
+    ],
+    answer: "A sinus problem is suspected, supportive treatment should continue as needed, and follow-up is needed if symptoms keep going",
+    explanation: "The message centers on sinus inflammation and routine follow-up rather than a more serious lower-airway emergency.",
+    linkedTermIds: ["term-sinusitis", "term-follow-up", "term-patient-portal"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-prn", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-upper-airway-3",
+    type: "infer_meaning",
+    prompt: "Return-call note: `Hoarseness continues, but no SOB. Assessment now favors laryngitis rather than pneumonia.` Which contrast is the note making?",
+    choices: [
+      "Voice-box inflammation is more likely than a lung infection",
+      "Low oxygen is more likely than sinus inflammation",
+      "Kidney stones are more likely than throat inflammation",
+      "The patient needs records transfer instead of treatment"
+    ],
+    answer: "Voice-box inflammation is more likely than a lung infection",
+    explanation: "`laryngitis` points to the voice box, while `pneumonia` points to a lung infection.",
+    linkedTermIds: ["term-laryngitis", "term-pneumonia", "term-assessment"],
+    linkedPartIds: ["part-laryng-combining", "part-itis-suffix", "part-pneum-combining"],
+    linkedAbbreviationIds: ["abbr-sob"],
+  },
+  {
+    id: "exercise-unit6-respiratory-recheck-1",
+    type: "infer_meaning",
+    prompt: "Recheck note: `Rhinitis improving, but patient now c/o dyspnea with HR 108 and RR 24. PCP requested same-day evaluation.` Which change matters most?",
+    choices: [
+      "The problem has shifted from simple nasal irritation to a breathing concern",
+      "The patient no longer needs any follow-up",
+      "The note is mainly about portal paperwork",
+      "The patient has developed a urinary infection"
+    ],
+    answer: "The problem has shifted from simple nasal irritation to a breathing concern",
+    explanation: "`rhinitis` is upper-airway inflammation, while `dyspnea` signals harder breathing and a more urgent respiratory concern.",
+    linkedTermIds: ["term-rhinitis", "term-dyspnea"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-co", "abbr-hr", "abbr-rr", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-respiratory-recheck-2",
+    type: "infer_meaning",
+    prompt: "After reassessment: `No hypoxia, lungs WNL, likely bronchitis rather than pneumonia. Continue PRN care and f/u if SOB worsens.` Which paraphrase best matches?",
+    choices: [
+      "Low oxygen was not found, the lungs look okay overall, and bronchitis is more likely than pneumonia for now",
+      "The patient has severe low oxygen and needs emergency surgery",
+      "The message is about prior authorization for imaging",
+      "The patient should stop all treatment because the diagnosis is final"
+    ],
+    answer: "Low oxygen was not found, the lungs look okay overall, and bronchitis is more likely than pneumonia for now",
+    explanation: "This line contrasts oxygen status, normal-range shorthand, and two common respiratory diagnoses while giving follow-up guidance.",
+    linkedTermIds: ["term-reassessment", "term-hypoxia", "term-bronchitis", "term-pneumonia", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-wnl", "abbr-prn", "abbr-fu", "abbr-sob"],
+  },
+  {
+    id: "exercise-unit6-respiratory-recheck-3",
+    type: "infer_meaning",
+    prompt: "Message: `Sinusitis and rhinorrhea continue, but return sooner if acute SOB develops.` What is the warning?",
+    choices: [
+      "Come back sooner if sudden breathing trouble appears",
+      "Expect normal blood-count results without recheck",
+      "Send a records-release form before symptoms improve",
+      "Stop eating and drinking until the next appointment"
+    ],
+    answer: "Come back sooner if sudden breathing trouble appears",
+    explanation: "The message contrasts ongoing upper-airway symptoms with the more urgent warning sign of acute shortness of breath.",
+    linkedTermIds: ["term-sinusitis", "term-rhinorrhea", "term-acute"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sob"],
   }
 ];
 
@@ -4033,6 +4194,110 @@ export const lessons: Lesson[] = [
       "exercise-unit6-portal-1",
       "exercise-unit6-portal-2",
       "exercise-unit6-portal-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-upper-airway-and-throat-language",
+    title: "Upper Airway and Throat Language",
+    unitId: "unit-2",
+    objective: "Decode common nose, sinus, throat, and voice-box terms using familiar inflammation and discharge patterns.",
+    whyItMatters: "Upper-airway terms show up constantly in urgent care, same-day visits, portal messages, and everyday health talk.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-respiratory-breathing-status",
+      "lesson-unit1-common-suffixes"
+    ],
+    introducesPartIds: [
+      "part-rhin-combining",
+      "part-sinus-combining",
+      "part-pharyng-combining",
+      "part-laryng-combining",
+      "part-rrhea-suffix"
+    ],
+    introducesTermIds: [
+      "term-rhinitis",
+      "term-rhinorrhea",
+      "term-sinusitis",
+      "term-pharyngitis",
+      "term-laryngitis"
+    ],
+    reinforcesTermIds: [
+      "term-bronchitis",
+      "term-pulmonary",
+      "term-pneumonia",
+      "term-dyspnea",
+      "term-hypoxia"
+    ],
+    exerciseSetIds: [
+      "exercise-unit2-upper-airway-1",
+      "exercise-unit2-upper-airway-2",
+      "exercise-unit2-upper-airway-3",
+      "exercise-unit2-upper-airway-4",
+      "exercise-unit2-upper-airway-5"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-upper-airway-and-throat-synthesis",
+    title: "Upper Airway and Throat Synthesis",
+    unitId: "unit-6",
+    objective: "Read upper-airway visit and portal passages that mix nasal, sinus, throat, and voice-box terms with follow-up shorthand.",
+    whyItMatters: "These complaints are common real-world reading targets, and learners need practice separating nuisance upper-airway language from more serious breathing concerns.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-portal-and-authorization-crossover",
+      "lesson-unit2-upper-airway-and-throat-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-rhinitis",
+      "term-rhinorrhea",
+      "term-sinusitis",
+      "term-pharyngitis",
+      "term-laryngitis",
+      "term-pneumonia",
+      "term-follow-up",
+      "term-assessment"
+    ],
+    reinforcesAbbreviationIds: ["abbr-co", "abbr-hr", "abbr-rr", "abbr-sob", "abbr-prn", "abbr-fu", "abbr-pcp"],
+    exerciseSetIds: [
+      "exercise-unit6-upper-airway-1",
+      "exercise-unit6-upper-airway-2",
+      "exercise-unit6-upper-airway-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-respiratory-recheck-and-escalation",
+    title: "Respiratory Recheck and Escalation",
+    unitId: "unit-6",
+    objective: "Read recheck passages that distinguish persistent upper-airway symptoms from more urgent breathing and oxygen concerns.",
+    whyItMatters: "A major comprehension skill is noticing when a note shifts from routine nasal or throat language into signs that need faster respiratory follow-up.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-upper-airway-and-throat-synthesis",
+      "lesson-unit6-urgent-and-imaging-synthesis"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-rhinitis",
+      "term-rhinorrhea",
+      "term-sinusitis",
+      "term-dyspnea",
+      "term-hypoxia",
+      "term-bronchitis",
+      "term-pneumonia",
+      "term-reassessment",
+      "term-follow-up"
+    ],
+    reinforcesAbbreviationIds: ["abbr-co", "abbr-hr", "abbr-rr", "abbr-pcp", "abbr-wnl", "abbr-prn", "abbr-fu", "abbr-sob"],
+    exerciseSetIds: [
+      "exercise-unit6-respiratory-recheck-1",
+      "exercise-unit6-respiratory-recheck-2",
+      "exercise-unit6-respiratory-recheck-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",

@@ -50,7 +50,8 @@ export const units: Unit[] = [
       "lesson-unit2-oncology-and-tumor-language",
       "lesson-unit2-blood-and-clotting-language",
       "lesson-unit2-urinary-output-and-testing-language",
-      "lesson-unit2-hepatobiliary-and-stone-language"
+      "lesson-unit2-hepatobiliary-and-stone-language",
+      "lesson-unit2-upper-airway-and-throat-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
@@ -119,7 +120,9 @@ export const units: Unit[] = [
       "lesson-unit6-abdominal-and-stone-synthesis",
       "lesson-unit6-referral-and-consult-synthesis",
       "lesson-unit6-handoff-and-reassessment-synthesis",
-      "lesson-unit6-portal-and-authorization-crossover"
+      "lesson-unit6-portal-and-authorization-crossover",
+      "lesson-unit6-upper-airway-and-throat-synthesis",
+      "lesson-unit6-respiratory-recheck-and-escalation"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "lesson-linked",
