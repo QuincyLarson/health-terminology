@@ -3496,6 +3496,187 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-persistent", "term-negative", "term-stable", "term-reassessment"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cp"],
+  },
+  {
+    id: "exercise-unit3-report-1",
+    type: "infer_meaning",
+    prompt: "Which plain-English idea matches `indeterminate` on a report?",
+    choices: [
+      "the current test does not clearly answer the question",
+      "the result is completely normal",
+      "the result confirms a diagnosis with certainty",
+      "the patient no longer needs follow-up"
+    ],
+    answer: "the current test does not clearly answer the question",
+    explanation: "`Indeterminate` means the current information does not clearly settle the issue.",
+    linkedTermIds: ["term-indeterminate"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-report-2",
+    type: "infer_meaning",
+    prompt: "What is an `incidental finding`?",
+    choices: [
+      "something noticed on a study that was not the main target of the test",
+      "a result that was entered by mistake",
+      "a routine follow-up appointment",
+      "an insurance estimate"
+    ],
+    answer: "something noticed on a study that was not the main target of the test",
+    explanation: "The finding may still matter, but it was not the original reason for the study.",
+    linkedTermIds: ["term-incidental-finding"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-report-3",
+    type: "infer_meaning",
+    prompt: "Impression: `No significant interval change compared with prior CT.` What is the report saying?",
+    choices: [
+      "the current study looks much the same as the earlier one",
+      "the scan found a new major abnormality",
+      "the test was indeterminate and must be repeated immediately",
+      "the patient is ready for discharge without instructions"
+    ],
+    answer: "the current study looks much the same as the earlier one",
+    explanation: "`Interval change` and `compare with prior` language tell the reader how the current result relates to an earlier study.",
+    linkedTermIds: ["term-interval-change", "term-compare-with-prior"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ct"],
+  },
+  {
+    id: "exercise-unit3-report-4",
+    type: "infer_meaning",
+    prompt: "Which word is the clearest opposite of `normal` in routine report language?",
+    choices: ["abnormal", "incidental", "stable", "follow-up"],
+    answer: "abnormal",
+    explanation: "`Abnormal` simply signals that the finding is not within the expected range or appearance.",
+    linkedTermIds: ["term-abnormal"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-billing-resolution-1",
+    type: "infer_meaning",
+    prompt: "What does `balance due` usually mean on a statement?",
+    choices: [
+      "the amount still owed",
+      "the amount already refunded",
+      "the amount covered by the insurer",
+      "the amount written off automatically"
+    ],
+    answer: "the amount still owed",
+    explanation: "`Balance due` points to what remains unpaid after earlier payments or adjustments.",
+    linkedTermIds: ["term-balance-due"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-billing-resolution-2",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `itemized bill`?",
+    choices: [
+      "a bill broken into individual charge lines",
+      "a statement showing only a final total",
+      "a request to transfer records",
+      "a report comparing old and new imaging"
+    ],
+    answer: "a bill broken into individual charge lines",
+    explanation: "An itemized bill lists separate charges instead of only showing a single total.",
+    linkedTermIds: ["term-itemized-bill"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-billing-resolution-3",
+    type: "infer_meaning",
+    prompt: "If the office sends an `estimate`, what is it usually giving?",
+    choices: [
+      "an expected cost before the final bill is known",
+      "a confirmed diagnosis",
+      "a copy of the prior authorization decision",
+      "a negative lab result"
+    ],
+    answer: "an expected cost before the final bill is known",
+    explanation: "An estimate is a projected amount, not the final settled charge.",
+    linkedTermIds: ["term-estimate"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-billing-resolution-4",
+    type: "infer_meaning",
+    prompt: "What is the purpose of an `appeal` in billing or coverage language?",
+    choices: [
+      "to ask for a denied decision to be reviewed again",
+      "to schedule the next appointment",
+      "to confirm a medication dose",
+      "to compare imaging with a prior study"
+    ],
+    answer: "to ask for a denied decision to be reviewed again",
+    explanation: "An appeal is the process of asking for reconsideration after a denial or adverse decision.",
+    linkedTermIds: ["term-appeal"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit6-billing-results-synth-1",
+    type: "infer_meaning",
+    prompt: "Portal message: `CT otherwise unremarkable, but incidental finding will be compared with prior imaging. Billing statement updated with new estimate.` What is the main message?",
+    choices: [
+      "the scan did not show a major new problem, one secondary finding will be compared with earlier imaging, and the billing estimate was updated",
+      "the scan clearly confirmed a serious new diagnosis and the balance due was forgiven",
+      "the patient must appeal a denied MRI before any result can be read",
+      "the office canceled the visit because the service was out-of-network"
+    ],
+    answer: "the scan did not show a major new problem, one secondary finding will be compared with earlier imaging, and the billing estimate was updated",
+    explanation: "This mixes report language and billing follow-through in one short portal-style passage.",
+    linkedTermIds: [
+      "term-unremarkable",
+      "term-incidental-finding",
+      "term-compare-with-prior",
+      "term-billing-statement",
+      "term-estimate"
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ct"],
+  },
+  {
+    id: "exercise-unit6-billing-results-synth-2",
+    type: "infer_meaning",
+    prompt: "Office note: `Result remains indeterminate. Appeal submitted after denial, and itemized bill requested before balance due is paid.` Which paraphrase fits best?",
+    choices: [
+      "the result is still not clear, a denied decision is being challenged, and a detailed bill was requested before paying the remaining amount",
+      "the result is normal and the patient is ready for discharge",
+      "the scan confirmed a new malignancy and no billing follow-up is needed",
+      "the patient only needs a routine callback to confirm arrival time"
+    ],
+    answer: "the result is still not clear, a denied decision is being challenged, and a detailed bill was requested before paying the remaining amount",
+    explanation: "This passage joins unresolved-result language with administrative billing follow-through.",
+    linkedTermIds: [
+      "term-indeterminate",
+      "term-appeal",
+      "term-denial",
+      "term-itemized-bill",
+      "term-balance-due"
+    ],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit6-billing-results-synth-3",
+    type: "infer_meaning",
+    prompt: "Summary line: `Abnormal lab flagged for follow-up, but no significant interval change on repeat imaging. Estimate and statement sent through portal.` What is the overall meaning?",
+    choices: [
+      "a lab still needs follow-up, the repeat imaging did not show a major change, and billing documents were sent in the portal",
+      "all results were normal and the patient owes nothing",
+      "the insurer denied coverage and canceled imaging",
+      "the office documented a new urgent respiratory decline"
+    ],
+    answer: "a lab still needs follow-up, the repeat imaging did not show a major change, and billing documents were sent in the portal",
+    explanation: "The line combines one active result issue with stable comparison wording and routine billing communication.",
+    linkedTermIds: [
+      "term-abnormal",
+      "term-follow-up",
+      "term-interval-change",
+      "term-estimate",
+      "term-billing-statement",
+      "term-patient-portal"
+    ],
+    linkedPartIds: [],
   }
 ];
 
@@ -4391,6 +4572,40 @@ export const lessons: Lesson[] = [
     status: "shipped",
   },
   {
+    id: "lesson-unit3-report-comparison-language",
+    title: "Report Comparison Language",
+    unitId: "unit-3",
+    objective: "Recognize the result words that say a finding is uncertain, secondary, changed over time, or clearly outside the usual range.",
+    whyItMatters: "Learners regularly see report language that depends on comparison and nuance rather than a single yes-or-no result word.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-results-and-interpretation-language",
+      "lesson-unit3-diagnostic-and-imaging-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-abnormal",
+      "term-indeterminate",
+      "term-incidental-finding",
+      "term-interval-change",
+      "term-compare-with-prior"
+    ],
+    reinforcesTermIds: [
+      "term-negative",
+      "term-positive",
+      "term-unremarkable",
+      "term-findings",
+      "term-impression"
+    ],
+    exerciseSetIds: [
+      "exercise-unit3-report-1",
+      "exercise-unit3-report-2",
+      "exercise-unit3-report-3",
+      "exercise-unit3-report-4"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
     id: "lesson-unit4-admin-passage-decoding",
     title: "Administrative Passage Decoding",
     unitId: "unit-4",
@@ -4414,6 +4629,40 @@ export const lessons: Lesson[] = [
       "exercise-unit4-admin-passage-1",
       "exercise-unit4-admin-passage-2",
       "exercise-unit4-admin-passage-3"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-billing-resolution-language",
+    title: "Billing Resolution Language",
+    unitId: "unit-4",
+    objective: "Recognize the most common words used when bills, denials, and cost follow-through continue after the visit.",
+    whyItMatters: "A polished admin-language unit should help learners read what happens after coverage is checked, not just before the visit starts.",
+    prerequisiteLessonIds: [
+      "lesson-unit4-preparation-and-instruction-language",
+      "lesson-unit4-verification-and-network-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-appeal",
+      "term-estimate",
+      "term-balance-due",
+      "term-billing-statement",
+      "term-itemized-bill"
+    ],
+    reinforcesTermIds: [
+      "term-denial",
+      "term-claim",
+      "term-coverage",
+      "term-prior-authorization",
+      "term-documentation"
+    ],
+    exerciseSetIds: [
+      "exercise-unit4-billing-resolution-1",
+      "exercise-unit4-billing-resolution-2",
+      "exercise-unit4-billing-resolution-3",
+      "exercise-unit4-billing-resolution-4"
     ],
     estimatedMinutes: 8,
     status: "shipped",
@@ -5800,6 +6049,40 @@ export const lessons: Lesson[] = [
       "exercise-unit6-ambiguity-synth-1",
       "exercise-unit6-ambiguity-synth-2",
       "exercise-unit6-ambiguity-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-billing-and-report-followthrough",
+    title: "Billing and Report Follow-Through",
+    unitId: "unit-6",
+    objective: "Read realistic portal and office messages that mix report nuance, comparison wording, and post-visit billing follow-through.",
+    whyItMatters: "Real comprehension often means carrying both result language and administrative consequences in mind at the same time.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-ambiguity-and-results-synthesis",
+      "lesson-unit4-billing-resolution-language",
+      "lesson-unit3-report-comparison-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-unremarkable",
+      "term-indeterminate",
+      "term-incidental-finding",
+      "term-interval-change",
+      "term-compare-with-prior",
+      "term-appeal",
+      "term-estimate",
+      "term-balance-due",
+      "term-billing-statement",
+      "term-itemized-bill"
+    ],
+    reinforcesAbbreviationIds: ["abbr-ct"],
+    exerciseSetIds: [
+      "exercise-unit6-billing-results-synth-1",
+      "exercise-unit6-billing-results-synth-2",
+      "exercise-unit6-billing-results-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",

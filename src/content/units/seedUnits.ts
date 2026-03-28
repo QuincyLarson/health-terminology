@@ -74,7 +74,8 @@ export const units: Unit[] = [
       "lesson-unit3-condition-and-disease-state-language",
       "lesson-unit3-chart-passage-decoding",
       "lesson-unit3-severity-and-progression-language",
-      "lesson-unit3-results-and-interpretation-language"
+      "lesson-unit3-results-and-interpretation-language",
+      "lesson-unit3-report-comparison-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2"],
     status: "shipped",
@@ -91,7 +92,8 @@ export const units: Unit[] = [
       "lesson-unit4-portal-results-and-reminders",
       "lesson-unit4-admin-passage-decoding",
       "lesson-unit4-verification-and-network-language",
-      "lesson-unit4-preparation-and-instruction-language"
+      "lesson-unit4-preparation-and-instruction-language",
+      "lesson-unit4-billing-resolution-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3"],
     status: "shipped",
@@ -138,7 +140,8 @@ export const units: Unit[] = [
       "lesson-unit6-immune-and-node-synthesis",
       "lesson-unit6-reproductive-followup-synthesis",
       "lesson-unit6-verification-and-prep-crossover",
-      "lesson-unit6-ambiguity-and-results-synthesis"
+      "lesson-unit6-ambiguity-and-results-synthesis",
+      "lesson-unit6-billing-and-report-followthrough"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "shipped",

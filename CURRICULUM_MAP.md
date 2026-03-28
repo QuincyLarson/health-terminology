@@ -26,11 +26,11 @@ Each future unit and module entry should accumulate:
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
 - Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language.
-- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, chart passages, severity or progression language, and results or interpretation language.
-- Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, purpose-built passage language, verification or network language, and preparation or instruction language.
+- Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, chart passages, severity or progression language, results or interpretation language, and report-comparison language.
+- Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, purpose-built passage language, verification or network language, preparation or instruction language, and billing-resolution language.
 - Unit 5 now exists as a broader abbreviations unit with chart-note, history or status, frequency or lab, imaging or urgency, schedule or form, and ambiguity-safety shorthand coverage.
-- Unit 6 now exists as a broader final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, reproductive follow-up synthesis drills, verification-prep crossover drills, and ambiguity-results synthesis drills.
-- The app currently exposes 79 lessons, 207 terms, 89 parts, 245 exercises, and 44 abbreviations.
+- Unit 6 now exists as a broader final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, pleural or chest synthesis drills, oncology or pathology synthesis drills, immune or node synthesis drills, reproductive follow-up synthesis drills, verification-prep crossover drills, ambiguity-results synthesis drills, and billing-report follow-through drills.
+- The app currently exposes 82 lessons, 217 terms, 89 parts, 256 exercises, and 44 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -218,7 +218,7 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 - Status: seeded.
 
 ## Unit 3 - Clinical Language Patterns
-Unit 3 now has authored slices for symptoms/status language, procedure families, chart phrasing, workflow language, diagnostics, medication basics, chart passages, severity or progression language, and results or interpretation language.
+Unit 3 now has authored slices for symptoms/status language, procedure families, chart phrasing, workflow language, diagnostics, medication basics, chart passages, severity or progression language, results or interpretation language, and report-comparison language.
 ### Module 3.1: Symptoms and Signs
 - Lesson goal: distinguish what a patient reports from what is observed.
 - Representative content: pain, fever, nausea, edema, dyspnea.
@@ -279,8 +279,14 @@ Unit 3 now has authored slices for symptoms/status language, procedure families,
 - Priority: medium.
 - Status: seeded.
 
+### Module 3.11: Report Comparison Language
+- Lesson goal: understand the report words that mark uncertainty, secondary findings, and comparison over time.
+- Representative content: abnormal, indeterminate, incidental finding, interval change, compare with prior.
+- Priority: medium.
+- Status: seeded.
+
 ## Unit 4 - Administrative and Document Language
-Unit 4 now has authored slices for scheduling, follow-up, records, orders, authorization, intake, billing, portal, reminder, verification or network, and preparation or instruction language.
+Unit 4 now has authored slices for scheduling, follow-up, records, orders, authorization, intake, billing, portal, reminder, verification or network, preparation or instruction, and billing-resolution language.
 ### Module 4.1: Forms and Scheduling
 - Lesson goal: understand common administrative vocabulary.
 - Representative content: appointment, intake, insurance, authorization, reschedule.
@@ -320,6 +326,12 @@ Unit 4 now has authored slices for scheduling, follow-up, records, orders, autho
 ### Module 4.7: Preparation and Instruction Language
 - Lesson goal: read the most common pre-visit, pre-procedure, and callback instruction phrases without confusion.
 - Representative content: pre-registration, preparation instructions, fasting instructions, arrival time, callback request.
+- Priority: medium.
+- Status: seeded.
+
+### Module 4.8: Billing Resolution Language
+- Lesson goal: understand what happens after a bill or denial needs follow-through and review.
+- Representative content: appeal, estimate, balance due, billing statement, itemized bill.
 - Priority: medium.
 - Status: seeded.
 
@@ -492,6 +504,12 @@ Unit 6 now has authored starter slices for mixed recognition, passage decoding, 
 ### Module 6.19: Ambiguity and Results Synthesis
 - Lesson goal: read clinical notes where context decides the abbreviation meaning and result-status language decides the main interpretation.
 - Representative content: PT, MS, BS, CP, elevated, negative, unremarkable, recurrent.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.20: Billing and Report Follow-Through
+- Lesson goal: read portal and office messages that mix report nuance, comparison wording, and post-visit billing language.
+- Representative content: indeterminate, incidental finding, compare with prior, estimate, appeal, balance due.
 - Priority: medium.
 - Status: seeded.
 
