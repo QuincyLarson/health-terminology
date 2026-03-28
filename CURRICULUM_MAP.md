@@ -25,12 +25,12 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, and deeper urinary-output or testing language.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, and hepatobiliary or stone language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
 - Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
-- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, and blood-count synthesis.
-- The app currently exposes 55 lessons, 158 terms, 73 parts, 153 exercises, and 32 abbreviations.
+- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, and portal-and-authorization crossover drills.
+- The app currently exposes 60 lessons, 162 terms, 76 parts, 170 exercises, and 32 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -111,7 +111,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
-Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, and deeper urinary-output or testing language.
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, and hepatobiliary or stone language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -128,9 +128,9 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 
 ### Module 2.3: Gastrointestinal
 - Lesson goal: decode digestive tract and abdominal terms.
-- Representative content: `gastr/o`, `enter/o`, `hepat/o`, `col/o`, `cholecyst/o`.
+- Representative content: `gastr/o`, `enter/o`, `hepat/o`, `col/o`, `cholecyst/o`, `-lithiasis`.
 - Priority: high.
-- Status: seeded.
+- Status: seeded with added hepatobiliary and stone depth.
 - Prerequisite guidance: follow Unit 1 suffix, body-root, and procedure-language lessons.
 
 ### Module 2.4: Musculoskeletal
@@ -314,7 +314,7 @@ Unit 5 now has authored starter slices for clinical, document, measurement, rout
 - Status: seeded.
 
 ## Unit 6 - Final Synthesis
-Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, and blood-count synthesis.
+Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, and portal-and-authorization crossover.
 ### Module 6.1: Mixed Review
 - Lesson goal: combine roots, affixes, abbreviations, and context clues.
 - Representative content: mixed term sets from all prior units.
@@ -354,6 +354,30 @@ Unit 6 now has authored starter slices for mixed recognition, passage decoding, 
 ### Module 6.7: Blood and Count Synthesis
 - Lesson goal: read blood-count and clotting passages that mix CBC shorthand, cell-count terms, and interpretation language.
 - Representative content: CBC, leukocytosis, erythrocyte, thrombosis, monitoring or reassessment notes.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.8: Abdominal and Stone Synthesis
+- Lesson goal: read abdominal, hepatobiliary, and stone-related passages that mix imaging, symptom, and NPO language.
+- Representative content: CT, UA, hematuria, cholelithiasis, pancreatitis, NPO.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.9: Referral and Consult Synthesis
+- Lesson goal: read referral, consult, and records-transfer passages that compress history, diagnosis, treatment, and follow-up language.
+- Representative content: Hx, Dx, Tx, f/u, ROI, DOB, consult notes.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.10: Handoff and Reassessment Synthesis
+- Lesson goal: read handoff passages that contrast initial presentation, reassessment, and monitoring plans.
+- Representative content: acute SOB, HR, RR, NKDA, PRN, WNL, transfer or monitoring notes.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.11: Portal and Authorization Crossover
+- Lesson goal: read portal, results, and authorization passages that mix patient instructions with imaging and lab shorthand.
+- Representative content: MRI impression, CBC WNL, prior authorization, refill request, ROI, CT, PCP.
 - Priority: medium.
 - Status: seeded.
 
