@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { ExerciseCard } from "../components/ExerciseCard";
 import { content } from "../content";
+import { getLessonSummary } from "../lib/curriculum/lessonSummary";
 import { speakText } from "../lib/audio/speak";
 
 export function LessonPage() {
@@ -10,7 +11,6 @@ export function LessonPage() {
   const {
     completeLesson,
     getLessonById,
-    getLessonScoreLabel,
     getNextLesson,
     progress,
     setCurrentLesson,
@@ -97,19 +97,10 @@ export function LessonPage() {
     (lesson.introducesAbbreviationIds ?? []).includes(abbreviation.id),
   );
   const nextLesson = getNextLesson(lesson.id);
-  const priorScoreLabel = getLessonScoreLabel(lesson.id);
-  const lessonIndex = content.lessons.findIndex((entry) => entry.id === lesson.id);
   const firstAttemptCorrect = lessonExercises.reduce((count, exercise) => {
     return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
   }, 0);
   const activeExercise = lessonExercises[activeExerciseIndex];
-  const completedExercises = lessonExercises.filter(
-    (exercise) => answers[exercise.id] === exercise.answer,
-  ).length;
-  const progressPercent =
-    lessonExercises.length === 0
-      ? 100
-      : Math.round((completedExercises / lessonExercises.length) * 100);
 
   function handleSelect(exerciseId: string, choice: string): void {
     const exercise = lessonExercises.find((item) => item.id === exerciseId);
@@ -146,56 +137,46 @@ export function LessonPage() {
   return (
     <div className="stack lesson-shell">
       <section className="card stack compact-card">
-        <div className="title-row">
-          <div>
-            <p className="eyebrow">{lesson.unitId}</p>
-            <h1>{lesson.title}</h1>
-          </div>
-          <button
-            type="button"
-            className="button button-quiet"
-            onClick={() => speakText(lesson.title, progress.settings.audioEnabled)}
-          >
-            Speak title
-          </button>
-        </div>
-        <p>{lesson.objective}</p>
-        <p className="meta-copy">
-          Lesson {lessonIndex + 1} of {content.lessons.length} · {lesson.estimatedMinutes} min
-          {priorScoreLabel ? ` · ${priorScoreLabel}` : ""} · {lessonExercises.length} checks
-        </p>
-        <p className="meta-copy">Why this matters: {lesson.whyItMatters}</p>
+        <p className="eyebrow">{lesson.unitId}</p>
+        <h1>{lesson.title}</h1>
+        <p>{getLessonSummary(lesson)}</p>
+        <p className="meta-copy">{lesson.estimatedMinutes} min</p>
       </section>
 
-      <section className="lesson-reference-grid">
+      <section className="card stack compact-card">
         {introducedParts.length > 0 ? (
-          <article className="reference-panel stack">
+          <article className="stack reference-section">
             <h3>Parts</h3>
-            {introducedParts.map((part) => (
-              <div key={part.id} className="mini-row">
-                <div>
-                  <strong>{part.text}</strong>
-                  <p className="meta-copy">{part.plainMeaning}</p>
+            <div className="reference-list">
+              {introducedParts.map((part) => (
+                <div key={part.id} className="reference-row">
+                  <div>
+                    <strong>{part.text}</strong>
+                    <p className="meta-copy">{part.plainMeaning}</p>
+                  </div>
+                  <button
+                    type="button"
+                    className="button button-quiet"
+                    onClick={() => speakText(part.text, progress.settings.audioEnabled)}
+                  >
+                    Speak
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  className="button button-quiet"
-                  onClick={() => speakText(part.text, progress.settings.audioEnabled)}
-                >
-                  Speak
-                </button>
-              </div>
-            ))}
+              ))}
+            </div>
           </article>
         ) : null}
 
         {introducedTerms.length > 0 ? (
-          <article className="reference-panel stack">
+          <article className="stack reference-section">
             <h3>Example terms</h3>
-            {introducedTerms.slice(0, 6).map((term) => (
-              <div key={term.id} className="stack compact-card">
-                <div className="mini-row">
-                  <strong>{term.term}</strong>
+            <div className="reference-list">
+              {introducedTerms.slice(0, 6).map((term) => (
+                <div key={term.id} className="reference-row">
+                  <div>
+                    <strong>{term.term}</strong>
+                    <p className="meta-copy">{term.plainMeaning}</p>
+                  </div>
                   <button
                     type="button"
                     className="button button-quiet"
@@ -204,60 +185,46 @@ export function LessonPage() {
                     Speak
                   </button>
                 </div>
-                <p className="meta-copy">{term.plainMeaning}</p>
-              </div>
-            ))}
+              ))}
+            </div>
           </article>
         ) : null}
 
         {introducedAbbreviations.length > 0 ? (
-          <article className="reference-panel stack">
+          <article className="stack reference-section">
             <h3>Abbreviations</h3>
-            {introducedAbbreviations.map((abbreviation) => (
-              <div key={abbreviation.id} className="stack compact-card">
-                <strong>{abbreviation.shortForm}</strong>
-                <p className="meta-copy">
-                  {abbreviation.expandedForm} · {abbreviation.category}
-                </p>
-              </div>
-            ))}
+            <div className="reference-list">
+              {introducedAbbreviations.map((abbreviation) => (
+                <div key={abbreviation.id} className="reference-row reference-row-text">
+                  <div>
+                    <strong>{abbreviation.shortForm}</strong>
+                    <p className="meta-copy">
+                      {abbreviation.expandedForm} · {abbreviation.category}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </article>
         ) : null}
       </section>
 
       {activeExercise && !completedThisVisit ? (
-        <section className="card stack exercise-stage compact-card">
-          <div className="stack">
-            <div className="title-row">
-              <p className="eyebrow">
-                Challenge {activeExerciseIndex + 1} of {lessonExercises.length}
-              </p>
-              <span className="status-pill">{progressPercent}% complete</span>
-            </div>
-            <div className="exercise-progress-bar" aria-hidden="true">
-              <div
-                className="exercise-progress-value"
-                style={{ width: `${progressPercent}%` }}
-              />
-            </div>
-          </div>
+        <section className="exercise-stage">
           <ExerciseCard
             allowRetry
             exercise={activeExercise}
-            indexLabel={`Challenge ${activeExerciseIndex + 1}`}
+            indexLabel={`${activeExerciseIndex + 1}.`}
             onRetry={() => handleRetry(activeExercise.id)}
             selectedChoice={answers[activeExercise.id] ?? null}
             showCelebration={celebratingExerciseId === activeExercise.id}
             onSelect={(choice) => handleSelect(activeExercise.id, choice)}
           />
-          <p className="meta-copy">
-            First-pass score this visit: {firstAttemptCorrect} / {lessonExercises.length}
-          </p>
         </section>
       ) : null}
 
       {completedThisVisit ? (
-        <section className="card stack lesson-footer compact-card">
+        <section className="card stack compact-card">
           <div className="completion-box stack">
             <h3>Lesson complete</h3>
             <p>
@@ -272,13 +239,11 @@ export function LessonPage() {
                 >
                   Continue to {nextLesson.title}
                 </Link>
-              ) : null}
-              <Link className="button" to="/drills">
-                Move into drills
-              </Link>
-              <Link className="button" to="/">
-                Back to curriculum
-              </Link>
+              ) : (
+                <Link className="button button-primary" to="/drills">
+                  Open drills
+                </Link>
+              )}
             </div>
           </div>
         </section>

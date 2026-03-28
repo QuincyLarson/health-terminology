@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAppState } from "../app/AppState";
 import { content } from "../content";
+import { getLessonSummary } from "../lib/curriculum/lessonSummary";
 
 export function HomePage() {
   const {
@@ -133,7 +134,7 @@ export function HomePage() {
                     </div>
                     <div className="lesson-copy">
                       <h3>{lesson.title}</h3>
-                      <p>{lesson.objective}</p>
+                      <p>{getLessonSummary(lesson)}</p>
                       <p className="meta-copy">
                         {lesson.estimatedMinutes} min · {lessonState}
                         {scoreLabel ? ` · ${scoreLabel}` : ""}

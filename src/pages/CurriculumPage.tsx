@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { content } from "../content";
 import { useAppState } from "../app/AppState";
+import { getLessonSummary } from "../lib/curriculum/lessonSummary";
 
 export function CurriculumPage() {
   const {
@@ -73,7 +74,7 @@ export function CurriculumPage() {
                   <li key={lesson.id} className="lesson-row">
                     <div>
                       <h4>{lesson.title}</h4>
-                      <p>{lesson.objective}</p>
+                      <p>{getLessonSummary(lesson)}</p>
                       <p className="meta-copy">
                         {lesson.estimatedMinutes} min
                         {scoreLabel ? ` · ${scoreLabel}` : ""}

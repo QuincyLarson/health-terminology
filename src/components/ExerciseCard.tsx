@@ -29,10 +29,7 @@ export function ExerciseCard({
           Correct!
         </p>
       ) : null}
-      <p className="exercise-type">
-        {indexLabel ? `${indexLabel} · ` : ""}
-        {exercise.type.replaceAll("_", " ")}
-      </p>
+      {indexLabel ? <p className="exercise-type">{indexLabel}</p> : null}
       <h3 className="exercise-prompt">{exercise.prompt}</h3>
       <div className="choice-list">
         {exercise.choices.map((choice) => (
