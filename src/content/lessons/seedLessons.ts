@@ -2774,6 +2774,124 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-hypoplasia", "term-malignant", "term-consult"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-dx", "abbr-ct"],
+  },
+  {
+    id: "exercise-unit2-immune-node-1",
+    type: "root_match",
+    prompt: "Which combining form points to a gland or node?",
+    choices: ["aden/o", "splen/o", "lymph/o", "immun/o"],
+    answer: "aden/o",
+    explanation: "`aden/o` points to a gland or node and helps decode several lymph-node terms.",
+    linkedTermIds: ["term-adenopathy", "term-lymphadenopathy"],
+    linkedPartIds: ["part-aden-combining"],
+  },
+  {
+    id: "exercise-unit2-immune-node-2",
+    type: "infer_meaning",
+    prompt: "If `lymph/o` points to lymphatic tissue, `aden/o` points to a node, and `-itis` means inflammation, what does `lymphadenitis` suggest?",
+    choices: [
+      "inflammation of a lymph node",
+      "abnormal bone softening",
+      "a cancer that has spread",
+      "surgical removal of the spleen"
+    ],
+    answer: "inflammation of a lymph node",
+    explanation: "`lymphadenitis` combines lymphatic tissue, node, and inflammation language.",
+    linkedTermIds: ["term-lymphadenitis"],
+    linkedPartIds: ["part-lymph-combining", "part-aden-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-immune-node-3",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `lymphadenopathy`?",
+    choices: [
+      "abnormal condition involving lymph nodes",
+      "normal immune protection",
+      "needle removal of chest fluid",
+      "surgical viewing of the bladder"
+    ],
+    answer: "abnormal condition involving lymph nodes",
+    explanation: "`-pathy` points to a disorder or abnormal condition, and the rest of the term points to lymph nodes.",
+    linkedTermIds: ["term-lymphadenopathy"],
+    linkedPartIds: ["part-lymph-combining", "part-aden-combining", "part-pathy-suffix"],
+  },
+  {
+    id: "exercise-unit2-immune-node-4",
+    type: "infer_meaning",
+    prompt: "If `cyt/o` means cell, what does `lymphocyte` suggest?",
+    choices: [
+      "a lymph-related cell",
+      "an inflamed lymph node",
+      "an enlarged spleen",
+      "a gland removal procedure"
+    ],
+    answer: "a lymph-related cell",
+    explanation: "`lymphocyte` combines lymphatic tissue language with the cell word part.",
+    linkedTermIds: ["term-lymphocyte"],
+    linkedPartIds: ["part-lymph-combining", "part-cyt-combining"],
+  },
+  {
+    id: "exercise-unit2-immune-node-5",
+    type: "infer_meaning",
+    prompt: "What does `immunodeficiency` suggest in plain English?",
+    choices: [
+      "too little immune protection",
+      "a procedure to remove a lymph node",
+      "abnormal bone growth",
+      "inflammation of the gallbladder"
+    ],
+    answer: "too little immune protection",
+    explanation: "This is a recognition-first immune term for reduced immune-system function.",
+    linkedTermIds: ["term-immunodeficiency"],
+    linkedPartIds: ["part-immun-combining"],
+  },
+  {
+    id: "exercise-unit6-immune-synth-1",
+    type: "infer_meaning",
+    prompt: "Consult note: `Persistent lymphadenopathy with recurrent infection. CBC reviewed; immunology f/u recommended.` Which paraphrase best matches?",
+    choices: [
+      "Ongoing abnormal lymph-node findings and repeated infection led to a recommendation for immune follow-up",
+      "The patient has a normal chart and needs no further care",
+      "The note is mainly about chest drainage after pleural fluid",
+      "The message confirms a routine urinary result"
+    ],
+    answer: "Ongoing abnormal lymph-node findings and repeated infection led to a recommendation for immune follow-up",
+    explanation: "This note mixes lymph-node pathology, infection language, lab shorthand, and specialist follow-up.",
+    linkedTermIds: ["term-lymphadenopathy", "term-infection", "term-immunology", "term-follow-up", "term-consult"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc", "abbr-fu"],
+  },
+  {
+    id: "exercise-unit6-immune-synth-2",
+    type: "infer_meaning",
+    prompt: "Reassessment: `Lymphadenitis improving, but immunodeficiency remains on the problem list. PCP to review CBC and plan next steps.` What is the main message?",
+    choices: [
+      "The inflamed lymph nodes are improving, but a weakened immune issue is still being tracked",
+      "The patient has worsening pleural disease and needs thoracentesis",
+      "The chart now favors benign hyperplasia over malignancy",
+      "The office only needs a release-of-information form"
+    ],
+    answer: "The inflamed lymph nodes are improving, but a weakened immune issue is still being tracked",
+    explanation: "This passage contrasts improvement in one lymph-node problem with an ongoing immune-deficiency concern.",
+    linkedTermIds: ["term-lymphadenitis", "term-immunodeficiency", "term-reassessment", "term-plan"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pcp", "abbr-cbc"],
+  },
+  {
+    id: "exercise-unit6-immune-synth-3",
+    type: "infer_meaning",
+    prompt: "Lab follow-up: `Lymphocyte pattern is under review. WNL vitals, but recurrent infection keeps consult active.` Which contrast is the note making?",
+    choices: [
+      "Current vital signs look normal, but immune-related concerns still justify specialist review",
+      "The patient has sudden shortness of breath and needs emergency imaging",
+      "A cancer spread finding has already been ruled in",
+      "The main issue is insurance authorization for MRI"
+    ],
+    answer: "Current vital signs look normal, but immune-related concerns still justify specialist review",
+    explanation: "This line contrasts normal-range shorthand with persistent immune concerns based on lab and infection language.",
+    linkedTermIds: ["term-lymphocyte", "term-infection", "term-consult"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-wnl"],
   }
 ];
 
@@ -4675,6 +4793,74 @@ export const lessons: Lesson[] = [
       "exercise-unit6-pathology-synth-1",
       "exercise-unit6-pathology-synth-2",
       "exercise-unit6-pathology-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-lymph-node-and-immune-condition-language",
+    title: "Lymph-Node and Immune-Condition Language",
+    unitId: "unit-2",
+    objective: "Decode high-yield lymph-node, immune-condition, and immune-cell terms that appear in consults, labs, and infection follow-up.",
+    whyItMatters: "Immune and lymph-node language shows up in CBC review, specialist consults, infection workups, and oncology-adjacent notes.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-immune-and-lymphatic-language",
+      "lesson-unit2-blood-and-clotting-language"
+    ],
+    introducesPartIds: ["part-aden-combining"],
+    introducesTermIds: [
+      "term-adenopathy",
+      "term-lymphadenopathy",
+      "term-lymphadenitis",
+      "term-lymphocyte",
+      "term-immunodeficiency"
+    ],
+    reinforcesTermIds: [
+      "term-immunology",
+      "term-lymphoma",
+      "term-splenomegaly",
+      "term-leukocyte",
+      "term-infection"
+    ],
+    exerciseSetIds: [
+      "exercise-unit2-immune-node-1",
+      "exercise-unit2-immune-node-2",
+      "exercise-unit2-immune-node-3",
+      "exercise-unit2-immune-node-4",
+      "exercise-unit2-immune-node-5"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-immune-and-node-synthesis",
+    title: "Immune and Node Synthesis",
+    unitId: "unit-6",
+    objective: "Read immune and lymph-node passages that mix CBC, consult, infection, and follow-up language.",
+    whyItMatters: "A lot of immune-language reading difficulty comes from compact consult and follow-up notes that mix labs, nodes, infection, and specialist recommendations in one short passage.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-oncology-and-pathology-synthesis",
+      "lesson-unit2-lymph-node-and-immune-condition-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-lymphadenopathy",
+      "term-lymphadenitis",
+      "term-lymphocyte",
+      "term-immunodeficiency",
+      "term-immunology",
+      "term-infection",
+      "term-follow-up",
+      "term-consult",
+      "term-reassessment",
+      "term-plan"
+    ],
+    reinforcesAbbreviationIds: ["abbr-cbc", "abbr-fu", "abbr-pcp", "abbr-wnl"],
+    exerciseSetIds: [
+      "exercise-unit6-immune-synth-1",
+      "exercise-unit6-immune-synth-2",
+      "exercise-unit6-immune-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",

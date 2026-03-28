@@ -1032,5 +1032,17 @@ export const parts: Part[] = [
     prerequisiteIds: [],
     unitId: "unit-2",
     frequencyRank: 86,
+  },
+  {
+    id: "part-aden-combining",
+    text: "aden/o",
+    type: "combining_form",
+    plainMeaning: "gland; node",
+    altMeanings: [],
+    pronunciationText: "AD-eh-noh",
+    examples: ["adenopathy", "lymphadenitis"],
+    prerequisiteIds: [],
+    unitId: "unit-2",
+    frequencyRank: 87,
   }
 ];
