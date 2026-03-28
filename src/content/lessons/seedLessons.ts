@@ -2656,6 +2656,124 @@ export const exercises: Exercise[] = [
     explanation: "The procedure name combines the chest root with the puncture suffix and fits the chest-fluid context.",
     linkedTermIds: ["term-thoracentesis", "term-dyspnea", "term-assessment", "term-thoracic", "term-stable"],
     linkedPartIds: ["part-thorac-combining", "part-centesis-suffix"],
+  },
+  {
+    id: "exercise-unit2-pathology-1",
+    type: "root_match",
+    prompt: "Which suffix points to growth, formation, or development?",
+    choices: ["-plasia", "-malacia", "-ectomy", "-algia"],
+    answer: "-plasia",
+    explanation: "`-plasia` points to the pattern or amount of growth or development.",
+    linkedTermIds: ["term-dysplasia", "term-hyperplasia", "term-hypoplasia"],
+    linkedPartIds: ["part-plasia-suffix"],
+  },
+  {
+    id: "exercise-unit2-pathology-2",
+    type: "infer_meaning",
+    prompt: "If `dys-` means abnormal and `-plasia` means growth or development, what does `dysplasia` suggest?",
+    choices: [
+      "abnormal growth or development",
+      "softening of bone",
+      "spread of cancer to another site",
+      "surgical removal of a growth"
+    ],
+    answer: "abnormal growth or development",
+    explanation: "`dysplasia` follows a direct abnormal-plus-growth pattern.",
+    linkedTermIds: ["term-dysplasia"],
+    linkedPartIds: ["part-dys-prefix", "part-plasia-suffix"],
+  },
+  {
+    id: "exercise-unit2-pathology-3",
+    type: "infer_meaning",
+    prompt: "What contrast do `hyperplasia` and `hypoplasia` show?",
+    choices: [
+      "too much growth versus too little growth",
+      "infection versus inflammation",
+      "chest procedure versus abdominal procedure",
+      "benign versus malignant spread"
+    ],
+    answer: "too much growth versus too little growth",
+    explanation: "`hyper-` signals excess and `hypo-` signals too little.",
+    linkedTermIds: ["term-hyperplasia", "term-hypoplasia"],
+    linkedPartIds: ["part-hyper-prefix", "part-hypo-prefix", "part-plasia-suffix"],
+  },
+  {
+    id: "exercise-unit2-pathology-4",
+    type: "infer_meaning",
+    prompt: "If `oste/o` means bone and `-malacia` means softening, what does `osteomalacia` suggest?",
+    choices: [
+      "softening of bone",
+      "bone inflammation",
+      "abnormal bone growth",
+      "a scoped look at the bone"
+    ],
+    answer: "softening of bone",
+    explanation: "`osteomalacia` uses the bone word part plus the softening suffix.",
+    linkedTermIds: ["term-osteomalacia"],
+    linkedPartIds: ["part-osteo-combining", "part-malacia-suffix"],
+  },
+  {
+    id: "exercise-unit2-pathology-5",
+    type: "infer_meaning",
+    prompt: "Which plain-English meaning best matches `metastasis`?",
+    choices: [
+      "spread of disease to another body site",
+      "normal tissue development",
+      "needle removal of chest fluid",
+      "irritation of the nasal passages"
+    ],
+    answer: "spread of disease to another body site",
+    explanation: "`metastasis` is taught as a recognition-first pathology term rather than a forced decomposition.",
+    linkedTermIds: ["term-metastasis"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit6-pathology-synth-1",
+    type: "infer_meaning",
+    prompt: "Pathology update: `Biopsy specimen shows dysplasia but no metastatic disease. f/u imaging with PCP recommended.` Which paraphrase best matches?",
+    choices: [
+      "The sample shows abnormal tissue development, but no spread to another site was found, and more follow-up imaging is advised",
+      "The sample shows normal tissue and no follow-up is needed",
+      "The note is mainly about chest drainage after pleural fluid",
+      "The patient has a urinary infection and needs urinalysis"
+    ],
+    answer: "The sample shows abnormal tissue development, but no spread to another site was found, and more follow-up imaging is advised",
+    explanation: "This note mixes pathology-result terms with follow-up and imaging workflow language.",
+    linkedTermIds: ["term-biopsy", "term-specimen", "term-dysplasia", "term-metastasis", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-pathology-synth-2",
+    type: "infer_meaning",
+    prompt: "Impression: `Benign-appearing lesion with hyperplasia. Continue monitoring; no malignant features on current MRI.` What is the main message?",
+    choices: [
+      "Extra tissue growth is present, but the current scan does not suggest a cancerous pattern",
+      "A malignant cancer with spread is already confirmed",
+      "The lungs show pleural inflammation and chest fluid",
+      "The patient should remain NPO for urgent surgery"
+    ],
+    answer: "Extra tissue growth is present, but the current scan does not suggest a cancerous pattern",
+    explanation: "This passage contrasts benign versus malignant language and uses `hyperplasia` as a growth-pattern term.",
+    linkedTermIds: ["term-impression", "term-benign", "term-hyperplasia", "term-malignant", "term-monitoring"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-mri"],
+  },
+  {
+    id: "exercise-unit6-pathology-synth-3",
+    type: "infer_meaning",
+    prompt: "Consult note: `Dx remains uncertain. Hypoplasia is favored over malignancy, and repeat CT will guide next steps.` Which contrast is the note making?",
+    choices: [
+      "Underdevelopment is being considered instead of a cancer diagnosis",
+      "A chest procedure is being chosen instead of a urine test",
+      "The patient has moved from sinus trouble to breathing failure",
+      "The office needs a release form before sending records"
+    ],
+    answer: "Underdevelopment is being considered instead of a cancer diagnosis",
+    explanation: "`hypoplasia` points to too little development, while malignancy points to a cancer concern.",
+    linkedTermIds: ["term-hypoplasia", "term-malignant", "term-consult"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-dx", "abbr-ct"],
   }
 ];
 
@@ -4487,6 +4605,76 @@ export const lessons: Lesson[] = [
       "exercise-unit6-pleural-synth-1",
       "exercise-unit6-pleural-synth-2",
       "exercise-unit6-pleural-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-pathology-and-tissue-change-language",
+    title: "Pathology and Tissue-Change Language",
+    unitId: "unit-2",
+    objective: "Decode high-yield growth, development, softening, and spread terms that appear in oncology and pathology reports.",
+    whyItMatters: "These words appear in biopsies, imaging impressions, specialist notes, and result discussions, and they are often central to understanding what is being watched or ruled out.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-oncology-and-tumor-language",
+      "lesson-unit1-condition-suffixes"
+    ],
+    introducesPartIds: ["part-plasia-suffix", "part-malacia-suffix"],
+    introducesTermIds: [
+      "term-dysplasia",
+      "term-hyperplasia",
+      "term-hypoplasia",
+      "term-osteomalacia",
+      "term-metastasis"
+    ],
+    reinforcesTermIds: [
+      "term-neoplasm",
+      "term-benign",
+      "term-malignant",
+      "term-biopsy",
+      "term-specimen"
+    ],
+    exerciseSetIds: [
+      "exercise-unit2-pathology-1",
+      "exercise-unit2-pathology-2",
+      "exercise-unit2-pathology-3",
+      "exercise-unit2-pathology-4",
+      "exercise-unit2-pathology-5"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-oncology-and-pathology-synthesis",
+    title: "Oncology and Pathology Synthesis",
+    unitId: "unit-6",
+    objective: "Read pathology and imaging-result passages that mix growth-pattern, spread, biopsy, and follow-up language.",
+    whyItMatters: "Report-style pathology language is one of the densest real-world reading targets, and learners need safe practice separating growth-pattern terms from confirmed spread or malignancy.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-pleural-and-chest-synthesis",
+      "lesson-unit2-pathology-and-tissue-change-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-biopsy",
+      "term-specimen",
+      "term-dysplasia",
+      "term-hyperplasia",
+      "term-hypoplasia",
+      "term-metastasis",
+      "term-benign",
+      "term-malignant",
+      "term-impression",
+      "term-monitoring",
+      "term-follow-up",
+      "term-consult"
+    ],
+    reinforcesAbbreviationIds: ["abbr-fu", "abbr-pcp", "abbr-mri", "abbr-dx", "abbr-ct"],
+    exerciseSetIds: [
+      "exercise-unit6-pathology-synth-1",
+      "exercise-unit6-pathology-synth-2",
+      "exercise-unit6-pathology-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",

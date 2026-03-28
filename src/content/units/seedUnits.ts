@@ -52,7 +52,8 @@ export const units: Unit[] = [
       "lesson-unit2-urinary-output-and-testing-language",
       "lesson-unit2-hepatobiliary-and-stone-language",
       "lesson-unit2-upper-airway-and-throat-language",
-      "lesson-unit2-pleural-and-chest-language"
+      "lesson-unit2-pleural-and-chest-language",
+      "lesson-unit2-pathology-and-tissue-change-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
@@ -124,7 +125,8 @@ export const units: Unit[] = [
       "lesson-unit6-portal-and-authorization-crossover",
       "lesson-unit6-upper-airway-and-throat-synthesis",
       "lesson-unit6-respiratory-recheck-and-escalation",
-      "lesson-unit6-pleural-and-chest-synthesis"
+      "lesson-unit6-pleural-and-chest-synthesis",
+      "lesson-unit6-oncology-and-pathology-synthesis"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "lesson-linked",
