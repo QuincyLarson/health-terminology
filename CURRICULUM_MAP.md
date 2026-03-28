@@ -25,12 +25,12 @@ Each future unit and module entry should accumulate:
 ## Seeded Coverage
 - Unit 0 is partially authored and playable, including plural and pronunciation lessons.
 - Unit 1 now covers suffixes, roots, prefixes, rate prefixes, procedure language, and condition-suffix decoding.
-- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, and upper-airway or throat language.
+- Unit 2 now includes starter lessons for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, and pleural or chest language.
 - Unit 3 now includes starter lessons for clinical language patterns, chart phrasing, workflow language, diagnostics, medication basics, condition-state language, and chart passages.
 - Unit 4 now includes starter lessons for administrative, intake, billing, portal, reminder, and purpose-built passage language.
 - Unit 5 now exists as a lesson-linked abbreviations unit with chart-note, history or status, frequency or lab, and imaging or urgency shorthand coverage.
-- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, and respiratory recheck or escalation drills.
-- The app currently exposes 63 lessons, 167 terms, 81 parts, 181 exercises, and 32 abbreviations.
+- Unit 6 now exists as a lesson-linked final synthesis unit with rapid parsing, results or discharge synthesis, urgent-imaging drills, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover drills, upper-airway or throat synthesis, respiratory recheck or escalation drills, and pleural or chest synthesis drills.
+- The app currently exposes 65 lessons, 172 terms, 84 parts, 189 exercises, and 32 abbreviations.
 - Browse mode is implemented as a separate surface for search and future-term preview.
 - Review flow now uses due, new, and mixed queues with caps and filter controls.
 - Endless mode is implemented as a separate surface and only shows eligible terms.
@@ -111,7 +111,7 @@ Each future unit and module entry should accumulate:
 - Prerequisite guidance: follow core body roots and suffixes.
 
 ## Unit 2 - Body Systems
-Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, and upper-airway or throat language.
+Unit 2 now has authored starter slices for cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, and pleural or chest language.
 ### Module 2.1: Cardiovascular
 - Lesson goal: recognize terms around the heart, vessels, pressure, and circulation.
 - Representative content: `cardi/o`, `angi/o`, `arteri/o`, `ven/o`, `hemat/o`.
@@ -190,6 +190,12 @@ Unit 2 now has authored starter slices for cardiovascular, respiratory, gastroin
 ### Module 2.13: Upper Airway and Throat
 - Lesson goal: decode common nose, sinus, throat, and voice-box terms using familiar inflammation and discharge patterns.
 - Representative content: `rhin/o`, `sinus/o`, `pharyng/o`, `laryng/o`, `-rrhea`.
+- Priority: medium-high.
+- Status: seeded.
+
+### Module 2.14: Pleural and Chest
+- Lesson goal: decode chest, pleural, and chest-procedure terms using familiar inflammation and procedure patterns.
+- Representative content: `pleur/o`, `thorac/o`, `-centesis`, `thoracotomy`, `thoracentesis`.
 - Priority: medium-high.
 - Status: seeded.
 
@@ -320,7 +326,7 @@ Unit 5 now has authored starter slices for clinical, document, measurement, rout
 - Status: seeded.
 
 ## Unit 6 - Final Synthesis
-Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover, upper-airway or throat synthesis, and respiratory recheck or escalation.
+Unit 6 now has authored starter slices for mixed recognition, passage decoding, rapid parsing, results or discharge synthesis, urgent-imaging synthesis, renal-lab synthesis, blood-count synthesis, abdominal-and-stone synthesis, referral-and-consult synthesis, handoff-and-reassessment synthesis, portal-and-authorization crossover, upper-airway or throat synthesis, respiratory recheck or escalation, and pleural or chest synthesis.
 ### Module 6.1: Mixed Review
 - Lesson goal: combine roots, affixes, abbreviations, and context clues.
 - Representative content: mixed term sets from all prior units.
@@ -396,6 +402,12 @@ Unit 6 now has authored starter slices for mixed recognition, passage decoding, 
 ### Module 6.13: Respiratory Recheck and Escalation
 - Lesson goal: read recheck passages that distinguish routine upper-airway symptoms from more urgent breathing or oxygen concerns.
 - Representative content: dyspnea, hypoxia, bronchitis, pneumonia, SOB, WNL, reassessment.
+- Priority: medium.
+- Status: seeded.
+
+### Module 6.14: Pleural and Chest Synthesis
+- Lesson goal: read chest-pain and pleural-note passages that mix respiratory terms, imaging shorthand, procedures, and follow-up language.
+- Representative content: thoracic, pleural, thoracentesis, pleuritis, CT, dyspnea, SOB.
 - Priority: medium.
 - Status: seeded.
 

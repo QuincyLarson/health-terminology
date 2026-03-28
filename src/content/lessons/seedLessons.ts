@@ -2539,6 +2539,123 @@ export const exercises: Exercise[] = [
     linkedTermIds: ["term-sinusitis", "term-rhinorrhea", "term-acute"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sob"],
+  },
+  {
+    id: "exercise-unit2-pleural-1",
+    type: "root_match",
+    prompt: "Which combining form points to the chest?",
+    choices: ["thorac/o", "pleur/o", "laryng/o", "rhin/o"],
+    answer: "thorac/o",
+    explanation: "`thorac/o` points to the chest area.",
+    linkedTermIds: ["term-thoracic", "term-thoracotomy"],
+    linkedPartIds: ["part-thorac-combining"],
+  },
+  {
+    id: "exercise-unit2-pleural-2",
+    type: "infer_meaning",
+    prompt: "If `pleur/o` points to the lining around the lungs and `-itis` means inflammation, what does `pleuritis` suggest?",
+    choices: [
+      "inflammation of the lining around the lungs",
+      "a puncture into the chest",
+      "related to the throat",
+      "an infection limited to the nose"
+    ],
+    answer: "inflammation of the lining around the lungs",
+    explanation: "`pleuritis` follows the same structure as many other inflammation terms in the course.",
+    linkedTermIds: ["term-pleuritis"],
+    linkedPartIds: ["part-pleur-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit2-pleural-3",
+    type: "infer_meaning",
+    prompt: "What does `thoracic` suggest?",
+    choices: [
+      "related to the chest",
+      "related to the nose",
+      "inflammation of the throat",
+      "related to the gallbladder"
+    ],
+    answer: "related to the chest",
+    explanation: "`thorac/o` points to the chest, so `thoracic` describes that area.",
+    linkedTermIds: ["term-thoracic"],
+    linkedPartIds: ["part-thorac-combining"],
+  },
+  {
+    id: "exercise-unit2-pleural-4",
+    type: "infer_meaning",
+    prompt: "If `thorac/o` means chest and `-otomy` means incision into, what does `thoracotomy` suggest?",
+    choices: [
+      "an incision into the chest",
+      "a chest scan",
+      "a puncture into the nose",
+      "inflammation of the pleura"
+    ],
+    answer: "an incision into the chest",
+    explanation: "`thoracotomy` follows the taught procedure pattern of organ plus `-otomy`.",
+    linkedTermIds: ["term-thoracotomy"],
+    linkedPartIds: ["part-thorac-combining", "part-otomy-suffix"],
+  },
+  {
+    id: "exercise-unit2-pleural-5",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `thoracentesis`?",
+    choices: [
+      "a puncture into the chest to remove fluid or air",
+      "inflammation of the chest lining",
+      "a surgical removal of the chest wall",
+      "difficulty breathing with low oxygen"
+    ],
+    answer: "a puncture into the chest to remove fluid or air",
+    explanation: "`-centesis` points to a surgical puncture, often to remove fluid or air.",
+    linkedTermIds: ["term-thoracentesis"],
+    linkedPartIds: ["part-thorac-combining", "part-centesis-suffix"],
+  },
+  {
+    id: "exercise-unit6-pleural-synth-1",
+    type: "infer_meaning",
+    prompt: "ED note: `Patient c/o thoracic pain and dyspnea. CT suggests pleural fluid. Thoracentesis planned; f/u with PCP after discharge.` Which paraphrase best matches?",
+    choices: [
+      "The patient has chest pain and breathing difficulty, fluid around the lungs is suspected, and a chest-drainage procedure is planned with later follow-up",
+      "The patient has only nasal congestion and can ignore the symptoms",
+      "The note is mainly about insurance denial and records transfer",
+      "The patient has kidney stones and needs a urine test"
+    ],
+    answer: "The patient has chest pain and breathing difficulty, fluid around the lungs is suspected, and a chest-drainage procedure is planned with later follow-up",
+    explanation: "This passage mixes chest-language terms, imaging shorthand, a respiratory symptom term, and discharge follow-up.",
+    linkedTermIds: ["term-thoracic", "term-dyspnea", "term-pleural", "term-thoracentesis", "term-follow-up", "term-discharge"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-co", "abbr-ct", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-pleural-synth-2",
+    type: "infer_meaning",
+    prompt: "Reassessment: `No hypoxia, lungs WNL, likely pleuritis rather than pneumonia. Continue PRN care and return if SOB worsens.` Which paraphrase best matches?",
+    choices: [
+      "Low oxygen was not found, the lungs look stable overall, and inflammation of the chest lining is more likely than a lung infection",
+      "The patient has severe pneumonia and should skip all follow-up",
+      "The message is about a portal password reset",
+      "A gallbladder procedure is now planned"
+    ],
+    answer: "Low oxygen was not found, the lungs look stable overall, and inflammation of the chest lining is more likely than a lung infection",
+    explanation: "This line contrasts oxygen status, normal-range shorthand, pleural inflammation, and pneumonia.",
+    linkedTermIds: ["term-reassessment", "term-hypoxia", "term-pleuritis", "term-pneumonia"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-wnl", "abbr-prn", "abbr-sob"],
+  },
+  {
+    id: "exercise-unit6-pleural-synth-3",
+    type: "infer_meaning",
+    prompt: "Procedure update: `Thoracentesis completed, dyspnea improved, and repeat assessment remains thoracic but stable.` What does `thoracentesis` most likely mean here?",
+    choices: [
+      "a puncture into the chest to remove fluid or air",
+      "a lung infection that spreads quickly",
+      "nasal discharge from the upper airway",
+      "a routine blood-count test"
+    ],
+    answer: "a puncture into the chest to remove fluid or air",
+    explanation: "The procedure name combines the chest root with the puncture suffix and fits the chest-fluid context.",
+    linkedTermIds: ["term-thoracentesis", "term-dyspnea", "term-assessment", "term-thoracic", "term-stable"],
+    linkedPartIds: ["part-thorac-combining", "part-centesis-suffix"],
   }
 ];
 
@@ -4298,6 +4415,78 @@ export const lessons: Lesson[] = [
       "exercise-unit6-respiratory-recheck-1",
       "exercise-unit6-respiratory-recheck-2",
       "exercise-unit6-respiratory-recheck-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-pleural-and-chest-language",
+    title: "Pleural and Chest Language",
+    unitId: "unit-2",
+    objective: "Decode chest, pleural, and chest-procedure terms using familiar inflammation and procedure patterns.",
+    whyItMatters: "These terms appear in imaging impressions, procedure notes, and chest-pain or breathing workups.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-upper-airway-and-throat-language",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: [
+      "part-pleur-combining",
+      "part-thorac-combining",
+      "part-centesis-suffix"
+    ],
+    introducesTermIds: [
+      "term-pleuritis",
+      "term-pleural",
+      "term-thoracic",
+      "term-thoracotomy",
+      "term-thoracentesis"
+    ],
+    reinforcesTermIds: [
+      "term-dyspnea",
+      "term-hypoxia",
+      "term-pneumonia",
+      "term-tracheotomy",
+      "term-bronchoscopy"
+    ],
+    exerciseSetIds: [
+      "exercise-unit2-pleural-1",
+      "exercise-unit2-pleural-2",
+      "exercise-unit2-pleural-3",
+      "exercise-unit2-pleural-4",
+      "exercise-unit2-pleural-5"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-pleural-and-chest-synthesis",
+    title: "Pleural and Chest Synthesis",
+    unitId: "unit-6",
+    objective: "Read chest-pain and pleural-note passages that mix respiratory terms, imaging shorthand, procedures, and follow-up language.",
+    whyItMatters: "Pleural and chest notes are dense but pattern-driven, making them strong synthesis drills once the learner knows the roots and procedure suffixes.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-respiratory-recheck-and-escalation",
+      "lesson-unit2-pleural-and-chest-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-thoracic",
+      "term-dyspnea",
+      "term-pleural",
+      "term-thoracentesis",
+      "term-pleuritis",
+      "term-pneumonia",
+      "term-follow-up",
+      "term-discharge",
+      "term-reassessment",
+      "term-stable"
+    ],
+    reinforcesAbbreviationIds: ["abbr-co", "abbr-ct", "abbr-fu", "abbr-pcp", "abbr-wnl", "abbr-prn", "abbr-sob"],
+    exerciseSetIds: [
+      "exercise-unit6-pleural-synth-1",
+      "exercise-unit6-pleural-synth-2",
+      "exercise-unit6-pleural-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",
