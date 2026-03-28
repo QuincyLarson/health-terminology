@@ -31,14 +31,14 @@
 - Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 7 units, 46 lessons, 67 parts, 149 terms, 122 exercises, and 22 abbreviations.
+- Seed content exists for 7 units, 49 lessons, 67 parts, 149 terms, 131 exercises, and 28 abbreviations.
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
 - Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, procedure language, and condition-suffix decoding.
 - Unit 2 now includes cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor starter lessons.
 - Unit 3 now includes symptoms/status language, procedure families, chart-style phrasing, admissions or discharge workflow language, diagnostics or imaging language, medication-administration basics, condition-state language, and chart-passage decoding.
 - Unit 4 now includes scheduling, follow-up, records, orders, authorization, intake forms, billing language, portal or reminder language, and administrative passage decoding.
-- Unit 5 now exists as a lesson-linked abbreviations unit with clinical, document, measurement, route, and chart-shorthand coverage.
-- Unit 6 now exists as a lesson-linked synthesis unit with mixed recognition, passage-decoding, and rapid-parsing lessons.
+- Unit 5 now exists as a lesson-linked abbreviations unit with clinical, document, measurement, route, chart-shorthand, history or status, and frequency or lab coverage.
+- Unit 6 now exists as a lesson-linked synthesis unit with mixed recognition, passage-decoding, rapid-parsing, and results or discharge synthesis lessons.
 - Browse mode is implemented as a separate surface and labels future terms as `not yet taught`.
 - The review flow is functional with due, new, and mixed queues, queue caps, and filter controls.
 - Endless mode is implemented as a separate page with search, unit, body-system, and due-only filters.
@@ -88,8 +88,8 @@
 - Unit 2 now has coherent cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, and oncology or tumor starter slices.
 - Unit 3 now has broader starter slices for clinical-language patterns, chart phrasing, care workflow, diagnostics, medication language, condition-state language, and chart passages.
 - Unit 4 now has broader starter slices for administrative, intake, billing, portal, reminder, and purpose-built passage language.
-- Unit 5 now exists as a curriculum-linked abbreviations module rather than only a separate recognition page, and now includes chart-note shorthand.
-- Unit 6 now has seeded mixed-recognition, passage-decoding, and rapid-parsing lessons.
+- Unit 5 now exists as a curriculum-linked abbreviations module rather than only a separate recognition page, and now includes chart-note, history or status, and frequency or lab shorthand.
+- Unit 6 now has seeded mixed-recognition, passage-decoding, rapid-parsing, and results or discharge synthesis lessons.
 
 ### Stage 4: Endless Mode and SRS
 - Add due, new, and mixed queues.
@@ -127,8 +127,8 @@
 
 ## Batch Ledger
 - Seed batch authored: Unit 0 foundations, broader Unit 1 roots/prefixes/procedures plus condition suffixes, expanded Unit 2 body-system slices, broader Unit 3 and Unit 4 language coverage, and the first lesson-linked Units 5 and 6.
-- Latest scale-out batch added Unit 2 integumentary, sensory, and oncology or tumor language, expanded Unit 5 chart-note abbreviations, and added Unit 6 rapid parsing drills.
-- Current seed totals: 7 units, 46 lessons, 67 parts, 149 terms, 122 exercises, and 22 abbreviations.
+- Latest scale-out batches added Unit 2 integumentary, sensory, and oncology or tumor language, expanded Unit 5 chart-note plus history or status plus frequency or lab abbreviations, and added Unit 6 rapid parsing plus results or discharge synthesis drills.
+- Current seed totals: 7 units, 49 lessons, 67 parts, 149 terms, 131 exercises, and 28 abbreviations.
 - Current runtime surfaces: curriculum, lesson, browse, review, endless, abbreviations, progress, settings, and about.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.
