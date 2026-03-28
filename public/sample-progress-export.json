@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "exportedAt": "2026-03-28T00:00:00.000Z",
+  "user": {
+    "currentUnitId": "unit-2",
+    "currentLessonId": "lesson-unit2-cardiovascular-starter"
+  },
+  "lessons": {
+    "lesson-unit0-word-parts": {
+      "completed": true,
+      "mastery": 1,
+      "score": 2,
+      "totalExercises": 2,
+      "lastVisitedAt": "2026-03-28T00:00:00.000Z"
+    }
+  },
+  "terms": {
+    "term-cardiology": {
+      "seenCount": 3,
+      "correctCount": 3,
+      "incorrectCount": 0,
+      "lastSeenAt": "2026-03-28T00:00:00.000Z",
+      "nextDueAt": "2026-03-30T00:00:00.000Z",
+      "intervalDays": 2,
+      "easeFactor": 2.5,
+      "suspended": false
+    }
+  },
+  "settings": {
+    "audioEnabled": true,
+    "reducedMotion": false
+  }
+}
