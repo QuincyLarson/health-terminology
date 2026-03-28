@@ -27,7 +27,8 @@ export const units: Unit[] = [
       "lesson-unit1-procedure-language",
       "lesson-unit1-location-prefix-families",
       "lesson-unit1-stomy-procedure-family",
-      "lesson-unit1-common-root-recombinations"
+      "lesson-unit1-common-root-recombinations",
+      "lesson-unit1-vessel-root-family"
     ],
     prerequisiteUnitIds: ["unit-0"],
     status: "shipped",

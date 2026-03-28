@@ -32,9 +32,9 @@
 - Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 7 units, 85 lessons, 94 parts, 237 terms, 268 exercises, and 44 abbreviations.
+- Seed content exists for 7 units, 86 lessons, 97 parts, 245 terms, 272 exercises, and 44 abbreviations.
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
-- Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, procedure language, condition-suffix decoding, location-prefix families, `-stomy` procedure families, and common root recombinations.
+- Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, procedure language, condition-suffix decoding, location-prefix families, `-stomy` procedure families, common root recombinations, and a dedicated vessel-root family.
 - Unit 2 now includes cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up starter lessons.
 - Unit 3 now includes symptoms/status language, procedure families, chart-style phrasing, admissions or discharge workflow language, diagnostics or imaging language, medication-administration basics, condition-state language, chart-passage decoding, severity or progression language, results or interpretation language, and report-comparison language.
 - Unit 4 now includes scheduling, follow-up, records, orders, authorization, intake forms, billing language, portal or reminder language, administrative passage decoding, verification or network language, preparation or instruction language, and billing-resolution language.
@@ -87,7 +87,7 @@
 
 ### Stage 3 Status
 - Unit 0 foundations now include plural and pronunciation coverage.
-- Unit 1 is broader, with roots, prefixes, procedures, condition-suffix language, location-prefix families, `-stomy` families, and root-recombination drills.
+- Unit 1 is broader, with roots, prefixes, procedures, condition-suffix language, location-prefix families, `-stomy` families, root-recombination drills, and a dedicated vessel-family slice.
 - Unit 2 now has coherent cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up starter slices.
 - Unit 3 now has broader slices for clinical-language patterns, chart phrasing, care workflow, diagnostics, medication language, condition-state language, chart passages, severity or progression language, and results or interpretation language.
 - Unit 4 now has broader starter slices for administrative, intake, billing, portal, reminder, and purpose-built passage language.
@@ -140,7 +140,8 @@
 - Seed batch authored: Unit 0 foundations, broader Unit 1 roots/prefixes/procedures plus condition suffixes, expanded Unit 2 body-system slices, broader Unit 3 and Unit 4 language coverage, and the first lesson-linked Units 5 and 6.
 - Latest scale-out batches added Unit 2 integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language, expanded Unit 5 chart-note plus history or status plus frequency or lab plus imaging or urgency abbreviations, and added Unit 6 rapid parsing plus results or discharge plus urgent-imaging plus renal-lab plus blood-count plus abdominal-and-stone plus referral-and-consult plus handoff-and-reassessment plus portal-and-authorization crossover plus upper-airway or throat plus respiratory recheck or escalation plus pleural or chest plus oncology or pathology plus immune or node plus reproductive follow-up synthesis drills.
 - The newest root-first batch adds Unit 1 location-prefix families, the `-stomy` procedure family, and dense cross-root recombinations such as `cardiomyopathy`, `nephrectomy`, `endoscopy`, and `gastroenterology`.
-- Current seed totals: 7 units, 85 lessons, 94 parts, 237 terms, 268 exercises, and 44 abbreviations.
+- The next root-family batch adds a dedicated vessel family with `vascular`, `vasculitis`, `endovascular`, `perivascular`, `arteriosclerosis`, and `atherosclerosis`.
+- Current seed totals: 7 units, 86 lessons, 97 parts, 245 terms, 272 exercises, and 44 abbreviations.
 - Current runtime surfaces: curriculum, lesson, browse, review, endless, abbreviations, progress, settings, and about.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.
 - Each future entry should record scope, counts, validation state, blockers, and the commit that introduced it.

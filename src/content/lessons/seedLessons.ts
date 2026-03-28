@@ -3842,6 +3842,61 @@ export const exercises: Exercise[] = [
     explanation: "The same pain suffix used elsewhere carries over neatly into a new root family.",
     linkedTermIds: ["term-otalgia"],
     linkedPartIds: ["part-ot-combining", "part-algia-suffix"],
+  },
+  {
+    id: "exercise-unit1-vessel-family-1",
+    type: "root_match",
+    prompt: "Which root most directly points to a vessel in terms like `vascular` and `vasculitis`?",
+    choices: ["vascul", "cardi", "nephr/o", "gastr"],
+    answer: "vascul",
+    explanation: "`vascul` is a high-yield vessel root that shows up in many common cardiovascular terms.",
+    linkedTermIds: ["term-vascular", "term-vasculitis"],
+    linkedPartIds: ["part-vascul-root"],
+  },
+  {
+    id: "exercise-unit1-vessel-family-2",
+    type: "infer_meaning",
+    prompt: "What does `vasculitis` suggest?",
+    choices: [
+      "inflammation of blood vessels",
+      "hardening of the arteries",
+      "around a blood vessel",
+      "inside a blood vessel"
+    ],
+    answer: "inflammation of blood vessels",
+    explanation: "The vessel root combines with the familiar inflammation suffix.",
+    linkedTermIds: ["term-vasculitis"],
+    linkedPartIds: ["part-vascul-root", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit1-vessel-family-3",
+    type: "infer_meaning",
+    prompt: "Which contrast is most accurate?",
+    choices: [
+      "`endovascular` points within a vessel, while `perivascular` points around a vessel",
+      "`endovascular` means artery hardening, while `perivascular` means vessel inflammation",
+      "`endovascular` means vein disease, while `perivascular` means artery removal",
+      "`endovascular` and `perivascular` both mean blood vessel pain"
+    ],
+    answer: "`endovascular` points within a vessel, while `perivascular` points around a vessel",
+    explanation: "The same vessel root becomes much more useful once the learner can read location prefixes quickly.",
+    linkedTermIds: ["term-endovascular", "term-perivascular"],
+    linkedPartIds: ["part-endo-prefix", "part-peri-prefix", "part-vascul-root"],
+  },
+  {
+    id: "exercise-unit1-vessel-family-4",
+    type: "infer_meaning",
+    prompt: "If `ather/o` points to fatty plaque and `-sclerosis` points to hardening, what does `atherosclerosis` suggest?",
+    choices: [
+      "hardening associated with fatty plaque buildup",
+      "inflammation around an artery",
+      "a surgically created opening into a vessel",
+      "pain inside a vein"
+    ],
+    answer: "hardening associated with fatty plaque buildup",
+    explanation: "This is one of the highest-yield examples of a common root-plus-suffix disease pattern.",
+    linkedTermIds: ["term-atherosclerosis"],
+    linkedPartIds: ["part-ather-combining", "part-sclerosis-suffix"],
   }
 ];
 
@@ -4110,6 +4165,43 @@ export const lessons: Lesson[] = [
       "exercise-unit1-recombination-4"
     ],
     estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit1-vessel-root-family",
+    title: "The Vessel Root Family",
+    unitId: "unit-1",
+    objective: "Expand one of the most common cardiovascular root families into everyday adjectives, procedure language, and disease terms.",
+    whyItMatters: "This is the kind of high-yield family that shows why roots matter more than memorizing isolated specialty lists.",
+    prerequisiteLessonIds: [
+      "lesson-unit1-location-prefix-families",
+      "lesson-unit1-common-root-recombinations"
+    ],
+    introducesPartIds: ["part-vascul-root", "part-sclerosis-suffix", "part-ather-combining"],
+    introducesTermIds: [
+      "term-vascular",
+      "term-vasculitis",
+      "term-endovascular",
+      "term-perivascular",
+      "term-arterial",
+      "term-venous",
+      "term-arteriosclerosis",
+      "term-atherosclerosis"
+    ],
+    reinforcesTermIds: [
+      "term-hypertension",
+      "term-angiography",
+      "term-angioplasty",
+      "term-pericarditis",
+      "term-endocarditis"
+    ],
+    exerciseSetIds: [
+      "exercise-unit1-vessel-family-1",
+      "exercise-unit1-vessel-family-2",
+      "exercise-unit1-vessel-family-3",
+      "exercise-unit1-vessel-family-4"
+    ],
+    estimatedMinutes: 8,
     status: "shipped",
   },
   {
