@@ -48,7 +48,8 @@ export const units: Unit[] = [
       "lesson-unit2-integumentary-language",
       "lesson-unit2-eye-ear-and-hearing-language",
       "lesson-unit2-oncology-and-tumor-language",
-      "lesson-unit2-blood-and-clotting-language"
+      "lesson-unit2-blood-and-clotting-language",
+      "lesson-unit2-urinary-output-and-testing-language"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1"],
     status: "lesson-linked",
@@ -111,7 +112,9 @@ export const units: Unit[] = [
       "lesson-unit6-admin-passage-decoding",
       "lesson-unit6-rapid-parsing-drills",
       "lesson-unit6-results-and-discharge-synthesis",
-      "lesson-unit6-urgent-and-imaging-synthesis"
+      "lesson-unit6-urgent-and-imaging-synthesis",
+      "lesson-unit6-renal-and-lab-synthesis",
+      "lesson-unit6-blood-and-count-synthesis"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "lesson-linked",

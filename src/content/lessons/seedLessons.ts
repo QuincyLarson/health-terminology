@@ -1954,6 +1954,174 @@ export const exercises: Exercise[] = [
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-stat", "abbr-ct"],
+  },
+  {
+    id: "exercise-unit2-urinary-output-1",
+    type: "root_match",
+    prompt: "Which prefix suggests many or much, as in `polyuria`?",
+    choices: ["poly-", "olig-", "dys-", "sub-"],
+    answer: "poly-",
+    explanation: "`poly-` signals many or much in terms such as `polyuria`.",
+    linkedTermIds: ["term-polyuria"],
+    linkedPartIds: ["part-poly-prefix"],
+  },
+  {
+    id: "exercise-unit2-urinary-output-2",
+    type: "infer_meaning",
+    prompt: "If `dys-` means difficult or abnormal and `-uria` points to a urine condition, what does `dysuria` suggest?",
+    choices: [
+      "painful or difficult urination",
+      "too much urination",
+      "low urine output",
+      "a blood clot in a vessel"
+    ],
+    answer: "painful or difficult urination",
+    explanation: "`dysuria` points to abnormal or uncomfortable urination.",
+    linkedTermIds: ["term-dysuria"],
+    linkedPartIds: ["part-dys-prefix", "part-uria-suffix"],
+  },
+  {
+    id: "exercise-unit2-urinary-output-3",
+    type: "infer_meaning",
+    prompt: "What does `polyuria` suggest?",
+    choices: [
+      "excessive urination",
+      "painful urination",
+      "urine testing in the lab",
+      "too little urine output"
+    ],
+    answer: "excessive urination",
+    explanation: "`poly-` plus `-uria` points to too much urine output.",
+    linkedTermIds: ["term-polyuria"],
+    linkedPartIds: ["part-poly-prefix", "part-uria-suffix"],
+  },
+  {
+    id: "exercise-unit2-urinary-output-4",
+    type: "infer_meaning",
+    prompt: "What does `oliguria` suggest?",
+    choices: [
+      "abnormally low urine output",
+      "protein in the urine",
+      "blood in the urine",
+      "painful urination"
+    ],
+    answer: "abnormally low urine output",
+    explanation: "`olig-` points to scanty or too little, and `-uria` points to urine output.",
+    linkedTermIds: ["term-oliguria"],
+    linkedPartIds: ["part-olig-prefix", "part-uria-suffix"],
+  },
+  {
+    id: "exercise-unit2-urinary-output-5",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `proteinuria`?",
+    choices: [
+      "protein present in the urine",
+      "too many red blood cells",
+      "a normal urine test",
+      "urination that is painful"
+    ],
+    answer: "protein present in the urine",
+    explanation: "The safe decomposition comes from `-uria`, which signals a urine finding or urine-related condition.",
+    linkedTermIds: ["term-proteinuria"],
+    linkedPartIds: ["part-uria-suffix"],
+  },
+  {
+    id: "exercise-unit6-renal-synth-1",
+    type: "infer_meaning",
+    prompt: "Portal message: `UA WNL, but dysuria persists. Increase fluids and schedule f/u with PCP if hematuria returns or urine output falls.` Which paraphrase fits best?",
+    choices: [
+      "The urine test looked normal, but painful urination is still present, and follow-up is needed if blood in the urine returns or output drops",
+      "The urine test confirmed a kidney tumor and urgent surgery is required",
+      "The patient should stop all fluids because urine output is too high",
+      "The message is mainly about billing and insurance paperwork"
+    ],
+    answer: "The urine test looked normal, but painful urination is still present, and follow-up is needed if blood in the urine returns or output drops",
+    explanation: "This message mixes urine-test shorthand, urinary symptoms, and follow-up language in one short passage.",
+    linkedTermIds: ["term-dysuria", "term-hematuria", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-ua", "abbr-wnl", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-renal-synth-2",
+    type: "infer_meaning",
+    prompt: "Results note: `Urinalysis shows proteinuria without hematuria. Plan: nephrology follow-up if symptoms continue.` Which paraphrase best matches?",
+    choices: [
+      "The urine test found protein but not blood, and kidney follow-up is advised if problems continue",
+      "The urine test was fully normal and no follow-up is needed",
+      "The note confirms a blood clot in the leg",
+      "The patient should take antibiotics three times daily after surgery"
+    ],
+    answer: "The urine test found protein but not blood, and kidney follow-up is advised if problems continue",
+    explanation: "This line combines a full urine-test term, a partial urine finding, and kidney-specialty follow-up language.",
+    linkedTermIds: ["term-urinalysis", "term-proteinuria", "term-hematuria", "term-nephrology", "term-follow-up"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit6-renal-synth-3",
+    type: "infer_meaning",
+    prompt: "Follow-up note: `Patient reports polyuria this week; reassessment planned overnight if oliguria develops.` Which contrast best matches the note?",
+    choices: [
+      "too much urine now, with watchfulness for too little urine later",
+      "painful urination now, with watchfulness for blood in the urine later",
+      "normal urine test now, with watchfulness for kidney stones later",
+      "low blood count now, with watchfulness for infection later"
+    ],
+    answer: "too much urine now, with watchfulness for too little urine later",
+    explanation: "`polyuria` and `oliguria` create a useful high-versus-low urine-output contrast.",
+    linkedTermIds: ["term-polyuria", "term-oliguria", "term-reassessment"],
+    linkedPartIds: ["part-poly-prefix", "part-olig-prefix", "part-uria-suffix"],
+  },
+  {
+    id: "exercise-unit6-blood-synth-1",
+    type: "infer_meaning",
+    prompt: "CBC update: `Leukocytosis present with stable erythrocyte count. Assessment: likely infection; continue monitoring and reassessment if fever worsens.` Which paraphrase fits best?",
+    choices: [
+      "The white blood cell count is elevated while red blood cells are stable, so the note leans toward infection and continued observation",
+      "Both red and white blood cells are dangerously low and immediate surgery is required",
+      "The blood count is within normal limits and no follow-up is needed",
+      "The message is about a normal urine test rather than blood counts"
+    ],
+    answer: "The white blood cell count is elevated while red blood cells are stable, so the note leans toward infection and continued observation",
+    explanation: "This passage combines CBC language with blood-cell terms and common assessment or monitoring phrasing.",
+    linkedTermIds: [
+      "term-leukocytosis",
+      "term-erythrocyte",
+      "term-infection",
+      "term-monitoring",
+      "term-reassessment"
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc"],
+  },
+  {
+    id: "exercise-unit6-blood-synth-2",
+    type: "infer_meaning",
+    prompt: "Imaging impression: `No thrombosis seen. Leg swelling improving; continue routine follow-up.` What does this suggest?",
+    choices: [
+      "No blood clot was found, and the swelling is getting better",
+      "A malignant tumor was found and urgent treatment is required",
+      "The urine test found protein and blood",
+      "The patient should remain NPO before biopsy"
+    ],
+    answer: "No blood clot was found, and the swelling is getting better",
+    explanation: "`thrombosis` points to a clotting process, so the note is reassuring that no clot was seen.",
+    linkedTermIds: ["term-thrombosis", "term-impression", "term-follow-up"],
+    linkedPartIds: ["part-thromb-combining", "part-osis-suffix"],
+  },
+  {
+    id: "exercise-unit6-blood-synth-3",
+    type: "infer_meaning",
+    prompt: "Which phrase best matches `leukocytosis`?",
+    choices: [
+      "an abnormally increased white blood cell count",
+      "a normal red blood cell count",
+      "protein found in the urine",
+      "painful urination"
+    ],
+    answer: "an abnormally increased white blood cell count",
+    explanation: "`leuk/o` points to white, `cyt/o` points to cell, and `-osis` marks an abnormal condition.",
+    linkedTermIds: ["term-leukocytosis"],
+    linkedPartIds: ["part-leuk-combining", "part-cyt-combining", "part-osis-suffix"],
   }
 ];
 
@@ -3334,6 +3502,97 @@ export const lessons: Lesson[] = [
       "exercise-unit6-urgent-imaging-1",
       "exercise-unit6-urgent-imaging-2",
       "exercise-unit6-urgent-imaging-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-urinary-output-and-testing-language",
+    title: "Urinary Output and Testing Language",
+    unitId: "unit-2",
+    objective: "Decode high-yield urine-output and urine-testing terms that appear in clinic notes, triage, and lab follow-up.",
+    whyItMatters: "Urinary symptom and testing language shows up often in patient portals, urgent care, nephrology notes, and result messages.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-blood-and-clotting-language",
+      "lesson-unit2-renal-urinary-language"
+    ],
+    introducesPartIds: ["part-poly-prefix", "part-olig-prefix"],
+    introducesTermIds: [
+      "term-dysuria",
+      "term-polyuria",
+      "term-oliguria",
+      "term-proteinuria",
+      "term-urinalysis"
+    ],
+    reinforcesTermIds: ["term-hematuria", "term-cystitis", "term-nephrology"],
+    exerciseSetIds: [
+      "exercise-unit2-urinary-output-1",
+      "exercise-unit2-urinary-output-2",
+      "exercise-unit2-urinary-output-3",
+      "exercise-unit2-urinary-output-4",
+      "exercise-unit2-urinary-output-5"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-renal-and-lab-synthesis",
+    title: "Renal and Lab Synthesis",
+    unitId: "unit-6",
+    objective: "Read urine-test and urinary-symptom passages that mix result shorthand, kidney follow-up, and output language.",
+    whyItMatters: "A lot of patient-facing kidney and urine text appears as short notes that combine symptoms, tests, and follow-up instructions.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-urgent-and-imaging-synthesis",
+      "lesson-unit2-urinary-output-and-testing-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-dysuria",
+      "term-polyuria",
+      "term-oliguria",
+      "term-proteinuria",
+      "term-urinalysis",
+      "term-hematuria",
+      "term-nephrology",
+      "term-follow-up"
+    ],
+    reinforcesAbbreviationIds: ["abbr-ua", "abbr-wnl", "abbr-fu", "abbr-pcp"],
+    exerciseSetIds: [
+      "exercise-unit6-renal-synth-1",
+      "exercise-unit6-renal-synth-2",
+      "exercise-unit6-renal-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-blood-and-count-synthesis",
+    title: "Blood and Count Synthesis",
+    unitId: "unit-6",
+    objective: "Read short blood-count and clotting passages that mix CBC shorthand, cell-count terms, and monitoring language.",
+    whyItMatters: "Blood-count notes are dense but common, and they are a good final synthesis target because they combine results, cell terms, and interpretation.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-renal-and-lab-synthesis",
+      "lesson-unit2-blood-and-clotting-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-erythrocyte",
+      "term-leukocyte",
+      "term-leukocytosis",
+      "term-thrombosis",
+      "term-monitoring",
+      "term-reassessment",
+      "term-impression",
+      "term-infection"
+    ],
+    reinforcesAbbreviationIds: ["abbr-cbc"],
+    exerciseSetIds: [
+      "exercise-unit6-blood-synth-1",
+      "exercise-unit6-blood-synth-2",
+      "exercise-unit6-blood-synth-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",
