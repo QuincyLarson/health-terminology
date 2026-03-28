@@ -116,7 +116,10 @@ export const units: Unit[] = [
       "lesson-unit6-urgent-and-imaging-synthesis",
       "lesson-unit6-renal-and-lab-synthesis",
       "lesson-unit6-blood-and-count-synthesis",
-      "lesson-unit6-abdominal-and-stone-synthesis"
+      "lesson-unit6-abdominal-and-stone-synthesis",
+      "lesson-unit6-referral-and-consult-synthesis",
+      "lesson-unit6-handoff-and-reassessment-synthesis",
+      "lesson-unit6-portal-and-authorization-crossover"
     ],
     prerequisiteUnitIds: ["unit-0", "unit-1", "unit-2", "unit-3", "unit-4", "unit-5"],
     status: "lesson-linked",

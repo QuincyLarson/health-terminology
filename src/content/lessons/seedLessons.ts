@@ -2239,6 +2239,145 @@ export const exercises: Exercise[] = [
     explanation: "`pancreatitis` follows the same organ-plus-inflammation pattern used in other `-itis` terms.",
     linkedTermIds: ["term-pancreatitis", "term-monitoring"],
     linkedPartIds: ["part-pancreat-combining", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit6-referral-1",
+    type: "infer_meaning",
+    prompt: "Referral note: `Hx of chronic dyspnea. Dx unclear. Tx started PRN. f/u with PCP after consult.` Which paraphrase best matches?",
+    choices: [
+      "The patient has a history of ongoing breathing trouble, the diagnosis is still uncertain, treatment was started as needed, and follow-up with the main clinician comes after the specialist discussion",
+      "The patient has a new injury, a final diagnosis is complete, and no further care is needed",
+      "The note is mainly about insurance billing and copay collection",
+      "The patient should remain NPO until the consult office opens"
+    ],
+    answer: "The patient has a history of ongoing breathing trouble, the diagnosis is still uncertain, treatment was started as needed, and follow-up with the main clinician comes after the specialist discussion",
+    explanation: "This note compresses history, diagnosis, treatment, and follow-up shorthand into one referral line.",
+    linkedTermIds: ["term-chronic", "term-dyspnea", "term-consult", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-hx", "abbr-dx", "abbr-tx", "abbr-prn", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-referral-2",
+    type: "infer_meaning",
+    prompt: "Records message: `ROI and DOB required before records request is sent to the consulting office.` What is the learner being told?",
+    choices: [
+      "Permission and date-of-birth details are needed before records can be sent",
+      "The office needs a urine test before scheduling the consult",
+      "The diagnosis is final and treatment should stop",
+      "The patient should bring food before the visit"
+    ],
+    answer: "Permission and date-of-birth details are needed before records can be sent",
+    explanation: "`ROI` is the release of information process and `DOB` is the patient's date of birth.",
+    linkedTermIds: ["term-records-request", "term-consult"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-roi", "abbr-dob"],
+  },
+  {
+    id: "exercise-unit6-referral-3",
+    type: "infer_meaning",
+    prompt: "In a consult summary, which pair best matches `Dx` and `Tx`?",
+    choices: [
+      "diagnosis and treatment",
+      "date of birth and transfer",
+      "difficulty breathing and test results",
+      "discharge and triage"
+    ],
+    answer: "diagnosis and treatment",
+    explanation: "`Dx` is shorthand for diagnosis and `Tx` is shorthand for treatment.",
+    linkedTermIds: ["term-consult"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-dx", "abbr-tx"],
+  },
+  {
+    id: "exercise-unit6-handoff-1",
+    type: "infer_meaning",
+    prompt: "Handoff note: `Patient c/o acute SOB on admission. HR 110, RR 24, NKDA. Reassessment after PRN treatment: breathing easier, exam otherwise WNL. Transfer to floor for monitoring.` Which paraphrase best matches?",
+    choices: [
+      "The patient came in with sudden shortness of breath, improved after as-needed treatment, and is moving for continued observation",
+      "The patient had no breathing problem and is being discharged immediately",
+      "The note is mainly about records transfer to another clinic",
+      "The patient has chronic kidney stones and needs a urine test"
+    ],
+    answer: "The patient came in with sudden shortness of breath, improved after as-needed treatment, and is moving for continued observation",
+    explanation: "This handoff combines complaint, vital-sign, allergy, reassessment, and transfer language in one compact note.",
+    linkedTermIds: ["term-acute", "term-admission", "term-reassessment", "term-transfer", "term-monitoring"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-co", "abbr-sob", "abbr-hr", "abbr-rr", "abbr-nkda", "abbr-prn", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit6-handoff-2",
+    type: "infer_meaning",
+    prompt: "In the handoff note above, what changed after reassessment?",
+    choices: [
+      "Breathing improved after treatment",
+      "The diagnosis changed to kidney stones",
+      "The patient developed a drug allergy",
+      "The office canceled the transfer"
+    ],
+    answer: "Breathing improved after treatment",
+    explanation: "The reassessment line says breathing was easier after the PRN treatment.",
+    linkedTermIds: ["term-reassessment"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-prn"],
+  },
+  {
+    id: "exercise-unit6-handoff-3",
+    type: "infer_meaning",
+    prompt: "Which phrase in the handoff most clearly signals a sudden current problem rather than a long-running one?",
+    choices: ["acute SOB", "WNL exam", "transfer to floor", "NKDA"],
+    answer: "acute SOB",
+    explanation: "`acute` points to a current or sudden problem rather than a chronic one.",
+    linkedTermIds: ["term-acute", "term-chronic"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sob", "abbr-nkda", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit6-portal-1",
+    type: "infer_meaning",
+    prompt: "Portal update: `MRI impression available. CBC WNL. Prior authorization notice still pending for follow-up imaging.` Which paraphrase best matches?",
+    choices: [
+      "The MRI summary is ready, the blood count looked normal, and approval is still pending for the next scan",
+      "The MRI found a dangerous clot and emergency surgery is scheduled",
+      "The urine test is abnormal and follow-up has been canceled",
+      "The patient should complete check-in before any results are released"
+    ],
+    answer: "The MRI summary is ready, the blood count looked normal, and approval is still pending for the next scan",
+    explanation: "This message mixes result-availability language, a normal blood count, and authorization workflow language.",
+    linkedTermIds: ["term-impression", "term-prior-authorization-notice"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-mri", "abbr-cbc", "abbr-wnl"],
+  },
+  {
+    id: "exercise-unit6-portal-2",
+    type: "infer_meaning",
+    prompt: "Portal message: `Complete check-in, bring insurance card, and submit ROI if PCP needs CT results.` What is the learner being told to do?",
+    choices: [
+      "Finish registration, bring coverage information, and authorize records sharing if the main clinician needs the scan results",
+      "Start treatment immediately and skip the appointment",
+      "Avoid all food and drink before the office visit",
+      "Repeat the blood count test three times daily"
+    ],
+    answer: "Finish registration, bring coverage information, and authorize records sharing if the main clinician needs the scan results",
+    explanation: "This message mixes front-desk workflow, insurance, record-release, and imaging-result language.",
+    linkedTermIds: ["term-check-in", "term-insurance-card", "term-test-results"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-roi", "abbr-pcp", "abbr-ct"],
+  },
+  {
+    id: "exercise-unit6-portal-3",
+    type: "infer_meaning",
+    prompt: "Portal note: `Refill request received. f/u with PCP after test results if symptoms continue.` Which next step is implied?",
+    choices: [
+      "Wait for the results and then follow up with the main clinician if the problem continues",
+      "Go to the emergency department immediately for surgery",
+      "Send a release form before taking the medicine",
+      "Repeat the blood count test before every dose"
+    ],
+    answer: "Wait for the results and then follow up with the main clinician if the problem continues",
+    explanation: "The message links the refill workflow to result review and later follow-up.",
+    linkedTermIds: ["term-refill-request", "term-test-results", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
   }
 ];
 
@@ -3780,6 +3919,120 @@ export const lessons: Lesson[] = [
       "exercise-unit6-abdominal-synth-1",
       "exercise-unit6-abdominal-synth-2",
       "exercise-unit6-abdominal-synth-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-referral-and-consult-synthesis",
+    title: "Referral and Consult Synthesis",
+    unitId: "unit-6",
+    objective: "Read referral and consult passages that compress history, diagnosis, treatment, and records workflow shorthand.",
+    whyItMatters: "Specialist referrals and consult notes are common real-world reading targets because they mix clinical summary and paperwork language.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-abdominal-and-stone-synthesis",
+      "lesson-unit5-history-and-status-abbreviations"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-referral",
+      "term-consult",
+      "term-dyspnea",
+      "term-chronic",
+      "term-follow-up",
+      "term-records-request"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-hx",
+      "abbr-dx",
+      "abbr-tx",
+      "abbr-prn",
+      "abbr-fu",
+      "abbr-pcp",
+      "abbr-roi",
+      "abbr-dob"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-referral-1",
+      "exercise-unit6-referral-2",
+      "exercise-unit6-referral-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-handoff-and-reassessment-synthesis",
+    title: "Handoff and Reassessment Synthesis",
+    unitId: "unit-6",
+    objective: "Read handoff notes that mix admission status, symptoms, reassessment, and transfer language.",
+    whyItMatters: "Handoff notes are short but dense, and they force learners to track what changed over time instead of just decoding isolated words.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-referral-and-consult-synthesis",
+      "lesson-unit6-blood-and-count-synthesis"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-admission",
+      "term-transfer",
+      "term-reassessment",
+      "term-monitoring",
+      "term-stable",
+      "term-acute",
+      "term-chronic"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-co",
+      "abbr-sob",
+      "abbr-hr",
+      "abbr-rr",
+      "abbr-nkda",
+      "abbr-prn",
+      "abbr-wnl"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-handoff-1",
+      "exercise-unit6-handoff-2",
+      "exercise-unit6-handoff-3"
+    ],
+    estimatedMinutes: 9,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit6-portal-and-authorization-crossover",
+    title: "Portal and Authorization Crossover",
+    unitId: "unit-6",
+    objective: "Read portal and authorization messages that cross over between clinical results and administrative next steps.",
+    whyItMatters: "A lot of real learner friction happens in short portal messages that mix results, approvals, records, and follow-up instructions.",
+    prerequisiteLessonIds: [
+      "lesson-unit6-handoff-and-reassessment-synthesis",
+      "lesson-unit4-admin-passage-decoding"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-patient-portal",
+      "term-test-results",
+      "term-prior-authorization-notice",
+      "term-refill-request",
+      "term-check-in",
+      "term-insurance-card",
+      "term-impression"
+    ],
+    reinforcesAbbreviationIds: [
+      "abbr-mri",
+      "abbr-cbc",
+      "abbr-wnl",
+      "abbr-roi",
+      "abbr-pcp",
+      "abbr-ct",
+      "abbr-fu"
+    ],
+    exerciseSetIds: [
+      "exercise-unit6-portal-1",
+      "exercise-unit6-portal-2",
+      "exercise-unit6-portal-3"
     ],
     estimatedMinutes: 9,
     status: "shipped",
