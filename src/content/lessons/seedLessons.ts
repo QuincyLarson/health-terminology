@@ -3677,6 +3677,171 @@ export const exercises: Exercise[] = [
       "term-patient-portal"
     ],
     linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit1-location-family-1",
+    type: "infer_meaning",
+    prompt: "If `peri-` means around, `cardi` means heart, and `-itis` means inflammation, what does `pericarditis` suggest?",
+    choices: [
+      "inflammation around the heart",
+      "surgical removal of the heart",
+      "viewing inside the heart",
+      "pain in the heart muscle"
+    ],
+    answer: "inflammation around the heart",
+    explanation: "This term shows how a location prefix can sharply narrow the meaning of a familiar root-plus-suffix pattern.",
+    linkedTermIds: ["term-pericarditis"],
+    linkedPartIds: ["part-peri-prefix", "part-cardi-root", "part-itis-suffix"],
+  },
+  {
+    id: "exercise-unit1-location-family-2",
+    type: "infer_meaning",
+    prompt: "What does `endoscopy` most safely suggest?",
+    choices: [
+      "looking inside the body with a scope",
+      "cutting into the body with a scope",
+      "removing the inner stomach lining",
+      "building a record of the skin"
+    ],
+    answer: "looking inside the body with a scope",
+    explanation: "`endo-` points inward and `-scopy` points to scope-based viewing.",
+    linkedTermIds: ["term-endoscopy"],
+    linkedPartIds: ["part-endo-prefix", "part-scopy-suffix"],
+  },
+  {
+    id: "exercise-unit1-location-family-3",
+    type: "root_match",
+    prompt: "Which prefix most directly suggests a surface or above-the-structure position in words like `epigastric` or `epidermal`?",
+    choices: ["epi-", "peri-", "endo-", "tachy-"],
+    answer: "epi-",
+    explanation: "`epi-` often points to being on, upon, or above a structure.",
+    linkedTermIds: ["term-epigastric", "term-epidermal"],
+    linkedPartIds: ["part-epi-prefix"],
+  },
+  {
+    id: "exercise-unit1-location-family-4",
+    type: "infer_meaning",
+    prompt: "Which contrast is most accurate?",
+    choices: [
+      "`epidermal` points to the outer skin surface, while `intradermal` points within the skin",
+      "`epidermal` means inside the stomach, while `intradermal` means around the heart",
+      "`epidermal` means kidney removal, while `intradermal` means ear pain",
+      "`epidermal` and `intradermal` both mean surgical opening"
+    ],
+    answer: "`epidermal` points to the outer skin surface, while `intradermal` points within the skin",
+    explanation: "This is the same skin root with two different location prefixes changing the meaning.",
+    linkedTermIds: ["term-epidermal", "term-intradermal"],
+    linkedPartIds: ["part-epi-prefix", "part-intra-prefix", "part-derm-combining"],
+  },
+  {
+    id: "exercise-unit1-stomy-family-1",
+    type: "root_match",
+    prompt: "Which suffix points to a surgically created opening?",
+    choices: ["-stomy", "-ectomy", "-otomy", "-algia"],
+    answer: "-stomy",
+    explanation: "`-stomy` marks a created opening, distinct from removal or incision.",
+    linkedTermIds: ["term-tracheostomy", "term-colostomy"],
+    linkedPartIds: ["part-stomy-suffix"],
+  },
+  {
+    id: "exercise-unit1-stomy-family-2",
+    type: "infer_meaning",
+    prompt: "What does `tracheostomy` suggest?",
+    choices: [
+      "a surgically created opening into the trachea",
+      "surgical removal of the trachea",
+      "inflammation around the trachea",
+      "viewing inside the trachea with a scope"
+    ],
+    answer: "a surgically created opening into the trachea",
+    explanation: "The root points to the trachea and `-stomy` points to a created opening.",
+    linkedTermIds: ["term-tracheostomy"],
+    linkedPartIds: ["part-trache-combining", "part-stomy-suffix"],
+  },
+  {
+    id: "exercise-unit1-stomy-family-3",
+    type: "infer_meaning",
+    prompt: "If `ile/o` points to the ileum and `col/o` points to the colon, which term points to an opening from the ileum rather than the colon?",
+    choices: ["ileostomy", "colostomy", "gastrostomy", "cystostomy"],
+    answer: "ileostomy",
+    explanation: "This drill keeps the same procedure suffix and changes only the root family.",
+    linkedTermIds: ["term-ileostomy", "term-colostomy"],
+    linkedPartIds: ["part-ile-combining", "part-col-combining", "part-stomy-suffix"],
+  },
+  {
+    id: "exercise-unit1-stomy-family-4",
+    type: "infer_meaning",
+    prompt: "Which plain-English paraphrase best matches `nephrostomy`?",
+    choices: [
+      "a surgically created drainage opening from the kidney",
+      "removal of the kidney",
+      "kidney disease or disorder",
+      "study of the kidney"
+    ],
+    answer: "a surgically created drainage opening from the kidney",
+    explanation: "The kidney root stays the same across several terms, but the suffix changes the action.",
+    linkedTermIds: ["term-nephrostomy", "term-nephrectomy", "term-nephropathy", "term-nephrology"],
+    linkedPartIds: ["part-nephr-combining", "part-stomy-suffix"],
+  },
+  {
+    id: "exercise-unit1-recombination-1",
+    type: "infer_meaning",
+    prompt: "If `cardi` means heart, `my/o` means muscle, and `-pathy` means disorder, what does `cardiomyopathy` suggest?",
+    choices: [
+      "a disorder of the heart muscle",
+      "inflammation around the heart",
+      "viewing inside the heart",
+      "surgical opening into the heart"
+    ],
+    answer: "a disorder of the heart muscle",
+    explanation: "This is a good example of high-yield parts stacking cleanly into a more advanced but still decodable term.",
+    linkedTermIds: ["term-cardiomyopathy"],
+    linkedPartIds: ["part-cardi-root", "part-my-combining", "part-pathy-suffix"],
+  },
+  {
+    id: "exercise-unit1-recombination-2",
+    type: "infer_meaning",
+    prompt: "Which contrast is correct?",
+    choices: [
+      "`nephrectomy` means kidney removal, while `nephropathy` means kidney disease",
+      "`nephrectomy` means kidney disease, while `nephropathy` means kidney removal",
+      "`nephrectomy` means kidney viewing, while `nephropathy` means kidney study",
+      "`nephrectomy` and `nephropathy` both mean kidney inflammation"
+    ],
+    answer: "`nephrectomy` means kidney removal, while `nephropathy` means kidney disease",
+    explanation: "This is the same root family with two different high-yield suffixes changing the action and meaning.",
+    linkedTermIds: ["term-nephrectomy", "term-nephropathy"],
+    linkedPartIds: ["part-nephr-combining", "part-ectomy-suffix", "part-pathy-suffix"],
+  },
+  {
+    id: "exercise-unit1-recombination-3",
+    type: "infer_meaning",
+    prompt: "What does `gastroenterology` suggest in plain English?",
+    choices: [
+      "the study of the stomach and intestines",
+      "pain in the stomach and intestines",
+      "removal of the stomach and intestines",
+      "opening from the stomach into the intestines"
+    ],
+    answer: "the study of the stomach and intestines",
+    explanation: "Two common roots plus `-logy` create a specialty name that learners will see often.",
+    linkedTermIds: ["term-gastroenterology"],
+    linkedPartIds: ["part-gastr-root", "part-enter-combining", "part-ology-suffix"],
+  },
+  {
+    id: "exercise-unit1-recombination-4",
+    type: "infer_meaning",
+    prompt: "If `ot/o` means ear and `-algia` means pain, what does `otalgia` suggest?",
+    choices: [
+      "ear pain",
+      "ear inflammation",
+      "ear surgery",
+      "hearing test"
+    ],
+    answer: "ear pain",
+    explanation: "The same pain suffix used elsewhere carries over neatly into a new root family.",
+    linkedTermIds: ["term-otalgia"],
+    linkedPartIds: ["part-ot-combining", "part-algia-suffix"],
   }
 ];
 
@@ -3838,6 +4003,113 @@ export const lessons: Lesson[] = [
     reinforcesTermIds: ["term-gastritis", "term-cardiology"],
     exerciseSetIds: ["exercise-procedures-1", "exercise-procedures-2"],
     estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit1-location-prefix-families",
+    title: "Location Prefix Families in Common Terms",
+    unitId: "unit-1",
+    objective: "Use a small set of location prefixes to decode more advanced terms built from roots you already know.",
+    whyItMatters: "This keeps the curriculum root-first: one reusable prefix can unlock many common terms across several branches of medicine.",
+    prerequisiteLessonIds: [
+      "lesson-unit1-common-prefixes",
+      "lesson-unit1-core-body-roots",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: ["part-peri-prefix", "part-endo-prefix", "part-epi-prefix"],
+    introducesTermIds: [
+      "term-pericarditis",
+      "term-endocarditis",
+      "term-endoscopy",
+      "term-epigastric",
+      "term-epidermal",
+      "term-intradermal"
+    ],
+    reinforcesTermIds: [
+      "term-cardiology",
+      "term-dermatitis",
+      "term-gastritis",
+      "term-colonoscopy"
+    ],
+    exerciseSetIds: [
+      "exercise-unit1-location-family-1",
+      "exercise-unit1-location-family-2",
+      "exercise-unit1-location-family-3",
+      "exercise-unit1-location-family-4"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit1-stomy-procedure-family",
+    title: "The -Stomy Procedure Family",
+    unitId: "unit-1",
+    objective: "Learn one of the highest-yield procedure suffixes by reusing it across several common root families.",
+    whyItMatters: "This is the inverted-pyramid approach in practice: one procedure ending plus a few core roots unlocks many high-frequency terms fast.",
+    prerequisiteLessonIds: [
+      "lesson-unit1-procedure-language",
+      "lesson-unit1-location-prefix-families"
+    ],
+    introducesPartIds: ["part-stomy-suffix", "part-ile-combining"],
+    introducesTermIds: [
+      "term-tracheostomy",
+      "term-gastrostomy",
+      "term-colostomy",
+      "term-cystostomy",
+      "term-ileostomy",
+      "term-nephrostomy"
+    ],
+    reinforcesTermIds: [
+      "term-gastrotomy",
+      "term-colonoscopy",
+      "term-appendectomy",
+      "term-cardiogram",
+      "term-nephrology"
+    ],
+    exerciseSetIds: [
+      "exercise-unit1-stomy-family-1",
+      "exercise-unit1-stomy-family-2",
+      "exercise-unit1-stomy-family-3",
+      "exercise-unit1-stomy-family-4"
+    ],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit1-common-root-recombinations",
+    title: "Common Root Recombinations",
+    unitId: "unit-1",
+    objective: "Practice seeing the same root families recombine with familiar suffixes to make many more decodable terms.",
+    whyItMatters: "This is more valuable than memorizing thin organ lists because it teaches how the language keeps generating new understandable forms.",
+    prerequisiteLessonIds: [
+      "lesson-unit1-stomy-procedure-family",
+      "lesson-unit1-condition-suffixes"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-cardiomyopathy",
+      "term-nephrectomy",
+      "term-nephropathy",
+      "term-gastroscopy",
+      "term-gastroenterology",
+      "term-enteropathy",
+      "term-otalgia",
+      "term-cystectomy"
+    ],
+    reinforcesTermIds: [
+      "term-nephrology",
+      "term-appendectomy",
+      "term-colonoscopy",
+      "term-neuralgia",
+      "term-hepatitis"
+    ],
+    exerciseSetIds: [
+      "exercise-unit1-recombination-1",
+      "exercise-unit1-recombination-2",
+      "exercise-unit1-recombination-3",
+      "exercise-unit1-recombination-4"
+    ],
+    estimatedMinutes: 9,
     status: "shipped",
   },
   {

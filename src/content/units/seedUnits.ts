@@ -24,7 +24,10 @@ export const units: Unit[] = [
       "lesson-unit1-condition-suffixes",
       "lesson-unit1-common-prefixes",
       "lesson-unit1-rate-prefixes",
-      "lesson-unit1-procedure-language"
+      "lesson-unit1-procedure-language",
+      "lesson-unit1-location-prefix-families",
+      "lesson-unit1-stomy-procedure-family",
+      "lesson-unit1-common-root-recombinations"
     ],
     prerequisiteUnitIds: ["unit-0"],
     status: "shipped",
