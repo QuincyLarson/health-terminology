@@ -770,6 +770,176 @@ export const exercises: Exercise[] = [
     explanation: "`denial` is the insurer's refusal to approve or pay for the requested item or service.",
     linkedTermIds: ["term-denial"],
     linkedPartIds: [],
+  },
+  {
+    id: "exercise-endocrine-1",
+    type: "root_match",
+    prompt: "Which combining form points to sugar or glucose?",
+    choices: ["glyc/o", "thyroid/o", "cyst/o", "bronch/o"],
+    answer: "glyc/o",
+    explanation: "`glyc/o` points to sugar or glucose in words like `hyperglycemia` and `hypoglycemia`.",
+    linkedTermIds: ["term-hyperglycemia", "term-hypoglycemia"],
+    linkedPartIds: ["part-glyc-combining"],
+  },
+  {
+    id: "exercise-endocrine-2",
+    type: "infer_meaning",
+    prompt: "What does `hyperglycemia` suggest?",
+    choices: [
+      "high blood sugar",
+      "low blood sugar",
+      "inflammation of the thyroid gland",
+      "removal of the thyroid gland"
+    ],
+    answer: "high blood sugar",
+    explanation: "`hyper-` points to above normal and `glyc/o` points to sugar or glucose.",
+    linkedTermIds: ["term-hyperglycemia"],
+    linkedPartIds: ["part-hyper-prefix", "part-glyc-combining"],
+  },
+  {
+    id: "exercise-endocrine-3",
+    type: "infer_meaning",
+    prompt: "If `thyroid/o` means thyroid gland and `-ectomy` means surgical removal, what does `thyroidectomy` suggest?",
+    choices: [
+      "surgical removal of the thyroid gland",
+      "inflammation of the thyroid gland",
+      "high blood sugar",
+      "a hormone made by the thyroid gland"
+    ],
+    answer: "surgical removal of the thyroid gland",
+    explanation: "This follows the same organ-plus-procedure pattern used in other `-ectomy` terms.",
+    linkedTermIds: ["term-thyroidectomy"],
+    linkedPartIds: ["part-thyroid-combining", "part-ectomy-suffix"],
+  },
+  {
+    id: "exercise-unit3-diagnostics-1",
+    type: "infer_meaning",
+    prompt: "What does `biopsy` suggest?",
+    choices: [
+      "removal of a small tissue sample for examination",
+      "an imaging test that uses sound waves",
+      "the final summary at the end of a report",
+      "medicine given by mouth"
+    ],
+    answer: "removal of a small tissue sample for examination",
+    explanation: "`biopsy` refers to taking a small sample so it can be studied more closely.",
+    linkedTermIds: ["term-biopsy"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-diagnostics-2",
+    type: "infer_meaning",
+    prompt: "In report language, what are `findings`?",
+    choices: [
+      "the observations or results seen on an exam, image, or test",
+      "the amount and schedule of a medicine",
+      "an online account for patient messages",
+      "a request for another specialist's opinion"
+    ],
+    answer: "the observations or results seen on an exam, image, or test",
+    explanation: "`findings` names what the clinician or report actually observed.",
+    linkedTermIds: ["term-findings"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-diagnostics-3",
+    type: "infer_meaning",
+    prompt: "Which report section usually gives the short summary interpretation at the end?",
+    choices: ["impression", "specimen", "ultrasound", "dosage"],
+    answer: "impression",
+    explanation: "`impression` is commonly used for the brief take-home interpretation or summary.",
+    linkedTermIds: ["term-impression"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-medications-1",
+    type: "infer_meaning",
+    prompt: "What does `oral` usually mean for a medication?",
+    choices: [
+      "taken by mouth",
+      "given into a vein",
+      "applied on the skin",
+      "administered as a scan"
+    ],
+    answer: "taken by mouth",
+    explanation: "`oral` describes medication that goes through the mouth rather than by needle or skin application.",
+    linkedTermIds: ["term-oral"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit3-medications-2",
+    type: "infer_meaning",
+    prompt: "If `intra-` means within and `ven/o` points to a vein, what does `intravenous` suggest?",
+    choices: [
+      "given into a vein",
+      "applied on the skin",
+      "taken under the tongue",
+      "used after discharge only"
+    ],
+    answer: "given into a vein",
+    explanation: "`intravenous` literally points to something delivered within a vein.",
+    linkedTermIds: ["term-intravenous"],
+    linkedPartIds: ["part-intra-prefix", "part-ven-combining"],
+  },
+  {
+    id: "exercise-unit3-medications-3",
+    type: "infer_meaning",
+    prompt: "What does `dosage` refer to?",
+    choices: [
+      "the amount and schedule of a medicine",
+      "the sample sent to the lab",
+      "the summary line at the end of a report",
+      "the process of entering the hospital"
+    ],
+    answer: "the amount and schedule of a medicine",
+    explanation: "`dosage` covers how much medicine is used and how often it should be taken or given.",
+    linkedTermIds: ["term-dosage"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-portal-1",
+    type: "infer_meaning",
+    prompt: "Portal notice: `Your test results are ready to review.` What does `test results` refer to here?",
+    choices: [
+      "the reported outcome of a completed test",
+      "a request for more medication",
+      "a reminder about an upcoming appointment",
+      "a summary of the insurance deductible"
+    ],
+    answer: "the reported outcome of a completed test",
+    explanation: "`test results` names the information returned after a lab, imaging study, or other test is completed.",
+    linkedTermIds: ["term-test-results"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-portal-2",
+    type: "infer_meaning",
+    prompt: "Message header: `After-visit summary available.` What is the `after-visit summary`?",
+    choices: [
+      "the take-home summary of the visit and next steps",
+      "a request for a specialist opinion",
+      "a billing claim sent to insurance",
+      "a tissue sample sent for testing"
+    ],
+    answer: "the take-home summary of the visit and next steps",
+    explanation: "An `after-visit summary` is the short review of what happened during the visit and what should happen next.",
+    linkedTermIds: ["term-after-visit-summary"],
+    linkedPartIds: [],
+  },
+  {
+    id: "exercise-unit4-portal-3",
+    type: "infer_meaning",
+    prompt: "Portal action: `Send refill request.` What does `refill request` mean?",
+    choices: [
+      "ask for more of an existing prescription",
+      "reschedule the appointment",
+      "upload a new insurance card",
+      "read a radiology impression"
+    ],
+    answer: "ask for more of an existing prescription",
+    explanation: "`refill request` means asking for another supply of a medicine that is already prescribed.",
+    linkedTermIds: ["term-refill-request"],
+    linkedPartIds: [],
   }
 ];
 
@@ -1340,6 +1510,116 @@ export const lessons: Lesson[] = [
       "exercise-unit4-billing-3"
     ],
     estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit2-endocrine-and-glycemic-language",
+    title: "Endocrine and Glycemic Language",
+    unitId: "unit-2",
+    objective: "Decode common thyroid and blood-sugar terms that show up in primary care, urgent care, and routine lab discussions.",
+    whyItMatters: "Endocrine vocabulary becomes much easier once learners can separate sugar, thyroid, inflammation, and procedure patterns.",
+    prerequisiteLessonIds: [
+      "lesson-unit2-nervous-system-disorder-language",
+      "lesson-unit1-common-prefixes",
+      "lesson-unit1-common-suffixes",
+      "lesson-unit1-procedure-language"
+    ],
+    introducesPartIds: ["part-glyc-combining", "part-thyroid-combining"],
+    introducesTermIds: [
+      "term-hyperglycemia",
+      "term-hypoglycemia",
+      "term-thyroiditis",
+      "term-thyroidectomy",
+      "term-insulin"
+    ],
+    reinforcesTermIds: ["term-hypertension", "term-hypotension"],
+    exerciseSetIds: ["exercise-endocrine-1", "exercise-endocrine-2", "exercise-endocrine-3"],
+    estimatedMinutes: 8,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-diagnostic-and-imaging-language",
+    title: "Diagnostic and Imaging Language",
+    unitId: "unit-3",
+    objective: "Recognize high-frequency report and testing language without requiring specialist knowledge.",
+    whyItMatters: "Learners often read report summaries and test labels before they know what the report is actually saying.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-chart-style-phrasing",
+      "lesson-unit3-clinical-procedure-families"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-biopsy",
+      "term-specimen",
+      "term-ultrasound",
+      "term-findings",
+      "term-impression"
+    ],
+    reinforcesTermIds: ["term-angiography", "term-cardiography", "term-assessment"],
+    exerciseSetIds: [
+      "exercise-unit3-diagnostics-1",
+      "exercise-unit3-diagnostics-2",
+      "exercise-unit3-diagnostics-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit3-medication-and-administration-basics",
+    title: "Medication and Administration Basics",
+    unitId: "unit-3",
+    objective: "Recognize the most common route and medication-use words that appear in instructions and charts.",
+    whyItMatters: "Medication language is constant in healthcare text, and a small core set removes a lot of confusion fast.",
+    prerequisiteLessonIds: [
+      "lesson-unit3-diagnostic-and-imaging-language",
+      "lesson-unit2-cardiovascular-starter"
+    ],
+    introducesPartIds: ["part-intra-prefix"],
+    introducesTermIds: [
+      "term-oral",
+      "term-topical",
+      "term-intravenous",
+      "term-injection",
+      "term-dosage"
+    ],
+    reinforcesTermIds: ["term-plan", "term-monitoring"],
+    exerciseSetIds: [
+      "exercise-unit3-medications-1",
+      "exercise-unit3-medications-2",
+      "exercise-unit3-medications-3"
+    ],
+    estimatedMinutes: 7,
+    status: "shipped",
+  },
+  {
+    id: "lesson-unit4-portal-results-and-reminders",
+    title: "Portal, Results, and Reminder Language",
+    unitId: "unit-4",
+    objective: "Read common portal messages, result notices, and reminder language with minimal friction.",
+    whyItMatters: "This is where patients and learners encounter administrative wording in the wild, often as short portal notifications or message headers.",
+    prerequisiteLessonIds: [
+      "lesson-unit4-coverage-and-billing-language",
+      "lesson-unit3-diagnostic-and-imaging-language"
+    ],
+    introducesPartIds: [],
+    introducesTermIds: [
+      "term-patient-portal",
+      "term-test-results",
+      "term-after-visit-summary",
+      "term-refill-request",
+      "term-appointment-reminder"
+    ],
+    reinforcesTermIds: [
+      "term-follow-up",
+      "term-documentation",
+      "term-discharge-instructions"
+    ],
+    exerciseSetIds: [
+      "exercise-unit4-portal-1",
+      "exercise-unit4-portal-2",
+      "exercise-unit4-portal-3"
+    ],
+    estimatedMinutes: 7,
     status: "shipped",
   }
 ];
