@@ -1,0 +1,472 @@
+import type { Exercise, Lesson } from "../../types/content";
+
+export const exercises: Exercise[] = [
+  {
+    id: "exercise-unit6-passage-c-ed-1",
+    type: "infer_meaning",
+    prompt:
+      "ED note: c/o CP and SOB since this morning. HR 112, RR 24, BP elevated on arrival. After meds and reassessment, patient is stable, no acute hypoxia, and pain improved. Plan: discharge with AVS, strict return precautions, and f/u with PCP if symptoms recur. Which paraphrase best matches?",
+    choices: [
+      "The patient improved after reevaluation and is leaving with follow-up instructions and return precautions",
+      "The patient needs immediate surgery because the note shows worsening hypoxia",
+      "The note is mainly about prior authorization and a billing delay",
+      "The patient is staying for a biopsy because the medication list is incomplete",
+    ],
+    answer:
+      "The patient improved after reevaluation and is leaving with follow-up instructions and return precautions",
+    explanation:
+      "The passage moves from urgent symptoms to reassessment, stabilization, discharge, and follow-up.",
+    linkedTermIds: [
+      "term-reassessment",
+      "term-stable",
+      "term-acute",
+      "term-hypoxia",
+      "term-discharge",
+      "term-after-visit-summary",
+      "term-follow-up",
+      "term-assessment",
+      "term-plan",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-co", "abbr-cp", "abbr-sob", "abbr-hr", "abbr-rr", "abbr-bp", "abbr-avs", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-passage-c-ed-2",
+    type: "cloze",
+    prompt:
+      "In that ED note, what does `CP` mean in this context?",
+    choices: ["chest pain", "cerebral palsy", "clinical pathway", "care plan"],
+    answer: "chest pain",
+    explanation:
+      "The surrounding SOB, vitals, and reassessment language make chest pain the correct reading here.",
+    linkedTermIds: ["term-reassessment", "term-stable", "term-acute"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cp", "abbr-sob"],
+  },
+  {
+    id: "exercise-unit6-passage-c-ed-3",
+    type: "infer_meaning",
+    prompt:
+      "Why does the note emphasize reassessment before discharge?",
+    choices: [
+      "Because the team wants to confirm that the acute symptoms improved before sending the patient home",
+      "Because discharge can never happen until a pathology specimen is sent",
+      "Because the office must settle a prior authorization first",
+      "Because AVS always replaces follow-up planning",
+    ],
+    answer:
+      "Because the team wants to confirm that the acute symptoms improved before sending the patient home",
+    explanation:
+      "Reassessment in this passage is the check that the patient is stable enough for discharge.",
+    linkedTermIds: ["term-reassessment", "term-stable", "term-discharge", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-avs", "abbr-fu"],
+  },
+  {
+    id: "exercise-unit6-passage-c-lab-1",
+    type: "infer_meaning",
+    prompt:
+      "Lab follow-through note: CBC compared with prior shows persistent anemia, leukopenia, and thrombocytopenia. Patient is stable today, but hematology consult is recommended. Plan: continue monitoring, repeat CBC next week, and review the trend again at follow-up. Which paraphrase best matches?",
+    choices: [
+      "The blood-count problems are still present, so the team wants trend review and hematology follow-up",
+      "The CBC is within normal limits and no more review is needed",
+      "The note is mainly about discharge instructions after bronchoscopy",
+      "The office is only waiting on insurance coverage before posting results",
+    ],
+    answer:
+      "The blood-count problems are still present, so the team wants trend review and hematology follow-up",
+    explanation:
+      "This note is about abnormal blood-count trends and the next step of specialist review.",
+    linkedTermIds: [
+      "term-anemia",
+      "term-leukopenia",
+      "term-thrombocytopenia",
+      "term-hematology",
+      "term-compare-with-prior",
+      "term-monitoring",
+      "term-follow-up",
+      "term-consult",
+      "term-assessment",
+      "term-plan",
+      "term-stable",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc", "abbr-fu"],
+  },
+  {
+    id: "exercise-unit6-passage-c-lab-2",
+    type: "cloze",
+    prompt:
+      "In that note, what does `CBC` stand for?",
+    choices: [
+      "complete blood count",
+      "computed brain comparison",
+      "core biopsy check",
+      "clinical balance chart",
+    ],
+    answer: "complete blood count",
+    explanation:
+      "CBC is the standard abbreviation for the blood-count panel being trended here.",
+    linkedTermIds: ["term-anemia", "term-leukopenia", "term-thrombocytopenia"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc"],
+  },
+  {
+    id: "exercise-unit6-passage-c-lab-3",
+    type: "infer_meaning",
+    prompt:
+      "What is the main reason the note says `compare with prior` before follow-up?",
+    choices: [
+      "To see whether the count pattern is improving, worsening, or unchanged over time",
+      "To prove the patient is ready for immediate discharge after surgery",
+      "To replace the consult with a new prior authorization",
+      "To decide whether the AVS should be hidden in the portal",
+    ],
+    answer:
+      "To see whether the count pattern is improving, worsening, or unchanged over time",
+    explanation:
+      "Trend language depends on comparison with an earlier result, not a single isolated value.",
+    linkedTermIds: ["term-compare-with-prior", "term-monitoring", "term-follow-up"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-cbc", "abbr-fu"],
+  },
+  {
+    id: "exercise-unit6-passage-c-op-1",
+    type: "infer_meaning",
+    prompt:
+      "Post-op note: s/p core biopsy, specimen sent to pathology. Patient is stable postoperatively. Impression remains pending until final test results return. Plan: continue monitoring and call with follow-up instructions after pathology review. Which paraphrase best matches?",
+    choices: [
+      "The procedure is over, the sample is out for pathology review, and the final interpretation will come later",
+      "The note says the patient is unstable and needs emergency airway support",
+      "The note is mainly about a refill request and portal messaging",
+      "The sample was canceled because no follow-up is planned",
+    ],
+    answer:
+      "The procedure is over, the sample is out for pathology review, and the final interpretation will come later",
+    explanation:
+      "This is a specimen-handoff note that separates the procedure from the later pathology result.",
+    linkedTermIds: [
+      "term-biopsy",
+      "term-specimen",
+      "term-batch-pathology",
+      "term-postoperative",
+      "term-stable",
+      "term-impression",
+      "term-test-results",
+      "term-monitoring",
+      "term-follow-up",
+      "term-plan",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sp"],
+  },
+  {
+    id: "exercise-unit6-passage-c-op-2",
+    type: "cloze",
+    prompt:
+      "In that post-op note, what does `s/p` mean?",
+    choices: ["status post", "same plan", "surgery pending", "specimen prepared"],
+    answer: "status post",
+    explanation:
+      "`s/p` signals that the note is describing status after a completed event or procedure.",
+    linkedTermIds: ["term-postoperative", "term-biopsy"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sp"],
+  },
+  {
+    id: "exercise-unit6-passage-c-op-3",
+    type: "infer_meaning",
+    prompt:
+      "Why is the specimen mentioned before the final impression?",
+    choices: [
+      "Because pathology review of the sample helps determine the later final interpretation",
+      "Because specimen handling replaces the need for any follow-up",
+      "Because the AVS is written before the biopsy happens",
+      "Because pathology only matters when coverage is denied",
+    ],
+    answer:
+      "Because pathology review of the sample helps determine the later final interpretation",
+    explanation:
+      "The specimen step comes first, and the final impression follows after review.",
+    linkedTermIds: ["term-specimen", "term-batch-pathology", "term-impression", "term-test-results"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-sp"],
+  },
+  {
+    id: "exercise-unit6-passage-c-discharge-1",
+    type: "infer_meaning",
+    prompt:
+      "Discharge summary: medication list reviewed. AVS and discharge instructions reviewed with patient. Take PO meds BID, use the inhaler PRN, and f/u with PCP. Referral remains available if dyspnea returns. Which paraphrase best matches?",
+    choices: [
+      "The patient is going home with a clear medication plan, follow-up, and backup referral if symptoms come back",
+      "The patient is staying for another biopsy because the AVS is incomplete",
+      "The note is mainly about prior authorization and claim denial",
+      "The patient should stop all treatment until the next CT impression posts",
+    ],
+    answer:
+      "The patient is going home with a clear medication plan, follow-up, and backup referral if symptoms come back",
+    explanation:
+      "This is a discharge-and-medication note with follow-up and return precautions.",
+    linkedTermIds: [
+      "term-medication-list",
+      "term-after-visit-summary",
+      "term-discharge",
+      "term-discharge-instructions",
+      "term-follow-up",
+      "term-referral",
+      "term-dyspnea",
+      "term-plan",
+      "term-documentation",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-avs", "abbr-po", "abbr-bid", "abbr-prn", "abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-passage-c-discharge-2",
+    type: "cloze",
+    prompt:
+      "In that discharge summary, what does `PRN` mean?",
+    choices: ["as needed", "before meals", "twice daily", "by mouth"],
+    answer: "as needed",
+    explanation:
+      "PRN marks medication that should be used when needed rather than on a fixed schedule.",
+    linkedTermIds: ["term-medication-list", "term-discharge-instructions"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-prn", "abbr-bid", "abbr-po"],
+  },
+  {
+    id: "exercise-unit6-passage-c-discharge-3",
+    type: "infer_meaning",
+    prompt:
+      "Why does the note keep both PCP follow-up and a possible referral?",
+    choices: [
+      "Because the patient can start with routine follow-up and escalate to a specialist if symptoms return",
+      "Because referrals replace discharge instructions automatically",
+      "Because the portal cannot show results until a referral is used",
+      "Because BID medication always requires immediate admission",
+    ],
+    answer:
+      "Because the patient can start with routine follow-up and escalate to a specialist if symptoms return",
+    explanation:
+      "The note sets up a normal next step first, with specialist escalation as backup.",
+    linkedTermIds: ["term-follow-up", "term-referral", "term-dyspnea", "term-discharge"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
+  },
+  {
+    id: "exercise-unit6-passage-c-refill-1",
+    type: "infer_meaning",
+    prompt:
+      "Portal workflow note: refill request documented, PA still pending, and the claim is on hold until coverage clears. CT impression will post to the patient portal after final review. appt reminder sent for follow-up once test results are available. Which paraphrase best matches?",
+    choices: [
+      "The office is waiting on authorization and final review before finishing the refill and results workflow",
+      "The note says the patient is already discharged and no more office work is needed",
+      "The note is about emergency triage because chest pain is worsening",
+      "The sample has already gone to pathology and no portal update will happen",
+    ],
+    answer:
+      "The office is waiting on authorization and final review before finishing the refill and results workflow",
+    explanation:
+      "This passage combines refill documentation, authorization, results review, and portal follow-up.",
+    linkedTermIds: [
+      "term-documentation",
+      "term-prior-authorization",
+      "term-prior-authorization-notice",
+      "term-claim",
+      "term-coverage",
+      "term-impression",
+      "term-patient-portal",
+      "term-appointment-reminder",
+      "term-follow-up",
+      "term-test-results",
+      "term-verification",
+    ],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pa", "abbr-ct", "abbr-appt"],
+  },
+  {
+    id: "exercise-unit6-passage-c-refill-2",
+    type: "cloze",
+    prompt:
+      "In that workflow note, what does `PA` mean?",
+    choices: ["prior authorization", "physician assistant", "pain assessment", "patient account"],
+    answer: "prior authorization",
+    explanation:
+      "The surrounding coverage and claim language makes prior authorization the correct reading here.",
+    linkedTermIds: ["term-prior-authorization", "term-coverage", "term-claim"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pa"],
+  },
+  {
+    id: "exercise-unit6-passage-c-refill-3",
+    type: "infer_meaning",
+    prompt:
+      "What is the office waiting on before the next follow-up step?",
+    choices: [
+      "Authorization and final review so the refill and results workflow can move forward",
+      "A discharge summary from the ED before any medication can be used",
+      "A new CBC to decide whether chest pain means cerebral palsy",
+      "A pathology specimen before the appointment reminder can be sent",
+    ],
+    answer:
+      "Authorization and final review so the refill and results workflow can move forward",
+    explanation:
+      "The note explicitly holds the claim and portal workflow until those two gates clear.",
+    linkedTermIds: ["term-prior-authorization", "term-claim", "term-coverage", "term-follow-up", "term-test-results"],
+    linkedPartIds: [],
+    linkedAbbreviationIds: ["abbr-pa", "abbr-ct", "abbr-appt"],
+  },
+];
+
+export const lessons: Lesson[] = [
+  {
+    id: "lesson-unit6-passage-ed-triage-reassessment",
+    title: "ED Triage and Reassessment",
+    unitId: "unit-6",
+    objective: "Read an urgent triage note and separate the initial alarm from the final disposition.",
+    whyItMatters: "ED notes compress symptoms, vitals, reassessment, and disposition into very few lines.",
+    prerequisiteLessonIds: ["lesson-unit6-passage-consult-handoff"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-reassessment",
+      "term-stable",
+      "term-acute",
+      "term-hypoxia",
+      "term-discharge",
+      "term-after-visit-summary",
+      "term-follow-up",
+      "term-assessment",
+      "term-plan",
+    ],
+    reinforcesAbbreviationIds: ["abbr-co", "abbr-cp", "abbr-sob", "abbr-hr", "abbr-rr", "abbr-bp", "abbr-avs", "abbr-fu", "abbr-pcp"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-c-ed-1",
+      "exercise-unit6-passage-c-ed-2",
+      "exercise-unit6-passage-c-ed-3",
+    ],
+    estimatedMinutes: 10,
+    status: "drafted",
+  },
+  {
+    id: "lesson-unit6-passage-lab-trend-followthrough",
+    title: "Lab Trend and Count Follow-Through",
+    unitId: "unit-6",
+    objective: "Read a dense count-trend note and extract the real next step.",
+    whyItMatters: "Trend language is everywhere in lab follow-up and specialist handoff notes.",
+    prerequisiteLessonIds: ["lesson-unit6-passage-ed-triage-reassessment"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-anemia",
+      "term-leukopenia",
+      "term-thrombocytopenia",
+      "term-hematology",
+      "term-compare-with-prior",
+      "term-monitoring",
+      "term-follow-up",
+      "term-consult",
+      "term-assessment",
+      "term-plan",
+      "term-stable",
+    ],
+    reinforcesAbbreviationIds: ["abbr-cbc", "abbr-fu"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-c-lab-1",
+      "exercise-unit6-passage-c-lab-2",
+      "exercise-unit6-passage-c-lab-3",
+    ],
+    estimatedMinutes: 10,
+    status: "drafted",
+  },
+  {
+    id: "lesson-unit6-passage-operative-specimen",
+    title: "Operative Note and Specimen Handoff",
+    unitId: "unit-6",
+    objective: "Read a short post-op note that separates procedure status from later pathology review.",
+    whyItMatters: "These notes often compress the whole handoff between procedure, specimen, and result.",
+    prerequisiteLessonIds: ["lesson-unit6-passage-lab-trend-followthrough"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-biopsy",
+      "term-specimen",
+      "term-batch-pathology",
+      "term-postoperative",
+      "term-stable",
+      "term-impression",
+      "term-test-results",
+      "term-monitoring",
+      "term-follow-up",
+      "term-plan",
+    ],
+    reinforcesAbbreviationIds: ["abbr-sp"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-c-op-1",
+      "exercise-unit6-passage-c-op-2",
+      "exercise-unit6-passage-c-op-3",
+    ],
+    estimatedMinutes: 10,
+    status: "drafted",
+  },
+  {
+    id: "lesson-unit6-passage-discharge-med-plan",
+    title: "Discharge Summary and Medication Plan",
+    unitId: "unit-6",
+    objective: "Read a discharge summary that mixes medication timing, follow-up, and escalation language.",
+    whyItMatters: "This is one of the most common note shapes in outpatient and procedural care.",
+    prerequisiteLessonIds: ["lesson-unit6-passage-operative-specimen"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-medication-list",
+      "term-after-visit-summary",
+      "term-discharge",
+      "term-discharge-instructions",
+      "term-follow-up",
+      "term-referral",
+      "term-dyspnea",
+      "term-plan",
+      "term-documentation",
+    ],
+    reinforcesAbbreviationIds: ["abbr-avs", "abbr-po", "abbr-bid", "abbr-prn", "abbr-fu", "abbr-pcp"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-c-discharge-1",
+      "exercise-unit6-passage-c-discharge-2",
+      "exercise-unit6-passage-c-discharge-3",
+    ],
+    estimatedMinutes: 10,
+    status: "drafted",
+  },
+  {
+    id: "lesson-unit6-passage-refill-auth-imaging",
+    title: "Refill, Authorization, and Imaging Follow-Up",
+    unitId: "unit-6",
+    objective: "Read a mixed admin-clinical workflow note without losing the main blocker.",
+    whyItMatters: "Real portal and refill notes often blend authorization, claims, imaging, and follow-up in one place.",
+    prerequisiteLessonIds: ["lesson-unit6-passage-discharge-med-plan"],
+    introducesPartIds: [],
+    introducesTermIds: [],
+    reinforcesTermIds: [
+      "term-documentation",
+      "term-prior-authorization",
+      "term-prior-authorization-notice",
+      "term-claim",
+      "term-coverage",
+      "term-impression",
+      "term-patient-portal",
+      "term-appointment-reminder",
+      "term-follow-up",
+      "term-test-results",
+      "term-verification",
+    ],
+    reinforcesAbbreviationIds: ["abbr-pa", "abbr-ct", "abbr-appt"],
+    exerciseSetIds: [
+      "exercise-unit6-passage-c-refill-1",
+      "exercise-unit6-passage-c-refill-2",
+      "exercise-unit6-passage-c-refill-3",
+    ],
+    estimatedMinutes: 10,
+    status: "drafted",
+  },
+];
