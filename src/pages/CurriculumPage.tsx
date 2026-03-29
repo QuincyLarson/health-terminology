@@ -28,9 +28,8 @@ export function CurriculumPage() {
         <p className="eyebrow">Curriculum map</p>
         <h2>Seed curriculum</h2>
         <p>
-          The current seed now spans Units 0 through 6 with authored lessons
-          for foundations, body systems, clinical language, administrative
-          text, abbreviations, and mixed synthesis.
+          The current seed spans Units 0 through 6. It covers basics, body
+          systems, notes, office text, abbreviations, and mixed review.
         </p>
       </section>
 

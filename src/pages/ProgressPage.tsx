@@ -152,8 +152,8 @@ export function ProgressPage() {
         <p className="eyebrow">Profile</p>
         <h2>Local study record</h2>
         <p>
-          Everything stays in your browser: lessons, drills, endless study, audio,
-          motion, and theme preference.
+          Everything stays in your browser. That includes lessons, drills, settings,
+          and theme.
         </p>
       </section>
 
@@ -182,7 +182,7 @@ export function ProgressPage() {
         <h3>Current path</h3>
         <p>
           Current lesson: {currentLesson?.title ?? "None selected"} · New drill terms:{" "}
-          {newTerms.length} · Eligible terms: {eligibleTerms.length}
+          {newTerms.length} · Ready terms: {eligibleTerms.length}
         </p>
         <div className="hero-actions">
           <Link

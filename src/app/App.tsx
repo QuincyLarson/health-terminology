@@ -41,7 +41,7 @@ const AbbreviationsPage = lazy(async () => {
 function RouteFallback() {
   return (
     <section className="card" aria-live="polite">
-      <p className="meta-copy">Loading page content...</p>
+      <p className="meta-copy">Loading page...</p>
     </section>
   );
 }

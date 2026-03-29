@@ -45,9 +45,9 @@ export function DrillsPage() {
     [dueTerms, mixedTerms, newTerms],
   );
   const queueDescriptions: Record<QueueMode, string> = {
-    due: "Work the terms that are due for recall now.",
-    mixed: "Favor due terms first, then fold in a small number of newer items.",
-    new: "Start newly taught terms that have not yet been drilled.",
+    due: "Practice the terms due now.",
+    mixed: "Start with due terms, then add a few new ones.",
+    new: "Practice terms you just learned.",
   };
   const baseQueue = useMemo(
     () =>
@@ -254,8 +254,8 @@ export function DrillsPage() {
           <h3>No drills match this setup yet.</h3>
           <p>
             {drillMode === "root_drag_drop"
-              ? "This drill needs compositional terms with visible parts. Switch filters, change queues, or finish more lessons first."
-              : "Finish a lesson to seed drills, or switch queues if you want to see available items."}
+              ? "This drill needs terms with visible parts. Change the filters, change the queue, or finish more lessons first."
+              : "Finish a lesson first, or switch queues to see other items."}
           </p>
           <div className="hero-actions">
             {recommendedLesson ? (
@@ -315,7 +315,7 @@ export function DrillsPage() {
                   ? current.parts
                       .map((part) => `${part.text} = ${part.meaning}`)
                       .join(" · ")
-                  : "Recognition-first term without a safe decomposition."}
+                  : "Learn this as a whole term."}
               </p>
               <div className="hero-actions">
                 <button type="button" className="button" onClick={() => advance(false)}>
