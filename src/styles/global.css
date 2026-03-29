@@ -15,6 +15,8 @@
   --success-soft: rgba(19, 115, 75, 0.12);
   --danger: #a2443d;
   --danger-soft: rgba(180, 35, 24, 0.12);
+  --button-primary-bg: #12384f;
+  --button-primary-text: #f8fbff;
   --shadow: 0 16px 40px rgba(20, 31, 37, 0.08);
   font-family: "Avenir Next", "Segoe UI", sans-serif;
   line-height: 1.5;
@@ -38,6 +40,8 @@
   --success-soft: rgba(98, 209, 155, 0.18);
   --danger: #ff938a;
   --danger-soft: rgba(255, 139, 122, 0.2);
+  --button-primary-bg: #edf5f8;
+  --button-primary-text: #0f171b;
   --shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
 }
 
@@ -319,8 +323,8 @@ textarea {
 }
 
 .button-primary {
-  background: var(--accent);
-  color: #f5fbf8;
+  background: var(--button-primary-bg);
+  color: var(--button-primary-text);
   border-color: transparent;
 }
 
@@ -472,6 +476,21 @@ textarea {
 
 .lesson-shell {
   gap: 0.9rem;
+  font-size: 1.05rem;
+}
+
+.lesson-shell h1 {
+  font-size: clamp(1.75rem, 4.8vw, 2.45rem);
+  line-height: 1.08;
+}
+
+.lesson-shell h3 {
+  font-size: 1.1rem;
+}
+
+.lesson-shell .meta-copy,
+.lesson-shell .exercise-type {
+  font-size: 0.98rem;
 }
 
 .reference-panel {
@@ -494,9 +513,17 @@ textarea {
   gap: 0.55rem;
 }
 
+.reference-section-inline {
+  gap: 0;
+}
+
 .reference-list {
   display: grid;
   gap: 0.45rem;
+}
+
+.reference-table {
+  gap: 0;
 }
 
 .reference-row {
@@ -518,13 +545,36 @@ textarea {
   align-items: flex-start;
 }
 
+.reference-table-row {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.reference-term {
+  font-size: 1.03rem;
+}
+
+.reference-meaning {
+  margin: 0;
+  text-align: left;
+}
+
+.speaker-button {
+  min-width: 2.35rem;
+  padding: 0.35rem 0.5rem;
+  font-size: 1rem;
+}
+
 .choice-list {
   gap: 0.45rem;
 }
 
 .choice-button {
   width: 100%;
-  padding: 0.62rem 0.75rem;
+  padding: 0.72rem 0.82rem;
+  font-size: 1.02rem;
   text-align: left;
   border: 1px solid var(--panel-border);
   border-radius: 0.8rem;
@@ -599,15 +649,23 @@ textarea {
   position: relative;
   display: grid;
   gap: 0.55rem;
-  padding: 0.78rem;
+  padding: 0.95rem;
 }
 
 .exercise-prompt {
-  font-size: clamp(1rem, 2.8vw, 1.22rem);
+  font-size: clamp(1.18rem, 3.2vw, 1.45rem);
 }
 
 .lesson-footer {
   gap: 0.75rem;
+}
+
+.completion-card {
+  padding: 1rem;
+}
+
+.completion-box h3 {
+  font-size: 1.35rem;
 }
 
 .success-burst {
@@ -781,6 +839,14 @@ textarea {
   .stats-grid,
   .learn-stats {
     grid-template-columns: 1fr;
+  }
+
+  .reference-table-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .reference-meaning {
+    grid-column: 1 / -1;
   }
 }
 

@@ -129,9 +129,6 @@ export function LessonPage() {
       Boolean(abbreviation),
     );
   const nextLesson = getNextLesson(lesson.id);
-  const firstAttemptCorrect = lessonExercises.reduce((count, exercise) => {
-    return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
-  }, 0);
   const activeExerciseId = exerciseQueue[0] ?? null;
   const activeExercise = activeExerciseId
     ? contentMaps.exerciseMap.get(activeExerciseId)
@@ -175,7 +172,30 @@ export function LessonPage() {
         <p>{getLessonSummary(lesson)}</p>
       </section>
 
-      {activeExercise && !completedThisVisit ? (
+      {completedThisVisit ? (
+        <section className="exercise-stage">
+          <section className="card stack compact-card completion-card">
+            <div className="completion-box stack">
+              <h3>Lesson complete</h3>
+              <div className="hero-actions">
+                {nextLesson ? (
+                  <Link
+                    className="button button-primary"
+                    to={`/lesson/${nextLesson.id}`}
+                    onClick={() => setCurrentLesson(nextLesson.id)}
+                  >
+                    Continue to next lesson
+                  </Link>
+                ) : (
+                  <Link className="button button-primary" to="/drills">
+                    Open drills
+                  </Link>
+                )}
+              </div>
+            </div>
+          </section>
+        </section>
+      ) : activeExercise ? (
         <section className="exercise-stage">
           <ExerciseCard
             exercise={activeExercise}
@@ -193,21 +213,19 @@ export function LessonPage() {
 
       <section className="card stack compact-card">
         {introducedParts.length > 0 ? (
-          <article className="stack reference-section">
-            <h3>Parts</h3>
-            <div className="reference-list">
+          <article className="stack reference-section reference-section-inline">
+            <div className="reference-list reference-table">
               {introducedParts.map((part) => (
-                <div key={part.id} className="reference-row">
-                  <div>
-                    <strong>{part.text}</strong>
-                    <p className="meta-copy">{part.plainMeaning}</p>
-                  </div>
+                <div key={part.id} className="reference-row reference-table-row">
+                  <strong className="reference-term">{part.text}</strong>
+                  <p className="meta-copy reference-meaning">{part.plainMeaning}</p>
                   <button
                     type="button"
-                    className="button button-quiet"
+                    aria-label={`Play pronunciation for ${part.text}`}
+                    className="button button-quiet speaker-button"
                     onClick={() => speakText(part.text, progress.settings.audioEnabled)}
                   >
-                    Speak
+                    <span aria-hidden="true">&#128266;</span>
                   </button>
                 </div>
               ))}
@@ -218,19 +236,18 @@ export function LessonPage() {
         {exampleTerms.length > 0 ? (
           <article className="stack reference-section">
             <h3>Example terms</h3>
-            <div className="reference-list">
+            <div className="reference-list reference-table">
               {exampleTerms.slice(0, 6).map((term) => (
-                <div key={term.id} className="reference-row">
-                  <div>
-                    <strong>{term.term}</strong>
-                    <p className="meta-copy">{term.plainMeaning}</p>
-                  </div>
+                <div key={term.id} className="reference-row reference-table-row">
+                  <strong className="reference-term">{term.term}</strong>
+                  <p className="meta-copy reference-meaning">{term.plainMeaning}</p>
                   <button
                     type="button"
-                    className="button button-quiet"
+                    aria-label={`Play pronunciation for ${term.term}`}
+                    className="button button-quiet speaker-button"
                     onClick={() => speakText(term.term, progress.settings.audioEnabled)}
                   >
-                    Speak
+                    <span aria-hidden="true">&#128266;</span>
                   </button>
                 </div>
               ))}
@@ -241,47 +258,19 @@ export function LessonPage() {
         {introducedAbbreviations.length > 0 ? (
           <article className="stack reference-section">
             <h3>Abbreviations</h3>
-            <div className="reference-list">
+            <div className="reference-list reference-table">
               {introducedAbbreviations.map((abbreviation) => (
-                <div key={abbreviation.id} className="reference-row reference-row-text">
-                  <div>
-                    <strong>{abbreviation.shortForm}</strong>
-                    <p className="meta-copy">
-                      {abbreviation.expandedForm} · {abbreviation.category}
-                    </p>
-                  </div>
+                <div key={abbreviation.id} className="reference-row reference-table-row">
+                  <strong className="reference-term">{abbreviation.shortForm}</strong>
+                  <p className="meta-copy reference-meaning">
+                    {abbreviation.expandedForm} · {abbreviation.category}
+                  </p>
                 </div>
               ))}
             </div>
           </article>
         ) : null}
       </section>
-
-      {completedThisVisit ? (
-        <section className="card stack compact-card">
-          <div className="completion-box stack">
-            <h3>Lesson complete</h3>
-            <p>
-              First-pass mastery: {firstAttemptCorrect} / {lessonExercises.length}
-            </p>
-            <div className="hero-actions">
-              {nextLesson ? (
-                <Link
-                  className="button button-primary"
-                  to={`/lesson/${nextLesson.id}`}
-                  onClick={() => setCurrentLesson(nextLesson.id)}
-                >
-                  Continue to {nextLesson.title}
-                </Link>
-              ) : (
-                <Link className="button button-primary" to="/drills">
-                  Open drills
-                </Link>
-              )}
-            </div>
-          </div>
-        </section>
-      ) : null}
     </div>
   );
 }
