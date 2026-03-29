@@ -7,22 +7,110 @@ import {
   expansionTerms,
   unitLessonExtensions,
 } from "./expansions";
+import { buildSupplementalExercises } from "./buildSupplementalExercises";
+import { lessonExpansionApplied } from "./extensions/lessonExtensionsApplied";
+import { lessonExpansionCore } from "./extensions/lessonExtensionsCore";
 import { exercises, lessons } from "./lessons/seedLessons";
 import { parts } from "./parts/seedParts";
+import { lessonExpansionAppliedTerms } from "./terms/lessonExpansionApplied";
+import { lessonExpansionCoreTerms } from "./terms/lessonExpansionCore";
 import { terms } from "./terms/seedTerms";
 import { units } from "./units/seedUnits";
+import type { Lesson } from "../types/content";
+
+type LessonExtension = Partial<
+  Pick<Lesson, "introducesTermIds" | "reinforcesTermIds">
+>;
+
+function appendUnique(values: string[], additions: string[]): string[] {
+  return Array.from(new Set([...values, ...additions]));
+}
+
+function mergeLessonExtensions(
+  ...sources: Array<Partial<Record<Lesson["id"], LessonExtension>>>
+): Partial<Record<Lesson["id"], LessonExtension>> {
+  const merged: Partial<Record<Lesson["id"], LessonExtension>> = {};
+
+  for (const source of sources) {
+    for (const [lessonId, extension] of Object.entries(source)) {
+      if (!extension) {
+        continue;
+      }
+
+      const current = merged[lessonId] ?? {};
+      merged[lessonId as Lesson["id"]] = {
+        introducesTermIds: appendUnique(
+          current.introducesTermIds ?? [],
+          extension.introducesTermIds ?? [],
+        ),
+        reinforcesTermIds: appendUnique(
+          current.reinforcesTermIds ?? [],
+          extension.reinforcesTermIds ?? [],
+        ),
+      };
+    }
+  }
+
+  return merged;
+}
+
+const lessonExtensions = mergeLessonExtensions(
+  lessonExpansionCore,
+  lessonExpansionApplied,
+);
 
 const mergedUnits = units.map((unit) => ({
   ...unit,
-  lessonIds: [...unit.lessonIds, ...(unitLessonExtensions[unit.id] ?? [])],
+  lessonIds: appendUnique(unit.lessonIds, unitLessonExtensions[unit.id] ?? []),
+}));
+
+const mergedLessons = [...lessons, ...expansionLessons].map((lesson) => {
+  const extension = lessonExtensions[lesson.id];
+  if (!extension) {
+    return lesson;
+  }
+
+  return {
+    ...lesson,
+    introducesTermIds: appendUnique(
+      lesson.introducesTermIds,
+      extension.introducesTermIds ?? [],
+    ),
+    reinforcesTermIds: appendUnique(
+      lesson.reinforcesTermIds,
+      extension.reinforcesTermIds ?? [],
+    ),
+  };
+});
+
+const mergedTerms = [
+  ...terms,
+  ...expansionTerms,
+  ...lessonExpansionCoreTerms,
+  ...lessonExpansionAppliedTerms,
+];
+const baseExercises = [...exercises, ...expansionExercises];
+const supplementalExercises = buildSupplementalExercises({
+  abbreviations: [...abbreviations, ...expansionAbbreviations],
+  exercises: baseExercises,
+  lessons: mergedLessons,
+  parts: [...parts, ...expansionParts],
+  terms: mergedTerms,
+});
+const finalizedLessons = mergedLessons.map((lesson) => ({
+  ...lesson,
+  exerciseSetIds: appendUnique(
+    lesson.exerciseSetIds,
+    supplementalExercises.lessonExerciseIds[lesson.id] ?? [],
+  ),
 }));
 
 export const content = {
   abbreviations: [...abbreviations, ...expansionAbbreviations],
-  exercises: [...exercises, ...expansionExercises],
-  lessons: [...lessons, ...expansionLessons],
+  exercises: [...baseExercises, ...supplementalExercises.exercises],
+  lessons: finalizedLessons,
   parts: [...parts, ...expansionParts],
-  terms: [...terms, ...expansionTerms],
+  terms: mergedTerms,
   units: mergedUnits,
 };
 

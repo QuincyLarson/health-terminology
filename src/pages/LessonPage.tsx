@@ -18,8 +18,13 @@ export function LessonPage() {
   const lesson = lessonId ? getLessonById(lessonId) : undefined;
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [firstAnswers, setFirstAnswers] = useState<Record<string, string>>({});
-  const [activeExerciseIndex, setActiveExerciseIndex] = useState(0);
   const [celebratingExerciseId, setCelebratingExerciseId] = useState<string | null>(null);
+  const [exerciseQueue, setExerciseQueue] = useState<string[]>([]);
+  const [attemptCount, setAttemptCount] = useState(0);
+  const [pendingAdvance, setPendingAdvance] = useState<{
+    correct: boolean;
+    exerciseId: string;
+  } | null>(null);
   const [completedThisVisit, setCompletedThisVisit] = useState(false);
 
   const lessonExercises = useMemo(
@@ -38,42 +43,62 @@ export function LessonPage() {
     setCurrentLesson(lesson.id);
     setAnswers({});
     setFirstAnswers({});
-    setActiveExerciseIndex(0);
     setCelebratingExerciseId(null);
+    setExerciseQueue(lessonExercises.map((exercise) => exercise.id));
+    setAttemptCount(0);
+    setPendingAdvance(null);
     setCompletedThisVisit(false);
   }, [lesson?.id]);
 
   useEffect(() => {
-    if (!lesson || !celebratingExerciseId) {
+    if (!pendingAdvance) {
       return;
     }
 
-    const activeLesson = lesson;
     const timeoutId = window.setTimeout(() => {
+      const { correct, exerciseId } = pendingAdvance;
+
       setCelebratingExerciseId(null);
-      const isLastExercise = activeExerciseIndex >= lessonExercises.length - 1;
+      setPendingAdvance(null);
+      setAnswers((current) => {
+        const next = { ...current };
+        delete next[exerciseId];
+        return next;
+      });
+      setAttemptCount((current) => current + 1);
+      setExerciseQueue((current) => {
+        if (current[0] !== exerciseId) {
+          return current;
+        }
 
-      if (isLastExercise) {
-        const score = lessonExercises.reduce((count, exercise) => {
-          return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
-        }, 0);
-        completeLesson(activeLesson.id, score, lessonExercises.length);
-        setCompletedThisVisit(true);
-        return;
-      }
-
-      setActiveExerciseIndex((current) => current + 1);
+        const [, ...remaining] = current;
+        return correct ? remaining : [...remaining, exerciseId];
+      });
     }, progress.settings.reducedMotion ? 250 : 1000);
 
     return () => window.clearTimeout(timeoutId);
   }, [
-    activeExerciseIndex,
-    celebratingExerciseId,
+    pendingAdvance,
+    progress.settings.reducedMotion,
+  ]);
+
+  useEffect(() => {
+    if (!lesson || completedThisVisit || lessonExercises.length === 0 || exerciseQueue.length > 0) {
+      return;
+    }
+
+    const score = lessonExercises.reduce((count, exercise) => {
+      return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
+    }, 0);
+    completeLesson(lesson.id, score, lessonExercises.length);
+    setCompletedThisVisit(true);
+  }, [
     completeLesson,
+    completedThisVisit,
+    exerciseQueue.length,
     firstAnswers,
     lesson,
     lessonExercises,
-    progress.settings.reducedMotion,
   ]);
 
   if (!lesson) {
@@ -88,7 +113,16 @@ export function LessonPage() {
   }
 
   const introducedParts = contentMaps.partsByLessonId.get(lesson.id) ?? [];
-  const introducedTerms = contentMaps.termsByLessonId.get(lesson.id) ?? [];
+  const exampleTerms = Array.from(
+    new Map(
+      [...(contentMaps.termsByLessonId.get(lesson.id) ?? []), ...lesson.reinforcesTermIds]
+        .map((term) => (typeof term === "string" ? contentMaps.termMap.get(term) : term))
+        .filter((term): term is NonNullable<ReturnType<typeof contentMaps.termMap.get>> =>
+          Boolean(term),
+        )
+        .map((term) => [term.id, term]),
+    ).values(),
+  );
   const introducedAbbreviations = (lesson.introducesAbbreviationIds ?? [])
     .map((abbreviationId) => contentMaps.abbreviationMap.get(abbreviationId))
     .filter((abbreviation): abbreviation is NonNullable<typeof abbreviation> =>
@@ -98,11 +132,14 @@ export function LessonPage() {
   const firstAttemptCorrect = lessonExercises.reduce((count, exercise) => {
     return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
   }, 0);
-  const activeExercise = lessonExercises[activeExerciseIndex];
+  const activeExerciseId = exerciseQueue[0] ?? null;
+  const activeExercise = activeExerciseId
+    ? contentMaps.exerciseMap.get(activeExerciseId)
+    : undefined;
 
   function handleSelect(exerciseId: string, choice: string): void {
     const exercise = contentMaps.exerciseMap.get(exerciseId);
-    if (!exercise) {
+    if (!exercise || pendingAdvance) {
       return;
     }
 
@@ -119,17 +156,15 @@ export function LessonPage() {
           },
     );
 
+    const correct = choice === exercise.answer;
+    if (!correct) {
+      setCelebratingExerciseId(null);
+    }
+
+    setPendingAdvance({ correct, exerciseId });
     if (choice === exercise.answer) {
       setCelebratingExerciseId(exerciseId);
     }
-  }
-
-  function handleRetry(exerciseId: string): void {
-    setAnswers((current) => {
-      const next = { ...current };
-      delete next[exerciseId];
-      return next;
-    });
   }
 
   return (
@@ -138,8 +173,23 @@ export function LessonPage() {
         <p className="eyebrow">{lesson.unitId}</p>
         <h1>{lesson.title}</h1>
         <p>{getLessonSummary(lesson)}</p>
-        <p className="meta-copy">{lesson.estimatedMinutes} min</p>
       </section>
+
+      {activeExercise && !completedThisVisit ? (
+        <section className="exercise-stage">
+          <ExerciseCard
+            exercise={activeExercise}
+            indexLabel={`${attemptCount + 1}.`}
+            selectedChoice={answers[activeExercise.id] ?? null}
+            showCelebration={celebratingExerciseId === activeExercise.id}
+            showRetryNotice={
+              pendingAdvance?.exerciseId === activeExercise.id &&
+              !pendingAdvance.correct
+            }
+            onSelect={(choice) => handleSelect(activeExercise.id, choice)}
+          />
+        </section>
+      ) : null}
 
       <section className="card stack compact-card">
         {introducedParts.length > 0 ? (
@@ -165,11 +215,11 @@ export function LessonPage() {
           </article>
         ) : null}
 
-        {introducedTerms.length > 0 ? (
+        {exampleTerms.length > 0 ? (
           <article className="stack reference-section">
             <h3>Example terms</h3>
             <div className="reference-list">
-              {introducedTerms.slice(0, 6).map((term) => (
+              {exampleTerms.slice(0, 6).map((term) => (
                 <div key={term.id} className="reference-row">
                   <div>
                     <strong>{term.term}</strong>
@@ -206,20 +256,6 @@ export function LessonPage() {
           </article>
         ) : null}
       </section>
-
-      {activeExercise && !completedThisVisit ? (
-        <section className="exercise-stage">
-          <ExerciseCard
-            allowRetry
-            exercise={activeExercise}
-            indexLabel={`${activeExerciseIndex + 1}.`}
-            onRetry={() => handleRetry(activeExercise.id)}
-            selectedChoice={answers[activeExercise.id] ?? null}
-            showCelebration={celebratingExerciseId === activeExercise.id}
-            onSelect={(choice) => handleSelect(activeExercise.id, choice)}
-          />
-        </section>
-      ) : null}
 
       {completedThisVisit ? (
         <section className="card stack compact-card">

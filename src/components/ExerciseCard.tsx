@@ -3,20 +3,18 @@ import type { Exercise } from "../types/content";
 interface ExerciseCardProps {
   exercise: Exercise;
   indexLabel?: string;
-  allowRetry?: boolean;
-  onRetry?: () => void;
   selectedChoice: string | null;
   showCelebration?: boolean;
+  showRetryNotice?: boolean;
   onSelect: (choice: string) => void;
 }
 
 export function ExerciseCard({
-  allowRetry = false,
   exercise,
   indexLabel,
-  onRetry,
   selectedChoice,
   showCelebration = false,
+  showRetryNotice = false,
   onSelect,
 }: ExerciseCardProps) {
   const answered = selectedChoice !== null;
@@ -38,8 +36,10 @@ export function ExerciseCard({
             type="button"
             className={`choice-button${
               answered
-                ? choice === exercise.answer
-                  ? " choice-correct"
+                ? correct
+                  ? choice === exercise.answer
+                    ? " choice-correct"
+                    : ""
                   : choice === selectedChoice
                     ? " choice-incorrect"
                     : ""
@@ -52,21 +52,7 @@ export function ExerciseCard({
           </button>
         ))}
       </div>
-      {answered ? (
-        <div className="stack compact-stack">
-          <p className={`feedback ${correct ? "feedback-correct" : "feedback-incorrect"}`}>
-            <strong>{correct ? "Correct." : "Needs another try."}</strong>{" "}
-            {exercise.explanation}
-          </p>
-          {!correct && allowRetry && onRetry ? (
-            <div className="hero-actions">
-              <button type="button" className="button button-quiet" onClick={onRetry}>
-                Retry this item
-              </button>
-            </div>
-          ) : null}
-        </div>
-      ) : null}
+      {showRetryNotice ? <p className="feedback feedback-incorrect">Try again in a bit.</p> : null}
     </article>
   );
 }

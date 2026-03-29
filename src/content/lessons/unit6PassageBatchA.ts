@@ -14,8 +14,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The patient is stable, but urine findings still need repeat review and possible nephrology follow-up",
-    explanation:
-      "The note keeps the patient in monitoring status and asks for repeat testing and follow-up.",
     linkedTermIds: [
       "term-dysuria",
       "term-polyuria",
@@ -46,7 +44,6 @@ export const exercises: Exercise[] = [
       "with note left",
     ],
     answer: "within normal limits",
-    explanation: "WNL is a standard shortcut for normal-range findings.",
     linkedTermIds: ["term-findings", "term-monitoring", "term-stable"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cbc", "abbr-wnl"],
@@ -64,8 +61,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "Use the earlier urine study as a reference point to see whether the pattern is changing",
-    explanation:
-      "The phrase asks the reader to compare the current result with an earlier one.",
     linkedTermIds: ["term-compare-with-prior", "term-reassessment", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ua", "abbr-fu"],
@@ -82,8 +77,6 @@ export const exercises: Exercise[] = [
       "The note says the results are abnormal and no discharge plan exists",
     ],
     answer: "The patient is stable after a procedure and needs home instructions plus scheduled follow-up",
-    explanation:
-      "This is a discharge note with home care directions, a follow-up visit, and a specialist referral if needed.",
     linkedTermIds: [
       "term-postoperative",
       "term-bronchoscopy",
@@ -111,7 +104,6 @@ export const exercises: Exercise[] = [
       "scan performed",
     ],
     answer: "status post",
-    explanation: "s/p is a common chart shorthand for after a procedure or event.",
     linkedTermIds: ["term-postoperative", "term-discharge", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sp"],
@@ -128,8 +120,6 @@ export const exercises: Exercise[] = [
       "Use the medicine only before surgery and ignore the discharge sheet",
     ],
     answer: "Use the medicine only when needed and return to the primary care provider for follow-up",
-    explanation:
-      "PRN means as needed, and f/u points to a follow-up visit with the PCP.",
     linkedTermIds: ["term-discharge-instructions", "term-follow-up", "term-referral"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-prn", "abbr-fu", "abbr-pcp"],
@@ -146,8 +136,6 @@ export const exercises: Exercise[] = [
       "The office is asking the patient to stop all medicine and remain NPO",
     ],
     answer: "The office is still waiting on coverage approval before the patient gets final results and billing details",
-    explanation:
-      "The passage combines insurance workflow, portal communication, and result posting after review.",
     linkedTermIds: [
       "term-verification",
       "term-documentation",
@@ -177,8 +165,6 @@ export const exercises: Exercise[] = [
       "routine office intake",
     ],
     answer: "release of information",
-    explanation:
-      "ROI is the permission step that allows records to be shared with another party.",
     linkedTermIds: ["term-documentation", "term-patient-portal", "term-claim"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-roi"],
@@ -195,8 +181,6 @@ export const exercises: Exercise[] = [
       "Sending the patient directly to discharge without review",
     ],
     answer: "Checking authorization and coverage before the billing workflow moves forward",
-    explanation:
-      "The message says the claim is waiting on authorization and coverage review.",
     linkedTermIds: ["term-prior-authorization", "term-coverage", "term-claim", "term-billing-statement"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-dob", "abbr-roi", "abbr-appt"],

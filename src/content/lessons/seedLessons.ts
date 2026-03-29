@@ -7,7 +7,6 @@ export const exercises: Exercise[] = [
     prompt: "Which word part points to the heart?",
     choices: ["cardi", "gastr", "neur", "-itis"],
     answer: "cardi",
-    explanation: "`cardi` points to the heart in words like `cardiology` and `cardiac`.",
     linkedTermIds: ["term-cardiology"],
     linkedPartIds: ["part-cardi-root"],
   },
@@ -22,7 +21,6 @@ export const exercises: Exercise[] = [
       "recording of muscles"
     ],
     answer: "study of the nervous system",
-    explanation: "The parts point to a field of study centered on nerves and the nervous system.",
     linkedTermIds: ["term-neurology"],
     linkedPartIds: ["part-neur-root", "part-ology-suffix"],
   },
@@ -37,7 +35,6 @@ export const exercises: Exercise[] = [
       "It turns the root into a suffix"
     ],
     answer: "It helps the word join smoothly to another part",
-    explanation: "The combining vowel keeps many medical terms pronounceable when parts are joined.",
     linkedTermIds: [],
     linkedPartIds: ["part-osteo-combining"],
   },
@@ -47,7 +44,6 @@ export const exercises: Exercise[] = [
     prompt: "Complete the rule: a combining vowel usually makes a long medical term easier to ___.",
     choices: ["pronounce", "diagnose", "memorize", "prescribe"],
     answer: "pronounce",
-    explanation: "Combining vowels primarily help the parts connect and sound smoother.",
     linkedTermIds: [],
     linkedPartIds: ["part-osteo-combining"],
   },
@@ -57,7 +53,6 @@ export const exercises: Exercise[] = [
     prompt: "Which form names more than one vertebra?",
     choices: ["vertebra", "vertebrae", "diagnosis", "bacterium"],
     answer: "vertebrae",
-    explanation: "`vertebrae` is the plural form, while `vertebra` refers to one spinal bone.",
     linkedTermIds: ["term-vertebra", "term-vertebrae"],
     linkedPartIds: [],
   },
@@ -72,7 +67,6 @@ export const exercises: Exercise[] = [
       "vertebrae / vertebra"
     ],
     answer: "diagnosis / diagnoses",
-    explanation: "Several medical terms keep classical plural endings such as `-is` to `-es`.",
     linkedTermIds: ["term-diagnosis", "term-diagnoses"],
     linkedPartIds: [],
   },
@@ -82,7 +76,6 @@ export const exercises: Exercise[] = [
     prompt: "In `cardiology`, which syllable usually carries the main stress?",
     choices: ["OL", "KAR", "jee", "dee"],
     answer: "OL",
-    explanation: "Many longer medical terms place the strongest stress close to the end of the word.",
     linkedTermIds: ["term-cardiology"],
     linkedPartIds: [],
   },
@@ -92,7 +85,6 @@ export const exercises: Exercise[] = [
     prompt: "Which ending is usually pronounced like `EYE-tis`?",
     choices: ["-itis", "-logy", "-gram", "-scopy"],
     answer: "-itis",
-    explanation: "The inflammation suffix `-itis` is commonly pronounced `EYE-tis`.",
     linkedTermIds: ["term-gastritis"],
     linkedPartIds: ["part-itis-suffix"],
   },
@@ -107,7 +99,6 @@ export const exercises: Exercise[] = [
       "pain in the stomach"
     ],
     answer: "inflammation of the stomach",
-    explanation: "This is a straightforward root-plus-suffix combination.",
     linkedTermIds: ["term-gastritis"],
     linkedPartIds: ["part-gastr-root", "part-itis-suffix"],
   },
@@ -122,7 +113,6 @@ export const exercises: Exercise[] = [
       "removal of the skin"
     ],
     answer: "inflammation of the skin",
-    explanation: "The root and suffix point directly to inflammation in the skin.",
     linkedTermIds: ["term-dermatitis"],
     linkedPartIds: ["part-derm-combining", "part-itis-suffix"],
   },
@@ -132,7 +122,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to the kidney?",
     choices: ["nephr/o", "hepat/o", "hemat/o", "arthr/o"],
     answer: "nephr/o",
-    explanation: "`nephr/o` points to the kidney in words like `nephrology`.",
     linkedTermIds: ["term-nephrology"],
     linkedPartIds: ["part-nephr-combining"],
   },
@@ -142,7 +131,6 @@ export const exercises: Exercise[] = [
     prompt: "Which prefix points to a value above normal?",
     choices: ["hyper-", "hypo-", "-itis", "neur"],
     answer: "hyper-",
-    explanation: "`hyper-` often signals something higher or greater than normal.",
     linkedTermIds: ["term-hypertension"],
     linkedPartIds: ["part-hyper-prefix"],
   },
@@ -152,7 +140,6 @@ export const exercises: Exercise[] = [
     prompt: "Which prefix suggests a rate that is too fast?",
     choices: ["tachy-", "brady-", "hypo-", "hyper-"],
     answer: "tachy-",
-    explanation: "`tachy-` points to speed or a fast rate.",
     linkedTermIds: ["term-tachycardia"],
     linkedPartIds: ["part-tachy-prefix"],
   },
@@ -167,7 +154,6 @@ export const exercises: Exercise[] = [
       "study of the heart"
     ],
     answer: "a heart rate that is too slow",
-    explanation: "`brady-` points to slow, and `cardi` points to the heart.",
     linkedTermIds: ["term-bradycardia"],
     linkedPartIds: ["part-brady-prefix", "part-cardi-root"],
   },
@@ -182,7 +168,6 @@ export const exercises: Exercise[] = [
       "record of the appendix"
     ],
     answer: "surgical removal of the appendix",
-    explanation: "`appendic/o` points to the appendix and `-ectomy` means surgical removal.",
     linkedTermIds: ["term-appendectomy"],
     linkedPartIds: ["part-appendic-combining", "part-ectomy-suffix"],
   },
@@ -192,7 +177,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix signals viewing with a scope?",
     choices: ["-scopy", "-otomy", "-ectomy", "-gram"],
     answer: "-scopy",
-    explanation: "`-scopy` points to a visual examination with a scope.",
     linkedTermIds: ["term-colonoscopy"],
     linkedPartIds: ["part-scopy-suffix"],
   },
@@ -207,7 +191,6 @@ export const exercises: Exercise[] = [
       "study of a vessel"
     ],
     answer: "a vessel image or record",
-    explanation: "The combining form and suffix together point to an imaging record of vessels.",
     linkedTermIds: ["term-angiogram"],
     linkedPartIds: ["part-angi-combining", "part-gram-suffix"],
   },
@@ -222,7 +205,6 @@ export const exercises: Exercise[] = [
       "slow artery flow"
     ],
     answer: "inflammation of an artery",
-    explanation: "`arteri/o` points to an artery and `-itis` points to inflammation.",
     linkedTermIds: ["term-arteritis"],
     linkedPartIds: ["part-arteri-combining", "part-itis-suffix"],
   },
@@ -232,7 +214,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to a bronchial tube or airway branch?",
     choices: ["bronch/o", "trache/o", "pneum/o", "pulmon/o"],
     answer: "bronch/o",
-    explanation: "`bronch/o` points to the branching airways inside the lungs.",
     linkedTermIds: ["term-bronchitis", "term-bronchoscopy"],
     linkedPartIds: ["part-bronch-combining"],
   },
@@ -247,7 +228,6 @@ export const exercises: Exercise[] = [
       "a condition related to the lungs"
     ],
     answer: "inflammation of the bronchial tubes",
-    explanation: "This follows the same root-plus-inflammation pattern used in other `-itis` terms.",
     linkedTermIds: ["term-bronchitis"],
     linkedPartIds: ["part-bronch-combining", "part-itis-suffix"],
   },
@@ -262,7 +242,6 @@ export const exercises: Exercise[] = [
       "a record of the trachea"
     ],
     answer: "an incision into the trachea",
-    explanation: "`trache/o` points to the windpipe and `-otomy` points to an incision.",
     linkedTermIds: ["term-tracheotomy"],
     linkedPartIds: ["part-trache-combining", "part-otomy-suffix"],
   },
@@ -272,7 +251,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to breathing?",
     choices: ["-pnea", "-oxia", "-gram", "-scopy"],
     answer: "-pnea",
-    explanation: "`-pnea` shows up in breathing-rate and breathing-difficulty terms.",
     linkedTermIds: ["term-tachypnea", "term-dyspnea"],
     linkedPartIds: ["part-pnea-suffix"],
   },
@@ -287,7 +265,6 @@ export const exercises: Exercise[] = [
       "low oxygen"
     ],
     answer: "difficult breathing or shortness of breath",
-    explanation: "`dys-` points to difficulty or abnormal function and `-pnea` points to breathing.",
     linkedTermIds: ["term-dyspnea"],
     linkedPartIds: ["part-dys-prefix", "part-pnea-suffix"],
   },
@@ -302,7 +279,6 @@ export const exercises: Exercise[] = [
       "a record of the intestine"
     ],
     answer: "inflammation of the intestine",
-    explanation: "This is another direct combining-form plus suffix term.",
     linkedTermIds: ["term-enteritis"],
     linkedPartIds: ["part-enter-combining", "part-itis-suffix"],
   },
@@ -317,7 +293,6 @@ export const exercises: Exercise[] = [
       "pain in the stomach and intestines"
     ],
     answer: "inflammation involving the stomach and intestines",
-    explanation: "The term combines `gastr` for stomach, `enter/o` for intestine, and `-itis` for inflammation.",
     linkedTermIds: ["term-gastroenteritis"],
     linkedPartIds: ["part-gastr-root", "part-enter-combining", "part-itis-suffix"],
   },
@@ -332,7 +307,6 @@ export const exercises: Exercise[] = [
       "an incision into the gallbladder"
     ],
     answer: "surgical removal of the gallbladder",
-    explanation: "`cholecyst/o` points to the gallbladder and `-ectomy` points to removal.",
     linkedTermIds: ["term-cholecystectomy"],
     linkedPartIds: ["part-cholecyst-combining", "part-ectomy-suffix"],
   },
@@ -342,7 +316,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to a disease or disorder?",
     choices: ["-pathy", "-plasty", "-algia", "-uria"],
     answer: "-pathy",
-    explanation: "`-pathy` points to disease or disorder in terms like `myopathy` and `arthropathy`.",
     linkedTermIds: ["term-myopathy", "term-arthropathy"],
     linkedPartIds: ["part-pathy-suffix"],
   },
@@ -357,7 +330,6 @@ export const exercises: Exercise[] = [
       "blood in the urine"
     ],
     answer: "muscle pain",
-    explanation: "The combining form points to muscle and the suffix points to pain.",
     linkedTermIds: ["term-myalgia"],
     linkedPartIds: ["part-my-combining", "part-algia-suffix"],
   },
@@ -372,7 +344,6 @@ export const exercises: Exercise[] = [
       "an image of a joint"
     ],
     answer: "surgical repair or reconstruction of a joint",
-    explanation: "`arthr/o` points to a joint and `-plasty` points to repair or reconstruction.",
     linkedTermIds: ["term-arthroplasty"],
     linkedPartIds: ["part-arthr-combining", "part-plasty-suffix"],
   },
@@ -387,7 +358,6 @@ export const exercises: Exercise[] = [
       "the study of the bladder"
     ],
     answer: "inflammation of the bladder",
-    explanation: "This follows the same inflammation pattern used in earlier body-system lessons.",
     linkedTermIds: ["term-cystitis"],
     linkedPartIds: ["part-cyst-combining", "part-itis-suffix"],
   },
@@ -402,7 +372,6 @@ export const exercises: Exercise[] = [
       "slow urination"
     ],
     answer: "blood in the urine",
-    explanation: "`hemat/o` points to blood and `-uria` points to a urine condition or urination finding.",
     linkedTermIds: ["term-hematuria"],
     linkedPartIds: ["part-hemat-combining", "part-uria-suffix"],
   },
@@ -417,7 +386,6 @@ export const exercises: Exercise[] = [
       "blood in the urine"
     ],
     answer: "viewing the bladder with a scope",
-    explanation: "`cyst/o` points to the bladder and `-scopy` points to viewing with a scope.",
     linkedTermIds: ["term-cystoscopy"],
     linkedPartIds: ["part-cyst-combining", "part-scopy-suffix"],
   },
@@ -427,7 +395,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to enlargement?",
     choices: ["-megaly", "-emia", "-uria", "-pathy"],
     answer: "-megaly",
-    explanation: "`-megaly` signals enlargement in terms like `cardiomegaly` and `hepatomegaly`.",
     linkedTermIds: ["term-cardiomegaly", "term-hepatomegaly"],
     linkedPartIds: ["part-megaly-suffix"],
   },
@@ -442,7 +409,6 @@ export const exercises: Exercise[] = [
       "a fast heart rate"
     ],
     answer: "enlargement of the heart",
-    explanation: "The root and suffix together point to an enlarged heart.",
     linkedTermIds: ["term-cardiomegaly"],
     linkedPartIds: ["part-cardi-root", "part-megaly-suffix"],
   },
@@ -452,7 +418,6 @@ export const exercises: Exercise[] = [
     prompt: "Which term best matches swelling from extra fluid?",
     choices: ["edema", "anemia", "dyspnea", "neuralgia"],
     answer: "edema",
-    explanation: "`edema` is a high-frequency clinical status word for swelling caused by extra fluid.",
     linkedTermIds: ["term-edema"],
     linkedPartIds: [],
   },
@@ -462,7 +427,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to the process of recording or imaging?",
     choices: ["-graphy", "-gram", "-scopy", "-otomy"],
     answer: "-graphy",
-    explanation: "`-graphy` points to the process of imaging or recording rather than the final image itself.",
     linkedTermIds: ["term-angiography", "term-cardiography"],
     linkedPartIds: ["part-graphy-suffix"],
   },
@@ -477,7 +441,6 @@ export const exercises: Exercise[] = [
       "inflammation of a vessel"
     ],
     answer: "surgical repair or widening of a vessel",
-    explanation: "`angi/o` points to a vessel and `-plasty` points to repair or reshaping.",
     linkedTermIds: ["term-angioplasty"],
     linkedPartIds: ["part-angi-combining", "part-plasty-suffix"],
   },
@@ -492,7 +455,6 @@ export const exercises: Exercise[] = [
       "recording heart activity"
     ],
     answer: "viewing a joint with a scope",
-    explanation: "This is the same procedure-family pattern used in other scope terms across systems.",
     linkedTermIds: ["term-arthroscopy"],
     linkedPartIds: ["part-arthr-combining", "part-scopy-suffix"],
   },
@@ -502,7 +464,6 @@ export const exercises: Exercise[] = [
     prompt: "Which prefix points to before?",
     choices: ["pre-", "post-", "contra-", "hypo-"],
     answer: "pre-",
-    explanation: "`pre-` points to something happening before an operation or other event.",
     linkedTermIds: ["term-preoperative"],
     linkedPartIds: ["part-pre-prefix"],
   },
@@ -517,7 +478,6 @@ export const exercises: Exercise[] = [
       "approval needed before care"
     ],
     answer: "after an operation",
-    explanation: "`post-` points to after, so `postoperative` refers to the period after surgery.",
     linkedTermIds: ["term-postoperative"],
     linkedPartIds: ["part-post-prefix"],
   },
@@ -527,7 +487,6 @@ export const exercises: Exercise[] = [
     prompt: "Which phrase best matches care without hospital admission?",
     choices: ["outpatient", "inpatient", "follow-up", "preoperative"],
     answer: "outpatient",
-    explanation: "`outpatient` refers to care that does not require staying in the hospital.",
     linkedTermIds: ["term-outpatient"],
     linkedPartIds: [],
   },
@@ -542,7 +501,6 @@ export const exercises: Exercise[] = [
       "discharge instructions"
     ],
     answer: "prior authorization",
-    explanation: "`prior authorization` means approval is needed before certain services or medications are covered.",
     linkedTermIds: ["term-prior-authorization"],
     linkedPartIds: [],
   },
@@ -557,7 +515,6 @@ export const exercises: Exercise[] = [
       "instructions after discharge"
     ],
     answer: "a reason not to use a treatment or medication",
-    explanation: "`contra-` points to something that argues against an intervention.",
     linkedTermIds: ["term-contraindication"],
     linkedPartIds: ["part-contra-prefix"],
   },
@@ -572,7 +529,6 @@ export const exercises: Exercise[] = [
       "prior authorization"
     ],
     answer: "discharge instructions",
-    explanation: "`discharge instructions` are the take-home directions given after care.",
     linkedTermIds: ["term-discharge-instructions"],
     linkedPartIds: [],
   },
@@ -582,7 +538,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to paralysis?",
     choices: ["-plegia", "-pathy", "-megaly", "-uria"],
     answer: "-plegia",
-    explanation: "`-plegia` points to paralysis in terms like `hemiplegia` and `paraplegia`.",
     linkedTermIds: ["term-hemiplegia"],
     linkedPartIds: ["part-plegia-suffix"],
   },
@@ -597,7 +552,6 @@ export const exercises: Exercise[] = [
       "swelling in brain tissue"
     ],
     answer: "nerve disease or nerve damage",
-    explanation: "`neuropathy` is a direct combination of the nerve root and a disorder suffix.",
     linkedTermIds: ["term-neuropathy"],
     linkedPartIds: ["part-neur-root", "part-pathy-suffix"],
   },
@@ -612,7 +566,6 @@ export const exercises: Exercise[] = [
       "a disease of the spinal cord"
     ],
     answer: "paralysis affecting one side of the body",
-    explanation: "`hemi-` points to one side and `-plegia` points to paralysis.",
     linkedTermIds: ["term-hemiplegia"],
     linkedPartIds: ["part-hemi-prefix", "part-plegia-suffix"],
   },
@@ -622,7 +575,6 @@ export const exercises: Exercise[] = [
     prompt: "Which note section usually states the clinician's impression of what is going on?",
     choices: ["assessment", "plan", "monitoring", "stable"],
     answer: "assessment",
-    explanation: "`assessment` is the section where the clinician summarizes the evaluation or impression.",
     linkedTermIds: ["term-assessment"],
     linkedPartIds: [],
   },
@@ -637,7 +589,6 @@ export const exercises: Exercise[] = [
       "movement to another unit"
     ],
     answer: "the next treatment or follow-up steps",
-    explanation: "A chart `plan` usually covers orders, treatment decisions, or follow-up actions.",
     linkedTermIds: ["term-plan"],
     linkedPartIds: [],
   },
@@ -652,7 +603,6 @@ export const exercises: Exercise[] = [
       "the patient needs an insurance claim"
     ],
     answer: "the condition is steady and not currently worsening",
-    explanation: "`stable` usually signals that the condition is holding steady for now.",
     linkedTermIds: ["term-stable"],
     linkedPartIds: [],
   },
@@ -667,7 +617,6 @@ export const exercises: Exercise[] = [
       "watching a patient over time"
     ],
     answer: "formally entering the hospital for care",
-    explanation: "`admission` refers to being taken into the hospital for ongoing treatment or observation.",
     linkedTermIds: ["term-admission"],
     linkedPartIds: [],
   },
@@ -682,7 +631,6 @@ export const exercises: Exercise[] = [
       "approval before coverage"
     ],
     answer: "a request for another clinician's opinion",
-    explanation: "`consult` usually means another clinician or service is asked to evaluate the patient or provide input.",
     linkedTermIds: ["term-consult"],
     linkedPartIds: [],
   },
@@ -692,7 +640,6 @@ export const exercises: Exercise[] = [
     prompt: "Which term best matches moving a patient from one unit or facility to another?",
     choices: ["transfer", "discharge", "assessment", "monitoring"],
     answer: "transfer",
-    explanation: "`transfer` refers to movement between locations, services, or facilities within the care process.",
     linkedTermIds: ["term-transfer"],
     linkedPartIds: [],
   },
@@ -702,7 +649,6 @@ export const exercises: Exercise[] = [
     prompt: "Which intake phrase usually means the main reason for today's visit?",
     choices: ["chief complaint", "medical history", "consent form", "coverage"],
     answer: "chief complaint",
-    explanation: "`chief complaint` is the standard label for the patient's main concern or reason for the visit.",
     linkedTermIds: ["term-chief-complaint"],
     linkedPartIds: [],
   },
@@ -717,7 +663,6 @@ export const exercises: Exercise[] = [
       "to measure breathing difficulty"
     ],
     answer: "to know which medicines the patient is currently taking",
-    explanation: "A medication list helps the care team avoid errors, duplications, and harmful interactions.",
     linkedTermIds: ["term-medication-list"],
     linkedPartIds: [],
   },
@@ -727,7 +672,6 @@ export const exercises: Exercise[] = [
     prompt: "Which intake item asks about drug, food, or environmental reactions that matter for safe care?",
     choices: ["allergies", "copay", "claim", "transfer"],
     answer: "allergies",
-    explanation: "`allergies` alerts the care team to reactions or sensitivities that can affect safe treatment.",
     linkedTermIds: ["term-allergies"],
     linkedPartIds: [],
   },
@@ -742,7 +686,6 @@ export const exercises: Exercise[] = [
       "a note about past medical problems"
     ],
     answer: "a fixed amount the patient pays at the time of care",
-    explanation: "`copay` is the set amount a patient pays for a visit, prescription, or other covered service.",
     linkedTermIds: ["term-copay"],
     linkedPartIds: [],
   },
@@ -757,7 +700,6 @@ export const exercises: Exercise[] = [
       "the main symptom written on intake paperwork"
     ],
     answer: "the amount paid before some insurance coverage starts",
-    explanation: "`deductible` refers to what the patient usually pays before the plan starts covering more costs.",
     linkedTermIds: ["term-deductible"],
     linkedPartIds: [],
   },
@@ -767,7 +709,6 @@ export const exercises: Exercise[] = [
     prompt: "Which word best matches an insurer refusing payment or requested coverage?",
     choices: ["denial", "coverage", "assessment", "allergies"],
     answer: "denial",
-    explanation: "`denial` is the insurer's refusal to approve or pay for the requested item or service.",
     linkedTermIds: ["term-denial"],
     linkedPartIds: [],
   },
@@ -777,7 +718,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to sugar or glucose?",
     choices: ["glyc/o", "thyroid/o", "cyst/o", "bronch/o"],
     answer: "glyc/o",
-    explanation: "`glyc/o` points to sugar or glucose in words like `hyperglycemia` and `hypoglycemia`.",
     linkedTermIds: ["term-hyperglycemia", "term-hypoglycemia"],
     linkedPartIds: ["part-glyc-combining"],
   },
@@ -792,7 +732,6 @@ export const exercises: Exercise[] = [
       "removal of the thyroid gland"
     ],
     answer: "high blood sugar",
-    explanation: "`hyper-` points to above normal and `glyc/o` points to sugar or glucose.",
     linkedTermIds: ["term-hyperglycemia"],
     linkedPartIds: ["part-hyper-prefix", "part-glyc-combining"],
   },
@@ -807,7 +746,6 @@ export const exercises: Exercise[] = [
       "a hormone made by the thyroid gland"
     ],
     answer: "surgical removal of the thyroid gland",
-    explanation: "This follows the same organ-plus-procedure pattern used in other `-ectomy` terms.",
     linkedTermIds: ["term-thyroidectomy"],
     linkedPartIds: ["part-thyroid-combining", "part-ectomy-suffix"],
   },
@@ -822,7 +760,6 @@ export const exercises: Exercise[] = [
       "medicine given by mouth"
     ],
     answer: "removal of a small tissue sample for examination",
-    explanation: "`biopsy` refers to taking a small sample so it can be studied more closely.",
     linkedTermIds: ["term-biopsy"],
     linkedPartIds: [],
   },
@@ -837,7 +774,6 @@ export const exercises: Exercise[] = [
       "a request for another specialist's opinion"
     ],
     answer: "the observations or results seen on an exam, image, or test",
-    explanation: "`findings` names what the clinician or report actually observed.",
     linkedTermIds: ["term-findings"],
     linkedPartIds: [],
   },
@@ -847,7 +783,6 @@ export const exercises: Exercise[] = [
     prompt: "Which report section usually gives the short summary interpretation at the end?",
     choices: ["impression", "specimen", "ultrasound", "dosage"],
     answer: "impression",
-    explanation: "`impression` is commonly used for the brief take-home interpretation or summary.",
     linkedTermIds: ["term-impression"],
     linkedPartIds: [],
   },
@@ -862,7 +797,6 @@ export const exercises: Exercise[] = [
       "administered as a scan"
     ],
     answer: "taken by mouth",
-    explanation: "`oral` describes medication that goes through the mouth rather than by needle or skin application.",
     linkedTermIds: ["term-oral"],
     linkedPartIds: [],
   },
@@ -877,7 +811,6 @@ export const exercises: Exercise[] = [
       "used after discharge only"
     ],
     answer: "given into a vein",
-    explanation: "`intravenous` literally points to something delivered within a vein.",
     linkedTermIds: ["term-intravenous"],
     linkedPartIds: ["part-intra-prefix", "part-ven-combining"],
   },
@@ -892,7 +825,6 @@ export const exercises: Exercise[] = [
       "the process of entering the hospital"
     ],
     answer: "the amount and schedule of a medicine",
-    explanation: "`dosage` covers how much medicine is used and how often it should be taken or given.",
     linkedTermIds: ["term-dosage"],
     linkedPartIds: [],
   },
@@ -907,7 +839,6 @@ export const exercises: Exercise[] = [
       "a summary of the insurance deductible"
     ],
     answer: "the reported outcome of a completed test",
-    explanation: "`test results` names the information returned after a lab, imaging study, or other test is completed.",
     linkedTermIds: ["term-test-results"],
     linkedPartIds: [],
   },
@@ -922,7 +853,6 @@ export const exercises: Exercise[] = [
       "a tissue sample sent for testing"
     ],
     answer: "the take-home summary of the visit and next steps",
-    explanation: "An `after-visit summary` is the short review of what happened during the visit and what should happen next.",
     linkedTermIds: ["term-after-visit-summary"],
     linkedPartIds: [],
   },
@@ -937,7 +867,6 @@ export const exercises: Exercise[] = [
       "read a radiology impression"
     ],
     answer: "ask for more of an existing prescription",
-    explanation: "`refill request` means asking for another supply of a medicine that is already prescribed.",
     linkedTermIds: ["term-refill-request"],
     linkedPartIds: [],
   },
@@ -947,7 +876,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix often points to an abnormal condition or disease state?",
     choices: ["-osis", "-oma", "-itis", "-gram"],
     answer: "-osis",
-    explanation: "`-osis` often signals an abnormal condition or disease pattern.",
     linkedTermIds: ["term-nephrosis", "term-osteosis"],
     linkedPartIds: ["part-osis-suffix"],
   },
@@ -962,7 +890,6 @@ export const exercises: Exercise[] = [
       "blood in the urine"
     ],
     answer: "a blood collection causing swelling",
-    explanation: "`hematoma` points to a blood-related swelling or pooled collection.",
     linkedTermIds: ["term-hematoma"],
     linkedPartIds: ["part-hemat-combining", "part-oma-suffix"],
   },
@@ -977,7 +904,6 @@ export const exercises: Exercise[] = [
       "pain coming from a nerve"
     ],
     answer: "a nerve-related mass or tumor",
-    explanation: "`neur` points to nerve and `-oma` points to a mass or tumor.",
     linkedTermIds: ["term-neuroma"],
     linkedPartIds: ["part-neur-root", "part-oma-suffix"],
   },
@@ -987,7 +913,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to the fallopian tube?",
     choices: ["salping/o", "hyster/o", "ovari/o", "cyst/o"],
     answer: "salping/o",
-    explanation: "`salping/o` points to the fallopian tube in terms like `salpingitis` and `salpingectomy`.",
     linkedTermIds: ["term-salpingitis", "term-salpingectomy"],
     linkedPartIds: ["part-salping-combining"],
   },
@@ -1002,7 +927,6 @@ export const exercises: Exercise[] = [
       "surgical removal of an ovary"
     ],
     answer: "surgical removal of the uterus",
-    explanation: "`hyster/o` points to the uterus and `-ectomy` points to surgical removal.",
     linkedTermIds: ["term-hysterectomy"],
     linkedPartIds: ["part-hyster-combining", "part-ectomy-suffix"],
   },
@@ -1017,7 +941,6 @@ export const exercises: Exercise[] = [
       "surgical removal of an ovary"
     ],
     answer: "surgical removal of a fallopian tube",
-    explanation: "This follows the same organ-plus-procedure pattern used in other `-ectomy` terms.",
     linkedTermIds: ["term-salpingectomy"],
     linkedPartIds: ["part-salping-combining", "part-ectomy-suffix"],
   },
@@ -1027,7 +950,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to lymphatic tissue?",
     choices: ["lymph/o", "splen/o", "immun/o", "hemat/o"],
     answer: "lymph/o",
-    explanation: "`lymph/o` points to lymphatic tissue in words like `lymphoma`.",
     linkedTermIds: ["term-lymphoma"],
     linkedPartIds: ["part-lymph-combining"],
   },
@@ -1042,7 +964,6 @@ export const exercises: Exercise[] = [
       "enlargement of the spleen"
     ],
     answer: "a tumor involving lymphatic tissue",
-    explanation: "`lymphoma` follows the tissue-plus-mass naming pattern.",
     linkedTermIds: ["term-lymphoma"],
     linkedPartIds: ["part-lymph-combining", "part-oma-suffix"],
   },
@@ -1052,7 +973,6 @@ export const exercises: Exercise[] = [
     prompt: "Which term best matches enlargement of the spleen?",
     choices: ["splenomegaly", "splenectomy", "immunology", "lymphoma"],
     answer: "splenomegaly",
-    explanation: "`splen/o` points to the spleen and `-megaly` points to enlargement.",
     linkedTermIds: ["term-splenomegaly"],
     linkedPartIds: ["part-splen-combining", "part-megaly-suffix"],
   },
@@ -1067,7 +987,6 @@ export const exercises: Exercise[] = [
       "not enough of a needed substance"
     ],
     answer: "sudden or short in duration",
-    explanation: "`acute` usually points to a rapid onset or short course.",
     linkedTermIds: ["term-acute"],
     linkedPartIds: [],
   },
@@ -1082,7 +1001,6 @@ export const exercises: Exercise[] = [
       "limited to one office visit"
     ],
     answer: "long-lasting or recurring over time",
-    explanation: "`chronic` usually describes a condition that persists or returns over time.",
     linkedTermIds: ["term-chronic"],
     linkedPartIds: [],
   },
@@ -1092,7 +1010,6 @@ export const exercises: Exercise[] = [
     prompt: "Which word best matches a recognizable group of signs and symptoms?",
     choices: ["syndrome", "infection", "deficiency", "acute"],
     answer: "syndrome",
-    explanation: "`syndrome` refers to a set of findings that tend to occur together as a pattern.",
     linkedTermIds: ["term-syndrome"],
     linkedPartIds: [],
   },
@@ -1107,7 +1024,6 @@ export const exercises: Exercise[] = [
       "progress note"
     ],
     answer: "history of present illness",
-    explanation: "`history of present illness` is the chart section that explains how the current problem started and changed.",
     linkedTermIds: ["term-history-of-present-illness"],
     linkedPartIds: [],
   },
@@ -1122,7 +1038,6 @@ export const exercises: Exercise[] = [
       "a request for old records"
     ],
     answer: "checking the patient again after an initial evaluation or treatment",
-    explanation: "`reassessment` means the clinician looked again to see whether the condition changed.",
     linkedTermIds: ["term-reassessment"],
     linkedPartIds: [],
   },
@@ -1137,7 +1052,6 @@ export const exercises: Exercise[] = [
       "follow-up"
     ],
     answer: "physical exam",
-    explanation: "`physical exam` reports what the clinician observed directly during the exam.",
     linkedTermIds: ["term-physical-exam"],
     linkedPartIds: [],
   },
@@ -1152,7 +1066,6 @@ export const exercises: Exercise[] = [
       "approval from insurance before care"
     ],
     answer: "the arrival and registration step before the visit",
-    explanation: "`check-in` is the arrival and confirmation step before being seen.",
     linkedTermIds: ["term-check-in"],
     linkedPartIds: [],
   },
@@ -1167,7 +1080,6 @@ export const exercises: Exercise[] = [
       "pay the copay in advance"
     ],
     answer: "move the appointment to a different time",
-    explanation: "`reschedule` means to change the appointment time or date.",
     linkedTermIds: ["term-reschedule"],
     linkedPartIds: [],
   },
@@ -1182,7 +1094,6 @@ export const exercises: Exercise[] = [
       "after-visit summary"
     ],
     answer: "records request",
-    explanation: "`records request` means asking that medical records be sent or released.",
     linkedTermIds: ["term-records-request"],
     linkedPartIds: [],
   },
@@ -1192,7 +1103,6 @@ export const exercises: Exercise[] = [
     prompt: "Which expansion best matches `SOB`?",
     choices: ["shortness of breath", "surgical office booking", "stable oxygen baseline", "signs of bleeding"],
     answer: "shortness of breath",
-    explanation: "`SOB` is a very common clinical abbreviation for shortness of breath.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sob"],
@@ -1208,7 +1118,6 @@ export const exercises: Exercise[] = [
       "normal physical observation"
     ],
     answer: "nothing by mouth",
-    explanation: "`NPO` means the patient should not eat or drink anything by mouth.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-npo"],
@@ -1219,7 +1128,6 @@ export const exercises: Exercise[] = [
     prompt: "Vitals line: `BP 128/76, HR 84, RR 24.` Which abbreviation is the breathing-related measure?",
     choices: ["RR", "HR", "BP", "NPO"],
     answer: "RR",
-    explanation: "`RR` stands for respiratory rate, the number of breaths per minute.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-rr", "abbr-hr", "abbr-bp"],
@@ -1230,7 +1138,6 @@ export const exercises: Exercise[] = [
     prompt: "Which abbreviation best matches `history`?",
     choices: ["Hx", "Dx", "Tx", "ROI"],
     answer: "Hx",
-    explanation: "`Hx` is a common chart abbreviation for history.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-hx"],
@@ -1246,7 +1153,6 @@ export const exercises: Exercise[] = [
       "request records from another clinic"
     ],
     answer: "return for follow-up with the primary care provider",
-    explanation: "`f/u` means follow-up and `PCP` means primary care provider.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
@@ -1257,7 +1163,6 @@ export const exercises: Exercise[] = [
     prompt: "Which abbreviation refers to paperwork that allows records to be shared?",
     choices: ["ROI", "DOB", "Dx", "Tx"],
     answer: "ROI",
-    explanation: "`ROI` stands for release of information.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-roi"],
@@ -1268,7 +1173,6 @@ export const exercises: Exercise[] = [
     prompt: "Which abbreviation means a medicine is given into a vein?",
     choices: ["IV", "PO", "IM", "mL"],
     answer: "IV",
-    explanation: "`IV` stands for intravenous, meaning into a vein.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-iv"],
@@ -1279,7 +1183,6 @@ export const exercises: Exercise[] = [
     prompt: "Which abbreviation is a dose amount rather than a liquid volume?",
     choices: ["mg", "mL", "PO", "IM"],
     answer: "mg",
-    explanation: "`mg` is a mass unit for medicine doses, while `mL` is a volume unit.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-mg", "abbr-ml"],
@@ -1295,7 +1198,6 @@ export const exercises: Exercise[] = [
       "measure it in milliliters"
     ],
     answer: "use it as needed",
-    explanation: "`PRN` means something should be used or given as needed.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-prn"],
@@ -1311,7 +1213,6 @@ export const exercises: Exercise[] = [
       "an inflamed fallopian tube"
     ],
     answer: "enlargement of the spleen",
-    explanation: "This is a direct root-plus-suffix decoding pattern from earlier lessons.",
     linkedTermIds: ["term-splenomegaly"],
     linkedPartIds: ["part-splen-combining", "part-megaly-suffix"],
   },
@@ -1326,7 +1227,6 @@ export const exercises: Exercise[] = [
       "full use"
     ],
     answer: "follow-up",
-    explanation: "`f/u` is a common document abbreviation for follow-up.",
     linkedTermIds: ["term-after-visit-summary"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
@@ -1342,7 +1242,6 @@ export const exercises: Exercise[] = [
       "a message about prior authorization"
     ],
     answer: "surgical removal of the thyroid gland",
-    explanation: "The thyroid root and `-ectomy` suffix point to surgical removal.",
     linkedTermIds: ["term-thyroidectomy"],
     linkedPartIds: ["part-thyroid-combining", "part-ectomy-suffix"],
   },
@@ -1357,7 +1256,6 @@ export const exercises: Exercise[] = [
       "The patient was discharged after chronic symptoms resolved"
     ],
     answer: "Breathing symptoms were present, but the patient was improving while waiting for a procedure",
-    explanation: "The note combines abbreviations, status words, and procedure language from several earlier units.",
     linkedTermIds: ["term-biopsy", "term-impression", "term-acute", "term-monitoring"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-bp", "abbr-hr", "abbr-rr", "abbr-sob", "abbr-npo"],
@@ -1368,7 +1266,6 @@ export const exercises: Exercise[] = [
     prompt: "In the note above, `NPO` means the patient should ___ before the biopsy.",
     choices: ["have nothing by mouth", "receive medicine as needed", "return in two weeks", "sign a release form"],
     answer: "have nothing by mouth",
-    explanation: "`NPO` is standard shorthand for nothing by mouth.",
     linkedTermIds: ["term-biopsy"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-npo"],
@@ -1379,7 +1276,6 @@ export const exercises: Exercise[] = [
     prompt: "Which word labels the short summary interpretation at the end of many reports or notes?",
     choices: ["impression", "specimen", "dosage", "check-in"],
     answer: "impression",
-    explanation: "`impression` is commonly the short take-home interpretation at the end of a report.",
     linkedTermIds: ["term-impression"],
     linkedPartIds: [],
   },
@@ -1394,7 +1290,6 @@ export const exercises: Exercise[] = [
       "route of injection"
     ],
     answer: "release of information",
-    explanation: "`ROI` is the permission form or process used to share records.",
     linkedTermIds: ["term-refill-request", "term-patient-portal"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-dob", "abbr-roi", "abbr-pcp"],
@@ -1405,7 +1300,6 @@ export const exercises: Exercise[] = [
     prompt: "Appointment reminder: `Bring your insurance card to check-in and call to reschedule if needed.` Which phrase means move the visit to a different time?",
     choices: ["reschedule", "check-in", "insurance card", "records request"],
     answer: "reschedule",
-    explanation: "`reschedule` means to change the appointment time or date.",
     linkedTermIds: ["term-reschedule", "term-check-in", "term-insurance-card"],
     linkedPartIds: [],
   },
@@ -1420,7 +1314,6 @@ export const exercises: Exercise[] = [
       "the after-visit summary is ready"
     ],
     answer: "extra approval is needed before coverage proceeds",
-    explanation: "A prior authorization notice usually means additional approval is needed before a service or medicine is covered.",
     linkedTermIds: ["term-prior-authorization-notice", "term-coverage"],
     linkedPartIds: [],
   },
@@ -1435,7 +1328,6 @@ export const exercises: Exercise[] = [
       "ear examination"
     ],
     answer: "under the skin",
-    explanation: "The prefix and skin word part together point to something below or under the skin.",
     linkedTermIds: ["term-subcutaneous"],
     linkedPartIds: ["part-sub-prefix", "part-cutane-combining"],
   },
@@ -1445,7 +1337,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to skin in `cutaneous` language?",
     choices: ["cutane/o", "ophthalm/o", "onc/o", "ot/o"],
     answer: "cutane/o",
-    explanation: "`cutane/o` points to skin in terms like `cutaneous` and `subcutaneous`.",
     linkedTermIds: ["term-cutaneous", "term-subcutaneous"],
     linkedPartIds: ["part-cutane-combining"],
   },
@@ -1460,7 +1351,6 @@ export const exercises: Exercise[] = [
       "ear inflammation"
     ],
     answer: "an abnormal skin condition",
-    explanation: "`derm/o` points to skin and `-osis` often points to an abnormal condition.",
     linkedTermIds: ["term-dermatosis"],
     linkedPartIds: ["part-derm-combining", "part-osis-suffix"],
   },
@@ -1475,7 +1365,6 @@ export const exercises: Exercise[] = [
       "hearing loss caused by a tumor"
     ],
     answer: "study and treatment of the eye",
-    explanation: "The eye combining form plus `-logy` points to the field that focuses on eye care.",
     linkedTermIds: ["term-ophthalmology"],
     linkedPartIds: ["part-ophthalm-combining", "part-ology-suffix"],
   },
@@ -1490,7 +1379,6 @@ export const exercises: Exercise[] = [
       "under the skin"
     ],
     answer: "inflammation of the ear",
-    explanation: "`ot/o` points to the ear and `-itis` points to inflammation.",
     linkedTermIds: ["term-otitis"],
     linkedPartIds: ["part-ot-combining", "part-itis-suffix"],
   },
@@ -1500,7 +1388,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix in `otoscopy` signals viewing with a scope?",
     choices: ["-scopy", "-logy", "-itis", "-oma"],
     answer: "-scopy",
-    explanation: "`-scopy` marks an examination or viewing procedure with a scope or similar instrument.",
     linkedTermIds: ["term-otoscopy"],
     linkedPartIds: ["part-scopy-suffix"],
   },
@@ -1515,7 +1402,6 @@ export const exercises: Exercise[] = [
       "an ear examination"
     ],
     answer: "study and treatment of tumors or cancer",
-    explanation: "`onc/o` plus `-logy` points to the medical field centered on cancer care.",
     linkedTermIds: ["term-oncology"],
     linkedPartIds: ["part-onc-combining", "part-ology-suffix"],
   },
@@ -1530,7 +1416,6 @@ export const exercises: Exercise[] = [
       "skin under the surface"
     ],
     answer: "a cancerous tumor",
-    explanation: "`carcin/o` points to cancer and `-oma` points to a mass or tumor.",
     linkedTermIds: ["term-carcinoma"],
     linkedPartIds: ["part-carcin-combining", "part-oma-suffix"],
   },
@@ -1545,7 +1430,6 @@ export const exercises: Exercise[] = [
       "study of the eye"
     ],
     answer: "cancerous or likely to spread",
-    explanation: "`benign` and `malignant` are high-yield opposites in tumor language.",
     linkedTermIds: ["term-benign", "term-malignant"],
     linkedPartIds: [],
   },
@@ -1560,7 +1444,6 @@ export const exercises: Exercise[] = [
       "watch next level"
     ],
     answer: "within normal limits",
-    explanation: "`WNL` is chart shorthand meaning the finding is in the expected normal range.",
     linkedTermIds: ["term-otoscopy"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-wnl"],
@@ -1576,7 +1459,6 @@ export const exercises: Exercise[] = [
       "within normal limits"
     ],
     answer: "subcutaneous",
-    explanation: "`SQ` means the medicine is given under the skin.",
     linkedTermIds: ["term-subcutaneous"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sq"],
@@ -1592,7 +1474,6 @@ export const exercises: Exercise[] = [
       "cough without oxygen, improved with fluids only"
     ],
     answer: "cough without fever, improved with rest",
-    explanation: "`w/` means with and `w/o` means without in shorthand note language.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-w-with", "abbr-wo"],
@@ -1608,7 +1489,6 @@ export const exercises: Exercise[] = [
       "No medicine was given because the patient had to remain NPO"
     ],
     answer: "An under-the-skin injection was given and the site looked normal afterward",
-    explanation: "This line combines route shorthand, note shorthand, and a normal-finding abbreviation in one compact sentence.",
     linkedTermIds: ["term-subcutaneous", "term-injection", "term-progress-note"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sq", "abbr-wo", "abbr-wnl"],
@@ -1624,7 +1504,6 @@ export const exercises: Exercise[] = [
       "study of the eye"
     ],
     answer: "a cancerous tumor",
-    explanation: "This is a direct tumor-language decoding pattern that reinforces the new oncology lesson.",
     linkedTermIds: ["term-carcinoma"],
     linkedPartIds: ["part-carcin-combining", "part-oma-suffix"],
   },
@@ -1639,7 +1518,6 @@ export const exercises: Exercise[] = [
       "The patient should request records before the eye exam can happen"
     ],
     answer: "Return for follow-up with the eye specialist; the ear exam looked normal",
-    explanation: "This short line mixes workflow shorthand, a specialty term, a procedure term, and a normal-finding abbreviation.",
     linkedTermIds: ["term-ophthalmology", "term-otoscopy"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-w-with", "abbr-wnl"],
@@ -1655,7 +1533,6 @@ export const exercises: Exercise[] = [
       "continue orally"
     ],
     answer: "complains of",
-    explanation: "`c/o` introduces what the patient says they are experiencing.",
     linkedTermIds: ["term-dyspnea", "term-chief-complaint"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-co"],
@@ -1671,7 +1548,6 @@ export const exercises: Exercise[] = [
       "no key discharge advice"
     ],
     answer: "no known drug allergies",
-    explanation: "`NKDA` records that no medication allergies are known.",
     linkedTermIds: ["term-allergies"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-nkda"],
@@ -1687,7 +1563,6 @@ export const exercises: Exercise[] = [
       "scope procedure pending"
     ],
     answer: "after the appendectomy",
-    explanation: "`s/p` means status post, or after a listed event or procedure.",
     linkedTermIds: ["term-appendectomy", "term-progress-note"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sp"],
@@ -1703,7 +1578,6 @@ export const exercises: Exercise[] = [
       "by mouth"
     ],
     answer: "twice daily",
-    explanation: "`BID` is common shorthand for two times each day.",
     linkedTermIds: ["term-dosage"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-bid"],
@@ -1714,7 +1588,6 @@ export const exercises: Exercise[] = [
     prompt: "Which abbreviation means `three times daily`?",
     choices: ["TID", "BID", "CBC", "PRN"],
     answer: "TID",
-    explanation: "`TID` means three times daily, while `BID` means twice daily.",
     linkedTermIds: ["term-dosage"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-tid", "abbr-bid"],
@@ -1730,7 +1603,6 @@ export const exercises: Exercise[] = [
       "cardiac biopsy check"
     ],
     answer: "complete blood count",
-    explanation: "`CBC` names a common blood-cell lab test.",
     linkedTermIds: ["term-hematology", "term-anemia"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cbc"],
@@ -1746,7 +1618,6 @@ export const exercises: Exercise[] = [
       "The patient needs surgery before any breathing treatment"
     ],
     answer: "The patient reports cough, has no known drug allergies, and should use the inhaler twice a day",
-    explanation: "This line mixes complaint shorthand, allergy shorthand, and medication-frequency shorthand.",
     linkedTermIds: ["term-chief-complaint", "term-allergies", "term-dosage"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-co", "abbr-nkda", "abbr-bid"],
@@ -1762,7 +1633,6 @@ export const exercises: Exercise[] = [
       "The patient should not eat or drink until after the clinic closes"
     ],
     answer: "After the appendix removal, take the antibiotic three times daily and follow up with the main clinician",
-    explanation: "This line combines procedure status, medication frequency, and workflow shorthand.",
     linkedTermIds: ["term-appendectomy", "term-discharge-instructions", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sp", "abbr-tid", "abbr-fu", "abbr-pcp"],
@@ -1778,7 +1648,6 @@ export const exercises: Exercise[] = [
       "The patient should return for eye follow-up"
     ],
     answer: "The blood count test was within the expected range",
-    explanation: "`CBC` names the blood-count test and `WNL` says the result was within normal limits.",
     linkedTermIds: ["term-monitoring", "term-findings"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cbc", "abbr-wnl"],
@@ -1789,7 +1658,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to a cell?",
     choices: ["cyt/o", "thromb/o", "leuk/o", "erythr/o"],
     answer: "cyt/o",
-    explanation: "`cyt/o` points to a cell in terms like `erythrocyte` and `leukocyte`.",
     linkedTermIds: ["term-erythrocyte", "term-leukocyte"],
     linkedPartIds: ["part-cyt-combining"],
   },
@@ -1804,7 +1672,6 @@ export const exercises: Exercise[] = [
       "blood test image"
     ],
     answer: "red blood cell",
-    explanation: "The parts point to a red-colored cell, which is the red blood cell.",
     linkedTermIds: ["term-erythrocyte"],
     linkedPartIds: ["part-erythr-combining", "part-cyt-combining"],
   },
@@ -1819,7 +1686,6 @@ export const exercises: Exercise[] = [
       "blood imaging study"
     ],
     answer: "white blood cell",
-    explanation: "`leuk/o` plus `cyt/o` points to the white blood cell.",
     linkedTermIds: ["term-leukocyte"],
     linkedPartIds: ["part-leuk-combining", "part-cyt-combining"],
   },
@@ -1834,7 +1700,6 @@ export const exercises: Exercise[] = [
       "a normal urine test"
     ],
     answer: "formation of a blood clot in a vessel",
-    explanation: "`thromb/o` points to clot and `-osis` points to an abnormal condition or process.",
     linkedTermIds: ["term-thrombosis"],
     linkedPartIds: ["part-thromb-combining", "part-osis-suffix"],
   },
@@ -1849,7 +1714,6 @@ export const exercises: Exercise[] = [
       "cell test"
     ],
     answer: "computed tomography",
-    explanation: "`CT` is a common imaging abbreviation for computed tomography.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ct"],
@@ -1865,7 +1729,6 @@ export const exercises: Exercise[] = [
       "muscle repair injection"
     ],
     answer: "magnetic resonance imaging",
-    explanation: "`MRI` names an imaging study that uses magnetic fields and radio waves.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-mri"],
@@ -1881,7 +1744,6 @@ export const exercises: Exercise[] = [
       "ultrasound appointment"
     ],
     answer: "urinalysis",
-    explanation: "`UA` is a common shorthand for a urine test.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ua"],
@@ -1897,7 +1759,6 @@ export const exercises: Exercise[] = [
       "within normal limits"
     ],
     answer: "immediately",
-    explanation: "`STAT` means the action should happen without delay.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-stat", "abbr-ct"],
@@ -1913,7 +1774,6 @@ export const exercises: Exercise[] = [
       "The patient should take antibiotics three times a day for ear pain"
     ],
     answer: "The patient reports sudden headache and nausea, a rapid CT is ordered, and follow-up with the main clinician depends on a normal scan",
-    explanation: "This note mixes complaint, allergy, vital-sign, urgency, reassessment, and follow-up shorthand in one short passage.",
     linkedTermIds: ["term-acute", "term-reassessment", "term-stable", "term-plan", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: [
@@ -1939,7 +1799,6 @@ export const exercises: Exercise[] = [
       "The message is mainly about insurance denial and billing review"
     ],
     answer: "The MRI found a noncancerous lesion, the urine test looked normal, and kidney follow-up should continue if symptoms come back",
-    explanation: "This line combines imaging, result-summary, benign or malignant contrast, urine testing, and follow-up planning.",
     linkedTermIds: ["term-impression", "term-benign", "term-monitoring", "term-nephrology", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-mri", "abbr-ua", "abbr-wnl"],
@@ -1950,7 +1809,6 @@ export const exercises: Exercise[] = [
     prompt: "In the urgent note above, `STAT` means the CT should happen ___.",
     choices: ["immediately", "at the next annual visit", "three times daily", "only if symptoms fully resolve"],
     answer: "immediately",
-    explanation: "`STAT` signals urgency and means the test or action should happen right away.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-stat", "abbr-ct"],
@@ -1961,7 +1819,6 @@ export const exercises: Exercise[] = [
     prompt: "Which prefix suggests many or much, as in `polyuria`?",
     choices: ["poly-", "olig-", "dys-", "sub-"],
     answer: "poly-",
-    explanation: "`poly-` signals many or much in terms such as `polyuria`.",
     linkedTermIds: ["term-polyuria"],
     linkedPartIds: ["part-poly-prefix"],
   },
@@ -1976,7 +1833,6 @@ export const exercises: Exercise[] = [
       "a blood clot in a vessel"
     ],
     answer: "painful or difficult urination",
-    explanation: "`dysuria` points to abnormal or uncomfortable urination.",
     linkedTermIds: ["term-dysuria"],
     linkedPartIds: ["part-dys-prefix", "part-uria-suffix"],
   },
@@ -1991,7 +1847,6 @@ export const exercises: Exercise[] = [
       "too little urine output"
     ],
     answer: "excessive urination",
-    explanation: "`poly-` plus `-uria` points to too much urine output.",
     linkedTermIds: ["term-polyuria"],
     linkedPartIds: ["part-poly-prefix", "part-uria-suffix"],
   },
@@ -2006,7 +1861,6 @@ export const exercises: Exercise[] = [
       "painful urination"
     ],
     answer: "abnormally low urine output",
-    explanation: "`olig-` points to scanty or too little, and `-uria` points to urine output.",
     linkedTermIds: ["term-oliguria"],
     linkedPartIds: ["part-olig-prefix", "part-uria-suffix"],
   },
@@ -2021,7 +1875,6 @@ export const exercises: Exercise[] = [
       "urination that is painful"
     ],
     answer: "protein present in the urine",
-    explanation: "The safe decomposition comes from `-uria`, which signals a urine finding or urine-related condition.",
     linkedTermIds: ["term-proteinuria"],
     linkedPartIds: ["part-uria-suffix"],
   },
@@ -2036,7 +1889,6 @@ export const exercises: Exercise[] = [
       "The message is mainly about billing and insurance paperwork"
     ],
     answer: "The urine test looked normal, but painful urination is still present, and follow-up is needed if blood in the urine returns or output drops",
-    explanation: "This message mixes urine-test shorthand, urinary symptoms, and follow-up language in one short passage.",
     linkedTermIds: ["term-dysuria", "term-hematuria", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ua", "abbr-wnl", "abbr-fu", "abbr-pcp"],
@@ -2052,7 +1904,6 @@ export const exercises: Exercise[] = [
       "The patient should take antibiotics three times daily after surgery"
     ],
     answer: "The urine test found protein but not blood, and kidney follow-up is advised if problems continue",
-    explanation: "This line combines a full urine-test term, a partial urine finding, and kidney-specialty follow-up language.",
     linkedTermIds: ["term-urinalysis", "term-proteinuria", "term-hematuria", "term-nephrology", "term-follow-up"],
     linkedPartIds: [],
   },
@@ -2067,7 +1918,6 @@ export const exercises: Exercise[] = [
       "low blood count now, with watchfulness for infection later"
     ],
     answer: "too much urine now, with watchfulness for too little urine later",
-    explanation: "`polyuria` and `oliguria` create a useful high-versus-low urine-output contrast.",
     linkedTermIds: ["term-polyuria", "term-oliguria", "term-reassessment"],
     linkedPartIds: ["part-poly-prefix", "part-olig-prefix", "part-uria-suffix"],
   },
@@ -2082,7 +1932,6 @@ export const exercises: Exercise[] = [
       "The message is about a normal urine test rather than blood counts"
     ],
     answer: "The white blood cell count is elevated while red blood cells are stable, so the note leans toward infection and continued observation",
-    explanation: "This passage combines CBC language with blood-cell terms and common assessment or monitoring phrasing.",
     linkedTermIds: [
       "term-leukocytosis",
       "term-erythrocyte",
@@ -2104,7 +1953,6 @@ export const exercises: Exercise[] = [
       "The patient should remain NPO before biopsy"
     ],
     answer: "No blood clot was found, and the swelling is getting better",
-    explanation: "`thrombosis` points to a clotting process, so the note is reassuring that no clot was seen.",
     linkedTermIds: ["term-thrombosis", "term-impression", "term-follow-up"],
     linkedPartIds: ["part-thromb-combining", "part-osis-suffix"],
   },
@@ -2119,7 +1967,6 @@ export const exercises: Exercise[] = [
       "painful urination"
     ],
     answer: "an abnormally increased white blood cell count",
-    explanation: "`leuk/o` points to white, `cyt/o` points to cell, and `-osis` marks an abnormal condition.",
     linkedTermIds: ["term-leukocytosis"],
     linkedPartIds: ["part-leuk-combining", "part-cyt-combining", "part-osis-suffix"],
   },
@@ -2129,7 +1976,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to a stone condition or the presence of stones?",
     choices: ["-lithiasis", "-itis", "-megaly", "-gram"],
     answer: "-lithiasis",
-    explanation: "`-lithiasis` points to a condition involving stones, such as kidney stones or gallstones.",
     linkedTermIds: ["term-cholelithiasis", "term-nephrolithiasis"],
     linkedPartIds: ["part-lithiasis-suffix"],
   },
@@ -2144,7 +1990,6 @@ export const exercises: Exercise[] = [
       "enlargement of the liver"
     ],
     answer: "inflammation of the pancreas",
-    explanation: "`pancreatitis` follows the familiar organ-plus-inflammation pattern.",
     linkedTermIds: ["term-pancreatitis"],
     linkedPartIds: ["part-pancreat-combining", "part-itis-suffix"],
   },
@@ -2159,7 +2004,6 @@ export const exercises: Exercise[] = [
       "inflammation of the pancreas"
     ],
     answer: "inflammation of the gallbladder",
-    explanation: "`cholecyst/o` points to the gallbladder and `-itis` points to inflammation.",
     linkedTermIds: ["term-cholecystitis"],
     linkedPartIds: ["part-cholecyst-combining", "part-itis-suffix"],
   },
@@ -2174,7 +2018,6 @@ export const exercises: Exercise[] = [
       "study of the kidney"
     ],
     answer: "a gallstone condition",
-    explanation: "`chol/e` points to bile or gall and `-lithiasis` points to stones.",
     linkedTermIds: ["term-cholelithiasis"],
     linkedPartIds: ["part-chole-combining", "part-lithiasis-suffix"],
   },
@@ -2189,7 +2032,6 @@ export const exercises: Exercise[] = [
       "gallbladder inflammation"
     ],
     answer: "kidney stone condition",
-    explanation: "`nephr/o` points to the kidney and `-lithiasis` points to stones.",
     linkedTermIds: ["term-nephrolithiasis"],
     linkedPartIds: ["part-nephr-combining", "part-lithiasis-suffix"],
   },
@@ -2204,7 +2046,6 @@ export const exercises: Exercise[] = [
       "The message is mainly about prior authorization paperwork"
     ],
     answer: "The scan found kidney stones, the urine showed blood, and follow-up is needed if the problem comes back",
-    explanation: "This passage mixes imaging, urine-test shorthand, kidney-stone language, and follow-up instructions.",
     linkedTermIds: ["term-nephrolithiasis", "term-hematuria", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ct", "abbr-ua", "abbr-fu", "abbr-pcp"],
@@ -2220,7 +2061,6 @@ export const exercises: Exercise[] = [
       "The note mainly describes a routine vaccination visit"
     ],
     answer: "Gallstones are present with likely gallbladder inflammation, so the patient is not eating or drinking while observation continues",
-    explanation: "This line combines an imaging interpretation with stone language, inflammation language, and the `NPO` instruction.",
     linkedTermIds: ["term-ultrasound", "term-impression", "term-cholelithiasis", "term-cholecystitis", "term-monitoring"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-npo"],
@@ -2236,7 +2076,6 @@ export const exercises: Exercise[] = [
       "blood in the urine"
     ],
     answer: "inflammation of the pancreas",
-    explanation: "`pancreatitis` follows the same organ-plus-inflammation pattern used in other `-itis` terms.",
     linkedTermIds: ["term-pancreatitis", "term-monitoring"],
     linkedPartIds: ["part-pancreat-combining", "part-itis-suffix"],
   },
@@ -2251,7 +2090,6 @@ export const exercises: Exercise[] = [
       "The patient should remain NPO until the consult office opens"
     ],
     answer: "The patient has a history of ongoing breathing trouble, the diagnosis is still uncertain, treatment was started as needed, and follow-up with the main clinician comes after the specialist discussion",
-    explanation: "This note compresses history, diagnosis, treatment, and follow-up shorthand into one referral line.",
     linkedTermIds: ["term-chronic", "term-dyspnea", "term-consult", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-hx", "abbr-dx", "abbr-tx", "abbr-prn", "abbr-fu", "abbr-pcp"],
@@ -2267,7 +2105,6 @@ export const exercises: Exercise[] = [
       "The patient should bring food before the visit"
     ],
     answer: "Permission and date-of-birth details are needed before records can be sent",
-    explanation: "`ROI` is the release of information process and `DOB` is the patient's date of birth.",
     linkedTermIds: ["term-records-request", "term-consult"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-roi", "abbr-dob"],
@@ -2283,7 +2120,6 @@ export const exercises: Exercise[] = [
       "discharge and triage"
     ],
     answer: "diagnosis and treatment",
-    explanation: "`Dx` is shorthand for diagnosis and `Tx` is shorthand for treatment.",
     linkedTermIds: ["term-consult"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-dx", "abbr-tx"],
@@ -2299,7 +2135,6 @@ export const exercises: Exercise[] = [
       "The patient has chronic kidney stones and needs a urine test"
     ],
     answer: "The patient came in with sudden shortness of breath, improved after as-needed treatment, and is moving for continued observation",
-    explanation: "This handoff combines complaint, vital-sign, allergy, reassessment, and transfer language in one compact note.",
     linkedTermIds: ["term-acute", "term-admission", "term-reassessment", "term-transfer", "term-monitoring"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-co", "abbr-sob", "abbr-hr", "abbr-rr", "abbr-nkda", "abbr-prn", "abbr-wnl"],
@@ -2315,7 +2150,6 @@ export const exercises: Exercise[] = [
       "The office canceled the transfer"
     ],
     answer: "Breathing improved after treatment",
-    explanation: "The reassessment line says breathing was easier after the PRN treatment.",
     linkedTermIds: ["term-reassessment"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-prn"],
@@ -2326,7 +2160,6 @@ export const exercises: Exercise[] = [
     prompt: "Which phrase in the handoff most clearly signals a sudden current problem rather than a long-running one?",
     choices: ["acute SOB", "WNL exam", "transfer to floor", "NKDA"],
     answer: "acute SOB",
-    explanation: "`acute` points to a current or sudden problem rather than a chronic one.",
     linkedTermIds: ["term-acute", "term-chronic"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sob", "abbr-nkda", "abbr-wnl"],
@@ -2342,7 +2175,6 @@ export const exercises: Exercise[] = [
       "The patient should complete check-in before any results are released"
     ],
     answer: "The MRI summary is ready, the blood count looked normal, and approval is still pending for the next scan",
-    explanation: "This message mixes result-availability language, a normal blood count, and authorization workflow language.",
     linkedTermIds: ["term-impression", "term-prior-authorization-notice"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-mri", "abbr-cbc", "abbr-wnl"],
@@ -2358,7 +2190,6 @@ export const exercises: Exercise[] = [
       "Repeat the blood count test three times daily"
     ],
     answer: "Finish registration, bring coverage information, and authorize records sharing if the main clinician needs the scan results",
-    explanation: "This message mixes front-desk workflow, insurance, record-release, and imaging-result language.",
     linkedTermIds: ["term-check-in", "term-insurance-card", "term-test-results"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-roi", "abbr-pcp", "abbr-ct"],
@@ -2374,7 +2205,6 @@ export const exercises: Exercise[] = [
       "Repeat the blood count test before every dose"
     ],
     answer: "Wait for the results and then follow up with the main clinician if the problem continues",
-    explanation: "The message links the refill workflow to result review and later follow-up.",
     linkedTermIds: ["term-refill-request", "term-test-results", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
@@ -2385,7 +2215,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to the pharynx or throat?",
     choices: ["pharyng/o", "laryng/o", "rhin/o", "bronch/o"],
     answer: "pharyng/o",
-    explanation: "`pharyng/o` points to the pharynx, which is the throat area behind the mouth and nose.",
     linkedTermIds: ["term-pharyngitis"],
     linkedPartIds: ["part-pharyng-combining"],
   },
@@ -2400,7 +2229,6 @@ export const exercises: Exercise[] = [
       "difficulty breathing"
     ],
     answer: "inflammation of the nose",
-    explanation: "`rhinitis` follows the familiar organ-plus-inflammation pattern.",
     linkedTermIds: ["term-rhinitis"],
     linkedPartIds: ["part-rhin-combining", "part-itis-suffix"],
   },
@@ -2415,7 +2243,6 @@ export const exercises: Exercise[] = [
       "a lung infection"
     ],
     answer: "nasal discharge or a runny nose",
-    explanation: "`rhin/o` points to the nose and `-rrhea` points to discharge or flow.",
     linkedTermIds: ["term-rhinorrhea"],
     linkedPartIds: ["part-rhin-combining", "part-rrhea-suffix"],
   },
@@ -2430,7 +2257,6 @@ export const exercises: Exercise[] = [
       "laryng/o + -itis"
     ],
     answer: "sinus/o + -itis",
-    explanation: "`sinusitis` combines the sinus word part with the inflammation suffix.",
     linkedTermIds: ["term-sinusitis"],
     linkedPartIds: ["part-sinus-combining", "part-itis-suffix"],
   },
@@ -2440,7 +2266,6 @@ export const exercises: Exercise[] = [
     prompt: "`laryngitis` means inflammation of the ___.",
     choices: ["voice box", "nose", "sinus cavity", "bronchial tube"],
     answer: "voice box",
-    explanation: "`laryng/o` points to the larynx, also called the voice box.",
     linkedTermIds: ["term-laryngitis"],
     linkedPartIds: ["part-laryng-combining", "part-itis-suffix"],
   },
@@ -2455,7 +2280,6 @@ export const exercises: Exercise[] = [
       "The patient has kidney stones and should remain NPO"
     ],
     answer: "The patient has nasal discharge and likely nose and throat inflammation, with as-needed treatment and follow-up if things get worse",
-    explanation: "This passage mixes upper-airway terms with complaint, vital-sign, treatment, and follow-up shorthand.",
     linkedTermIds: ["term-rhinorrhea", "term-rhinitis", "term-pharyngitis", "term-acute", "term-assessment", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-co", "abbr-hr", "abbr-rr", "abbr-sob", "abbr-prn", "abbr-fu", "abbr-pcp"],
@@ -2471,7 +2295,6 @@ export const exercises: Exercise[] = [
       "A urine test came back normal and no further care is needed"
     ],
     answer: "A sinus problem is suspected, supportive treatment should continue as needed, and follow-up is needed if symptoms keep going",
-    explanation: "The message centers on sinus inflammation and routine follow-up rather than a more serious lower-airway emergency.",
     linkedTermIds: ["term-sinusitis", "term-follow-up", "term-patient-portal"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-prn", "abbr-fu", "abbr-pcp"],
@@ -2487,7 +2310,6 @@ export const exercises: Exercise[] = [
       "The patient needs records transfer instead of treatment"
     ],
     answer: "Voice-box inflammation is more likely than a lung infection",
-    explanation: "`laryngitis` points to the voice box, while `pneumonia` points to a lung infection.",
     linkedTermIds: ["term-laryngitis", "term-pneumonia", "term-assessment"],
     linkedPartIds: ["part-laryng-combining", "part-itis-suffix", "part-pneum-combining"],
     linkedAbbreviationIds: ["abbr-sob"],
@@ -2503,7 +2325,6 @@ export const exercises: Exercise[] = [
       "The patient has developed a urinary infection"
     ],
     answer: "The problem has shifted from simple nasal irritation to a breathing concern",
-    explanation: "`rhinitis` is upper-airway inflammation, while `dyspnea` signals harder breathing and a more urgent respiratory concern.",
     linkedTermIds: ["term-rhinitis", "term-dyspnea"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-co", "abbr-hr", "abbr-rr", "abbr-pcp"],
@@ -2519,7 +2340,6 @@ export const exercises: Exercise[] = [
       "The patient should stop all treatment because the diagnosis is final"
     ],
     answer: "Low oxygen was not found, the lungs look okay overall, and bronchitis is more likely than pneumonia for now",
-    explanation: "This line contrasts oxygen status, normal-range shorthand, and two common respiratory diagnoses while giving follow-up guidance.",
     linkedTermIds: ["term-reassessment", "term-hypoxia", "term-bronchitis", "term-pneumonia", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-wnl", "abbr-prn", "abbr-fu", "abbr-sob"],
@@ -2535,7 +2355,6 @@ export const exercises: Exercise[] = [
       "Stop eating and drinking until the next appointment"
     ],
     answer: "Come back sooner if sudden breathing trouble appears",
-    explanation: "The message contrasts ongoing upper-airway symptoms with the more urgent warning sign of acute shortness of breath.",
     linkedTermIds: ["term-sinusitis", "term-rhinorrhea", "term-acute"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sob"],
@@ -2546,7 +2365,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to the chest?",
     choices: ["thorac/o", "pleur/o", "laryng/o", "rhin/o"],
     answer: "thorac/o",
-    explanation: "`thorac/o` points to the chest area.",
     linkedTermIds: ["term-thoracic", "term-thoracotomy"],
     linkedPartIds: ["part-thorac-combining"],
   },
@@ -2561,7 +2379,6 @@ export const exercises: Exercise[] = [
       "an infection limited to the nose"
     ],
     answer: "inflammation of the lining around the lungs",
-    explanation: "`pleuritis` follows the same structure as many other inflammation terms in the course.",
     linkedTermIds: ["term-pleuritis"],
     linkedPartIds: ["part-pleur-combining", "part-itis-suffix"],
   },
@@ -2576,7 +2393,6 @@ export const exercises: Exercise[] = [
       "related to the gallbladder"
     ],
     answer: "related to the chest",
-    explanation: "`thorac/o` points to the chest, so `thoracic` describes that area.",
     linkedTermIds: ["term-thoracic"],
     linkedPartIds: ["part-thorac-combining"],
   },
@@ -2591,7 +2407,6 @@ export const exercises: Exercise[] = [
       "inflammation of the pleura"
     ],
     answer: "an incision into the chest",
-    explanation: "`thoracotomy` follows the taught procedure pattern of organ plus `-otomy`.",
     linkedTermIds: ["term-thoracotomy"],
     linkedPartIds: ["part-thorac-combining", "part-otomy-suffix"],
   },
@@ -2606,7 +2421,6 @@ export const exercises: Exercise[] = [
       "difficulty breathing with low oxygen"
     ],
     answer: "a puncture into the chest to remove fluid or air",
-    explanation: "`-centesis` points to a surgical puncture, often to remove fluid or air.",
     linkedTermIds: ["term-thoracentesis"],
     linkedPartIds: ["part-thorac-combining", "part-centesis-suffix"],
   },
@@ -2621,7 +2435,6 @@ export const exercises: Exercise[] = [
       "The patient has kidney stones and needs a urine test"
     ],
     answer: "The patient has chest pain and breathing difficulty, fluid around the lungs is suspected, and a chest-drainage procedure is planned with later follow-up",
-    explanation: "This passage mixes chest-language terms, imaging shorthand, a respiratory symptom term, and discharge follow-up.",
     linkedTermIds: ["term-thoracic", "term-dyspnea", "term-pleural", "term-thoracentesis", "term-follow-up", "term-discharge"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-co", "abbr-ct", "abbr-fu", "abbr-pcp"],
@@ -2637,7 +2450,6 @@ export const exercises: Exercise[] = [
       "A gallbladder procedure is now planned"
     ],
     answer: "Low oxygen was not found, the lungs look stable overall, and inflammation of the chest lining is more likely than a lung infection",
-    explanation: "This line contrasts oxygen status, normal-range shorthand, pleural inflammation, and pneumonia.",
     linkedTermIds: ["term-reassessment", "term-hypoxia", "term-pleuritis", "term-pneumonia"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-wnl", "abbr-prn", "abbr-sob"],
@@ -2653,7 +2465,6 @@ export const exercises: Exercise[] = [
       "a routine blood-count test"
     ],
     answer: "a puncture into the chest to remove fluid or air",
-    explanation: "The procedure name combines the chest root with the puncture suffix and fits the chest-fluid context.",
     linkedTermIds: ["term-thoracentesis", "term-dyspnea", "term-assessment", "term-thoracic", "term-stable"],
     linkedPartIds: ["part-thorac-combining", "part-centesis-suffix"],
   },
@@ -2663,7 +2474,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to growth, formation, or development?",
     choices: ["-plasia", "-malacia", "-ectomy", "-algia"],
     answer: "-plasia",
-    explanation: "`-plasia` points to the pattern or amount of growth or development.",
     linkedTermIds: ["term-dysplasia", "term-hyperplasia", "term-hypoplasia"],
     linkedPartIds: ["part-plasia-suffix"],
   },
@@ -2678,7 +2488,6 @@ export const exercises: Exercise[] = [
       "surgical removal of a growth"
     ],
     answer: "abnormal growth or development",
-    explanation: "`dysplasia` follows a direct abnormal-plus-growth pattern.",
     linkedTermIds: ["term-dysplasia"],
     linkedPartIds: ["part-dys-prefix", "part-plasia-suffix"],
   },
@@ -2693,7 +2502,6 @@ export const exercises: Exercise[] = [
       "benign versus malignant spread"
     ],
     answer: "too much growth versus too little growth",
-    explanation: "`hyper-` signals excess and `hypo-` signals too little.",
     linkedTermIds: ["term-hyperplasia", "term-hypoplasia"],
     linkedPartIds: ["part-hyper-prefix", "part-hypo-prefix", "part-plasia-suffix"],
   },
@@ -2708,7 +2516,6 @@ export const exercises: Exercise[] = [
       "a scoped look at the bone"
     ],
     answer: "softening of bone",
-    explanation: "`osteomalacia` uses the bone word part plus the softening suffix.",
     linkedTermIds: ["term-osteomalacia"],
     linkedPartIds: ["part-osteo-combining", "part-malacia-suffix"],
   },
@@ -2723,7 +2530,6 @@ export const exercises: Exercise[] = [
       "irritation of the nasal passages"
     ],
     answer: "spread of disease to another body site",
-    explanation: "`metastasis` is taught as a recognition-first pathology term rather than a forced decomposition.",
     linkedTermIds: ["term-metastasis"],
     linkedPartIds: [],
   },
@@ -2738,7 +2544,6 @@ export const exercises: Exercise[] = [
       "The patient has a urinary infection and needs urinalysis"
     ],
     answer: "The sample shows abnormal tissue development, but no spread to another site was found, and more follow-up imaging is advised",
-    explanation: "This note mixes pathology-result terms with follow-up and imaging workflow language.",
     linkedTermIds: ["term-biopsy", "term-specimen", "term-dysplasia", "term-metastasis", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
@@ -2754,7 +2559,6 @@ export const exercises: Exercise[] = [
       "The patient should remain NPO for urgent surgery"
     ],
     answer: "Extra tissue growth is present, but the current scan does not suggest a cancerous pattern",
-    explanation: "This passage contrasts benign versus malignant language and uses `hyperplasia` as a growth-pattern term.",
     linkedTermIds: ["term-impression", "term-benign", "term-hyperplasia", "term-malignant", "term-monitoring"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-mri"],
@@ -2770,7 +2574,6 @@ export const exercises: Exercise[] = [
       "The office needs a release form before sending records"
     ],
     answer: "Underdevelopment is being considered instead of a cancer diagnosis",
-    explanation: "`hypoplasia` points to too little development, while malignancy points to a cancer concern.",
     linkedTermIds: ["term-hypoplasia", "term-malignant", "term-consult"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-dx", "abbr-ct"],
@@ -2781,7 +2584,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to a gland or node?",
     choices: ["aden/o", "splen/o", "lymph/o", "immun/o"],
     answer: "aden/o",
-    explanation: "`aden/o` points to a gland or node and helps decode several lymph-node terms.",
     linkedTermIds: ["term-adenopathy", "term-lymphadenopathy"],
     linkedPartIds: ["part-aden-combining"],
   },
@@ -2796,7 +2598,6 @@ export const exercises: Exercise[] = [
       "surgical removal of the spleen"
     ],
     answer: "inflammation of a lymph node",
-    explanation: "`lymphadenitis` combines lymphatic tissue, node, and inflammation language.",
     linkedTermIds: ["term-lymphadenitis"],
     linkedPartIds: ["part-lymph-combining", "part-aden-combining", "part-itis-suffix"],
   },
@@ -2811,7 +2612,6 @@ export const exercises: Exercise[] = [
       "surgical viewing of the bladder"
     ],
     answer: "abnormal condition involving lymph nodes",
-    explanation: "`-pathy` points to a disorder or abnormal condition, and the rest of the term points to lymph nodes.",
     linkedTermIds: ["term-lymphadenopathy"],
     linkedPartIds: ["part-lymph-combining", "part-aden-combining", "part-pathy-suffix"],
   },
@@ -2826,7 +2626,6 @@ export const exercises: Exercise[] = [
       "a gland removal procedure"
     ],
     answer: "a lymph-related cell",
-    explanation: "`lymphocyte` combines lymphatic tissue language with the cell word part.",
     linkedTermIds: ["term-lymphocyte"],
     linkedPartIds: ["part-lymph-combining", "part-cyt-combining"],
   },
@@ -2841,7 +2640,6 @@ export const exercises: Exercise[] = [
       "inflammation of the gallbladder"
     ],
     answer: "too little immune protection",
-    explanation: "This is a recognition-first immune term for reduced immune-system function.",
     linkedTermIds: ["term-immunodeficiency"],
     linkedPartIds: ["part-immun-combining"],
   },
@@ -2856,7 +2654,6 @@ export const exercises: Exercise[] = [
       "The message confirms a routine urinary result"
     ],
     answer: "Ongoing abnormal lymph-node findings and repeated infection led to a recommendation for immune follow-up",
-    explanation: "This note mixes lymph-node pathology, infection language, lab shorthand, and specialist follow-up.",
     linkedTermIds: ["term-lymphadenopathy", "term-infection", "term-immunology", "term-follow-up", "term-consult"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cbc", "abbr-fu"],
@@ -2872,7 +2669,6 @@ export const exercises: Exercise[] = [
       "The office only needs a release-of-information form"
     ],
     answer: "The inflamed lymph nodes are improving, but a weakened immune issue is still being tracked",
-    explanation: "This passage contrasts improvement in one lymph-node problem with an ongoing immune-deficiency concern.",
     linkedTermIds: ["term-lymphadenitis", "term-immunodeficiency", "term-reassessment", "term-plan"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pcp", "abbr-cbc"],
@@ -2888,7 +2684,6 @@ export const exercises: Exercise[] = [
       "The main issue is insurance authorization for MRI"
     ],
     answer: "Current vital signs look normal, but immune-related concerns still justify specialist review",
-    explanation: "This line contrasts normal-range shorthand with persistent immune concerns based on lab and infection language.",
     linkedTermIds: ["term-lymphocyte", "term-infection", "term-consult"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-wnl"],
@@ -2899,7 +2694,6 @@ export const exercises: Exercise[] = [
     prompt: "Which combining form points to menstruation or monthly flow?",
     choices: ["men/o", "mast/o", "hyster/o", "ovari/o"],
     answer: "men/o",
-    explanation: "`men/o` points to menstruation and helps decode common cycle-related terms.",
     linkedTermIds: ["term-dysmenorrhea", "term-amenorrhea"],
     linkedPartIds: ["part-men-combining"],
   },
@@ -2914,7 +2708,6 @@ export const exercises: Exercise[] = [
       "surgical viewing of the uterus"
     ],
     answer: "painful or difficult menstrual flow",
-    explanation: "`dysmenorrhea` combines difficulty language with menstruation and flow language.",
     linkedTermIds: ["term-dysmenorrhea"],
     linkedPartIds: ["part-dys-prefix", "part-men-combining", "part-rrhea-suffix"],
   },
@@ -2929,7 +2722,6 @@ export const exercises: Exercise[] = [
       "surgical removal of an ovary"
     ],
     answer: "absence of menstrual flow",
-    explanation: "`amenorrhea` is taught as a recognition-first term for missing or absent menstrual flow.",
     linkedTermIds: ["term-amenorrhea"],
     linkedPartIds: ["part-men-combining", "part-rrhea-suffix"],
   },
@@ -2944,7 +2736,6 @@ export const exercises: Exercise[] = [
       "difficult menstrual flow"
     ],
     answer: "inflammation of the breast",
-    explanation: "`mast/o` points to the breast and `-itis` points to inflammation.",
     linkedTermIds: ["term-mastitis"],
     linkedPartIds: ["part-mast-combining", "part-itis-suffix"],
   },
@@ -2959,7 +2750,6 @@ export const exercises: Exercise[] = [
       "after childbirth"
     ],
     answer: "breast pain",
-    explanation: "`mastalgia` follows the familiar body-part-plus-pain pattern.",
     linkedTermIds: ["term-mastalgia"],
     linkedPartIds: ["part-mast-combining", "part-algia-suffix"],
   },
@@ -2974,7 +2764,6 @@ export const exercises: Exercise[] = [
       "The main issue is records release for imaging"
     ],
     answer: "A follow-up visit after childbirth is being arranged because breast inflammation symptoms are still continuing",
-    explanation: "This message mixes after-childbirth timing, breast inflammation, and follow-up workflow language.",
     linkedTermIds: ["term-postpartum", "term-mastitis", "term-follow-up", "term-patient-portal"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-prn"],
@@ -2990,7 +2779,6 @@ export const exercises: Exercise[] = [
       "The patient no longer needs imaging or follow-up"
     ],
     answer: "Painful menstrual flow and absent menstrual flow are both still active concerns",
-    explanation: "This note centers on two different menstrual-pattern problems and a planned imaging follow-up.",
     linkedTermIds: ["term-dysmenorrhea", "term-amenorrhea", "term-assessment", "term-ultrasound", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pcp"],
@@ -3006,7 +2794,6 @@ export const exercises: Exercise[] = [
       "A urine infection was confirmed on recent testing"
     ],
     answer: "Breast pain is getting better, but after-childbirth follow-up is still ongoing",
-    explanation: "This line combines symptom improvement with ongoing postpartum follow-up language.",
     linkedTermIds: ["term-mastalgia", "term-postpartum", "term-monitoring", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pcp"],
@@ -3022,7 +2809,6 @@ export const exercises: Exercise[] = [
       "a test that found nothing"
     ],
     answer: "a worsening episode or flare",
-    explanation: "`Exacerbation` is a common chart word for a period when symptoms or disease activity get worse.",
     linkedTermIds: ["term-exacerbation"],
     linkedPartIds: [],
   },
@@ -3037,7 +2823,6 @@ export const exercises: Exercise[] = [
       "a transfer to another facility"
     ],
     answer: "a period when disease activity is reduced",
-    explanation: "`Remission` points to a quieter period rather than a worsening flare.",
     linkedTermIds: ["term-remission"],
     linkedPartIds: [],
   },
@@ -3047,7 +2832,6 @@ export const exercises: Exercise[] = [
     prompt: "Complete the sentence: if a symptom keeps coming back after improving, it is often described as ___.",
     choices: ["recurrent", "negative", "stable", "discharged"],
     answer: "recurrent",
-    explanation: "`Recurrent` means returning again after it seemed to improve or stop.",
     linkedTermIds: ["term-recurrent"],
     linkedPartIds: [],
   },
@@ -3062,7 +2846,6 @@ export const exercises: Exercise[] = [
       "a portal request for records release"
     ],
     answer: "a cough that keeps going and breathing trouble that is getting worse",
-    explanation: "`Persistent` points to something ongoing, while `progressive` points to something advancing or worsening.",
     linkedTermIds: ["term-persistent", "term-progressive", "term-dyspnea"],
     linkedPartIds: [],
   },
@@ -3077,7 +2860,6 @@ export const exercises: Exercise[] = [
       "it is part of the discharge plan"
     ],
     answer: "it is higher than expected",
-    explanation: "`Elevated` is a common results word for a value above the expected range.",
     linkedTermIds: ["term-elevated"],
     linkedPartIds: [],
   },
@@ -3092,7 +2874,6 @@ export const exercises: Exercise[] = [
       "returning for follow-up"
     ],
     answer: "lower than before or lower than expected",
-    explanation: "`Decreased` is used to show a drop in amount, level, or intensity.",
     linkedTermIds: ["term-decreased"],
     linkedPartIds: [],
   },
@@ -3107,7 +2888,6 @@ export const exercises: Exercise[] = [
       "the patient needs emergency surgery"
     ],
     answer: "the test did not show influenza",
-    explanation: "In this context, `negative` means the targeted finding was not detected.",
     linkedTermIds: ["term-negative"],
     linkedPartIds: [],
   },
@@ -3122,7 +2902,6 @@ export const exercises: Exercise[] = [
       "the scan confirmed a positive infection test"
     ],
     answer: "the scan did not show an important abnormal finding",
-    explanation: "`Unremarkable` is report language for no notable abnormal finding.",
     linkedTermIds: ["term-unremarkable", "term-impression"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ct"],
@@ -3138,7 +2917,6 @@ export const exercises: Exercise[] = [
       "measuring the patient's heart rate"
     ],
     answer: "checking whether coverage details are active and correct",
-    explanation: "This phrase points to confirming that insurance or registration details are valid for the visit.",
     linkedTermIds: ["term-eligibility", "term-verification"],
     linkedPartIds: [],
   },
@@ -3153,7 +2931,6 @@ export const exercises: Exercise[] = [
       "the records request was denied"
     ],
     answer: "the clinician or service is inside the plan's approved group",
-    explanation: "`In-network` refers to plan participation, not physical location.",
     linkedTermIds: ["term-in-network"],
     linkedPartIds: [],
   },
@@ -3168,7 +2945,6 @@ export const exercises: Exercise[] = [
       "the patient should stop all medication"
     ],
     answer: "the service may fall outside the plan's approved provider group",
-    explanation: "`Out-of-network` warns that coverage or cost may differ because the provider is outside the plan arrangement.",
     linkedTermIds: ["term-out-of-network"],
     linkedPartIds: [],
   },
@@ -3183,7 +2959,6 @@ export const exercises: Exercise[] = [
       "the front-desk staff member"
     ],
     answer: "the person who holds the insurance policy",
-    explanation: "The subscriber is the plan holder tied to the coverage, even if that person is not the patient.",
     linkedTermIds: ["term-subscriber"],
     linkedPartIds: [],
   },
@@ -3198,7 +2973,6 @@ export const exercises: Exercise[] = [
       "a request to transfer records"
     ],
     answer: "registration completed before the visit date",
-    explanation: "The `pre-` cue helps here: it means registration happens ahead of time.",
     linkedTermIds: ["term-pre-registration"],
     linkedPartIds: ["part-pre-prefix"],
   },
@@ -3213,7 +2987,6 @@ export const exercises: Exercise[] = [
       "schedule a chest CT"
     ],
     answer: "read the directions that must be followed before the visit",
-    explanation: "Preparation instructions tell the patient what to do before arriving or before a procedure.",
     linkedTermIds: ["term-preparation-instructions", "term-arrival-time"],
     linkedPartIds: [],
   },
@@ -3228,7 +3001,6 @@ export const exercises: Exercise[] = [
       "whether a service is in-network"
     ],
     answer: "when to stop eating or drinking before care",
-    explanation: "Fasting instructions are a specific kind of preparation guidance before testing or procedures.",
     linkedTermIds: ["term-fasting-instructions"],
     linkedPartIds: [],
   },
@@ -3243,7 +3015,6 @@ export const exercises: Exercise[] = [
       "the office confirmed the patient is out-of-network"
     ],
     answer: "the office noted a request to call back and kept the planned arrival time",
-    explanation: "This note mixes telephone workflow language with visit-arrival instructions.",
     linkedTermIds: ["term-callback-request", "term-arrival-time"],
     linkedPartIds: [],
   },
@@ -3258,7 +3029,6 @@ export const exercises: Exercise[] = [
       "as needed only"
     ],
     answer: "every morning",
-    explanation: "`qAM` is recognition-first shorthand for every morning.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-qam"],
@@ -3269,7 +3039,6 @@ export const exercises: Exercise[] = [
     prompt: "Which abbreviation points to a nightly bedtime schedule?",
     choices: ["qHS", "qAM", "QID", "PRN"],
     answer: "qHS",
-    explanation: "`qHS` is used for every night at bedtime.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-qhs"],
@@ -3285,7 +3054,6 @@ export const exercises: Exercise[] = [
       "one capsule at bedtime"
     ],
     answer: "one tablet four times daily",
-    explanation: "`tab` means tablet and `QID` means four times daily.",
     linkedTermIds: ["term-dosage"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-tab", "abbr-qid"],
@@ -3296,7 +3064,6 @@ export const exercises: Exercise[] = [
     prompt: "Which abbreviation line best points to a capsule rather than a tablet?",
     choices: ["cap qHS", "tab qAM", "AVS sent", "appt confirmed"],
     answer: "cap qHS",
-    explanation: "`cap` points to a capsule, while `tab` points to a tablet.",
     linkedTermIds: [],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cap", "abbr-qhs"],
@@ -3312,7 +3079,6 @@ export const exercises: Exercise[] = [
       "a prior authorization was denied"
     ],
     answer: "the after-visit summary is available and the appointment is confirmed",
-    explanation: "`AVS` points to the after-visit summary and `appt` points to the appointment.",
     linkedTermIds: ["term-after-visit-summary", "term-patient-portal"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-avs", "abbr-appt"],
@@ -3328,7 +3094,6 @@ export const exercises: Exercise[] = [
       "patient"
     ],
     answer: "prior authorization",
-    explanation: "Scheduling context points to insurance workflow, so `PA` most likely means prior authorization here.",
     linkedTermIds: ["term-prior-authorization"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pa", "abbr-mri"],
@@ -3344,7 +3109,6 @@ export const exercises: Exercise[] = [
       "platelet test"
     ],
     answer: "physical therapy",
-    explanation: "Referral and training context point to a therapy service, not simply the patient.",
     linkedTermIds: ["term-referral"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pt"],
@@ -3360,7 +3124,6 @@ export const exercises: Exercise[] = [
       "muscle strain"
     ],
     answer: "multiple sclerosis",
-    explanation: "Diagnosis-history context points to the neurologic condition rather than the medication.",
     linkedTermIds: ["term-medical-history"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ms"],
@@ -3376,7 +3139,6 @@ export const exercises: Exercise[] = [
       "breath sounds"
     ],
     answer: "blood sugar",
-    explanation: "The food and monitoring context point to glucose status rather than an exam finding like bowel sounds.",
     linkedTermIds: ["term-monitoring"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-bs"],
@@ -3392,7 +3154,6 @@ export const exercises: Exercise[] = [
       "care plan"
     ],
     answer: "cerebral palsy",
-    explanation: "The history wording and `since childhood` cue point to a diagnosis, not a current symptom complaint.",
     linkedTermIds: ["term-medical-history"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cp", "abbr-hx"],
@@ -3408,7 +3169,6 @@ export const exercises: Exercise[] = [
       "the office needs a pathology specimen before discharge"
     ],
     answer: "coverage was checked, the service is inside the plan network, and prior authorization was approved before the appointment was booked",
-    explanation: "This passage mixes verification, network, authorization, and appointment shorthand in one short workflow note.",
     linkedTermIds: ["term-eligibility", "term-verification", "term-in-network"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pa", "abbr-appt"],
@@ -3424,7 +3184,6 @@ export const exercises: Exercise[] = [
       "the office is requesting a neurology consult"
     ],
     answer: "policy-holder details were updated before the visit, and the patient should review food restrictions and when to arrive in the after-visit summary",
-    explanation: "This line combines policy-holder language, advance registration, pre-visit instructions, and summary paperwork shorthand.",
     linkedTermIds: [
       "term-subscriber",
       "term-pre-registration",
@@ -3445,7 +3204,6 @@ export const exercises: Exercise[] = [
       "the office switched the patient from tablets to capsules"
     ],
     answer: "the office warned that coverage may differ and arranged a call back before the visit",
-    explanation: "This message links network-status language to follow-up phone workflow before the patient arrives.",
     linkedTermIds: ["term-out-of-network", "term-callback-request", "term-arrival-time"],
     linkedPartIds: [],
   },
@@ -3460,7 +3218,6 @@ export const exercises: Exercise[] = [
       "the patient had chest pain, blood specimen was lost, and the scan was urgently repeated"
     ],
     answer: "physical therapy was ordered, blood sugar is still high, and the scan showed nothing notable otherwise",
-    explanation: "Referral context points `PT` to physical therapy, meal context points `BS` to blood sugar, and `unremarkable` means no notable abnormal finding.",
     linkedTermIds: ["term-elevated", "term-unremarkable", "term-referral"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pt", "abbr-bs"],
@@ -3476,7 +3233,6 @@ export const exercises: Exercise[] = [
       "the patient needs pre-registration before the MRI can be ordered"
     ],
     answer: "the patient has a history of multiple sclerosis and the MRI did not show a new active problem",
-    explanation: "History context points `MS` to multiple sclerosis, while `negative` points to a finding that was not detected.",
     linkedTermIds: ["term-medical-history", "term-recurrent", "term-negative"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ms", "abbr-hx", "abbr-mri"],
@@ -3492,7 +3248,6 @@ export const exercises: Exercise[] = [
       "the office only needed a call back about insurance coverage"
     ],
     answer: "chest pain is still continuing, but the flu test did not show infection and the patient will be reassessed",
-    explanation: "Current urgent-symptom context points `CP` to chest pain here, while `negative` and `stable` guide the rest of the note.",
     linkedTermIds: ["term-persistent", "term-negative", "term-stable", "term-reassessment"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cp"],
@@ -3508,7 +3263,6 @@ export const exercises: Exercise[] = [
       "the patient no longer needs follow-up"
     ],
     answer: "the current test does not clearly answer the question",
-    explanation: "`Indeterminate` means the current information does not clearly settle the issue.",
     linkedTermIds: ["term-indeterminate"],
     linkedPartIds: [],
   },
@@ -3523,7 +3277,6 @@ export const exercises: Exercise[] = [
       "an insurance estimate"
     ],
     answer: "something noticed on a study that was not the main target of the test",
-    explanation: "The finding may still matter, but it was not the original reason for the study.",
     linkedTermIds: ["term-incidental-finding"],
     linkedPartIds: [],
   },
@@ -3538,7 +3291,6 @@ export const exercises: Exercise[] = [
       "the patient is ready for discharge without instructions"
     ],
     answer: "the current study looks much the same as the earlier one",
-    explanation: "`Interval change` and `compare with prior` language tell the reader how the current result relates to an earlier study.",
     linkedTermIds: ["term-interval-change", "term-compare-with-prior"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ct"],
@@ -3549,7 +3301,6 @@ export const exercises: Exercise[] = [
     prompt: "Which word is the clearest opposite of `normal` in routine report language?",
     choices: ["abnormal", "incidental", "stable", "follow-up"],
     answer: "abnormal",
-    explanation: "`Abnormal` simply signals that the finding is not within the expected range or appearance.",
     linkedTermIds: ["term-abnormal"],
     linkedPartIds: [],
   },
@@ -3564,7 +3315,6 @@ export const exercises: Exercise[] = [
       "the amount written off automatically"
     ],
     answer: "the amount still owed",
-    explanation: "`Balance due` points to what remains unpaid after earlier payments or adjustments.",
     linkedTermIds: ["term-balance-due"],
     linkedPartIds: [],
   },
@@ -3579,7 +3329,6 @@ export const exercises: Exercise[] = [
       "a report comparing old and new imaging"
     ],
     answer: "a bill broken into individual charge lines",
-    explanation: "An itemized bill lists separate charges instead of only showing a single total.",
     linkedTermIds: ["term-itemized-bill"],
     linkedPartIds: [],
   },
@@ -3594,7 +3343,6 @@ export const exercises: Exercise[] = [
       "a negative lab result"
     ],
     answer: "an expected cost before the final bill is known",
-    explanation: "An estimate is a projected amount, not the final settled charge.",
     linkedTermIds: ["term-estimate"],
     linkedPartIds: [],
   },
@@ -3609,7 +3357,6 @@ export const exercises: Exercise[] = [
       "to compare imaging with a prior study"
     ],
     answer: "to ask for a denied decision to be reviewed again",
-    explanation: "An appeal is the process of asking for reconsideration after a denial or adverse decision.",
     linkedTermIds: ["term-appeal"],
     linkedPartIds: [],
   },
@@ -3624,7 +3371,6 @@ export const exercises: Exercise[] = [
       "the office canceled the visit because the service was out-of-network"
     ],
     answer: "the scan did not show a major new problem, one secondary finding will be compared with earlier imaging, and the billing estimate was updated",
-    explanation: "This mixes report language and billing follow-through in one short portal-style passage.",
     linkedTermIds: [
       "term-unremarkable",
       "term-incidental-finding",
@@ -3646,7 +3392,6 @@ export const exercises: Exercise[] = [
       "the patient only needs a routine callback to confirm arrival time"
     ],
     answer: "the result is still not clear, a denied decision is being challenged, and a detailed bill was requested before paying the remaining amount",
-    explanation: "This passage joins unresolved-result language with administrative billing follow-through.",
     linkedTermIds: [
       "term-indeterminate",
       "term-appeal",
@@ -3667,7 +3412,6 @@ export const exercises: Exercise[] = [
       "the office documented a new urgent respiratory decline"
     ],
     answer: "a lab still needs follow-up, the repeat imaging did not show a major change, and billing documents were sent in the portal",
-    explanation: "The line combines one active result issue with stable comparison wording and routine billing communication.",
     linkedTermIds: [
       "term-abnormal",
       "term-follow-up",
@@ -3689,7 +3433,6 @@ export const exercises: Exercise[] = [
       "pain in the heart muscle"
     ],
     answer: "inflammation around the heart",
-    explanation: "This term shows how a location prefix can sharply narrow the meaning of a familiar root-plus-suffix pattern.",
     linkedTermIds: ["term-pericarditis"],
     linkedPartIds: ["part-peri-prefix", "part-cardi-root", "part-itis-suffix"],
   },
@@ -3704,7 +3447,6 @@ export const exercises: Exercise[] = [
       "building a record of the skin"
     ],
     answer: "looking inside the body with a scope",
-    explanation: "`endo-` points inward and `-scopy` points to scope-based viewing.",
     linkedTermIds: ["term-endoscopy"],
     linkedPartIds: ["part-endo-prefix", "part-scopy-suffix"],
   },
@@ -3714,7 +3456,6 @@ export const exercises: Exercise[] = [
     prompt: "Which prefix most directly suggests a surface or above-the-structure position in words like `epigastric` or `epidermal`?",
     choices: ["epi-", "peri-", "endo-", "tachy-"],
     answer: "epi-",
-    explanation: "`epi-` often points to being on, upon, or above a structure.",
     linkedTermIds: ["term-epigastric", "term-epidermal"],
     linkedPartIds: ["part-epi-prefix"],
   },
@@ -3729,7 +3470,6 @@ export const exercises: Exercise[] = [
       "`epidermal` and `intradermal` both mean surgical opening"
     ],
     answer: "`epidermal` points to the outer skin surface, while `intradermal` points within the skin",
-    explanation: "This is the same skin root with two different location prefixes changing the meaning.",
     linkedTermIds: ["term-epidermal", "term-intradermal"],
     linkedPartIds: ["part-epi-prefix", "part-intra-prefix", "part-derm-combining"],
   },
@@ -3739,7 +3479,6 @@ export const exercises: Exercise[] = [
     prompt: "Which suffix points to a surgically created opening?",
     choices: ["-stomy", "-ectomy", "-otomy", "-algia"],
     answer: "-stomy",
-    explanation: "`-stomy` marks a created opening, distinct from removal or incision.",
     linkedTermIds: ["term-tracheostomy", "term-colostomy"],
     linkedPartIds: ["part-stomy-suffix"],
   },
@@ -3754,7 +3493,6 @@ export const exercises: Exercise[] = [
       "viewing inside the trachea with a scope"
     ],
     answer: "a surgically created opening into the trachea",
-    explanation: "The root points to the trachea and `-stomy` points to a created opening.",
     linkedTermIds: ["term-tracheostomy"],
     linkedPartIds: ["part-trache-combining", "part-stomy-suffix"],
   },
@@ -3764,7 +3502,6 @@ export const exercises: Exercise[] = [
     prompt: "If `ile/o` points to the ileum and `col/o` points to the colon, which term points to an opening from the ileum rather than the colon?",
     choices: ["ileostomy", "colostomy", "gastrostomy", "cystostomy"],
     answer: "ileostomy",
-    explanation: "This drill keeps the same procedure suffix and changes only the root family.",
     linkedTermIds: ["term-ileostomy", "term-colostomy"],
     linkedPartIds: ["part-ile-combining", "part-col-combining", "part-stomy-suffix"],
   },
@@ -3779,7 +3516,6 @@ export const exercises: Exercise[] = [
       "study of the kidney"
     ],
     answer: "a surgically created drainage opening from the kidney",
-    explanation: "The kidney root stays the same across several terms, but the suffix changes the action.",
     linkedTermIds: ["term-nephrostomy", "term-nephrectomy", "term-nephropathy", "term-nephrology"],
     linkedPartIds: ["part-nephr-combining", "part-stomy-suffix"],
   },
@@ -3794,7 +3530,6 @@ export const exercises: Exercise[] = [
       "surgical opening into the heart"
     ],
     answer: "a disorder of the heart muscle",
-    explanation: "This is a good example of high-yield parts stacking cleanly into a more advanced but still decodable term.",
     linkedTermIds: ["term-cardiomyopathy"],
     linkedPartIds: ["part-cardi-root", "part-my-combining", "part-pathy-suffix"],
   },
@@ -3809,7 +3544,6 @@ export const exercises: Exercise[] = [
       "`nephrectomy` and `nephropathy` both mean kidney inflammation"
     ],
     answer: "`nephrectomy` means kidney removal, while `nephropathy` means kidney disease",
-    explanation: "This is the same root family with two different high-yield suffixes changing the action and meaning.",
     linkedTermIds: ["term-nephrectomy", "term-nephropathy"],
     linkedPartIds: ["part-nephr-combining", "part-ectomy-suffix", "part-pathy-suffix"],
   },
@@ -3824,7 +3558,6 @@ export const exercises: Exercise[] = [
       "opening from the stomach into the intestines"
     ],
     answer: "the study of the stomach and intestines",
-    explanation: "Two common roots plus `-logy` create a specialty name that learners will see often.",
     linkedTermIds: ["term-gastroenterology"],
     linkedPartIds: ["part-gastr-root", "part-enter-combining", "part-ology-suffix"],
   },
@@ -3839,7 +3572,6 @@ export const exercises: Exercise[] = [
       "hearing test"
     ],
     answer: "ear pain",
-    explanation: "The same pain suffix used elsewhere carries over neatly into a new root family.",
     linkedTermIds: ["term-otalgia"],
     linkedPartIds: ["part-ot-combining", "part-algia-suffix"],
   },
@@ -3849,7 +3581,6 @@ export const exercises: Exercise[] = [
     prompt: "Which root most directly points to a vessel in terms like `vascular` and `vasculitis`?",
     choices: ["vascul", "cardi", "nephr/o", "gastr"],
     answer: "vascul",
-    explanation: "`vascul` is a high-yield vessel root that shows up in many common cardiovascular terms.",
     linkedTermIds: ["term-vascular", "term-vasculitis"],
     linkedPartIds: ["part-vascul-root"],
   },
@@ -3864,7 +3595,6 @@ export const exercises: Exercise[] = [
       "inside a blood vessel"
     ],
     answer: "inflammation of blood vessels",
-    explanation: "The vessel root combines with the familiar inflammation suffix.",
     linkedTermIds: ["term-vasculitis"],
     linkedPartIds: ["part-vascul-root", "part-itis-suffix"],
   },
@@ -3879,7 +3609,6 @@ export const exercises: Exercise[] = [
       "`endovascular` and `perivascular` both mean blood vessel pain"
     ],
     answer: "`endovascular` points within a vessel, while `perivascular` points around a vessel",
-    explanation: "The same vessel root becomes much more useful once the learner can read location prefixes quickly.",
     linkedTermIds: ["term-endovascular", "term-perivascular"],
     linkedPartIds: ["part-endo-prefix", "part-peri-prefix", "part-vascul-root"],
   },
@@ -3894,7 +3623,6 @@ export const exercises: Exercise[] = [
       "pain inside a vein"
     ],
     answer: "hardening associated with fatty plaque buildup",
-    explanation: "This is one of the highest-yield examples of a common root-plus-suffix disease pattern.",
     linkedTermIds: ["term-atherosclerosis"],
     linkedPartIds: ["part-ather-combining", "part-sclerosis-suffix"],
   }

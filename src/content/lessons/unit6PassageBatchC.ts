@@ -14,8 +14,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The patient improved after reevaluation and is leaving with follow-up instructions and return precautions",
-    explanation:
-      "The passage moves from urgent symptoms to reassessment, stabilization, discharge, and follow-up.",
     linkedTermIds: [
       "term-reassessment",
       "term-stable",
@@ -37,8 +35,6 @@ export const exercises: Exercise[] = [
       "In that ED note, what does `CP` mean in this context?",
     choices: ["chest pain", "cerebral palsy", "clinical pathway", "care plan"],
     answer: "chest pain",
-    explanation:
-      "The surrounding SOB, vitals, and reassessment language make chest pain the correct reading here.",
     linkedTermIds: ["term-reassessment", "term-stable", "term-acute"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cp", "abbr-sob"],
@@ -56,8 +52,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "Because the team wants to confirm that the acute symptoms improved before sending the patient home",
-    explanation:
-      "Reassessment in this passage is the check that the patient is stable enough for discharge.",
     linkedTermIds: ["term-reassessment", "term-stable", "term-discharge", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-avs", "abbr-fu"],
@@ -75,8 +69,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The blood-count problems are still present, so the team wants trend review and hematology follow-up",
-    explanation:
-      "This note is about abnormal blood-count trends and the next step of specialist review.",
     linkedTermIds: [
       "term-anemia",
       "term-leukopenia",
@@ -105,8 +97,6 @@ export const exercises: Exercise[] = [
       "clinical balance chart",
     ],
     answer: "complete blood count",
-    explanation:
-      "CBC is the standard abbreviation for the blood-count panel being trended here.",
     linkedTermIds: ["term-anemia", "term-leukopenia", "term-thrombocytopenia"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cbc"],
@@ -124,8 +114,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "To see whether the count pattern is improving, worsening, or unchanged over time",
-    explanation:
-      "Trend language depends on comparison with an earlier result, not a single isolated value.",
     linkedTermIds: ["term-compare-with-prior", "term-monitoring", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-cbc", "abbr-fu"],
@@ -143,8 +131,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The procedure is over, the sample is out for pathology review, and the final interpretation will come later",
-    explanation:
-      "This is a specimen-handoff note that separates the procedure from the later pathology result.",
     linkedTermIds: [
       "term-biopsy",
       "term-specimen",
@@ -167,8 +153,6 @@ export const exercises: Exercise[] = [
       "In that post-op note, what does `s/p` mean?",
     choices: ["status post", "same plan", "surgery pending", "specimen prepared"],
     answer: "status post",
-    explanation:
-      "`s/p` signals that the note is describing status after a completed event or procedure.",
     linkedTermIds: ["term-postoperative", "term-biopsy"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sp"],
@@ -186,8 +170,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "Because pathology review of the sample helps determine the later final interpretation",
-    explanation:
-      "The specimen step comes first, and the final impression follows after review.",
     linkedTermIds: ["term-specimen", "term-batch-pathology", "term-impression", "term-test-results"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-sp"],
@@ -205,8 +187,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The patient is going home with a clear medication plan, follow-up, and backup referral if symptoms come back",
-    explanation:
-      "This is a discharge-and-medication note with follow-up and return precautions.",
     linkedTermIds: [
       "term-medication-list",
       "term-after-visit-summary",
@@ -228,8 +208,6 @@ export const exercises: Exercise[] = [
       "In that discharge summary, what does `PRN` mean?",
     choices: ["as needed", "before meals", "twice daily", "by mouth"],
     answer: "as needed",
-    explanation:
-      "PRN marks medication that should be used when needed rather than on a fixed schedule.",
     linkedTermIds: ["term-medication-list", "term-discharge-instructions"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-prn", "abbr-bid", "abbr-po"],
@@ -247,8 +225,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "Because the patient can start with routine follow-up and escalate to a specialist if symptoms return",
-    explanation:
-      "The note sets up a normal next step first, with specialist escalation as backup.",
     linkedTermIds: ["term-follow-up", "term-referral", "term-dyspnea", "term-discharge"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-fu", "abbr-pcp"],
@@ -266,8 +242,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The office is waiting on authorization and final review before finishing the refill and results workflow",
-    explanation:
-      "This passage combines refill documentation, authorization, results review, and portal follow-up.",
     linkedTermIds: [
       "term-documentation",
       "term-prior-authorization",
@@ -291,8 +265,6 @@ export const exercises: Exercise[] = [
       "In that workflow note, what does `PA` mean?",
     choices: ["prior authorization", "physician assistant", "pain assessment", "patient account"],
     answer: "prior authorization",
-    explanation:
-      "The surrounding coverage and claim language makes prior authorization the correct reading here.",
     linkedTermIds: ["term-prior-authorization", "term-coverage", "term-claim"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pa"],
@@ -310,8 +282,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "Authorization and final review so the refill and results workflow can move forward",
-    explanation:
-      "The note explicitly holds the claim and portal workflow until those two gates clear.",
     linkedTermIds: ["term-prior-authorization", "term-claim", "term-coverage", "term-follow-up", "term-test-results"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-pa", "abbr-ct", "abbr-appt"],

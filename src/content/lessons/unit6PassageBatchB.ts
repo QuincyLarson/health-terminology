@@ -14,8 +14,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The scan is mostly reassuring, but the team wants comparison with an earlier study and routine follow-up",
-    explanation:
-      "The passage points to a stable imaging impression with continued monitoring and a repeat comparison step.",
     linkedTermIds: [
       "term-dyspnea",
       "term-hypoxia",
@@ -43,8 +41,6 @@ export const exercises: Exercise[] = [
       "the follow-up appointment reminder",
     ],
     answer: "the radiology team's bottom-line interpretation",
-    explanation:
-      "In charting, an impression is the clinician's summary reading of the findings.",
     linkedTermIds: ["term-impression", "term-test-results", "term-documentation"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ct"],
@@ -61,8 +57,6 @@ export const exercises: Exercise[] = [
       "To rewrite the medication list before discharge",
     ],
     answer: "To see whether the finding is new or whether it matches an earlier baseline",
-    explanation:
-      "A prior study gives the reader a reference point for change over time.",
     linkedTermIds: ["term-compare-with-prior", "term-monitoring", "term-follow-up"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-ct", "abbr-fu"],
@@ -80,8 +74,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The patient is going home with a simplified medication plan and clear precautions if symptoms come back",
-    explanation:
-      "This is a discharge-and-reconciliation note with routine instructions and return precautions.",
     linkedTermIds: [
       "term-medication-list",
       "term-preparation-instructions",
@@ -108,8 +100,6 @@ export const exercises: Exercise[] = [
       "as needed symptom",
     ],
     answer: "after-visit summary",
-    explanation:
-      "AVS is the handout that carries the visit summary and instructions home.",
     linkedTermIds: ["term-after-visit-summary", "term-discharge-instructions"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-avs"],
@@ -126,8 +116,6 @@ export const exercises: Exercise[] = [
       "To prove that the patient no longer needs any after-visit instructions",
     ],
     answer: "To reconcile what the patient actually takes with what the chart should show",
-    explanation:
-      "Medication review is part of keeping the discharge plan accurate and safe.",
     linkedTermIds: ["term-medication-list", "term-documentation", "term-assessment", "term-plan"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-po", "abbr-bid", "abbr-prn"],
@@ -145,8 +133,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "The office is moving a chart through consult, authorization, and portal steps before final results and billing are released",
-    explanation:
-      "The passage combines documentation, authorization, results posting, and billing workflow.",
     linkedTermIds: [
       "term-consult",
       "term-nephrology",
@@ -177,8 +163,6 @@ export const exercises: Exercise[] = [
       "return on illness",
     ],
     answer: "release of information",
-    explanation:
-      "ROI is the permission step that allows records to be shared.",
     linkedTermIds: ["term-documentation", "term-patient-portal", "term-verification"],
     linkedPartIds: [],
     linkedAbbreviationIds: ["abbr-roi"],
@@ -196,8 +180,6 @@ export const exercises: Exercise[] = [
     ],
     answer:
       "Because the office is waiting on the final review and the administrative gate before releasing the next step",
-    explanation:
-      "The workflow ties together review, authorization, and result release.",
     linkedTermIds: [
       "term-prior-authorization-notice",
       "term-coverage",

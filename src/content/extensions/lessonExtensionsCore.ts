@@ -6,11 +6,36 @@ export const lessonExpansionCore: Partial<
     reinforcesTermIds: ["term-cardiology", "term-neurology"],
   },
   "lesson-unit0-combining-vowels": {
-    reinforcesTermIds: ["term-osteology"],
+    reinforcesTermIds: [
+      "term-osteology",
+      "term-nephrology",
+      "term-gastroenterology",
+      "term-arthralgia",
+      "term-gastralgia",
+    ],
   },
   "lesson-unit1-common-suffixes": {
     introducesTermIds: ["term-osteitis", "term-carditis"],
-    reinforcesTermIds: ["term-gastritis", "term-arthritis", "term-osteology"],
+    reinforcesTermIds: [
+      "term-gastritis",
+      "term-arthritis",
+      "term-osteology",
+      "term-hepatitis",
+      "term-dermatitis",
+      "term-dermatology",
+      "term-nephrology",
+    ],
+  },
+  "lesson-unit1-common-prefixes": {
+    reinforcesTermIds: [
+      "term-hypertension",
+      "term-hypotension",
+      "term-hyperglycemia",
+      "term-hypoglycemia",
+      "term-hyperplasia",
+      "term-hypoplasia",
+      "term-hypoxia",
+    ],
   },
   "lesson-unit1-core-body-roots": {
     introducesTermIds: ["term-arthralgia", "term-gastralgia", "term-hepatology"],
@@ -43,6 +68,22 @@ export const lessonExpansionCore: Partial<
   },
   "lesson-unit1-rate-prefixes": {
     introducesTermIds: ["term-tachycardic", "term-bradycardic"],
-    reinforcesTermIds: ["term-tachycardia", "term-bradycardia", "term-hypertension", "term-hypotension"],
+    reinforcesTermIds: [
+      "term-tachycardia",
+      "term-bradycardia",
+      "term-tachypnea",
+      "term-bradypnea",
+      "term-hypertension",
+      "term-hypotension",
+    ],
+  },
+  "lesson-unit2-gastrointestinal-procedures": {
+    reinforcesTermIds: [
+      "term-gastrectomy",
+      "term-gastroscopy",
+      "term-colectomy",
+      "term-colotomy",
+      "term-gastroenterology",
+    ],
   },
 };

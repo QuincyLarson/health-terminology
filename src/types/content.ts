@@ -59,7 +59,6 @@ export interface Exercise {
   prompt: string;
   choices: string[];
   answer: string;
-  explanation: string;
   linkedTermIds: string[];
   linkedPartIds: string[];
   linkedAbbreviationIds?: string[];

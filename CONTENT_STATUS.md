@@ -5,6 +5,7 @@
 - The app includes deterministic content files, content validation scripts, a migration test, localStorage persistence, JSON import/export/reset support, a browse-first term index, dedicated endless mode, and a profile page for local study controls.
 - The runtime preserves unreadable local snapshots into a recovery backup, confirms destructive import/reset flows, and surfaces recovery messaging in the profile surface.
 - Lesson flow now uses first-attempt mastery scoring with retry support instead of requiring perfect recall on a single pass.
+- Wrong lesson answers now recycle to the back of the queue, and each lesson now lands on at least a five-question floor through authored plus deterministic supplemental multiple-choice prompts.
 - Lessons can now reference abbreviations directly, so Unit 5 exists as real curriculum content without collapsing abbreviations into ordinary term aliases.
 - Release plumbing now includes GitHub Pages workflow support, a deployment note, and a sample export artifact for import/export reference.
 - The current implementation target is now scale-out content growth, deeper curriculum breadth, and SRS refinement rather than reaching a first playable release.
@@ -32,7 +33,7 @@
 - Stronger lesson unlock metadata and broader review eligibility rules as the curriculum expands.
 
 ### Current Content Coverage
-- Seed content exists for 7 units, 123 lessons, 182 parts, 370 terms, 422 exercises, and 44 abbreviations.
+- Seed content exists for 7 units, 123 lessons, 182 parts, 430 terms, 622 exercises, and 44 abbreviations.
 - Unit 0 now includes plural-pattern and pronunciation lessons in addition to word parts and combining vowels.
 - Unit 1 now covers suffixes, core body roots, common prefixes, rate prefixes, procedure language, condition-suffix decoding, location-prefix families, `-stomy` procedure families, common root recombinations, a dedicated vessel-root family, blood-count families, broader prefix-shift and dysfunction families, diagnostic-record or tracing families, inflammation and narrowing families, `-oma` and growth-language families, urine or discharge families, and measurement or recording families.
 - Unit 2 now includes cardiovascular, respiratory, gastrointestinal, musculoskeletal, renal/urinary, nervous-system, endocrine, reproductive, immune or lymphatic, integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up starter lessons.
@@ -48,6 +49,7 @@
 - Curriculum now exposes clearer lesson states such as in-progress and review-recommended.
 - Progress diagnostics now report storage key, schema version, recovery status, and snapshot size.
 - The seed curriculum has now reached a broader starter footprint, and the latest scale-out move shifts deliberately toward root-family-led batches instead of thinner body-system-only inventories.
+- Early decoding lessons now have wider root-family example vocab, and later applied lessons now have broader respiratory, GI procedure, urinary, results, and admin vocabulary coverage.
 
 ## Staged Expansion Plan
 
@@ -77,6 +79,7 @@
 - A lesson page, exercise cards, audio playback helper, and completion flow exist.
 - Lesson completion seeds introduced terms into review.
 - Mastery tracking now favors first-attempt performance while still allowing retries inside lessons.
+- Missed lesson questions now cycle to the back of the queue with no answer reveal and return until cleared.
 - Lesson content now carries prerequisite lesson guidance and reinforced-term links.
 - Lesson visits now persist as in-progress state so resume flows are clearer.
 
@@ -118,6 +121,7 @@
 
 ### Stage 5 Status
 - The scale-out process is now underway through post-seed curriculum batches, and current priority has shifted toward high-yield root families and affixes before lower-yield system inventory.
+- The current corpus has reached 430 validated terms, with broader example-vocabulary wiring across older lessons and a five-question minimum on all 123 lessons.
 - Batch validators are present, and they now also catch duplicate lesson wiring, orphan lessons or exercises, broken exercise links, stricter prerequisite failures, and prerequisite cycles for lessons or units, but the bank is still a starter corpus rather than a true scale-out corpus.
 
 ### Stage 6: Polish and Release Hardening
@@ -143,7 +147,7 @@
 - Latest scale-out batches added Unit 2 integumentary, sensory, oncology or tumor, blood or clotting, deeper urinary-output or testing, hepatobiliary or stone, upper-airway or throat, pleural or chest, pathology or tissue-change, lymph-node or immune-condition, and reproductive symptoms or follow-up language, expanded Unit 5 chart-note plus history or status plus frequency or lab plus imaging or urgency abbreviations, and added Unit 6 rapid parsing plus results or discharge plus urgent-imaging plus renal-lab plus blood-count plus abdominal-and-stone plus referral-and-consult plus handoff-and-reassessment plus portal-and-authorization crossover plus upper-airway or throat plus respiratory recheck or escalation plus pleural or chest plus oncology or pathology plus immune or node plus reproductive follow-up synthesis drills.
 - The newest root-first batches add Unit 1 inflammation or narrowing families, `-oma` and growth-language families, urine or discharge families, and measurement or recording families on top of the earlier blood-count, prefix-shift, dysfunction, and imaging batches.
 - The newest Unit 6 passage batches add longer note-style drills for ED reassessment, lab-trend follow-through, operative-note specimen handoff, discharge medication planning, and refill or authorization imaging follow-up on top of the earlier results, discharge, coverage, imaging-impression, medication-reconciliation, and consult-handoff passage sets.
-- Current seed totals: 7 units, 123 lessons, 182 parts, 370 terms, 422 exercises, and 44 abbreviations.
+- Current seed totals: 7 units, 123 lessons, 182 parts, 430 terms, 622 exercises, and 44 abbreviations.
 - Current primary runtime surfaces: curriculum landing, lesson, drills, profile, and endless.
 - Current secondary runtime surfaces: browse and abbreviations reference pages.
 - Current resilience features: versioned import/export, recovery snapshot preservation, destructive-action confirmation, and backup-before-replace/reset prompts.
