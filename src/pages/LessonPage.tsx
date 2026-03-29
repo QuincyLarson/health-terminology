@@ -20,7 +20,6 @@ export function LessonPage() {
   const [firstAnswers, setFirstAnswers] = useState<Record<string, string>>({});
   const [celebratingExerciseId, setCelebratingExerciseId] = useState<string | null>(null);
   const [exerciseQueue, setExerciseQueue] = useState<string[]>([]);
-  const [attemptCount, setAttemptCount] = useState(0);
   const [pendingAdvance, setPendingAdvance] = useState<{
     correct: boolean;
     exerciseId: string;
@@ -45,7 +44,6 @@ export function LessonPage() {
     setFirstAnswers({});
     setCelebratingExerciseId(null);
     setExerciseQueue(lessonExercises.map((exercise) => exercise.id));
-    setAttemptCount(0);
     setPendingAdvance(null);
     setCompletedThisVisit(false);
   }, [lesson?.id]);
@@ -65,7 +63,6 @@ export function LessonPage() {
         delete next[exerciseId];
         return next;
       });
-      setAttemptCount((current) => current + 1);
       setExerciseQueue((current) => {
         if (current[0] !== exerciseId) {
           return current;
@@ -129,6 +126,9 @@ export function LessonPage() {
       Boolean(abbreviation),
     );
   const nextLesson = getNextLesson(lesson.id);
+  const firstAttemptCorrect = lessonExercises.reduce((count, exercise) => {
+    return count + (firstAnswers[exercise.id] === exercise.answer ? 1 : 0);
+  }, 0);
   const activeExerciseId = exerciseQueue[0] ?? null;
   const activeExercise = activeExerciseId
     ? contentMaps.exerciseMap.get(activeExerciseId)
@@ -177,6 +177,7 @@ export function LessonPage() {
           <section className="card stack compact-card completion-card">
             <div className="completion-box stack">
               <h3>Lesson complete</h3>
+              <p>Questions answered on first try: {firstAttemptCorrect} / {lessonExercises.length}</p>
               <div className="hero-actions">
                 {nextLesson ? (
                   <Link
@@ -199,7 +200,6 @@ export function LessonPage() {
         <section className="exercise-stage">
           <ExerciseCard
             exercise={activeExercise}
-            indexLabel={`${attemptCount + 1}.`}
             selectedChoice={answers[activeExercise.id] ?? null}
             showCelebration={celebratingExerciseId === activeExercise.id}
             showRetryNotice={
